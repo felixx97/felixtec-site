@@ -43,12 +43,16 @@
   }
 }
 
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 html {
   scroll-behavior: smooth;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family: var(--font-main);
-  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -1463,13 +1467,18 @@ body {
 /* Mobile Responsiveness */
 @media (max-width: 900px) {
   .hero-title {
-    font-size: 60px;
-    letter-spacing: -2px;
+    font-size: 42px;
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+    margin-bottom: 12px;
   }
 
   .hero-subtitle {
-    font-size: 36px;
-    letter-spacing: -1px;
+    font-size: 16px;
+    letter-spacing: 0.1px;
+    line-height: 1.5;
+    max-width: 480px;
+    margin: 0 auto 24px;
   }
 
   .section-title {
@@ -1493,6 +1502,12 @@ body {
     width: 100%;
   }
 
+  .bento-card {
+    height: auto !important;
+    min-height: 480px;
+    padding: 30px 24px !important;
+  }
+
   .window-mockup {
     width: 100%;
     transform: none;
@@ -1510,6 +1525,32 @@ body {
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+
+  /* Responsive Video Presentation Section */
+  .video-panel {
+    padding: 30px 20px !important;
+  }
+
+  .video-panel-title {
+    font-size: 20px !important;
+    white-space: nowrap;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: 12px !important;
+  }
+
+  .video-panel-desc {
+    font-size: 14px !important;
+    margin-bottom: 24px !important;
+    line-height: 1.5;
+  }
+
+  .video-wrapper {
+    aspect-ratio: 1 / 1 !important;
+    max-width: 320px !important;
+    border-radius: 24px !important;
+    margin: 0 auto !important;
   }
 
   .navbar {
@@ -1590,6 +1631,28 @@ body {
   line-height: 1.6;
 }
 
+.video-wrapper-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-glow {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.4) 0%, rgba(0, 113, 227, 0.1) 50%, transparent 75%);
+  filter: blur(45px);
+  z-index: 1;
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+}
+
 .video-wrapper {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -1599,6 +1662,7 @@ body {
   background-color: #020204;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
   position: relative;
+  z-index: 2;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
@@ -2466,67 +2530,134 @@ body {
   }
 }
 
-@media (max-width: 580px) {
-  .gamepad-panel {
-    top: 42px !important;
-    bottom: auto !important;
-    left: 10px !important;
-    right: 10px !important;
-    width: auto !important;
-    height: auto !important; /* Let height flow naturally for 2x2 grid on mobile */
-    transform: translateY(-15px) scale(0.96) !important;
-    padding: 8px !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 6px !important;
+@media (max-width: 768px) {
+  .python-ide-panel {
+    overflow: visible !important;
+    aspect-ratio: auto !important;
+    height: 380px !important; /* Fixed height for code screen */
+    margin-bottom: 90px !important; /* Space for horizontal gamepad panel below */
   }
+
+  .gamepad-panel {
+    position: absolute !important;
+    top: 100% !important;
+    bottom: auto !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    margin-top: 15px !important;
+    padding: 12px 10px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    background: rgba(8, 8, 10, 0.98) !important;
+    border: 1px solid rgba(0, 210, 255, 0.4) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 210, 255, 0.15) !important;
+    transform: translateY(-8px) scale(0.98) !important;
+  }
+
   .gamepad-panel.active {
     transform: translateY(0) scale(1) !important;
   }
+
   .gamepad-header {
-    grid-column: span 2 !important;
-    margin-bottom: 4px !important;
-  }
-  .gamepad-group {
-    padding: 4px 6px !important;
-    grid-column: span 2 !important;
-  }
-  .gamepad-group-title {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
     margin-bottom: 2px !important;
+    padding: 0 2px !important;
   }
+
+  .gamepad-group {
+    width: 100% !important;
+    border-left: 2px solid var(--accent-cyan) !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  .gamepad-group-title {
+    display: none !important; /* Hide label to save space and keep it clean */
+  }
+
+  .gamepad-btn-list {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    gap: 6px !important;
+    width: 100% !important;
+  }
+
   .control-btn.gamepad-btn {
-    padding: 4px 5px !important;
-    font-size: 8px !important;
-    border-radius: 6px !important;
+    flex: 1 1 0% !important;
+    padding: 8px 4px !important;
+    font-size: 10px !important;
+    border-radius: 10px !important;
+    justify-content: center !important;
+    text-align: center !important;
+    height: 36px !important;
     transform: none !important;
   }
+
   .control-btn.gamepad-btn:hover {
     transform: none !important;
   }
-  .ide-editable-badge {
-    right: 170px !important;
-    left: 10px !important;
-    bottom: 8px !important;
-    font-size: 7.5px !important;
-    padding: 4px 6px !important;
+
+  .control-btn.gamepad-btn svg {
+    width: 12px !important;
+    height: 12px !important;
   }
+
   .gamepad-trigger-btn {
-    top: 42px !important;
-    right: 10px !important;
+    position: absolute !important;
+    top: 48px !important;
+    right: 12px !important;
     bottom: auto !important;
-    width: 34px !important;
-    height: 34px !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 50% !important;
+    background: rgba(0, 210, 255, 0.15) !important;
+    border: 1.5px solid rgba(0, 210, 255, 0.5) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.4) !important;
+    z-index: 10 !important;
   }
+
   .gamepad-trigger-btn svg {
-    width: 14px !important;
-    height: 14px !important;
+    width: 18px !important;
+    height: 18px !important;
+    color: var(--accent-cyan) !important;
   }
+
+  .ide-editable-badge {
+    position: absolute !important;
+    bottom: 12px !important;
+    left: 12px !important;
+    right: auto !important;
+    top: auto !important;
+    width: calc(100% - 100px) !important; /* Constrain width so it doesn't overlap the robot on the right */
+    font-size: 8px !important;
+    padding: 6px 10px !important;
+    background: rgba(0, 210, 255, 0.08) !important;
+    border: 1px dashed rgba(0, 210, 255, 0.25) !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
   .ide-robot-container {
-    width: 70px !important;
-    height: 70px !important;
-    right: 10px !important;
-    bottom: 8px !important;
+    width: 75px !important;
+    height: 75px !important;
+    right: 12px !important;
+    bottom: 12px !important;
   }
 }
 
@@ -2547,8 +2678,8 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: rgba(2, 2, 4, 0.85);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -3015,5 +3146,140 @@ body {
   }
   .service-modal-title {
     font-size: 24px;
+  }
+}
+
+/* ====================================================
+   9. Páginas Secundárias: Serviços (Refatoração de Estilos)
+   ==================================================== */
+.services-hero {
+  padding-top: 150px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.services-hero-container {
+  max-width: 800px;
+}
+
+.services-hero-title {
+  font-size: 64px;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.services-hero-subtitle {
+  font-size: 19px;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+.services-grid-container {
+  padding: 40px 24px 100px;
+}
+
+.services-grid-wrapper {
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.service-detail-card {
+  padding: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  border-radius: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.order-content-left {
+  order: 1;
+}
+
+.order-visual-right {
+  order: 2;
+}
+
+.service-detail-content {
+  z-index: 1;
+}
+
+.service-detail-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.service-detail-actions .btn-primary,
+.service-detail-actions .btn-secondary {
+  padding: 10px 20px;
+  font-size: 13px;
+  border-radius: 20px;
+}
+
+.visual-webdev,
+.visual-automation,
+.visual-backend,
+.visual-traffic {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsividade dos Serviços */
+@media (max-width: 900px) {
+  .services-hero {
+    padding-top: 100px;
+    margin-bottom: 20px;
+  }
+
+  .services-hero-title {
+    font-size: 38px;
+    padding: 0 10px;
+  }
+
+  .services-hero-subtitle {
+    font-size: 15px;
+    padding: 0 15px;
+  }
+
+  .services-grid-container {
+    padding: 20px 16px 60px;
+  }
+
+  .services-grid-wrapper {
+    gap: 40px;
+  }
+
+  .service-detail-card {
+    grid-template-columns: 1fr !important;
+    padding: 30px 20px !important;
+    gap: 30px !important;
+  }
+
+  .service-detail-actions {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 580px) {
+  .service-detail-actions {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .service-detail-actions a {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+    display: inline-flex !important;
   }
 }

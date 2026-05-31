@@ -427,6 +427,36 @@ if (document.querySelector('.hero-section')) {
     }
   }
 
+  // Helper to dynamically erase and re-type the clicked line with a glowing ciano neon typewriter cursor!
+  function retypeEditorLine(lineIdx, lineText) {
+    if (!typingArea) return;
+    const lineEl = typingArea.querySelector(`.line-idx-${lineIdx}`);
+    if (!lineEl) return;
+
+    // Highlight the line immediately
+    lineEl.classList.add('highlight-line');
+    
+    // Clear and do character typing simulation
+    lineEl.innerHTML = '';
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = lineText;
+    const rawText = tempDiv.textContent;
+    let charIndex = 0;
+
+    const interval = setInterval(() => {
+      lineEl.textContent = rawText.slice(0, charIndex) + '█';
+      charIndex++;
+      
+      if (charIndex > rawText.length) {
+        clearInterval(interval);
+        lineEl.innerHTML = lineText; // restore syntax highlighted HTML
+        setTimeout(() => {
+          lineEl.classList.remove('highlight-line');
+        }, 800);
+      }
+    }, 45); // slight typographic rhythm delay!
+  }
+
   function typeCode() {
     if (!typingArea) return;
     let currentLine = 0;
@@ -542,16 +572,16 @@ if (document.querySelector('.hero-section')) {
       
       if (action === 'music') {
         triggerRobotAction(4);
-        highlightEditorLine(4);
+        retypeEditorLine(4, codeLines[4]);
       } else if (action === 'code') {
         triggerRobotAction(5);
-        highlightEditorLine(5);
+        retypeEditorLine(5, codeLines[5]);
       } else if (action === 'coffee') {
         triggerRobotAction(6);
-        highlightEditorLine(6);
+        retypeEditorLine(6, codeLines[6]);
       } else if (action === 'sleep') {
         triggerRobotAction(7);
-        highlightEditorLine(7);
+        retypeEditorLine(7, codeLines[7]);
       }
     });
   });
@@ -621,7 +651,7 @@ if (document.querySelector('.hero-section')) {
   gsap.to('#main-robot', {
     scrollTrigger: {
       trigger: '.hero-section',
-      start: 'top top',
+      start: '40% top',
       end: 'bottom top',
       scrub: 0.8
     },
@@ -632,51 +662,141 @@ if (document.querySelector('.hero-section')) {
   });
 
 
-  // Bento Grid Scroll Animation (slide in from the right staggered)
-  gsap.from('.bento-card', {
-    scrollTrigger: {
-      trigger: '.services-section',
-      start: 'top 75%',
-      toggleActions: 'play none none none'
-    },
-    opacity: 0,
-    x: 120,
-    duration: 1.0,
-    stagger: 0.15,
-    ease: 'power4.out',
-    onComplete: () => {
-      gsap.set('.bento-card', { clearProps: 'transform' });
-    }
-  });
+  // Bento Grid Scroll Animation (individual scroll-triggered entrance with rotation)
+  const isMobile = window.innerWidth <= 768;
+  const bentoCards = document.querySelectorAll('.bento-card');
+  if (bentoCards.length > 0) {
+    bentoCards.forEach((card, index) => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: isMobile ? 'top 92%' : 'top 85%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: isMobile ? 30 : 50,
+        scale: 0.95,
+        rotation: isMobile ? (index % 2 === 0 ? 1.5 : -1.5) : (index % 2 === 0 ? 1 : -1),
+        duration: isMobile ? 0.6 : 0.8,
+        ease: 'power3.out',
+        onComplete: () => {
+          gsap.set(card, { clearProps: 'transform' });
+        }
+      });
+    });
+  }
 
-  // Services page panels reveal (slide in from the right)
-  const servicePanels = document.querySelectorAll('.services-grid-container .card-hover-tilt');
+  // Pricing Section Cards Scroll Animation (individual entrance with scale & subtle rotation)
+  const pricingCards = document.querySelectorAll('.pricing-card');
+  if (pricingCards.length > 0) {
+    pricingCards.forEach((card, index) => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: isMobile ? 'top 92%' : 'top 85%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: isMobile ? 40 : 60,
+        scale: 0.94,
+        rotation: isMobile ? (index % 2 === 0 ? 2 : -2) : (index % 2 === 0 ? 1.5 : -1.5),
+        duration: isMobile ? 0.7 : 0.9,
+        ease: 'power3.out',
+        onComplete: () => {
+          gsap.set(card, { clearProps: 'transform' });
+        }
+      });
+    });
+  }
+
+  // Academic & Professional Experience list items scroll animation
+  const experienceItems = document.querySelectorAll('.profile-experience-item');
+  if (experienceItems.length > 0) {
+    experienceItems.forEach((item) => {
+      gsap.from(item, {
+        scrollTrigger: {
+          trigger: item,
+          start: isMobile ? 'top 95%' : 'top 90%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        x: -30,
+        y: 15,
+        duration: 0.6,
+        ease: 'power2.out'
+      });
+    });
+  }
+
+  // Profile photo container reveal
+  const profileMedia = document.querySelector('.profile-media-container');
+  if (profileMedia) {
+    gsap.from(profileMedia, {
+      scrollTrigger: {
+        trigger: profileMedia,
+        start: isMobile ? 'top 92%' : 'top 85%',
+        toggleActions: 'play none none none'
+      },
+      opacity: 0,
+      scale: 0.92,
+      y: 40,
+      duration: 1.0,
+      ease: 'power3.out'
+    });
+  }
+
+  // Services page panels reveal (slide in from the right with rotation on mobile)
+  const servicePanels = document.querySelectorAll('.services-grid-container .service-detail-card');
   if (servicePanels.length > 0) {
     servicePanels.forEach(panel => {
       gsap.from(panel, {
         scrollTrigger: {
           trigger: panel,
-          start: 'top 85%',
+          start: isMobile ? 'top 90%' : 'top 85%',
           toggleActions: 'play none none none'
         },
         opacity: 0,
-        x: 100,
-        duration: 1.0,
-        ease: 'power4.out'
+        x: isMobile ? 40 : 100,
+        rotation: isMobile ? 4 : 0,
+        duration: isMobile ? 0.8 : 1.0,
+        ease: 'power3.out',
+        onComplete: () => {
+          gsap.set(panel, { clearProps: 'transform' });
+        }
       });
     });
   }
 
-  // Speedometer scroll reveal
-  gsap.to('.speedometer-progress', {
-    scrollTrigger: {
-      trigger: '.details-section',
-      start: 'top 75%'
-    },
-    strokeDashoffset: 12.6, // Reveals from 126 down to 12.6 (90% performance score)
-    duration: 1.5,
-    ease: 'power2.out'
-  });
+  // Speedometer scroll reveal (draw arc and count up score to 99)
+  const speedScoreEl = document.querySelector('.speed-score');
+  if (speedScoreEl) {
+    const scoreObj = { val: 0 };
+    gsap.to(scoreObj, {
+      scrollTrigger: {
+        trigger: '.details-section',
+        start: 'top 75%'
+      },
+      val: 99,
+      duration: 1.8,
+      ease: 'power2.out',
+      onUpdate: () => {
+        speedScoreEl.innerText = Math.floor(scoreObj.val);
+      }
+    });
+  }
+
+  gsap.fromTo('.speedometer-progress', 
+    { strokeDashoffset: 126 },
+    {
+      scrollTrigger: {
+        trigger: '.details-section',
+        start: 'top 75%'
+      },
+      strokeDashoffset: 1.26, // 99% of 126 (full is 126, remaining is 1.26)
+      duration: 1.8,
+      ease: 'power2.out'
+    }
+  );
 
   // Left/Right scroll reveals in Details
   gsap.from('.scroll-reveal-left', {
@@ -700,6 +820,33 @@ if (document.querySelector('.hero-section')) {
     duration: 0.8,
     ease: 'power3.out'
   });
+
+  // Naruto Career Video Section Scroll Reveal Animations (Scroll-tied Scrubbing)
+  const videoTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.video-section',
+      start: 'top 90%',
+      end: 'bottom 40%',
+      scrub: 1.5
+    }
+  });
+
+  videoTimeline.fromTo('.video-panel', 
+    { opacity: 0.7, y: 40, scale: 0.95 },
+    { opacity: 1, y: 0, scale: 1, ease: 'none' }
+  );
+
+  videoTimeline.fromTo('.video-wrapper', 
+    { scale: 0.88, rotation: isMobile ? -2 : -3 },
+    { scale: 1, rotation: 0, ease: 'none' },
+    '<='
+  );
+
+  videoTimeline.fromTo('.video-glow', 
+    { opacity: 0, scale: 0.75 },
+    { opacity: 0.85, scale: 1.15, ease: 'none' },
+    '<='
+  );
 }
 
 // Section headers triggers (Runs on any page containing section-header)
