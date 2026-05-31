@@ -41,6 +41,12 @@
     cursor: auto !important;
     /* Restore normal cursor for mobile touch-screens */
   }
+
+  .custom-cursor,
+  .custom-cursor-dot {
+    display: none !important;
+    /* Completely hide the custom cursor elements on touch devices */
+  }
 }
 
 html, body {
