@@ -2632,8 +2632,18 @@ body {
     overflow: visible !important;
     aspect-ratio: auto !important;
     height: 380px !important; /* Fixed height for code screen */
-    margin-bottom: 90px !important; /* Space for horizontal gamepad panel below */
+    width: 100% !important;
+    max-width: 580px !important; /* Matches .hero-offer-card perfectly for symmetric alignment! */
+    margin: 0 auto 90px auto !important; /* Space for horizontal gamepad panel below & symmetric centering! */
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  /* Hide speech bubble and tab hint completely on mobile screens as requested */
+  .felix-speech-bubble,
+  .python-ide-panel.collapsed .felix-speech-bubble,
+  .ide-tab-hint,
+  .python-ide-panel.collapsed .ide-tab-hint {
+    display: none !important;
   }
 
   /* Collapsed Mobile IDE style */
@@ -2642,8 +2652,8 @@ body {
     visibility: visible !important;
     opacity: 1 !important;
     height: 110px !important;
-    width: 290px !important;
-    max-width: 290px !important;
+    width: 100% !important;
+    max-width: 580px !important; /* Matches .hero-offer-card perfectly for perfect visual centering and alignment! */
     margin: 40px auto 40px auto !important;
     padding: 0 !important;
     cursor: pointer;
@@ -2706,16 +2716,7 @@ body {
     display: none;
   }
   
-  .python-ide-panel.collapsed .ide-tab-hint {
-    display: inline;
-    font-size: 9px;
-    color: var(--accent-cyan);
-    margin-left: auto;
-    margin-right: 15px;
-    font-weight: 700;
-    text-transform: uppercase;
-    animation: triggerPulse 1.5s infinite ease-in-out;
-  }
+
 
   /* Mascot positioning when collapsed */
   .python-ide-panel.collapsed .ide-robot-container {
