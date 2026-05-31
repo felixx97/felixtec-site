@@ -528,6 +528,67 @@ body {
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.45));
 }
 
+/* Félix Speech Bubble */
+.felix-speech-bubble {
+  position: absolute;
+  top: -24px;
+  right: -10px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--accent-cyan);
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(0, 210, 255, 0.2);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(10px) scale(0.9);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 100;
+}
+
+/* Speech bubble arrow indicator */
+.felix-speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 30%;
+  border-width: 5px 5px 0;
+  border-style: solid;
+  border-color: var(--glass-bg) transparent;
+  display: block;
+  width: 0;
+}
+
+.felix-speech-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 30%;
+  border-width: 6px 6px 0;
+  border-style: solid;
+  border-color: var(--accent-cyan) transparent;
+  display: block;
+  width: 0;
+  z-index: -1;
+}
+
+/* Show speech bubble only when collapsed on mobile */
+.python-ide-panel.collapsed .felix-speech-bubble {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  animation: bubbleFloat 2s infinite ease-in-out;
+}
+
+@keyframes bubbleFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4px) scale(1.02); }
+}
+
 .btn-primary,
 .btn-secondary {
   font-size: 15px;
@@ -2548,11 +2609,131 @@ body {
 }
 
 @media (max-width: 768px) {
+  .hero-right-animation {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
   .python-ide-panel {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     overflow: visible !important;
     aspect-ratio: auto !important;
     height: 380px !important; /* Fixed height for code screen */
     margin-bottom: 90px !important; /* Space for horizontal gamepad panel below */
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  /* Collapsed Mobile IDE style */
+  .python-ide-panel.collapsed {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: 110px !important;
+    width: 290px !important;
+    max-width: 290px !important;
+    margin: 40px auto 40px auto !important;
+    padding: 0 !important;
+    cursor: pointer;
+    border-color: var(--accent-cyan) !important;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.2) !important;
+    overflow: visible !important;
+  }
+
+  .python-ide-panel.collapsed #python-typing-area,
+  .python-ide-panel.collapsed .gamepad-trigger-btn,
+  .python-ide-panel.collapsed .ide-editable-badge,
+  .python-ide-panel.collapsed .gamepad-panel {
+    display: none !important;
+  }
+
+
+  /* Minimized collapsed trigger play layout */
+  .ide-mobile-collapsed-trigger {
+    display: none;
+    height: calc(100% - 36px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    position: relative;
+    z-index: 5;
+  }
+
+  .python-ide-panel.collapsed .ide-mobile-collapsed-trigger {
+    display: flex;
+  }
+
+  .ide-mobile-trigger-glow {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, rgba(0, 210, 255, 0.35) 0%, transparent 70%);
+    filter: blur(10px);
+    pointer-events: none;
+    animation: triggerPulse 2s infinite ease-in-out;
+  }
+
+  .ide-mobile-play-icon {
+    color: var(--accent-cyan);
+    filter: drop-shadow(0 0 4px var(--accent-cyan));
+    animation: triggerScale 2s infinite ease-in-out;
+  }
+
+  .ide-mobile-collapsed-trigger span {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  /* Mini tab hint inside the collapsed header */
+  .ide-tab-hint {
+    display: none;
+  }
+  
+  .python-ide-panel.collapsed .ide-tab-hint {
+    display: inline;
+    font-size: 9px;
+    color: var(--accent-cyan);
+    margin-left: auto;
+    margin-right: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    animation: triggerPulse 1.5s infinite ease-in-out;
+  }
+
+  /* Mascot positioning when collapsed */
+  .python-ide-panel.collapsed .ide-robot-container {
+    top: -56px !important;
+    right: 12px !important;
+    left: auto !important;
+    bottom: auto !important;
+    width: 76px !important;
+    height: 76px !important;
+    animation: felixPeek 2.5s infinite ease-in-out !important;
+  }
+
+  @keyframes felixPeek {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-4px) rotate(2deg); }
+  }
+
+  @keyframes triggerPulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  @keyframes triggerScale {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
   }
 
   .gamepad-panel {

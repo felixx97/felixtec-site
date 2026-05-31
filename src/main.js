@@ -611,6 +611,8 @@ if (document.querySelector('.hero-section')) {
     });
   }
 
+  const isMobile = window.innerWidth <= 768;
+
   // Hero Load Animations
   const heroTl = gsap.timeline();
   heroTl.to('.hero-title', {
@@ -643,8 +645,48 @@ if (document.querySelector('.hero-section')) {
       scale: 0.96,
       duration: 0.8,
       ease: 'power3.out',
-      onComplete: typeCode // Trigger coding animation once page elements load
+      onComplete: () => {
+        // Trigger typewriter code typing immediately on desktop, or wait for expand on mobile
+        if (!isMobile) {
+          typeCode();
+        }
+      }
     }, '-=0.8');
+
+  // Minimized Mobile IDE collapsed/expand interaction
+  const pythonIdePanel = document.querySelector('.python-ide-panel');
+  if (pythonIdePanel) {
+    // 1. If mobile, start as collapsed by default
+    if (isMobile) {
+      pythonIdePanel.classList.add('collapsed');
+    }
+
+    // 2. Expand on click/tap
+    pythonIdePanel.addEventListener('click', (e) => {
+      if (pythonIdePanel.classList.contains('collapsed')) {
+        e.preventDefault();
+        
+        // Remove collapsed class to expand
+        pythonIdePanel.classList.remove('collapsed');
+        
+        // Trigger typewriter code animations
+        typeCode();
+
+        // Trigger gorgeous mascot elastic jump jump down!
+        gsap.from('#main-robot', {
+          y: -180,
+          x: 20,
+          scale: 0.76,
+          duration: 0.9,
+          ease: 'elastic.out(1, 0.6)',
+          onComplete: () => {
+             // Clear GSAP inline styles to allow standard CSS absolute position breathing loops to function perfectly!
+             gsap.set('#main-robot', { clearProps: 'transform' });
+          }
+        });
+      }
+    });
+  }
 
   // ScrollTrigger interactive animations for the coding robots
   // Conforme rola para baixo, eles olham e se movem para baixo. Ao rolar para cima, retornam.
@@ -662,8 +704,7 @@ if (document.querySelector('.hero-section')) {
   });
 
 
-  // Bento Grid Scroll Animation (individual scroll-triggered entrance with rotation)
-  const isMobile = window.innerWidth <= 768;
+  // isMobile is already declared globally above
   const bentoCards = document.querySelectorAll('.bento-card');
   if (bentoCards.length > 0) {
     bentoCards.forEach((card, index) => {
