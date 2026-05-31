@@ -639,19 +639,23 @@ if (document.querySelector('.hero-section')) {
       duration: 0.6,
       ease: 'power2.out'
     }, '-=0.4')
-    .from('.python-ide-panel', {
-      opacity: 0,
-      x: 40,
-      scale: 0.96,
-      duration: 0.8,
-      ease: 'power3.out',
-      onComplete: () => {
-        // Trigger typewriter code typing immediately on desktop, or wait for expand on mobile
-        if (!isMobile) {
-          typeCode();
+    .fromTo('.python-ide-panel', 
+      { opacity: 0, y: 30, scale: 0.96 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.8,
+        ease: 'power3.out',
+        onComplete: () => {
+          // Trigger typewriter code typing immediately on desktop, or wait for expand on mobile
+          if (!isMobile) {
+            typeCode();
+          }
         }
-      }
-    }, '-=0.8');
+      }, 
+      '-=0.8'
+    );
 
   // Minimized Mobile IDE collapsed/expand interaction
   const pythonIdePanel = document.querySelector('.python-ide-panel');
@@ -686,6 +690,41 @@ if (document.querySelector('.hero-section')) {
         });
       }
     });
+
+    // 3. Minimize back when clicking on the tab title (py-automation.py) on mobile
+    const ideTab = pythonIdePanel.querySelector('.ide-tab');
+    if (ideTab) {
+      ideTab.addEventListener('click', (e) => {
+        if (isMobile && !pythonIdePanel.classList.contains('collapsed')) {
+          e.preventDefault();
+          e.stopPropagation(); // Crucial: Stop click propagation so we don't trigger the parent click (expand) again!
+          
+          // Collapse IDE panel
+          pythonIdePanel.classList.add('collapsed');
+          
+          // Reset editor text and badge state so it re-types from scratch when expanded again
+          const typingArea = document.getElementById('python-typing-area');
+          if (typingArea) {
+            typingArea.innerHTML = '';
+            typingArea.contentEditable = "false";
+          }
+          const badge = document.getElementById('ide-edit-badge');
+          if (badge) badge.classList.remove('active');
+
+          // Return Félix to his peeking position animatedly
+          gsap.to('#main-robot', {
+            y: 0,
+            x: 0,
+            scale: 1,
+            duration: 0.4,
+            ease: 'power2.out',
+            onComplete: () => {
+              gsap.set('#main-robot', { clearProps: 'all' });
+            }
+          });
+        }
+      });
+    }
   }
 
   // ScrollTrigger interactive animations for the coding robots

@@ -446,6 +446,13 @@ body {
   border-color: var(--border-hover);
 }
 
+/* Hide mobile-specific collapsible triggers on desktop */
+.ide-mobile-collapsed-trigger,
+.ide-tab-hint {
+  display: none;
+}
+
+
 .ide-header {
   height: 36px;
   background: rgba(255, 255, 255, 0.02);
