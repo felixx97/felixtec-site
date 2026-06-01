@@ -1877,9 +1877,22 @@ const initGoogleAdsConversions = () => {
     const link = e.target.closest('a');
     if (link && link.href && link.href.includes('wa.me')) {
       if (typeof window.gtag === 'function') {
+        // 1. Previne o redirecionamento imediato
+        e.preventDefault(); 
+        const targetUrl = link.href;
+
+        // 2. Dispara a conversão com callback de segurança
         window.gtag('event', 'conversion', {
-          'send_to': 'AW-17907993497/l-bMCIKIsbccEJmXmdtC'
+          'send_to': 'AW-17907993497/l-bMCIKIsbccEJmXmdtC',
+          'event_callback': () => {
+            window.location.href = targetUrl;
+          }
         });
+
+        // 3. Fallback de segurança: se o Google demorar mais de 1 segundo para responder, força o redirecionamento para o cliente não ficar travado
+        setTimeout(() => {
+          window.location.href = targetUrl;
+        }, 1000);
       }
     }
   });
