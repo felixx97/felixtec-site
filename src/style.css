@@ -253,6 +253,9 @@ body {
   border-radius: 20px;
   background: var(--accent-gradient);
   color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
   text-decoration: none;
   transition: transform 0.2s, box-shadow 0.3s;
   box-shadow: 0 4px 14px 0 rgba(0, 113, 227, 0.3);
