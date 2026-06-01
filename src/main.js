@@ -131,7 +131,7 @@ function updateCursorPosition() {
 updateCursorPosition();
 
 // Add hover effect states for interactive elements
-const hoverables = document.querySelectorAll('a, button, select, input, textarea, .flow-step, .bento-card, .btn-primary, .btn-secondary, .hero-offer-card');
+const hoverables = document.querySelectorAll('a, button, select, input, textarea, .flow-step, .bento-card, .btn-primary, .btn-secondary, .hero-offer-card, #ft-wa-float, #ft-wa-popup-close, #nav-cta-dropdown-btn');
 hoverables.forEach(item => {
   item.addEventListener('mouseenter', () => {
     cursorOuter.classList.add('hovering');
@@ -1844,17 +1844,37 @@ const initContactForm = () => {
   });
 };
 
+// ----------------------------------------------------
+// 11. Dropdown "Jogue Comigo" no Navbar
+// ----------------------------------------------------
+const initCtaDropdown = () => {
+  const dropdownBtn = document.getElementById('nav-cta-dropdown-btn');
+  const dropdownMenu = document.getElementById('nav-cta-dropdown-menu');
+  if (!dropdownBtn || !dropdownMenu) return;
+
+  dropdownBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdownMenu.classList.toggle('active');
+  });
+
+  document.addEventListener('click', () => {
+    dropdownMenu.classList.remove('active');
+  });
+};
+
 // Inicializar tudo após carregamento
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
     initCookieBanner();
     initWhatsAppWidget();
     initContactForm();
+    initCtaDropdown();
   });
 } else {
   initCookieBanner();
   initWhatsAppWidget();
   initContactForm();
+  initCtaDropdown();
 }
 
 
