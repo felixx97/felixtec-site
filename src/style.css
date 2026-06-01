@@ -1790,8 +1790,8 @@ body {
     font-size: 20px;
   }
 
-  .nav-cta-btn {
-    display: none;
+  .nav-cta-dropdown {
+    display: none !important;
   }
 }
 
