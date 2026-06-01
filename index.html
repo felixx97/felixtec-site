@@ -1065,6 +1065,13 @@
           <div class="detail-visual scroll-reveal-right">
             <div class="satisfaction-container"
               style="position: relative; width: 100%; max-width: 320px; margin: 0 auto; text-align: center; background: rgba(255,255,255,0.01); border: 1px solid var(--border-light); border-radius: 24px; padding: 24px; box-shadow: inset 0 0 20px rgba(0, 210, 255, 0.02); backdrop-filter: blur(5px);">
+              
+              <!-- 100% Satisfação & Parceria (Moved above the SVG so it does not overlap with the rocket) -->
+              <div style="margin-bottom: 16px;">
+                <div style="font-size: 32px; font-weight: 800; color: #ffffff; font-family: 'Outfit', sans-serif; letter-spacing: -1px; line-height: 1.1;">100%</div>
+                <div style="font-size: 10px; font-weight: 700; color: var(--accent-cyan); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 4px; font-family: 'Outfit', sans-serif;">Satisfação &amp; Parceria</div>
+              </div>
+
               <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"
                 style="width: 100%; height: auto; display: block; animation: floatGraphic 4s ease-in-out infinite alternate;">
                 <style>
@@ -1100,10 +1107,6 @@
                     transition: transform 0.3s ease;
                   }
 
-                  .outer-glow-circle {
-                    transition: stroke-width 0.4s ease, filter 0.4s ease;
-                  }
-
                   /* Efeitos de Hover disparados pelo contêiner pai */
                   .satisfaction-container:hover .rocket-group {
                     transform: translateY(-12px) scale(1.03);
@@ -1120,11 +1123,6 @@
 
                   .satisfaction-container:hover .hand-wave-right {
                     animation: waveActionRight 0.6s ease-in-out infinite alternate;
-                  }
-
-                  .satisfaction-container:hover .outer-glow-circle {
-                    stroke-width: 6.5;
-                    filter: drop-shadow(0 0 6px rgba(0, 210, 255, 0.7));
                   }
 
                   @keyframes firePulse {
@@ -1197,17 +1195,7 @@
                   </linearGradient>
                 </defs>
 
-                <!-- Outer Glowing Satisfaction Circle (100%) -->
-                <circle cx="100" cy="100" r="88" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="5" />
-                <circle class="outer-glow-circle" cx="100" cy="100" r="88" fill="none" stroke="url(#blueGrad)" stroke-width="5"
-                  filter="url(#glow-cyan)" stroke-dasharray="553" stroke-dashoffset="0" />
 
-                <!-- Satisfaction Title -->
-                <text x="100" y="52" fill="#ffffff" font-size="28" font-weight="800" text-anchor="middle"
-                  letter-spacing="-1px" font-family="'Outfit', sans-serif">100%</text>
-                <text x="100" y="68" fill="var(--accent-cyan)" font-size="8" font-weight="700" text-anchor="middle"
-                  letter-spacing="1px" text-transform="uppercase" font-family="'Outfit', sans-serif">Satisfação &amp;
-                  Parceria</text>
 
                 <!-- Floating stars in background -->
                 <path d="M 40 70 L 41 72 L 43 73 L 41 74 L 40 76 L 39 74 L 37 73 L 39 72 Z" fill="var(--accent-cyan)" opacity="0.6" />
