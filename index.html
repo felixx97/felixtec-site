@@ -12,6 +12,22 @@
     gtag('config', 'AW-17907993497');
   </script>
 
+  <!-- Event snippet for Contato_Botao_WhatsApp_FelixTec conversion page -->
+  <script>
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+        'send_to': 'AW-17907993497/l-bMCIKIsbccEJmXmdtC',
+        'event_callback': callback
+    });
+    return false;
+  }
+  </script>
+
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />

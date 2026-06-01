@@ -1774,6 +1774,13 @@ const initWhatsAppWidget = () => {
     const message = `Olá! Meu nome é ${name} (E-mail: ${email}, WhatsApp: ${phone}). Gostaria de idealizar um projeto estratégico e solicitar um orçamento comercial com a FélixTec!`;
     const waUrl = `https://wa.me/5547989224775?text=${encodeURIComponent(message)}`;
 
+    // Reportar conversão para o Google Ads
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', {
+        'send_to': 'AW-17907993497/l-bMCIKIsbccEJmXmdtC'
+      });
+    }
+
     // Redirecionar para o WhatsApp real
     window.open(waUrl, '_blank');
     
@@ -1862,6 +1869,22 @@ const initCtaDropdown = () => {
   });
 };
 
+// ----------------------------------------------------
+// 12. Rastreamento Automático de Conversões de WhatsApp (Google Ads)
+// ----------------------------------------------------
+const initGoogleAdsConversions = () => {
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (link && link.href && link.href.includes('wa.me')) {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'conversion', {
+          'send_to': 'AW-17907993497/l-bMCIKIsbccEJmXmdtC'
+        });
+      }
+    }
+  });
+};
+
 // Inicializar tudo após carregamento
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
@@ -1869,12 +1892,14 @@ if (document.readyState === 'loading') {
     initWhatsAppWidget();
     initContactForm();
     initCtaDropdown();
+    initGoogleAdsConversions();
   });
 } else {
   initCookieBanner();
   initWhatsAppWidget();
   initContactForm();
   initCtaDropdown();
+  initGoogleAdsConversions();
 }
 
 
