@@ -51,79 +51,91 @@
             <li><a href="/#contato" class="nav-link">Contato</a></li>
           </ul>
           <div class="nav-cta-dropdown">
-            <button class="nav-cta-btn" id="nav-cta-dropdown-btn" style="display: flex; align-items: center; gap: 8px;">
-              <svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 4px;">
+            <button class="nav-cta-btn" id="nav-cta-dropdown-btn" style="display: flex; align-items: center; justify-content: center; padding: 4px 12px;">
+              <svg width="80" height="26" viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
                 <style>
                   @keyframes ship-move {
-                    0%, 100% { transform: translateX(0); }
-                    50% { transform: translateX(3px); }
+                    0%, 40% { transform: translateX(-10px); }
+                    50%, 90% { transform: translateX(10px); }
+                    95%, 100% { transform: translateX(-10px); }
                   }
                   @keyframes invader-move {
-                    0%, 100% { transform: translateX(0); }
-                    50% { transform: translateX(-2px); }
+                    0%, 40% { transform: translateX(-10px); }
+                    50%, 90% { transform: translateX(10px); }
+                    95%, 100% { transform: translateX(-10px); }
+                  }
+                  @keyframes invader-status {
+                    0%, 29% { opacity: 1; }
+                    30%, 54% { opacity: 0; }
+                    55%, 79% { opacity: 1; }
+                    80%, 100% { opacity: 0; }
                   }
                   @keyframes laser-fly {
-                    0% { transform: translate(0, 0) scaleY(1); opacity: 0; }
-                    10% { transform: translate(0, 0) scaleY(1); opacity: 1; }
-                    50% { transform: translate(1.5px, -7px) scaleY(1.5); opacity: 1; }
-                    52% { transform: translate(1.5px, -7px) scaleY(0.5); opacity: 0; }
-                    100% { transform: translate(0, 0) scaleY(1); opacity: 0; }
+                    0% { transform: translate(-10px, 0); opacity: 0; }
+                    10% { transform: translate(-10px, 0); opacity: 1; }
+                    30% { transform: translate(-10px, -8px); opacity: 1; }
+                    31%, 59% { opacity: 0; }
+                    60% { transform: translate(10px, 0); opacity: 1; }
+                    80% { transform: translate(10px, -8px); opacity: 1; }
+                    81%, 100% { opacity: 0; }
                   }
                   @keyframes spark-burst {
-                    0%, 48% { opacity: 0; transform: scale(0.3) translate(12px, 5px); }
-                    50% { opacity: 1; transform: scale(1) translate(4px, 1px); }
-                    70% { opacity: 0; transform: scale(1.8) translate(2px, 0px); }
-                    100% { opacity: 0; }
+                    0%, 29% { opacity: 0; transform: translate(-10px, 0) scale(0.5); }
+                    30% { opacity: 1; transform: translate(-10px, 0) scale(1); }
+                    44% { opacity: 0; transform: translate(-10px, 0) scale(1.6); }
+                    45%, 79% { opacity: 0; transform: translate(10px, 0) scale(0.5); }
+                    80% { opacity: 1; transform: translate(10px, 0) scale(1); }
+                    94% { opacity: 0; transform: translate(10px, 0) scale(1.6); }
+                    95%, 100% { opacity: 0; }
                   }
-                  .game-ship {
-                    animation: ship-move 2s infinite ease-in-out;
-                    transform-origin: 12px 16px;
+                  .w-ship {
+                    animation: ship-move 3s infinite ease-in-out;
+                    transform-origin: 30px 16.5px;
                   }
-                  .game-invader {
-                    animation: invader-move 2s infinite ease-in-out;
-                    transform-origin: 12px 5px;
+                  .w-invader {
+                    animation: invader-move 3s infinite ease-in-out, invader-status 3s infinite linear;
+                    transform-origin: 30px 5px;
                   }
-                  .game-laser {
-                    animation: laser-fly 1.2s infinite linear;
-                    transform-origin: 12px 14px;
+                  .w-laser {
+                    animation: laser-fly 3s infinite linear;
+                    transform-origin: 30px 14px;
                   }
-                  .game-spark {
-                    animation: spark-burst 1.2s infinite linear;
-                    transform-origin: 12px 5px;
+                  .w-spark {
+                    animation: spark-burst 3s infinite linear;
+                    transform-origin: 30px 5px;
                   }
                 </style>
 
-                <!-- Retro Monitor Screen Frame -->
-                <rect x="1" y="1" width="22" height="18" rx="3" fill="#040407" stroke="var(--accent-cyan)" stroke-width="1.2" style="filter: drop-shadow(0 0 2px rgba(0,210,255,0.4));"/>
+                <!-- Widescreen Arcade Monitor Frame -->
+                <rect x="1" y="1" width="58" height="18" rx="3" fill="#040407" stroke="var(--accent-cyan)" stroke-width="1.2" style="filter: drop-shadow(0 0 2px rgba(0,210,255,0.4));"/>
                 
-                <!-- CRT Scanlines / Grid lines -->
-                <line x1="2" y1="5" x2="22" y2="5" stroke="rgba(0, 210, 255, 0.12)" stroke-width="0.5"/>
-                <line x1="2" y1="9" x2="22" y2="9" stroke="rgba(0, 210, 255, 0.12)" stroke-width="0.5"/>
-                <line x1="2" y1="13" x2="22" y2="13" stroke="rgba(0, 210, 255, 0.12)" stroke-width="0.5"/>
+                <!-- CRT Scanlines -->
+                <line x1="2" y1="5" x2="58" y2="5" stroke="rgba(0, 210, 255, 0.15)" stroke-width="0.5"/>
+                <line x1="2" y1="9" x2="58" y2="9" stroke="rgba(0, 210, 255, 0.15)" stroke-width="0.5"/>
+                <line x1="2" y1="13" x2="58" y2="13" stroke="rgba(0, 210, 255, 0.15)" stroke-width="0.5"/>
                 
-                <!-- Retro Vector Invader (Pink) -->
-                <g class="game-invader">
-                  <path d="M9 4h6v2h-6V4zm1 2h4v1h-4V6zm-2-2h1v1H8V4zm7 0h1v1h-1V4zm-6 3h1v1h-1V7zm4 0h1v1h-1V7z" fill="#ff3366"/>
+                <!-- Vector Invader (Pink) -->
+                <g class="w-invader">
+                  <path d="M27 4h6v2h-6V4zm1 2h4v1h-4V6zm-2-2h1v1H26V4zm7 0h1v1h-1V4zm-6 3h1v1h-1V7zm4 0h1v1h-1V7z" fill="#ff3366"/>
                 </g>
 
-                <!-- Vector Laser Pulse -->
-                <rect class="game-laser" x="11.5" y="13" width="1" height="2" rx="0.5" fill="#00d2ff" style="filter: drop-shadow(0 0 1px #00d2ff);"/>
+                <!-- Laser Shot -->
+                <rect class="w-laser" x="29.5" y="13.5" width="1" height="2" rx="0.5" fill="#00d2ff" style="filter: drop-shadow(0 0 1px #00d2ff);"/>
 
-                <!-- Particle Explosion Sparks -->
-                <g class="game-spark" style="transform-origin: 12px 5px;">
-                  <circle cx="10" cy="5" r="0.4" fill="#ff3366"/>
-                  <circle cx="14" cy="5" r="0.4" fill="#ff3366"/>
-                  <circle cx="12" cy="3" r="0.4" fill="#ff3366"/>
-                  <circle cx="12" cy="7" r="0.4" fill="#ff3366"/>
+                <!-- Sparks Explosion -->
+                <g class="w-spark">
+                  <circle cx="28" cy="5" r="0.4" fill="#ff3366"/>
+                  <circle cx="32" cy="5" r="0.4" fill="#ff3366"/>
+                  <circle cx="30" cy="3" r="0.4" fill="#ff3366"/>
+                  <circle cx="30" cy="7" r="0.4" fill="#ff3366"/>
                 </g>
 
-                <!-- Vector Player Spaceship (Cyan) -->
-                <g class="game-ship">
-                  <path d="M12 13.5L10 16.5H14L12 13.5z" fill="#00d2ff"/>
-                  <rect x="11.5" y="16.5" width="1" height="1.5" fill="#ff3366"/>
+                <!-- Spaceship Player (Cyan) -->
+                <g class="w-ship">
+                  <path d="M30 13.5L28 16.5H32L30 13.5z" fill="#00d2ff"/>
+                  <rect x="29.5" y="16.5" width="1" height="1.5" fill="#ff3366"/>
                 </g>
               </svg>
-              <span>Félix Arcade</span>
             </button>
             <div class="nav-cta-dropdown-content" id="nav-cta-dropdown-menu">
               <a href="https://s.team/p/jbqw-qwcj/grpcdqmq" target="_blank" rel="noopener noreferrer">
