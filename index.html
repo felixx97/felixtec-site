@@ -1060,20 +1060,124 @@
           </div>
 
           <div class="detail-visual scroll-reveal-right">
-            <div class="speedometer-container">
-              <svg class="speedometer" viewBox="0 0 100 50">
-                <path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="#222" stroke-width="8"></path>
-                <path class="speedometer-progress" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="url(#blueGrad)"
-                  stroke-width="8" stroke-dasharray="126" stroke-dashoffset="12.6"></path>
+            <div class="satisfaction-container" style="position: relative; width: 100%; max-width: 320px; margin: 0 auto; text-align: center; background: rgba(255,255,255,0.01); border: 1px solid var(--border-light); border-radius: 24px; padding: 24px; box-shadow: inset 0 0 20px rgba(0, 210, 255, 0.02); backdrop-filter: blur(5px);">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto; display: block; animation: floatGraphic 4s ease-in-out infinite alternate;">
+                <style>
+                  @keyframes floatGraphic {
+                    0% { transform: translateY(0px); }
+                    100% { transform: translateY(-6px); }
+                  }
+                </style>
                 <defs>
-                  <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="3" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                  </filter>
+                  <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stop-color="#0071e3" />
                     <stop offset="100%" stop-color="#00d2ff" />
                   </linearGradient>
+                  <linearGradient id="svg-grad-skin" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#ffe5c4" />
+                    <stop offset="100%" stop-color="#fca88f" />
+                  </linearGradient>
+                  <linearGradient id="grad-suit" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#1e3a8a" />
+                    <stop offset="100%" stop-color="#0f172a" />
+                  </linearGradient>
+                  <linearGradient id="grad-hoodie" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#2d2d3a" />
+                    <stop offset="100%" stop-color="#14141a" />
+                  </linearGradient>
                 </defs>
+
+                <!-- Outer Glowing Satisfaction Circle (100%) -->
+                <circle cx="100" cy="100" r="88" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="5"/>
+                <circle cx="100" cy="100" r="88" fill="none" stroke="url(#blueGrad)" stroke-width="5" filter="url(#glow-cyan)" stroke-dasharray="553" stroke-dashoffset="0"/>
+
+                <!-- Satisfaction Title -->
+                <text x="100" y="52" fill="#ffffff" font-size="28" font-weight="800" text-anchor="middle" letter-spacing="-1px" font-family="'Outfit', sans-serif">100%</text>
+                <text x="100" y="68" fill="var(--accent-cyan)" font-size="8" font-weight="700" text-anchor="middle" letter-spacing="1px" text-transform="uppercase" font-family="'Outfit', sans-serif">Satisfação &amp; Parceria</text>
+
+                <!-- dialogue bubbles -->
+                <!-- Bubble Left -->
+                <path d="M 32 80 h 26 a 4 4 0 0 1 4 4 v 12 a 4 4 0 0 1 -4 4 h -14 l -6 5 v -5 a 4 4 0 0 1 -6 -4 v -12 a 4 4 0 0 1 4 -4" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
+                <text x="45" y="93" fill="#ff3366" font-size="9" text-anchor="middle">❤</text>
+
+                <!-- Bubble Right -->
+                <path d="M 138 80 h 26 a 4 4 0 0 1 4 4 v 12 a 4 4 0 0 1 -4 4 h -6 l -6 5 v -5 a 4 4 0 0 1 -14 -4 v -12 a 4 4 0 0 1 4 -4" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
+                <text x="151" y="92" fill="#00d2ff" font-size="9" text-anchor="middle">👍</text>
+
+                <!-- MAIN CHARACTER: Dev Félix (Center) -->
+                <g style="transform: translate(0px, 12px);">
+                  <!-- Headphone Band -->
+                  <path d="M 83 103 A 18 18 0 0 1 117 103" fill="none" stroke="var(--accent-cyan)" stroke-width="1.5" filter="url(#glow-cyan)" />
+                  <!-- Gamer Cups -->
+                  <rect x="79" y="100" width="5" height="10" rx="2" fill="#15151c" stroke="var(--accent-cyan)" stroke-width="0.8" filter="url(#glow-cyan)" />
+                  <rect x="116" y="100" width="5" height="10" rx="2" fill="#15151c" stroke="var(--accent-cyan)" stroke-width="0.8" filter="url(#glow-cyan)" />
+                  <!-- Head -->
+                  <path d="M82 102 C82 116, 118 116, 118 102 Z" fill="url(#svg-grad-skin)" />
+                  <!-- Hair -->
+                  <path d="M83 100 Q100 89 117 100 Q108 97 100 99 Q92 97 83 100 Z" fill="#15151c" />
+                  <!-- Glasses -->
+                  <circle cx="92" cy="105" r="6" fill="rgba(0, 210, 255, 0.05)" stroke="var(--accent-cyan)" stroke-width="0.8" filter="url(#glow-cyan)" />
+                  <circle cx="108" cy="105" r="6" fill="rgba(0, 210, 255, 0.05)" stroke="var(--accent-cyan)" stroke-width="0.8" filter="url(#glow-cyan)" />
+                  <line x1="98" y1="105" x2="102" y2="105" stroke="var(--accent-cyan)" stroke-width="0.8" filter="url(#glow-cyan)" />
+                  <!-- Happy eyes (Curved smiles) -->
+                  <path d="M 89 104 Q 92 102 95 104" fill="none" stroke="#15151c" stroke-width="1" />
+                  <path d="M 105 104 Q 108 102 111 104" fill="none" stroke="#15151c" stroke-width="1" />
+                  <!-- Blush -->
+                  <circle cx="85" cy="109" r="1.5" fill="#ff3366" fill-opacity="0.4" />
+                  <circle cx="115" cy="109" r="1.5" fill="#ff3366" fill-opacity="0.4" />
+                  <!-- Smile mouth -->
+                  <path d="M 97 110 Q 100 113 103 110" fill="none" stroke="#ff3366" stroke-width="1" stroke-linecap="round" />
+                  <!-- Hoodie body -->
+                  <path d="M83 115 C83 115, 100 112, 117 115 L119 135 L81 135 Z" fill="url(#grad-hoodie)" stroke="#2d2d3a" stroke-width="0.8" />
+                  <!-- Laptop -->
+                  <polygon points="85,130 115,130 120,140 80,140" fill="#15151c" stroke="var(--accent-cyan)" stroke-width="0.8" filter="url(#glow-cyan)"/>
+                  <line x1="82" y1="136" x2="118" y2="136" stroke="var(--accent-cyan)" stroke-width="0.8" />
+                </g>
+
+                <!-- CLIENT 1: Businessman (Left) -->
+                <g style="transform: translate(0px, 12px);">
+                  <!-- Head -->
+                  <path d="M38 112 C38 123, 62 123, 62 112 Z" fill="url(#svg-grad-skin)" />
+                  <!-- Hair (Brown/Corporate) -->
+                  <path d="M38 110 Q50 100 62 110 L58 106 L42 106 Z" fill="#653b1b" />
+                  <!-- Eyes -->
+                  <circle cx="45" cy="113" r="1" fill="#15151c" />
+                  <circle cx="55" cy="113" r="1" fill="#15151c" />
+                  <!-- Big happy smile -->
+                  <path d="M 48 116 Q 50 119 52 116" fill="none" stroke="#653b1b" stroke-width="1" stroke-linecap="round" />
+                  <!-- Suit -->
+                  <path d="M39 122 L61 122 L58 138 L42 138 Z" fill="url(#grad-suit)" />
+                  <!-- Red tie -->
+                  <polygon points="49,122 51,122 52,130 50,132 48,130" fill="#ff3366" />
+                  <!-- Little hand waving -->
+                  <circle cx="34" cy="120" r="2.5" fill="#ffe5c4" stroke="#653b1b" stroke-width="0.4" />
+                </g>
+
+                <!-- CLIENT 2: Medical/Professional (Right) -->
+                <g style="transform: translate(0px, 12px);">
+                  <!-- Head -->
+                  <path d="M138 112 C138 123, 162 123, 162 112 Z" fill="url(#svg-grad-skin)" />
+                  <!-- Hair (Long dark hair) -->
+                  <path d="M137 110 C135 125, 140 128, 140 128 C140 128, 150 98, 162 110 C165 125, 160 128, 160 128 Z" fill="#15151c" />
+                  <!-- Eyes -->
+                  <circle cx="145" cy="113" r="1" fill="#15151c" />
+                  <circle cx="155" cy="113" r="1" fill="#15151c" />
+                  <!-- Big happy smile -->
+                  <path d="M 148 116 Q 150 119 152 116" fill="none" stroke="#ff3366" stroke-width="1" stroke-linecap="round" />
+                  <!-- Medical/Professional coat -->
+                  <path d="M139 122 L161 122 L158 138 L142 138 Z" fill="#f5f5f7" />
+                  <!-- Stethoscope lines -->
+                  <path d="M 145 122 Q 150 130 155 122" fill="none" stroke="#86868b" stroke-width="0.8" />
+                  <circle cx="150" cy="130" r="1.5" fill="#86868b" />
+                  <!-- Little hand waving -->
+                  <circle cx="166" cy="120" r="2.5" fill="#ffe5c4" stroke="#15151c" stroke-width="0.4" />
+                </g>
               </svg>
-              <div class="speed-score">99</div>
-              <div class="speed-label">Performance Mobile</div>
+              <div style="font-size: 11px; font-weight: 700; color: var(--text-secondary); letter-spacing: 1px; text-transform: uppercase; margin-top: 8px;">100% Projetos Bem-Sucedidos</div>
             </div>
           </div>
         </div>
