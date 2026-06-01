@@ -2,6 +2,22 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
 export default defineConfig({
+  plugins: [
+    {
+      name: 'clean-urls-middleware',
+      configureServer(server) {
+        server.middlewares.use((req, res, next) => {
+          const url = req.url.split('?')[0].split('#')[0];
+          if (url === '/servicos') {
+            req.url = '/servicos.html';
+          } else if (url === '/politicas') {
+            req.url = '/politicas.html';
+          }
+          next();
+        });
+      }
+    }
+  ],
   build: {
     rollupOptions: {
       input: {
