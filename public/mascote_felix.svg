@@ -1,0 +1,89 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradients and Filters Definition -->
+  <defs>
+    <!-- Neon Glow Filters -->
+    <filter id="glow-cyan" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="0.8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="glow-pink" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="0.8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="shadow-character" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3.5" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+
+    <!-- Color Gradients -->
+    <linearGradient id="grad-skin" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffe5c4" />
+      <stop offset="100%" stop-color="#fca88f" />
+    </linearGradient>
+
+    <linearGradient id="grad-hoodie" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2d2d3a" />
+      <stop offset="100%" stop-color="#14141a" />
+    </linearGradient>
+  </defs>
+
+  <!-- Complete Character Group with Shadow -->
+  <g filter="url(#shadow-character)">
+    <!-- Headphone Band / Arco do Fone -->
+    <path d="M23 42 A 28 28 0 0 1 77 42" fill="none" stroke="#15151c" stroke-width="2.5" />
+    <path d="M23 42 A 28 28 0 0 1 77 42" fill="none" stroke="#00d2ff" stroke-width="0.8" filter="url(#glow-cyan)" />
+
+    <!-- Headphone Side Cups / Conchas Gamer -->
+    <rect class="phone-cup-left" x="15" y="38" width="8" height="15" rx="4" fill="#15151c" stroke="#00d2ff" stroke-width="1.0" filter="url(#glow-cyan)" />
+    <rect class="phone-cup-right" x="77" y="38" width="8" height="15" rx="4" fill="#15151c" stroke="#00d2ff" stroke-width="1.0" filter="url(#glow-cyan)" />
+
+    <!-- Head / Rosto Chibi -->
+    <path d="M22 42 C22 60, 78 60, 78 42 Z" fill="url(#grad-skin)" stroke="#fca88f" stroke-width="0.5" />
+
+    <!-- Hair / Cabelo arrepiado geek -->
+    <path d="M23 40 Q50 25 77 40 Q64 35 50 38 Q36 35 23 40 Z" fill="#15151c" />
+
+    <!-- Tech Geek Glasses / Óculos com reflexo digital ciano -->
+    <circle class="glasses-rim left-rim" cx="37" cy="46" r="9.5" fill="rgba(0, 210, 255, 0.05)" stroke="#00d2ff" stroke-width="1.2" filter="url(#glow-cyan)" />
+    <circle class="glasses-rim right-rim" cx="63" cy="46" r="9.5" fill="rgba(0, 210, 255, 0.05)" stroke="#00d2ff" stroke-width="1.2" filter="url(#glow-cyan)" />
+    <line class="glasses-bridge" x1="46.5" y1="46" x2="53.5" y2="46" stroke="#00d2ff" stroke-width="1.2" filter="url(#glow-cyan)" />
+
+    <!-- Chibi Eyes (Friendly Dark Eyes) -->
+    <circle class="felix-eye eye-left" cx="37" cy="46" r="3.2" fill="#15151c" />
+    <circle class="felix-eye eye-right" cx="63" cy="46" r="3.2" fill="#15151c" />
+    <!-- Reflexos brancos brilhantes -->
+    <circle class="felix-refle left-refle" cx="38.5" cy="44.5" r="1" fill="#ffffff" />
+    <circle class="felix-refle right-refle" cx="64.5" cy="44.5" r="1" fill="#ffffff" />
+
+    <!-- Blush cheeks / Bochechas coradas -->
+    <circle class="felix-blush blush-left" cx="25" cy="51" r="2.5" fill="#ff3366" fill-opacity="0.4" />
+    <circle class="felix-blush blush-right" cx="75" cy="51" r="2.5" fill="#ff3366" fill-opacity="0.4" />
+
+    <!-- Tech Hoodie Body / Moletom com Capuz -->
+    <!-- Capuz caído nas laterais -->
+    <path d="M21 54 C21 54, 50 64, 79 54 L75 62 L25 62 Z" fill="#15151c" />
+    <!-- Corpo do moletom -->
+    <path class="felix-hoodie" d="M23 60 C23 60, 50 56, 77 60 L80 92 L20 92 Z" fill="url(#grad-hoodie)" stroke="#2d2d3a" stroke-width="1.2" />
+
+    <!-- Capuz Cordões -->
+    <line class="cord-left" x1="43" y1="62" x2="43" y2="73" stroke="#00d2ff" stroke-width="1.2" stroke-linecap="round" />
+    <line class="cord-right" x1="57" y1="62" x2="57" y2="73" stroke="#00d2ff" stroke-width="1.2" stroke-linecap="round" />
+
+    <!-- Chest Logo "FT" (FélixTec digital neon - Centered) -->
+    <g class="ft-logo">
+      <!-- F -->
+      <path d="M44.8 69.5 V63.5 H48.5 V64.7 H45.8 V66.1 H48 V67.2 H45.8 V69.5 Z" fill="#00d2ff" filter="url(#glow-cyan)" />
+      <!-- T -->
+      <path d="M50 63.5 H55.2 V64.7 H53.5 V69.5 H51.9 V64.7 H50 Z" fill="#00d2ff" filter="url(#glow-cyan)" />
+    </g>
+
+    <!-- Hands / Arms (Typing pose) -->
+    <path class="left-arm" d="M23 66 Q13 70 12 76" stroke="#2d2d3a" stroke-width="4.5" stroke-linecap="round" fill="none" />
+    <circle class="left-hand" cx="12" cy="76" r="4.5" fill="url(#grad-skin)" />
+    <path class="right-arm" d="M77 66 Q87 70 88 76" stroke="#2d2d3a" stroke-width="4.5" stroke-linecap="round" fill="none" />
+    <circle class="right-hand" cx="88" cy="76" r="4.5" fill="url(#grad-skin)" />
+
+    <!-- Perninhas/Pés Chibi -->
+    <rect class="shoe-left" x="32" y="91" width="13" height="4" rx="2" fill="#15151c" stroke="#00d2ff" stroke-width="0.8" />
+    <rect class="shoe-right" x="55" y="91" width="13" height="4" rx="2" fill="#15151c" stroke="#00d2ff" stroke-width="0.8" />
+  </g>
+</svg>
