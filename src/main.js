@@ -1048,83 +1048,156 @@ const serviceArticles = {
     title: "Desenvolvimento Web & UI/UX",
     content: `
       <div style="display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap-reverse;">
-        <div style="flex: 1.3; min-width: 280px;">
-          <p>Criamos aplicações web e landing pages minimalistas com código 100% puro e otimizado, priorizando a <strong>velocidade máxima de carregamento</strong> e a <strong>usabilidade cirúrgica (UI/UX)</strong>. Nossa missão é destacar a presença digital da sua marca com pontuação máxima de performance e design intuitivo.</p>
+        <!-- Left Side: Copy and Details -->
+        <div style="flex: 1.25; min-width: 280px;">
+          <p style="font-size: 15px; line-height: 1.6; color: var(--text-primary); margin-bottom: 24px;">
+            Unimos design de interface refinado (UI) e engenharia de usabilidade (UX) para criar experiências digitais sob medida. O resultado são páginas rápidas, responsivas e estrategicamente desenhadas para converter visitantes em clientes ativos.
+          </p>
           
-          <h4>Experiência do Usuário (UI/UX) &amp; Boas Práticas</h4>
-          <p>O design de uma página de alta conversão vai muito além da estética. Implementamos conceitos avançados de arquitetura de informação e design focado no usuário:</p>
+          <h4 style="font-size: 16px; font-weight: 700; color: var(--accent-cyan); margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 6px; letter-spacing: 0.5px;">
+            Boas Práticas de UI/UX
+          </h4>
+          <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.5;">
+            O design premium é centrado no usuário. Implementamos metodologias rigorosas para assegurar usabilidade e engajamento:
+          </p>
           
-          <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
-            <li style="position: relative; padding-left: 24px;">
-              <span style="position: absolute; left: 0; color: var(--accent-cyan);">→</span>
-              <strong>Hierarquia Visual Dinâmica:</strong> Direcionamento visual do olhar do visitante para as informações mais quentes e cruciais do seu negócio.
+          <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px;">
+            <li style="position: relative; padding-left: 28px; font-size: 14px; line-height: 1.5;">
+              <span style="position: absolute; left: 0; color: var(--accent-cyan); font-weight: bold;">✓</span>
+              <strong>Hierarquia Visual & Escaneabilidade:</strong> Distribuição matemática de pesos visuais, contrastes e respiros de tela. O olhar do visitante é direcionado de forma natural às informações cruciais e ofertas, permitindo leitura rápida e intuitiva.
             </li>
-            <li style="position: relative; padding-left: 24px;">
-              <span style="position: absolute; left: 0; color: var(--accent-cyan);">→</span>
-              <strong>Tipografia e Contrastes Legíveis:</strong> Textos refinados com proporções perfeitas para leitura confortável e sem fadiga visual em qualquer tela.
+            <li style="position: relative; padding-left: 28px; font-size: 14px; line-height: 1.5;">
+              <span style="position: absolute; left: 0; color: var(--accent-cyan); font-weight: bold;">✓</span>
+              <strong>Tipografia e Contrastes Legíveis (WCAG):</strong> Seleção tipográfica moderna e refinada, com proporções calculadas para leitura confortável. Cores calibradas para atingir o contraste ideal, evitando fadiga visual mesmo em usos prolongados.
             </li>
-            <li style="position: relative; padding-left: 24px;">
-              <span style="position: absolute; left: 0; color: var(--accent-cyan);">→</span>
-              <strong>Acessibilidade &amp; Touch Zones:</strong> Elementos clicáveis bem espaçados, botões confortáveis no mobile e adaptabilidade de múltiplos dispositivos.
+            <li style="position: relative; padding-left: 28px; font-size: 14px; line-height: 1.5;">
+              <span style="position: absolute; left: 0; color: var(--accent-cyan); font-weight: bold;">✓</span>
+              <strong>Acessibilidade & Touch Zones Mobile:</strong> Interação natural sob a zona de alcance confortável dos polegares. Botões e links com área ativa mínima de 48x48 pixels e amplos espaçamentos para eliminar cliques acidentais em smartphones.
             </li>
-            <li style="position: relative; padding-left: 24px;">
-              <span style="position: absolute; left: 0; color: var(--accent-cyan);">→</span>
-              <strong>Foco Claro em Conversão:</strong> Chamadas para ação (CTAs) em locais estratégicos para conduzir o lead de forma natural à tomada de decisão.
+            <li style="position: relative; padding-left: 28px; font-size: 14px; line-height: 1.5;">
+              <span style="position: absolute; left: 0; color: var(--accent-cyan); font-weight: bold;">✓</span>
+              <strong>Foco Claro em Conversão (CTAs):</strong> Chamadas para ação dispostas em locais estratégicos ao longo da jornada do usuário. O layout resolve objeções e conduz o lead à ação final de contato pelo WhatsApp de forma fluida.
             </li>
           </ul>
 
-          <h4>Nossa Abordagem de Engenharia</h4>
-          <p>Utilizamos um design system modular baseado em CSS sob medida. Cada transição é otimizada com o framework <strong>GSAP (GreenSock Animation Platform)</strong> para rodar a uma taxa constante de 60 frames por segundo, garantindo fluidez premium e indexação prioritária nos motores de busca do Google (Core Web Vitals).</p>
+          <h4 style="font-size: 16px; font-weight: 700; color: var(--accent-cyan); margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 6px; letter-spacing: 0.5px;">
+            Desenvolvimento Frontend & Performance
+          </h4>
+          <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.5;">
+            Transformamos protótipos de alta fidelidade em código limpo, extremamente veloz e estável:
+          </p>
+          
+          <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 14px; margin-bottom: 10px;">
+            <li style="position: relative; padding-left: 28px; font-size: 14px; line-height: 1.5;">
+              <span style="position: absolute; left: 0; color: var(--accent-cyan); font-weight: bold;">✓</span>
+              <strong>Animações Fluidas em 60fps (GSAP):</strong> Transições sutis e micro-interações que reagem às ações do mouse e de rolagem. A interface ganha vida e dinamismo, entregando feedback visual premium sem impactar o desempenho.
+            </li>
+            <li style="position: relative; padding-left: 28px; font-size: 14px; line-height: 1.5;">
+              <span style="position: absolute; left: 0; color: var(--accent-cyan); font-weight: bold;">✓</span>
+              <strong>Performance Como Experiência (Velocidade):</strong> Páginas leves e rápidas desenvolvidas sem construtores visuais pesados (WordPress/Elementor). Carregamento instantâneo que reduz a rejeição e otimiza o posicionamento orgânico no Google.
+            </li>
+          </ul>
         </div>
         
-        <div style="flex: 0.7; min-width: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-light); border-radius: 20px; padding: 24px; box-shadow: inset 0 0 15px rgba(0, 210, 255, 0.05); text-align: center; margin: 0 auto;">
-          <!-- Animated Mascot Chibi Dev Félix in Modal -->
-          <div style="width: 120px; height: 120px; animation: modalMascotFloat 3s ease-in-out infinite alternate; position: relative;">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
-              <defs>
-                <filter id="modal-glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="1.5" result="blur" />
-                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                </filter>
-                <linearGradient id="modal-grad-skin" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#ffe5c4" />
-                  <stop offset="100%" stop-color="#fca88f" />
-                </linearGradient>
-                <linearGradient id="modal-grad-hoodie" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#2d2d3a" />
-                  <stop offset="100%" stop-color="#14141a" />
-                </linearGradient>
-              </defs>
-              <!-- Headphone Band -->
-              <path d="M23 42 A 28 28 0 0 1 77 42" fill="none" stroke="var(--accent-cyan)" stroke-width="1.8" filter="url(#modal-glow-cyan)" />
-              <!-- Gamer Cups -->
-              <rect x="15" y="38" width="8" height="15" rx="4" fill="#15151c" stroke="var(--accent-cyan)" stroke-width="1.2" filter="url(#modal-glow-cyan)" />
-              <rect x="77" y="38" width="8" height="15" rx="4" fill="#15151c" stroke="var(--accent-cyan)" stroke-width="1.2" filter="url(#modal-glow-cyan)" />
-              <!-- Head -->
-              <path d="M22 42 C22 60, 78 60, 78 42 Z" fill="url(#modal-grad-skin)" />
-              <!-- Hair -->
-              <path d="M23 40 Q50 25 77 40 Q64 35 50 38 Q36 35 23 40 Z" fill="#15151c" />
-              <!-- Glasses -->
-              <circle cx="37" cy="46" r="9.5" fill="rgba(0, 210, 255, 0.05)" stroke="var(--accent-cyan)" stroke-width="1.2" filter="url(#modal-glow-cyan)" />
-              <circle cx="63" cy="46" r="9.5" fill="rgba(0, 210, 255, 0.05)" stroke="var(--accent-cyan)" stroke-width="1.2" filter="url(#modal-glow-cyan)" />
-              <line x1="46.5" y1="46" x2="53.5" y2="46" stroke="var(--accent-cyan)" stroke-width="1.2" filter="url(#modal-glow-cyan)" />
-              <!-- Eyes -->
-              <circle cx="37" cy="46" r="3.2" fill="#15151c" />
-              <circle cx="63" cy="46" r="3.2" fill="#15151c" />
-              <circle cx="38.5" cy="44.5" r="1" fill="#ffffff" />
-              <circle cx="64.5" cy="44.5" r="1" fill="#ffffff" />
-              <!-- Blush -->
-              <circle cx="25" cy="51" r="2.5" fill="#ff3366" fill-opacity="0.4" />
-              <circle cx="75" cy="51" r="2.5" fill="#ff3366" fill-opacity="0.4" />
-              <!-- Hoodie -->
-              <path d="M23 60 C23 60, 50 56, 77 60 L80 92 L20 92 Z" fill="url(#modal-grad-hoodie)" stroke="#2d2d3a" stroke-width="1.2" />
-              <!-- Logo FT -->
-              <path d="M44.8 69.5 V63.5 H48.5 V64.7 H45.8 V66.1 H48 V67.2 H45.8 V69.5 Z" fill="var(--accent-cyan)" filter="url(#modal-glow-cyan)" />
-              <path d="M50 63.5 H55.2 V64.7 H53.5 V69.5 H51.9 V64.7 H50 Z" fill="var(--accent-cyan)" filter="url(#modal-glow-cyan)" />
-            </svg>
+        <!-- Right Side: Mascot and Case Collages -->
+        <div style="flex: 0.75; min-width: 260px; display: flex; flex-direction: column; gap: 20px; width: 100%;">
+          
+          <!-- Animated Mascot Container -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-light); border-radius: 20px; padding: 20px; box-shadow: inset 0 0 15px rgba(0, 210, 255, 0.05); text-align: center;">
+            <div style="width: 120px; height: 120px; animation: modalMascotFloat 3.5s ease-in-out infinite alternate; position: relative; margin: 0 auto 10px;">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                <defs>
+                  <filter id="modal-glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="1.5" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                  </filter>
+                  <linearGradient id="modal-grad-skin" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#ffe5c4" />
+                    <stop offset="100%" stop-color="#fca88f" />
+                  </linearGradient>
+                  <linearGradient id="modal-grad-hoodie" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#2d2d3a" />
+                    <stop offset="100%" stop-color="#14141a" />
+                  </linearGradient>
+                </defs>
+                
+                <!-- Floating code elements in SVG background -->
+                <text x="5" y="30" fill="var(--accent-cyan)" font-size="8" font-family="monospace" opacity="0.6">&lt;/&gt;</text>
+                <text x="80" y="25" fill="var(--accent-blue)" font-size="7" font-family="monospace" opacity="0.6">{ UX }</text>
+                <circle cx="10" cy="75" r="1.5" fill="var(--accent-cyan)" opacity="0.5" />
+                <circle cx="90" cy="65" r="2" fill="var(--accent-blue)" opacity="0.5" />
+
+                <!-- Headphone Band -->
+                <path d="M23 42 A 28 28 0 0 1 77 42" fill="none" stroke="var(--accent-cyan)" stroke-width="1.8" filter="url(#modal-glow-cyan)" />
+                <!-- Gamer Cups -->
+                <rect x="15" y="38" width="8" height="15" rx="4" fill="#15151c" stroke="var(--accent-cyan)" stroke-width="1.2" filter="url(#modal-glow-cyan)" />
+                <rect x="77" y="38" width="8" height="15" rx="4" fill="#15151c" stroke="var(--accent-cyan)" stroke-width="1.2" filter="url(#modal-glow-cyan)" />
+                <!-- Head -->
+                <path d="M22 42 C22 60, 78 60, 78 42 Z" fill="url(#modal-grad-skin)" />
+                <!-- Hair -->
+                <path d="M23 40 Q50 25 77 40 Q64 35 50 38 Q36 35 23 40 Z" fill="#15151c" />
+                <!-- Glasses -->
+                <circle cx="37" cy="46" r="9.5" fill="rgba(0, 210, 255, 0.05)" stroke="var(--accent-cyan)" stroke-width="1.2" filter="url(#modal-glow-cyan)" />
+                <circle cx="63" cy="46" r="9.5" fill="rgba(0, 210, 255, 0.05)" stroke="var(--accent-cyan)" stroke-width="1.2" filter="url(#modal-glow-cyan)" />
+                <line x1="46.5" y1="46" x2="53.5" y2="46" stroke="var(--accent-cyan)" stroke-width="1.2" filter="url(#modal-glow-cyan)" />
+                <!-- Eyes -->
+                <circle cx="37" cy="46" r="3.2" fill="#15151c" />
+                <circle cx="63" cy="46" r="3.2" fill="#15151c" />
+                <circle cx="38.5" cy="44.5" r="1" fill="#ffffff" />
+                <circle cx="64.5" cy="44.5" r="1" fill="#ffffff" />
+                <!-- Blush -->
+                <circle cx="25" cy="51" r="2.5" fill="#ff3366" fill-opacity="0.4" />
+                <circle cx="75" cy="51" r="2.5" fill="#ff3366" fill-opacity="0.4" />
+                <!-- Hoodie -->
+                <path d="M23 60 C23 60, 50 56, 77 60 L80 92 L20 92 Z" fill="url(#modal-grad-hoodie)" stroke="#2d2d3a" stroke-width="1.2" />
+                <!-- Logo FT -->
+                <path d="M44.8 69.5 V63.5 H48.5 V64.7 H45.8 V66.1 H48 V67.2 H45.8 V69.5 Z" fill="var(--accent-cyan)" filter="url(#modal-glow-cyan)" />
+                <path d="M50 63.5 H55.2 V64.7 H53.5 V69.5 H51.9 V64.7 H50 Z" fill="var(--accent-cyan)" filter="url(#modal-glow-cyan)" />
+              </svg>
+            </div>
+            <span style="font-size: 11px; font-weight: 700; color: var(--accent-cyan); letter-spacing: 0.5px; text-transform: uppercase;">Dev Félix</span>
+            <p style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin: 4px 0 0;">Mascote FélixTec programando cada pixel com foco em design e usabilidade.</p>
           </div>
-          <span style="font-size: 11px; font-weight: 700; color: var(--accent-cyan); letter-spacing: 0.5px; text-transform: uppercase;">Dev Félix</span>
-          <p style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin: 0;">Focado em criar layouts intuitivos e carregamentos instantâneos para a sua empresa.</p>
+          
+          <!-- Cases Collage Section -->
+          <div style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-size: 11px; font-weight: 700; color: var(--text-secondary); letter-spacing: 1px; text-transform: uppercase; border-left: 2px solid var(--accent-cyan); padding-left: 6px; display: block;">Casos de Sucesso</span>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <!-- High Tech -->
+              <div style="position: relative; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); aspect-ratio: 16/10; background: #000; cursor: pointer; transition: border-color 0.3s ease;" onmouseover="this.style.borderColor='var(--accent-cyan)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'" onclick="window.open('https://hightechfloripa.com.br/', '_blank')">
+                <img src="/site-high-tech.png" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: transform 0.3s ease, opacity 0.3s ease;" onmouseover="this.style.transform='scale(1.08)'; this.style.opacity='1';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='0.6';" alt="High Tech" />
+                <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 4px 6px; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); pointer-events: none;">
+                  <span style="font-size: 9px; font-weight: 700; color: #fff; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">High Tech</span>
+                </div>
+              </div>
+              
+              <!-- At Work -->
+              <div style="position: relative; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); aspect-ratio: 16/10; background: #000; cursor: pointer; transition: border-color 0.3s ease;" onmouseover="this.style.borderColor='var(--accent-cyan)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'" onclick="window.open('https://atworksc.com.br/', '_blank')">
+                <img src="/Site-At-work.png" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: transform 0.3s ease, opacity 0.3s ease;" onmouseover="this.style.transform='scale(1.08)'; this.style.opacity='1';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='0.6';" alt="At Work" />
+                <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 4px 6px; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); pointer-events: none;">
+                  <span style="font-size: 9px; font-weight: 700; color: #fff; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">At Work</span>
+                </div>
+              </div>
+              
+              <!-- Jukere -->
+              <div style="position: relative; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); aspect-ratio: 16/10; background: #000; cursor: pointer; transition: border-color 0.3s ease;" onmouseover="this.style.borderColor='var(--accent-cyan)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'" onclick="window.open('https://jukere.com.br/', '_blank')">
+                <img src="/Site-Jukere.png" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: transform 0.3s ease, opacity 0.3s ease;" onmouseover="this.style.transform='scale(1.08)'; this.style.opacity='1';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='0.6';" alt="Jukerê" />
+                <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 4px 6px; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); pointer-events: none;">
+                  <span style="font-size: 9px; font-weight: 700; color: #fff; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Jukerê</span>
+                </div>
+              </div>
+              
+              <!-- Vips TV -->
+              <div style="position: relative; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); aspect-ratio: 16/10; background: #000; cursor: pointer; transition: border-color 0.3s ease;" onmouseover="this.style.borderColor='var(--accent-cyan)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'" onclick="window.open('https://vipstv.com.br/', '_blank')">
+                <img src="/Site-vips-tv.png" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: transform 0.3s ease, opacity 0.3s ease;" onmouseover="this.style.transform='scale(1.08)'; this.style.opacity='1';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='0.6';" alt="Vips TV" />
+                <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 4px 6px; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); pointer-events: none;">
+                  <span style="font-size: 9px; font-weight: 700; color: #fff; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Vips TV</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
         </div>
       </div>
       
