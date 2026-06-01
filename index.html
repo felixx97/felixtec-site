@@ -1074,43 +1074,29 @@
                     }
 
                     100% {
-                      transform: translateY(-6px);
+                      transform: translateY(-5px);
                     }
                   }
 
                   /* Transições dinâmicas ao passar o mouse */
-                  .character-felix {
-                    transform-origin: 100px 130px;
-                    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                  .rocket-group {
+                    transform-origin: 100px 100px;
+                    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
                   }
 
-                  .character-client1 {
-                    transform-origin: 50px 130px;
-                    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                  }
-
-                  .character-client2 {
-                    transform-origin: 150px 130px;
-                    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                  }
-
-                  .bubble-left {
-                    transform-origin: 45px 90px;
-                    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                  }
-
-                  .bubble-right {
-                    transform-origin: 151px 90px;
-                    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                  .thruster-flame {
+                    transform-origin: 100px 148px;
+                    transition: transform 0.3s ease;
+                    animation: firePulse 0.1s infinite alternate;
                   }
 
                   .hand-wave-left {
-                    transform-origin: 39px 122px;
+                    transform-origin: 89px 104px;
                     transition: transform 0.3s ease;
                   }
 
                   .hand-wave-right {
-                    transform-origin: 161px 122px;
+                    transform-origin: 111px 127px;
                     transition: transform 0.3s ease;
                   }
 
@@ -1119,24 +1105,13 @@
                   }
 
                   /* Efeitos de Hover disparados pelo contêiner pai */
-                  .satisfaction-container:hover .character-felix {
-                    transform: translateY(-8px) scale(1.05);
+                  .satisfaction-container:hover .rocket-group {
+                    transform: translateY(-12px) scale(1.03);
+                    animation: rocketVibrate 0.15s infinite alternate;
                   }
 
-                  .satisfaction-container:hover .character-client1 {
-                    transform: translateX(6px) translateY(-3px) rotate(4deg) scale(1.04);
-                  }
-
-                  .satisfaction-container:hover .character-client2 {
-                    transform: translateX(-6px) translateY(-3px) rotate(-4deg) scale(1.04);
-                  }
-
-                  .satisfaction-container:hover .bubble-left {
-                    transform: scale(1.15) translateY(-2px);
-                  }
-
-                  .satisfaction-container:hover .bubble-right {
-                    transform: scale(1.15) translateY(-2px);
+                  .satisfaction-container:hover .thruster-flame {
+                    transform: scaleY(1.3) scaleX(1.1);
                   }
 
                   .satisfaction-container:hover .hand-wave-left {
@@ -1152,13 +1127,35 @@
                     filter: drop-shadow(0 0 6px rgba(0, 210, 255, 0.7));
                   }
 
+                  @keyframes firePulse {
+                    0% {
+                      opacity: 0.8;
+                      transform: scaleY(0.95) scaleX(0.95);
+                    }
+
+                    100% {
+                      opacity: 1;
+                      transform: scaleY(1.05) scaleX(1.05);
+                    }
+                  }
+
+                  @keyframes rocketVibrate {
+                    0% {
+                      transform: translateY(-12px) translateX(-0.5px) rotate(0.3deg);
+                    }
+
+                    100% {
+                      transform: translateY(-12px) translateX(0.5px) rotate(-0.3deg);
+                    }
+                  }
+
                   @keyframes waveActionLeft {
                     0% {
                       transform: rotate(0deg);
                     }
 
                     100% {
-                      transform: rotate(-25deg) translateY(-2px);
+                      transform: rotate(-35deg) translateY(-1px);
                     }
                   }
 
@@ -1168,7 +1165,7 @@
                     }
 
                     100% {
-                      transform: rotate(25deg) translateY(-2px);
+                      transform: rotate(35deg) translateY(-1px);
                     }
                   }
                 </style>
@@ -1181,15 +1178,20 @@
                     <stop offset="0%" stop-color="#0071e3" />
                     <stop offset="100%" stop-color="#00d2ff" />
                   </linearGradient>
-                  <linearGradient id="svg-grad-skin" x1="0" y1="0" x2="0" y2="1">
+                  <linearGradient id="fireGrad" x1="0%" y1="0%" x2="0%" y2="1">
+                    <stop offset="0%" stop-color="#ff7b00" />
+                    <stop offset="50%" stop-color="#ff2a5f" />
+                    <stop offset="100%" stop-color="#ff0000" stop-opacity="0" />
+                  </linearGradient>
+                  <linearGradient id="svg-grad-skin" x1="0%" y1="0%" x2="0%" y2="1">
                     <stop offset="0%" stop-color="#ffe5c4" />
                     <stop offset="100%" stop-color="#fca88f" />
                   </linearGradient>
-                  <linearGradient id="grad-suit" x1="0" y1="0" x2="0" y2="1">
+                  <linearGradient id="grad-suit" x1="0%" y1="0%" x2="0%" y2="1">
                     <stop offset="0%" stop-color="#1e3a8a" />
                     <stop offset="100%" stop-color="#0f172a" />
                   </linearGradient>
-                  <linearGradient id="grad-hoodie" x1="0" y1="0" x2="0" y2="1">
+                  <linearGradient id="grad-hoodie" x1="0%" y1="0%" x2="0%" y2="1">
                     <stop offset="0%" stop-color="#2d2d3a" />
                     <stop offset="100%" stop-color="#14141a" />
                   </linearGradient>
@@ -1207,110 +1209,99 @@
                   letter-spacing="1px" text-transform="uppercase" font-family="'Outfit', sans-serif">Satisfação &amp;
                   Parceria</text>
 
-                <!-- dialogue bubbles -->
-                <!-- Bubble Left -->
-                <g class="bubble-left">
-                  <path
-                    d="M 32 80 h 26 a 4 4 0 0 1 4 4 v 12 a 4 4 0 0 1 -4 4 h -14 l -6 5 v -5 a 4 4 0 0 1 -6 -4 v -12 a 4 4 0 0 1 4 -4"
-                    fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="0.8" />
-                  <text x="45" y="93" fill="#ff3366" font-size="9" text-anchor="middle">❤</text>
+                <!-- Floating stars in background -->
+                <path d="M 40 70 L 41 72 L 43 73 L 41 74 L 40 76 L 39 74 L 37 73 L 39 72 Z" fill="var(--accent-cyan)" opacity="0.6" />
+                <path d="M 160 60 L 161 62 L 163 63 L 161 64 L 160 66 L 159 64 L 157 63 L 159 62 Z" fill="var(--accent-cyan)" opacity="0.6" />
+                <path d="M 50 140 L 51 142 L 53 143 L 51 144 L 50 146 L 49 144 L 47 143 L 49 142 Z" fill="var(--accent-blue)" opacity="0.5" />
+                
+                <!-- ROCKET GROUP (All structures in one class for sync vibration/float) -->
+                <g class="rocket-group">
+                  <!-- Outer Wings/Fins -->
+                  <path d="M79 120 Q56 142 60 152 L79 148 Z" fill="url(#blueGrad)" />
+                  <path d="M121 120 Q144 142 140 152 L121 148 Z" fill="url(#blueGrad)" />
+
+                  <!-- Main Rocket Cylinder and Capsule Nose -->
+                  <path d="M79 85 C79 40, 121 40, 121 85 L121 142 L79 142 Z" fill="#15151c" stroke="rgba(255,255,255,0.08)" stroke-width="1.2" />
+                  <polygon points="90,44 110,44 100,28" fill="url(#blueGrad)" />
+
+                  <!-- Bottom Thruster Nozzle -->
+                  <rect x="91" y="142" width="18" height="6" rx="2" fill="#2d2d3a" />
+
+                  <!-- Layered Orange/Red Fire Flame -->
+                  <polygon class="thruster-flame" points="93,148 107,148 100,182" fill="url(#fireGrad)" filter="url(#glow-cyan)" />
+
+                  <!-- Window 1: Dev Félix (Main/Top Cockpit) -->
+                  <circle cx="100" cy="78" r="13" fill="#000" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+                  <g style="transform: translate(0px, 0px);">
+                    <!-- Headphone Band -->
+                    <path d="M 91 75 A 11 11 0 0 1 109 75" fill="none" stroke="var(--accent-cyan)" stroke-width="1.2" filter="url(#glow-cyan)" />
+                    <!-- Gamer Cups -->
+                    <rect x="88" y="73" width="3" height="6" rx="1" fill="#15151c" stroke="var(--accent-cyan)" stroke-width="0.6" filter="url(#glow-cyan)" />
+                    <rect x="109" y="73" width="3" height="6" rx="1" fill="#15151c" stroke="var(--accent-cyan)" stroke-width="0.6" filter="url(#glow-cyan)" />
+                    <!-- Head -->
+                    <path d="M90 75 C90 85, 110 85, 110 75 Z" fill="url(#svg-grad-skin)" />
+                    <!-- Hair -->
+                    <path d="M91 73 Q100 64 109 73 Z" fill="#15151c" />
+                    <!-- Glasses -->
+                    <circle cx="96" cy="77" r="4" fill="rgba(0, 210, 255, 0.05)" stroke="var(--accent-cyan)" stroke-width="0.5" filter="url(#glow-cyan)" />
+                    <circle cx="104" cy="77" r="4" fill="rgba(0, 210, 255, 0.05)" stroke="var(--accent-cyan)" stroke-width="0.5" filter="url(#glow-cyan)" />
+                    <line x1="99" y1="77" x2="101" y2="77" stroke="var(--accent-cyan)" stroke-width="0.5" />
+                    <!-- Happy eyes -->
+                    <path d="M 94 77 Q 96 75 98 77 M 102 77 Q 104 75 106 77" fill="none" stroke="#15151c" stroke-width="0.6" />
+                    <!-- Smile mouth -->
+                    <path d="M 99 81 Q 100 82 101 81" fill="none" stroke="#ff3366" stroke-width="0.6" stroke-linecap="round" />
+                    <!-- Hoodie chest with FT logo -->
+                    <path d="M90 84 C90 84, 100 82, 110 84 L111 94 L89 94 Z" fill="url(#grad-hoodie)" stroke="#2d2d3a" stroke-width="0.5" />
+                    <text x="100" y="91.5" fill="var(--accent-cyan)" font-size="6" font-weight="900" font-family="monospace" text-anchor="middle" filter="url(#glow-cyan)">FT</text>
+                  </g>
+
+                  <!-- Window 2: Businessman Chibi (Middle Cockpit) -->
+                  <circle cx="100" cy="105" r="10.5" fill="#000" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+                  <g style="transform: translate(0px, 0px);">
+                    <!-- Head -->
+                    <path d="M91 103 C91 112, 109 112, 109 103 Z" fill="url(#svg-grad-skin)" />
+                    <!-- Hair -->
+                    <path d="M91 101 Q100 93 109 101 Z" fill="#653b1b" />
+                    <!-- Eyes/Smile -->
+                    <circle cx="96" cy="103" r="0.8" fill="#15151c" />
+                    <circle cx="104" cy="103" r="0.8" fill="#15151c" />
+                    <path d="M98 106 Q100 108 102 106" fill="none" stroke="#653b1b" stroke-width="0.6" stroke-linecap="round" />
+                    <!-- Suit/Tie -->
+                    <path d="M92 110 L108 110 L106 117 L94 117 Z" fill="url(#grad-suit)" />
+                    <polygon points="99,110 101,110 102,115 100,117 98,115" fill="#ff3366" />
+                    <!-- Little hand waving -->
+                    <circle class="hand-wave-left" cx="89" cy="104" r="1.8" fill="#ffe5c4" stroke="#653b1b" stroke-width="0.3" />
+                  </g>
+
+                  <!-- Window 3: Doctor Chibi (Bottom Cockpit) -->
+                  <circle cx="100" cy="128" r="9.5" fill="#000" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+                  <g style="transform: translate(0px, 0px);">
+                    <!-- Head -->
+                    <path d="M92 126 C92 134, 108 134, 108 126 Z" fill="url(#svg-grad-skin)" />
+                    <!-- Hair -->
+                    <path d="M91 125 C89 135, 93 137, 93 137 C93 137, 100 115, 109 125 C111 135, 107 137, 107 137 Z" fill="#15151c" />
+                    <!-- Eyes/Smile -->
+                    <circle cx="97" cy="126" r="0.8" fill="#15151c" />
+                    <circle cx="103" cy="126" r="0.8" fill="#15151c" />
+                    <path d="M99 129 Q100 131 101 129" fill="none" stroke="#ff3366" stroke-width="0.6" stroke-linecap="round" />
+                    <!-- Coat/Stethoscope -->
+                    <path d="M93 132 L107 132 L105 138 L95 138 Z" fill="#f5f5f7" />
+                    <path d="M 97 132 Q 100 136 103 132" fill="none" stroke="#86868b" stroke-width="0.6" />
+                    <!-- Little hand waving -->
+                    <circle class="hand-wave-right" cx="111" cy="127" r="1.8" fill="#ffe5c4" stroke="#15151c" stroke-width="0.3" />
+                  </g>
                 </g>
 
-                <!-- Bubble Right -->
-                <g class="bubble-right">
-                  <path
-                    d="M 138 80 h 26 a 4 4 0 0 1 4 4 v 12 a 4 4 0 0 1 -4 4 h -6 l -6 5 v -5 a 4 4 0 0 1 -14 -4 v -12 a 4 4 0 0 1 4 -4"
-                    fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="0.8" />
-                  <text x="151" y="92" fill="#00d2ff" font-size="9" text-anchor="middle">👍</text>
-                </g>
-
-                <!-- MAIN CHARACTER: Dev Félix (Center) -->
-                <g class="character-felix" style="transform: translate(0px, 12px);">
-                  <!-- Headphone Band -->
-                  <path d="M 83 103 A 18 18 0 0 1 117 103" fill="none" stroke="var(--accent-cyan)" stroke-width="1.5"
-                    filter="url(#glow-cyan)" />
-                  <!-- Gamer Cups -->
-                  <rect x="79" y="100" width="5" height="10" rx="2" fill="#15151c" stroke="var(--accent-cyan)"
-                    stroke-width="0.8" filter="url(#glow-cyan)" />
-                  <rect x="116" y="100" width="5" height="10" rx="2" fill="#15151c" stroke="var(--accent-cyan)"
-                    stroke-width="0.8" filter="url(#glow-cyan)" />
-                  <!-- Head -->
-                  <path d="M82 102 C82 116, 118 116, 118 102 Z" fill="url(#svg-grad-skin)" />
-                  <!-- Hair -->
-                  <path d="M83 100 Q100 89 117 100 Q108 97 100 99 Q92 97 83 100 Z" fill="#15151c" />
-                  <!-- Glasses -->
-                  <circle cx="92" cy="105" r="6" fill="rgba(0, 210, 255, 0.05)" stroke="var(--accent-cyan)"
-                    stroke-width="0.8" filter="url(#glow-cyan)" />
-                  <circle cx="108" cy="105" r="6" fill="rgba(0, 210, 255, 0.05)" stroke="var(--accent-cyan)"
-                    stroke-width="0.8" filter="url(#glow-cyan)" />
-                  <line x1="98" y1="105" x2="102" y2="105" stroke="var(--accent-cyan)" stroke-width="0.8"
-                    filter="url(#glow-cyan)" />
-                  <!-- Happy eyes (Curved smiles) -->
-                  <path d="M 89 104 Q 92 102 95 104" fill="none" stroke="#15151c" stroke-width="1" />
-                  <path d="M 105 104 Q 108 102 111 104" fill="none" stroke="#15151c" stroke-width="1" />
-                  <!-- Blush -->
-                  <circle cx="85" cy="109" r="1.5" fill="#ff3366" fill-opacity="0.4" />
-                  <circle cx="115" cy="109" r="1.5" fill="#ff3366" fill-opacity="0.4" />
-                  <!-- Smile mouth -->
-                  <path d="M 97 110 Q 100 113 103 110" fill="none" stroke="#ff3366" stroke-width="1"
-                    stroke-linecap="round" />
-                  <!-- Hoodie body -->
-                  <path d="M83 115 C83 115, 100 112, 117 115 L119 135 L81 135 Z" fill="url(#grad-hoodie)"
-                    stroke="#2d2d3a" stroke-width="0.8" />
-                  <!-- Laptop -->
-                  <polygon points="85,130 115,130 120,140 80,140" fill="#15151c" stroke="var(--accent-cyan)"
-                    stroke-width="0.8" filter="url(#glow-cyan)" />
-                  <line x1="82" y1="136" x2="118" y2="136" stroke="var(--accent-cyan)" stroke-width="0.8" />
-                </g>
-
-                <!-- CLIENT 1: Businessman (Left) -->
-                <g class="character-client1" style="transform: translate(0px, 12px);">
-                  <!-- Head -->
-                  <path d="M38 112 C38 123, 62 123, 62 112 Z" fill="url(#svg-grad-skin)" />
-                  <!-- Hair (Brown/Corporate) -->
-                  <path d="M38 110 Q50 100 62 110 L58 106 L42 106 Z" fill="#653b1b" />
-                  <!-- Eyes -->
-                  <circle cx="45" cy="113" r="1" fill="#15151c" />
-                  <circle cx="55" cy="113" r="1" fill="#15151c" />
-                  <!-- Big happy smile -->
-                  <path d="M 48 116 Q 50 119 52 116" fill="none" stroke="#653b1b" stroke-width="1"
-                    stroke-linecap="round" />
-                  <!-- Suit -->
-                  <path d="M39 122 L61 122 L58 138 L42 138 Z" fill="url(#grad-suit)" />
-                  <!-- Red tie -->
-                  <polygon points="49,122 51,122 52,130 50,132 48,130" fill="#ff3366" />
-                  <!-- Little hand waving -->
-                  <circle class="hand-wave-left" cx="34" cy="120" r="2.5" fill="#ffe5c4" stroke="#653b1b" stroke-width="0.4" />
-                </g>
-
-                <!-- CLIENT 2: Medical/Professional (Right) -->
-                <g class="character-client2" style="transform: translate(0px, 12px);">
-                  <!-- Head -->
-                  <path d="M138 112 C138 123, 162 123, 162 112 Z" fill="url(#svg-grad-skin)" />
-                  <!-- Hair (Long dark hair) -->
-                  <path d="M137 110 C135 125, 140 128, 140 128 C140 128, 150 98, 162 110 C165 125, 160 128, 160 128 Z"
-                    fill="#15151c" />
-                  <!-- Eyes -->
-                  <circle cx="145" cy="113" r="1" fill="#15151c" />
-                  <circle cx="155" cy="113" r="1" fill="#15151c" />
-                  <!-- Big happy smile -->
-                  <path d="M 148 116 Q 150 119 152 116" fill="none" stroke="#ff3366" stroke-width="1"
-                    stroke-linecap="round" />
-                  <!-- Medical/Professional coat -->
-                  <path d="M139 122 L161 122 L158 138 L142 138 Z" fill="#f5f5f7" />
-                  <!-- Stethoscope lines -->
-                  <path d="M 145 122 Q 150 130 155 122" fill="none" stroke="#86868b" stroke-width="0.8" />
-                  <circle cx="150" cy="130" r="1.5" fill="#86868b" />
-                  <!-- Little hand waving -->
-                  <circle class="hand-wave-right" cx="166" cy="120" r="2.5" fill="#ffe5c4" stroke="#15151c" stroke-width="0.4" />
-                </g>
+                <!-- Launch Smoke clouds -->
+                <circle cx="80" cy="180" r="14" fill="rgba(255,255,255,0.02)" />
+                <circle cx="120" cy="180" r="14" fill="rgba(255,255,255,0.02)" />
+                <circle cx="100" cy="176" r="16" fill="rgba(255,255,255,0.03)" />
               </svg>
-              <div
-                style="font-size: 11px; font-weight: 700; color: var(--text-secondary); letter-spacing: 1px; text-transform: uppercase; margin-top: 8px;">
-                100% Projetos Bem-Sucedidos</div>
+              <div style="font-size: 11px; font-weight: 700; color: var(--text-secondary); letter-spacing: 1px; text-transform: uppercase; margin-top: 8px;">100% Projetos Bem-Sucedidos</div>
             </div>
           </div>
         </div>
+      </div>
     </section>
 
     <!-- Seção de Perfil Acadêmico e Profissional (Sobre Mim) -->

@@ -1369,7 +1369,8 @@ const initCookieBanner = () => {
     #ft-cookie-banner {
       position: fixed;
       bottom: 24px;
-      right: 24px;
+      left: 24px; /* Posicionado à esquerda conforme solicitação */
+      right: auto;
       width: calc(100% - 48px);
       max-width: 360px;
       background: rgba(10, 10, 12, 0.95);
@@ -1498,12 +1499,295 @@ const initCookieBanner = () => {
   });
 };
 
-// Inicializar quando o documento estiver pronto
+// ----------------------------------------------------
+// 9. Botão Flutuante do WhatsApp e Popup de Captura Integrado
+// ----------------------------------------------------
+const initWhatsAppWidget = () => {
+  // Injetar estilos do WhatsApp
+  const style = document.createElement('style');
+  style.innerHTML = `
+    #ft-wa-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    #ft-wa-float:hover {
+      transform: scale(1.1) translateY(-2px);
+      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+    }
+
+    #ft-wa-float:active {
+      transform: scale(0.95);
+    }
+
+    #ft-wa-float svg {
+      width: 32px;
+      height: 32px;
+      fill: #fff;
+    }
+
+    #ft-wa-float::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 2px solid #25D366;
+      border-radius: 50%;
+      animation: waPulse 2s infinite;
+      pointer-events: none;
+      box-sizing: border-box;
+    }
+
+    @keyframes waPulse {
+      0% { transform: scale(1); opacity: 0.6; }
+      100% { transform: scale(1.4); opacity: 0; }
+    }
+
+    #ft-wa-popup {
+      position: fixed;
+      bottom: 96px;
+      right: 24px;
+      width: 320px;
+      background: rgba(10, 10, 12, 0.96);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(0, 210, 255, 0.02);
+      z-index: 9998;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transform: translateY(20px) scale(0.9);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    }
+
+    #ft-wa-popup.active {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    #ft-wa-popup-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding-bottom: 10px;
+    }
+
+    #ft-wa-popup-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #f5f5f7;
+      margin: 0;
+    }
+
+    #ft-wa-popup p {
+      font-size: 12px;
+      color: #86868b;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .ft-wa-field {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      color: #fff;
+      padding: 10px 12px;
+      font-size: 13px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+      box-sizing: border-box;
+    }
+
+    .ft-wa-field:focus {
+      border-color: #00d2ff;
+      box-shadow: 0 0 8px rgba(0, 210, 255, 0.15);
+    }
+
+    #ft-wa-popup-btn {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      font-family: inherit;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+    }
+
+    #ft-wa-popup-btn:hover {
+      transform: scale(1.02);
+      opacity: 0.95;
+    }
+
+    #ft-wa-popup-btn:active {
+      transform: scale(0.98);
+    }
+
+    #ft-wa-popup-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: none;
+      border: none;
+      color: #86868b;
+      font-size: 18px;
+      cursor: pointer;
+      transition: color 0.2s ease;
+      line-height: 1;
+    }
+
+    #ft-wa-popup-close:hover {
+      color: #fff;
+    }
+
+    @media (max-width: 480px) {
+      #ft-wa-popup {
+        bottom: 96px;
+        left: 16px;
+        right: 16px;
+        width: auto;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Criar botão flutuante
+  const waFloat = document.createElement('div');
+  waFloat.id = 'ft-wa-float';
+  waFloat.title = 'Falar no WhatsApp';
+  waFloat.innerHTML = `
+    <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+      <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+    </svg>
+  `;
+  document.body.appendChild(waFloat);
+
+  // Criar popup de captura
+  const waPopup = document.createElement('div');
+  waPopup.id = 'ft-wa-popup';
+  waPopup.innerHTML = `
+    <button id="ft-wa-popup-close" title="Fechar">&times;</button>
+    <div id="ft-wa-popup-header">
+      <svg width="24" height="24" viewBox="0 0 448 512" fill="#25D366">
+        <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+      </svg>
+      <h4 id="ft-wa-popup-title">Iniciar conversa</h4>
+    </div>
+    <p>Olá! Insira suas informações para falar diretamente no meu WhatsApp comercial.</p>
+    
+    <input type="text" id="ft-wa-name" class="ft-wa-field" placeholder="Seu nome" required />
+    <input type="tel" id="ft-wa-phone" class="ft-wa-field" placeholder="Seu WhatsApp (com DDD)" required />
+    <input type="email" id="ft-wa-email" class="ft-wa-field" placeholder="Seu e-mail" required />
+    
+    <button id="ft-wa-popup-btn">
+      <span>Iniciar Chat</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13"></line>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+      </svg>
+    </button>
+  `;
+  document.body.appendChild(waPopup);
+
+  // Toggle Popup ao clicar no botão flutuante
+  waFloat.addEventListener('click', (e) => {
+    e.stopPropagation();
+    waPopup.classList.toggle('active');
+  });
+
+  // Fechar no botão X
+  const closeBtn = waPopup.querySelector('#ft-wa-popup-close');
+  closeBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    waPopup.classList.remove('active');
+  });
+
+  // Impedir fechar ao clicar dentro do popup
+  waPopup.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+
+  // Fechar ao clicar fora
+  document.addEventListener('click', () => {
+    waPopup.classList.remove('active');
+  });
+
+  // Evento do botão enviar
+  const sendBtn = waPopup.querySelector('#ft-wa-popup-btn');
+  sendBtn.addEventListener('click', () => {
+    const name = waPopup.querySelector('#ft-wa-name').value.trim();
+    const phone = waPopup.querySelector('#ft-wa-phone').value.trim();
+    const email = waPopup.querySelector('#ft-wa-email').value.trim();
+
+    if (!name || !phone || !email) {
+      alert('Por favor, preencha todos os campos do formulário.');
+      return;
+    }
+
+    // -------------------------------------------------------------------------
+    // FUTURA INTEGRAÇÃO COM BOT DE IA & AGENDAMENTOS (n8n, Make, webhook, etc.):
+    // Você pode enviar os dados preenchidos diretamente para o seu bot ou CRM 
+    // realizando uma chamada Fetch:
+    //
+    // fetch('https://seu-webhook-n8n.com/lead', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ nome: name, whatsapp: phone, email: email, data: new Date() })
+    // });
+    // -------------------------------------------------------------------------
+
+    // Construir mensagem personalizada
+    const message = `Olá! Meu nome é ${name} (E-mail: ${email}, WhatsApp: ${phone}). Gostaria de idealizar um projeto estratégico e solicitar um orçamento comercial com a FélixTec!`;
+    const waUrl = `https://wa.me/5547989224775?text=${encodeURIComponent(message)}`;
+
+    // Redirecionar para o WhatsApp real
+    window.open(waUrl, '_blank');
+    
+    // Fechar popup
+    waPopup.classList.remove('active');
+  });
+};
+
+// Inicializar tudo após carregamento
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initCookieBanner);
+  document.addEventListener('DOMContentLoaded', () => {
+    initCookieBanner();
+    initWhatsAppWidget();
+  });
 } else {
   initCookieBanner();
+  initWhatsAppWidget();
 }
+
 
 
 
