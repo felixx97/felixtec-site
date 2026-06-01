@@ -1045,21 +1045,95 @@ if (offerCard && offerModal && offerModalCard) {
 const serviceArticles = {
   webdev: {
     tag: "Desenvolvimento Web & UI/UX",
-    title: "Engenharia Web de Alta Performance",
+    title: "Desenvolvimento Web & UI/UX",
     content: `
-      <p>Desenvolvemos aplicações web e landing pages minimalistas com código 100% puro (Vite & Vanilla JavaScript), priorizando a <strong>velocidade e usabilidade extrema</strong>. Em um mercado saturado de construtores de arrastar-e-soltar pesados (como WordPress e Elementor), destacamos sua marca com carregamento abaixo de 0.5s e código cirúrgico.</p>
+      <div style="display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap-reverse;">
+        <div style="flex: 1.3; min-width: 280px;">
+          <p>Criamos aplicações web e landing pages minimalistas com código 100% puro e otimizado, priorizando a <strong>velocidade máxima de carregamento</strong> e a <strong>usabilidade cirúrgica (UI/UX)</strong>. Nossa missão é destacar a presença digital da sua marca com pontuação máxima de performance e design intuitivo.</p>
+          
+          <h4>Experiência do Usuário (UI/UX) &amp; Boas Práticas</h4>
+          <p>O design de uma página de alta conversão vai muito além da estética. Implementamos conceitos avançados de arquitetura de informação e design focado no usuário:</p>
+          
+          <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
+            <li style="position: relative; padding-left: 24px;">
+              <span style="position: absolute; left: 0; color: var(--accent-cyan);">→</span>
+              <strong>Hierarquia Visual Dinâmica:</strong> Direcionamento visual do olhar do visitante para as informações mais quentes e cruciais do seu negócio.
+            </li>
+            <li style="position: relative; padding-left: 24px;">
+              <span style="position: absolute; left: 0; color: var(--accent-cyan);">→</span>
+              <strong>Tipografia e Contrastes Legíveis:</strong> Textos refinados com proporções perfeitas para leitura confortável e sem fadiga visual em qualquer tela.
+            </li>
+            <li style="position: relative; padding-left: 24px;">
+              <span style="position: absolute; left: 0; color: var(--accent-cyan);">→</span>
+              <strong>Acessibilidade &amp; Touch Zones:</strong> Elementos clicáveis bem espaçados, botões confortáveis no mobile e adaptabilidade de múltiplos dispositivos.
+            </li>
+            <li style="position: relative; padding-left: 24px;">
+              <span style="position: absolute; left: 0; color: var(--accent-cyan);">→</span>
+              <strong>Foco Claro em Conversão:</strong> Chamadas para ação (CTAs) em locais estratégicos para conduzir o lead de forma natural à tomada de decisão.
+            </li>
+          </ul>
+
+          <h4>Nossa Abordagem de Engenharia</h4>
+          <p>Utilizamos um design system modular baseado em CSS sob medida. Cada transição é otimizada com o framework <strong>GSAP (GreenSock Animation Platform)</strong> para rodar a uma taxa constante de 60 frames por segundo, garantindo fluidez premium e indexação prioritária nos motores de busca do Google (Core Web Vitals).</p>
+        </div>
+        
+        <div style="flex: 0.7; min-width: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-light); border-radius: 20px; padding: 24px; box-shadow: inset 0 0 15px rgba(0, 210, 255, 0.05); text-align: center; margin: 0 auto;">
+          <!-- Animated Mascot Chibi Dev Félix in Modal -->
+          <div style="width: 120px; height: 120px; animation: modalMascotFloat 3s ease-in-out infinite alternate; position: relative;">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+              <defs>
+                <filter id="modal-glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="1.5" result="blur" />
+                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+                <linearGradient id="modal-grad-skin" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#ffe5c4" />
+                  <stop offset="100%" stop-color="#fca88f" />
+                </linearGradient>
+                <linearGradient id="modal-grad-hoodie" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#2d2d3a" />
+                  <stop offset="100%" stop-color="#14141a" />
+                </linearGradient>
+              </defs>
+              <!-- Headphone Band -->
+              <path d="M23 42 A 28 28 0 0 1 77 42" fill="none" stroke="var(--accent-cyan)" stroke-width="1.8" filter="url(#modal-glow-cyan)" />
+              <!-- Gamer Cups -->
+              <rect x="15" y="38" width="8" height="15" rx="4" fill="#15151c" stroke="var(--accent-cyan)" stroke-width="1.2" filter="url(#modal-glow-cyan)" />
+              <rect x="77" y="38" width="8" height="15" rx="4" fill="#15151c" stroke="var(--accent-cyan)" stroke-width="1.2" filter="url(#modal-glow-cyan)" />
+              <!-- Head -->
+              <path d="M22 42 C22 60, 78 60, 78 42 Z" fill="url(#modal-grad-skin)" />
+              <!-- Hair -->
+              <path d="M23 40 Q50 25 77 40 Q64 35 50 38 Q36 35 23 40 Z" fill="#15151c" />
+              <!-- Glasses -->
+              <circle cx="37" cy="46" r="9.5" fill="rgba(0, 210, 255, 0.05)" stroke="var(--accent-cyan)" stroke-width="1.2" filter="url(#modal-glow-cyan)" />
+              <circle cx="63" cy="46" r="9.5" fill="rgba(0, 210, 255, 0.05)" stroke="var(--accent-cyan)" stroke-width="1.2" filter="url(#modal-glow-cyan)" />
+              <line x1="46.5" y1="46" x2="53.5" y2="46" stroke="var(--accent-cyan)" stroke-width="1.2" filter="url(#modal-glow-cyan)" />
+              <!-- Eyes -->
+              <circle cx="37" cy="46" r="3.2" fill="#15151c" />
+              <circle cx="63" cy="46" r="3.2" fill="#15151c" />
+              <circle cx="38.5" cy="44.5" r="1" fill="#ffffff" />
+              <circle cx="64.5" cy="44.5" r="1" fill="#ffffff" />
+              <!-- Blush -->
+              <circle cx="25" cy="51" r="2.5" fill="#ff3366" fill-opacity="0.4" />
+              <circle cx="75" cy="51" r="2.5" fill="#ff3366" fill-opacity="0.4" />
+              <!-- Hoodie -->
+              <path d="M23 60 C23 60, 50 56, 77 60 L80 92 L20 92 Z" fill="url(#modal-grad-hoodie)" stroke="#2d2d3a" stroke-width="1.2" />
+              <!-- Logo FT -->
+              <path d="M44.8 69.5 V63.5 H48.5 V64.7 H45.8 V66.1 H48 V67.2 H45.8 V69.5 Z" fill="var(--accent-cyan)" filter="url(#modal-glow-cyan)" />
+              <path d="M50 63.5 H55.2 V64.7 H53.5 V69.5 H51.9 V64.7 H50 Z" fill="var(--accent-cyan)" filter="url(#modal-glow-cyan)" />
+            </svg>
+          </div>
+          <span style="font-size: 11px; font-weight: 700; color: var(--accent-cyan); letter-spacing: 0.5px; text-transform: uppercase;">Dev Félix</span>
+          <p style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin: 0;">Focado em criar layouts intuitivos e carregamentos instantâneos para a sua empresa.</p>
+        </div>
+      </div>
       
-      <h4>Nossa Abordagem de Engenharia</h4>
-      <p>Utilizamos um design system modular baseado em CSS sob medida. Cada transição é otimizada com o framework <strong>GSAP (GreenSock Animation Platform)</strong> para rodar a uma taxa constante de 60 frames por segundo. Isso reflete diretamente na retenção do usuário e na credibilidade digital do seu negócio.</p>
-      
-      <h4>Benefícios Estratégicos:</h4>
-      <ul>
-        <li><strong>Velocidade Superior:</strong> Indexação prioritária nos motores de busca do Google (Core Web Vitals).</li>
-        <li><strong>Foco em Conversão (UI/UX):</strong> Jornada de navegação fluida desenhada por um especialista para capturar leads.</li>
-        <li><strong>Design Apple-Inspired:</strong> Minimalismo premium, tipografias modernas e harmonia cromática impecável.</li>
-      </ul>
-      
-      <p><em>"O design não é apenas o que parece ou se sente. O design é como funciona."</em> Com essa premissa, garantimos que seu site se torne uma máquina autônoma de aquisição de novos clientes.</p>
+      <style>
+        @keyframes modalMascotFloat {
+          0% { transform: translateY(0px) rotate(0deg); }
+          100% { transform: translateY(-6px) rotate(2deg); }
+        }
+      </style>
     `
   },
   automation: {
