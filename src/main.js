@@ -1360,6 +1360,12 @@ const initCookieBanner = () => {
   // Injetar estilos CSS de forma dinâmica
   const style = document.createElement('style');
   style.innerHTML = `
+    /* Garantir que o cursor fluido customizado fique acima do banner */
+    .custom-cursor, #custom-cursor,
+    .custom-cursor-dot, #custom-cursor-dot {
+      z-index: 999999 !important;
+    }
+
     #ft-cookie-banner {
       position: fixed;
       bottom: 24px;
