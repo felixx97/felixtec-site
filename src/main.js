@@ -1753,17 +1753,22 @@ const initWhatsAppWidget = () => {
       return;
     }
 
-    // -------------------------------------------------------------------------
-    // FUTURA INTEGRAÇÃO COM BOT DE IA & AGENDAMENTOS (n8n, Make, webhook, etc.):
-    // Você pode enviar os dados preenchidos diretamente para o seu bot ou CRM 
-    // realizando uma chamada Fetch:
-    //
-    // fetch('https://seu-webhook-n8n.com/lead', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({ nome: name, whatsapp: phone, email: email, data: new Date() })
-    // });
-    // -------------------------------------------------------------------------
+    // Enviar dados em tempo real para o Google Sheets Apps Script Webhook
+    const webhookUrl = 'https://script.google.com/macros/s/AKfycby2ReFA66FpTSvlCTdQuI3buSn_KrZWEDbMwTwWus_32yJSryICn2WsNhaqErCepdnyuA/exec';
+    
+    fetch(webhookUrl, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        origem: 'Formulario_WhatsApp',
+        nome: name,
+        whatsapp: phone,
+        email: email
+      })
+    }).catch(err => console.error('Erro ao registrar lead do WhatsApp:', err));
 
     // Construir mensagem personalizada
     const message = `Olá! Meu nome é ${name} (E-mail: ${email}, WhatsApp: ${phone}). Gostaria de idealizar um projeto estratégico e solicitar um orçamento comercial com a FélixTec!`;
@@ -1803,24 +1808,23 @@ const initContactForm = () => {
     submitBtn.style.pointerEvents = 'none';
     submitBtn.innerHTML = '<span>Processando...</span>';
 
-    // -------------------------------------------------------------------------
-    // FUTURA INTEGRAÇÃO COM GOOGLE SHEETS / webhook (n8n, Make, Apps Script):
-    // Descomente e configure este trecho para registrar o contato em sua planilha:
-    //
-    // const webhookUrl = 'https://seu-script-ou-webhook.com';
-    // fetch(webhookUrl, {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({
-    //     origem: 'Formulario_Footer',
-    //     nome: name,
-    //     email: email,
-    //     servico: service,
-    //     mensagem: message,
-    //     data: new Date().toISOString()
-    //   })
-    // }).catch(err => console.error(err));
-    // -------------------------------------------------------------------------
+    // Enviar dados em tempo real para o Google Sheets Apps Script Webhook
+    const webhookUrl = 'https://script.google.com/macros/s/AKfycby2ReFA66FpTSvlCTdQuI3buSn_KrZWEDbMwTwWus_32yJSryICn2WsNhaqErCepdnyuA/exec';
+    
+    fetch(webhookUrl, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        origem: 'Formulario_Footer',
+        nome: name,
+        email: email,
+        servico: service,
+        mensagem: message
+      })
+    }).catch(err => console.error('Erro ao registrar lead do rodapé:', err));
 
     // Feedback visual premium de sucesso
     setTimeout(() => {
