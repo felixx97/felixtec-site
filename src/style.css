@@ -49,7 +49,8 @@
   }
 }
 
-html, body {
+html,
+body {
   width: 100%;
   overflow-x: hidden;
 }
@@ -592,8 +593,15 @@ body {
 }
 
 @keyframes bubbleFloat {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-4px) scale(1.02); }
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-4px) scale(1.02);
+  }
 }
 
 .btn-primary,
@@ -732,7 +740,7 @@ body {
 }
 
 .section-title {
-  font-size: 42px;
+  font-size: 38px;
   font-weight: 700;
   letter-spacing: -1px;
   line-height: 1.2;
@@ -1025,6 +1033,7 @@ body {
   0% {
     transform: translateY(0px) rotate(0deg);
   }
+
   100% {
     transform: translateY(-5px) rotate(1deg);
   }
@@ -1035,6 +1044,7 @@ body {
     filter: drop-shadow(0 0 2px rgba(0, 210, 255, 0.4));
     opacity: 0.8;
   }
+
   100% {
     filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.9));
     opacity: 1;
@@ -1046,6 +1056,7 @@ body {
     filter: drop-shadow(0 0 2px rgba(255, 51, 102, 0.4));
     opacity: 0.8;
   }
+
   100% {
     filter: drop-shadow(0 0 10px rgba(255, 51, 102, 0.9));
     opacity: 1;
@@ -1056,6 +1067,7 @@ body {
   0% {
     transform: translate(0px, 0px);
   }
+
   100% {
     transform: translate(4px, -4px);
   }
@@ -1065,6 +1077,7 @@ body {
   0% {
     stroke-dashoffset: 200;
   }
+
   100% {
     stroke-dashoffset: 0;
   }
@@ -2409,7 +2422,8 @@ body {
 /* Tactile Glassmorphic Robot Control Trigger - Large Circular Joystick style */
 .gamepad-trigger-btn {
   position: absolute;
-  top: 50px; /* Inside the editor body area, right below the header */
+  top: 50px;
+  /* Inside the editor body area, right below the header */
   right: 20px;
   width: 52px;
   height: 52px;
@@ -2417,13 +2431,15 @@ body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 2.5px solid rgba(0, 210, 255, 0.45);
-  border-radius: 50%; /* Perfect circle */
+  border-radius: 50%;
+  /* Perfect circle */
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--accent-cyan);
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Snappy bouncy animation! */
-  box-shadow: inset 0 2px 5px rgba(255,255,255,0.1), inset 0 -3px 8px rgba(0,0,0,0.8), 0 6px 15px rgba(0, 0, 0, 0.8), 0 0 12px rgba(0, 210, 255, 0.15);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Snappy bouncy animation! */
+  box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.1), inset 0 -3px 8px rgba(0, 0, 0, 0.8), 0 6px 15px rgba(0, 0, 0, 0.8), 0 0 12px rgba(0, 210, 255, 0.15);
   z-index: 15;
   user-select: none;
   cursor: pointer !important;
@@ -2432,13 +2448,13 @@ body {
 .gamepad-trigger-btn:hover {
   border-color: var(--accent-cyan);
   background: radial-gradient(circle at 35% 35%, #222228 0%, #0f0f13 60%, #050508 100%);
-  box-shadow: inset 0 2px 5px rgba(255,255,255,0.15), inset 0 -3px 8px rgba(0,0,0,0.8), 0 0 22px rgba(0, 210, 255, 0.6), 0 8px 24px rgba(0, 0, 0, 0.75);
+  box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.15), inset 0 -3px 8px rgba(0, 0, 0, 0.8), 0 0 22px rgba(0, 210, 255, 0.6), 0 8px 24px rgba(0, 0, 0, 0.75);
   transform: scale(1.1) rotate(15deg);
 }
 
 .gamepad-trigger-btn:active {
   transform: scale(0.92) rotate(-15deg);
-  box-shadow: inset 0 3px 6px rgba(0,0,0,0.9), inset 0 1px 3px rgba(255,255,255,0.05), 0 2px 6px rgba(0,0,0,0.8);
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.9), inset 0 1px 3px rgba(255, 255, 255, 0.05), 0 2px 6px rgba(0, 0, 0, 0.8);
 }
 
 .gamepad-trigger-btn svg {
@@ -2450,12 +2466,15 @@ body {
 /* Expanded Gamepad Controller Panel - Ultra-compact Vertical Sidebar style */
 .gamepad-panel {
   position: absolute;
-  top: 110px; /* Sits below the joystick button */
+  top: 110px;
+  /* Sits below the joystick button */
   right: 20px;
   left: auto;
   bottom: auto;
-  width: 124px; /* Narrow vertical design */
-  height: auto; /* Fits contents perfectly, eliminating bottom space */
+  width: 124px;
+  /* Narrow vertical design */
+  height: auto;
+  /* Fits contents perfectly, eliminating bottom space */
   background: rgba(8, 8, 10, 0.96);
   backdrop-filter: blur(15px) saturate(180%);
   -webkit-backdrop-filter: blur(15px) saturate(180%);
@@ -2469,7 +2488,8 @@ body {
   gap: 8px;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(-8px) scale(0.96); /* Elegant pop-down! */
+  transform: translateY(-8px) scale(0.96);
+  /* Elegant pop-down! */
   transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   user-select: none;
 }
@@ -2550,7 +2570,8 @@ body {
   font-size: 9px !important;
   font-weight: 600 !important;
   display: flex !important;
-  flex-direction: row !important; /* Horizontal row button style */
+  flex-direction: row !important;
+  /* Horizontal row button style */
   align-items: center !important;
   justify-content: flex-start !important;
   gap: 6px !important;
@@ -2575,7 +2596,8 @@ body {
   color: var(--text-primary) !important;
   background: rgba(0, 210, 255, 0.08) !important;
   box-shadow: 0 0 6px rgba(0, 210, 255, 0.12) !important;
-  transform: translateX(2px) !important; /* Slide right a bit on hover! */
+  transform: translateX(2px) !important;
+  /* Slide right a bit on hover! */
 }
 
 .control-btn.gamepad-btn:hover svg {
@@ -2607,6 +2629,7 @@ body {
     stroke: var(--accent-cyan);
     filter: drop-shadow(0 0 3px var(--accent-cyan));
   }
+
   100% {
     transform: scaleY(1.25) scaleX(1.05);
     opacity: 1;
@@ -2631,10 +2654,13 @@ body {
     opacity: 1 !important;
     overflow: visible !important;
     aspect-ratio: auto !important;
-    height: 380px !important; /* Fixed height for code screen */
+    height: 380px !important;
+    /* Fixed height for code screen */
     width: 100% !important;
-    max-width: 580px !important; /* Matches .hero-offer-card perfectly for symmetric alignment! */
-    margin: 0 auto 90px auto !important; /* Space for horizontal gamepad panel below & symmetric centering! */
+    max-width: 580px !important;
+    /* Matches .hero-offer-card perfectly for symmetric alignment! */
+    margin: 0 auto 90px auto !important;
+    /* Space for horizontal gamepad panel below & symmetric centering! */
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 
@@ -2653,7 +2679,8 @@ body {
     opacity: 1 !important;
     height: 110px !important;
     width: 100% !important;
-    max-width: 580px !important; /* Matches .hero-offer-card perfectly for perfect visual centering and alignment! */
+    max-width: 580px !important;
+    /* Matches .hero-offer-card perfectly for perfect visual centering and alignment! */
     margin: 40px auto 40px auto !important;
     padding: 0 !important;
     cursor: pointer;
@@ -2715,7 +2742,7 @@ body {
   .ide-tab-hint {
     display: none;
   }
-  
+
 
 
   /* Mascot positioning when collapsed */
@@ -2730,18 +2757,39 @@ body {
   }
 
   @keyframes felixPeek {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-4px) rotate(2deg); }
+
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+      transform: translateY(-4px) rotate(2deg);
+    }
   }
 
   @keyframes triggerPulse {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
+
+    0%,
+    100% {
+      opacity: 0.5;
+    }
+
+    50% {
+      opacity: 1;
+    }
   }
 
   @keyframes triggerScale {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+
+    0%,
+    100% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.1);
+    }
   }
 
   .gamepad-panel {
@@ -2789,7 +2837,8 @@ body {
   }
 
   .gamepad-group-title {
-    display: none !important; /* Hide label to save space and keep it clean */
+    display: none !important;
+    /* Hide label to save space and keep it clean */
   }
 
   .gamepad-btn-list {
@@ -2849,7 +2898,8 @@ body {
     left: 12px !important;
     right: auto !important;
     top: auto !important;
-    width: calc(100% - 100px) !important; /* Constrain width so it doesn't overlap the robot on the right */
+    width: calc(100% - 100px) !important;
+    /* Constrain width so it doesn't overlap the robot on the right */
     font-size: 8px !important;
     padding: 6px 10px !important;
     background: rgba(0, 210, 255, 0.08) !important;
@@ -2925,13 +2975,16 @@ body {
 .offer-modal-card::-webkit-scrollbar {
   width: 6px;
 }
+
 .offer-modal-card::-webkit-scrollbar-track {
   background: transparent;
 }
+
 .offer-modal-card::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 3px;
 }
+
 .offer-modal-card::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.2);
 }
@@ -3011,6 +3064,7 @@ body {
   .projects-showcase-grid {
     grid-template-columns: 1fr;
   }
+
   .offer-modal-card {
     padding: 30px 20px;
   }
@@ -3070,9 +3124,17 @@ body {
   border-radius: 50%;
 }
 
-.browser-dot.red { background: #ff5f56; }
-.browser-dot.yellow { background: #ffbd2e; }
-.browser-dot.green { background: #27c93f; }
+.browser-dot.red {
+  background: #ff5f56;
+}
+
+.browser-dot.yellow {
+  background: #ffbd2e;
+}
+
+.browser-dot.green {
+  background: #27c93f;
+}
 
 .browser-body {
   flex-grow: 1;
@@ -3093,8 +3155,13 @@ body {
 }
 
 @keyframes floatProjectIcon {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-4px); }
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-4px);
+  }
 }
 
 .project-showcase-info {
@@ -3337,12 +3404,12 @@ body {
 }
 
 .service-modal-card::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 3px;
 }
 
 .service-modal-card::-webkit-scrollbar-thumb:hover {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 @media (max-width: 768px) {
@@ -3350,6 +3417,7 @@ body {
     padding: 24px;
     max-height: 90vh;
   }
+
   .service-modal-title {
     font-size: 24px;
   }
