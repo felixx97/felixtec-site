@@ -1,90 +1,172 @@
-# FélixTec — Website Corporativo & Portfólio
+# 🚀 FélixTec — Manual de Engenharia, Design & Integrações (Wiki do Projeto)
 
-Este é o repositório oficial do website e portfólio da **FélixTec**, desenvolvido para destacar soluções de tecnologia, ciência da informação, automação comercial e desenvolvimento de sistemas ágeis e de alta performance.
+Este repositório contém o código-fonte do ecossistema corporativo da **FélixTec**. O site foi desenvolvido seguindo os mais altos padrões de design moderno (estética premium minimalista e *glassmorphic*) combinados com engenharia de software de alta performance, animações fluidas e prontidão para integrações comerciais inteligentes.
 
-O projeto foi projetado com foco em design moderno, experiência do usuário (UX/UI) avançada e animações de alta fidelidade que valorizam a identidade da marca, sem abrir mão da simplicidade e clareza para clientes e empresários de diversos setores.
-
----
-
-## 🚀 Tecnologias & Arquitetura
-
-O ecossistema é baseado em tecnologias web modernas de alta performance:
-*   **Vite**: Agrupador (*bundler*) e servidor de desenvolvimento ultrarrápido para carregamento instantâneo de recursos.
-*   **HTML5 Semântico**: Estrutura robusta focada em SEO e acessibilidade.
-*   **Vanilla CSS3**: Design sob medida com variáveis CSS, gradients fluidos, efeito de vidro fosco (*glassmorphism*) e responsividade total.
-*   **GSAP (GreenSock Animation Platform)**: Motor de animações utilizado para as transições dinâmicas de revelação (*scroll reveal*), efeitos de mouse e micro-interações do site.
+Este documento funciona como um **manual técnico e operacional** completo para que você possa entender cada engrenagem do projeto e dar continuidade à expansão e às automações da marca.
 
 ---
 
-## 🛠️ Funcionalidades Recentes
-
-1.  **Widget de Satisfação Customizado (Foguete FélixTec)**:
-    *   Um foguete em formato vetorial (SVG) que simboliza decolagem e crescimento contínuo.
-    *   Traz o chibi do **Dev Félix** na cabine superior com a logo da marca **"FT"** estampada no capuz de seu moletom.
-    *   Duas cabines com clientes (um empresário e uma médica) acenam ativamente.
-    *   Animações interativas de vibração, chama propulsora pulsante e acenos de mão disparadas dinamicamente ao passar o mouse.
-    *   Ajuste visual de layout: remoção do círculo limitador (bolha) e reposicionamento dos títulos acima da ilustração, proporcionando sensação de liberdade e legibilidade impecável.
-2.  **Banner de Cookies e Segurança**:
-    *   Banner dinâmico de segurança e privacidade reposicionado no canto inferior esquerdo para melhor ergonomia visual.
-    *   Integração direta com o `localStorage` do navegador para guardar a aceitação do usuário de forma persistente.
-3.  **Botão de WhatsApp com Captura de Leads**:
-    *   Botão flutuante pulsante posicionado estrategicamente no canto inferior direito.
-    *   Abertura de formulário dinâmico adjacente coletando Nome, WhatsApp (com DDD) e E-mail.
-    *   Validação em tempo real dos campos obrigatórios e direcionamento direto para a conta comercial no WhatsApp (`5547989224775`) com texto personalizado pré-definido.
+## 📌 Sumário
+1. [🚀 Tecnologias, Bibliotecas & Frameworks](#-tecnologias-bibliotecas--frameworks)
+2. [✨ Manual de Animações & Estética Visual](#-manual-de-animações--estética-visual)
+3. [📊 Manual de Integração com Google Sheets (Apps Script Grátis)](#-manual-de-integração-com-google-sheets-apps-script-grátis)
+4. [🤖 Como funciona o Botão de WhatsApp & Lead Capture](#-como-funciona-o-botão-de-whatsapp--lead-capture)
+5. [🖥️ Como Executar o Projeto Localmente](#%EF%B8%8F-como-executar-o-projeto-localmente)
 
 ---
 
-## 🤖 Infraestrutura para Automação Futura (CRM, Webhooks & IA)
+## 🚀 Tecnologias, Bibliotecas & Frameworks
 
-O formulário de captura do WhatsApp localizado no arquivo `src/main.js` (função `initWhatsAppWidget`) foi estruturado de forma ideal para integrar com fluxos de automação avançados, CRMs ou ferramentas de Inteligência Artificial no futuro.
+Para garantir carregamento instantâneo, leveza e total flexibilidade criativa, o projeto utiliza uma arquitetura baseada em **código limpo**:
 
-### Como funciona a Automação
-Quando o cliente preenche os dados e clica em "Iniciar Chat", os dados recolhidos (Nome, WhatsApp, E-mail) podem ser enviados automaticamente para uma plataforma de integração (como **n8n**, **Make / Integromat** ou **Zapier**) através de um webhook HTTP POST.
+*   **Vite (v5.4.11)**: Utilizado como agrupador (*bundler*) e servidor de desenvolvimento ágil. O Vite compila os assets de forma otimizada para produção, unificando códigos e estilos e eliminando redundâncias.
+*   **Vanilla HTML5 & CSS3**: Estrutura semântica focada em acessibilidade e SEO técnico. O CSS utiliza uma arquitetura de variáveis centralizadas em `src/style.css` (tokens de cores HSL, sombras e tempos de transição).
+*   **GSAP (GreenSock Animation Platform) & ScrollTrigger (v3.12.5)**: A biblioteca padrão ouro de animação na web. Usada para calcular interações físicas, efeitos magnéticos e aparições dinâmicas de componentes à medida que o usuário rola a página.
 
-### Exemplo Prático de Código
-Para ativar essa integração no futuro, basta descomentar e adaptar o seguinte trecho localizado na função `initWhatsAppWidget()` em `src/main.js`:
+---
+
+## ✨ Manual de Animações & Estética Visual
+
+O site foi construído sobre uma identidade visual futurista e sofisticada. Veja como as principais interações estão implementadas:
+
+### 1. Cursor Fluido Magnético & Partículas de Código (`src/main.js`)
+*   **Como funciona**: Há dois elementos que formam o ponteiro do mouse (`#custom-cursor` e `#custom-cursor-dot`). O ponto interno se move instantaneamente com as coordenadas reais do mouse, enquanto o anel externo segue o ponteiro com um atraso suave calculado por interpolação linear (LERP) a uma taxa de atualização nativa do monitor.
+*   **Efeito magnético de hover**: Ao passar por links, botões ou cards interativos, o anel externo aumenta de tamanho e ganha uma borda neon, criando um efeito magnético sutil que guia a atenção do usuário.
+*   **Emissão de Partículas**: Conforme o mouse se desloca, o sistema gera dinamicamente pequenas palavras e operadores matemáticos reais de programação (ex: `const`, `let`, `function`, `=>`, `FélixTec`) que flutuam para cima, rotacionam e desaparecem gradualmente no ar usando físicas de opacidade com o motor GSAP.
+
+### 2. Efeito de Vidro Fosco (*Glassmorphism*)
+*   Os cards do portfólio de serviços, os formulários e os popups utilizam a propriedade CSS `backdrop-filter: blur(20px) saturate(180%)`. Isso borra e satura o conteúdo de fundo das seções, dando um aspecto de vidro fosco translúcido e futurista altamente premium.
+
+### 3. Foguete Interativo FélixTec (`index.html` - Seção Diferenciais)
+*   **Ilustração Vetorial**: Um foguete puro em SVG que decola de nuvens de fumaça sem nenhuma borda ou círculo limitador, passando a sensação de expansão ilimitada.
+*   **Animação Tridimensional**: Ao passar o mouse sobre o contêiner do widget (`satisfaction-container`), o foguete decola ligeiramente (`translateY(-12px)`), inicia uma vibração lateral de alta frequência (`rocketVibrate`), as chamas do propulsor pulsam com maior volume e os personagens nas cabines (Dev Félix com capuz **"FT"**, o empresário e a médica) acenam ativamente.
+
+---
+
+## 📊 Manual de Integração com Google Sheets (Apps Script Grátis)
+
+Você **não** precisa pagar por plataformas externas para enviar as informações do formulário do rodapé e do botão de WhatsApp para uma planilha. Você pode utilizar o **Google Apps Script**, que é uma ferramenta 100% gratuita do próprio Google Drive para hospedar sua própria API de Webhooks.
+
+Aqui está o manual completo de como fazer isso, unificando os leads em uma única planilha com duas abas separadas (*"Solicitações do Site"* e *"Leads do WhatsApp"*).
+
+### Passo 1: Preparar a Planilha do Google
+1. Crie uma nova planilha no seu Google Sheets.
+2. Nomeie a primeira aba (página) como `Solicitacoes_Site`.
+3. Na primeira linha da aba `Solicitacoes_Site`, crie os cabeçalhos:
+   `Data/Hora | Nome | E-mail | Serviço de Interesse | Mensagem/Projeto`
+4. Crie uma segunda aba (página) e nomeie como `Leads_WhatsApp`.
+5. Na primeira linha da aba `Leads_WhatsApp`, crie os cabeçalhos:
+   `Data/Hora | Nome | WhatsApp | E-mail`
+
+### Passo 2: Criar o Script Webhook (Google Apps Script)
+1. No menu superior da planilha, clique em **Extensões** > **Apps Script**.
+2. Apague o código padrão que aparecer lá e cole o seguinte código-fonte:
 
 ```javascript
-// Exemplo de envio dos dados coletados para o seu webhook de CRM ou n8n:
-const webhookUrl = 'https://seu-webhook-n8n-ou-make.com/lead-captura';
+function doPost(e) {
+  try {
+    // Obter os dados enviados pelo site em formato JSON
+    var data = JSON.parse(e.postData.contents);
+    var sheet = SpreadsheetApp.getActiveSpreadsheet();
+    
+    // Identificar a origem do lead para salvar na aba correta
+    if (data.origem === "Formulario_Footer") {
+      var targetSheet = sheet.getSheetByName("Solicitacoes_Site");
+      targetSheet.appendRow([
+        new Date(), // Data/Hora
+        data.nome,
+        data.email,
+        data.servico,
+        data.mensagem
+      ]);
+    } else if (data.origem === "Formulario_WhatsApp") {
+      var targetSheet = sheet.getSheetByName("Leads_WhatsApp");
+      targetSheet.appendRow([
+        new Date(), // Data/Hora
+        data.nome,
+        data.whatsapp,
+        data.email
+      ]);
+    }
+    
+    // Retornar resposta de sucesso em formato JSON
+    return ContentService.createTextOutput(JSON.stringify({ "status": "success", "message": "Lead registrado com sucesso!" }))
+                         .setMimeType(ContentService.MimeType.JSON);
+                         
+  } catch (error) {
+    // Retornar resposta de erro caso ocorra alguma falha
+    return ContentService.createTextOutput(JSON.stringify({ "status": "error", "message": error.toString() }))
+                         .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+```
+
+3. Clique no botão de **Salvar** (ícone de disquete).
+4. No canto superior direito, clique em **Implantar** (Deploy) > **Nova implantação**.
+5. Selecione o tipo de implantação clicando na engrenagem e escolhendo **Aplicativo da Web**.
+6. Preencha as configurações:
+   *   **Descrição**: *Webhook de Leads FélixTec*
+   *   **Executar como**: *Você (seu-email@gmail.com)*
+   *   **Quem tem acesso**: *Qualquer pessoa* (isso é essencial para o formulário do site conseguir enviar os dados sem precisar de login).
+7. Clique em **Implantar**. O Google solicitará permissão de acesso à sua planilha. Conceda a autorização.
+8. Ao finalizar, copie a **URL do aplicativo da web** gerada (ela termina com `/exec`). Essa é a sua **URL de Webhook**.
+
+---
+
+## 🤖 Como funciona o Botão de WhatsApp & Lead Capture
+
+Com a sua URL do Webhook do Google em mãos, veja como ativar a gravação em tempo real em ambos os formulários no projeto:
+
+### 1. Ativar na Captura do WhatsApp (`src/main.js`)
+Abra o arquivo `src/main.js`, localize a função `initWhatsAppWidget()` e atualize o evento do botão de envio para realizar o envio real (basta preencher a sua URL e descomentar o trecho de `fetch`):
+
+```javascript
+// Substitua o trecho atual correspondente por este código:
+const webhookUrl = 'SUA_URL_DO_APPS_SCRIPT_AQUI';
 
 fetch(webhookUrl, {
   method: 'POST',
+  mode: 'no-cors', // Evita problemas de CORS no envio ao Apps Script
   headers: {
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
+    origem: 'Formulario_WhatsApp',
     nome: name,
     whatsapp: phone,
-    email: email,
-    dataOrigem: new Date().toISOString(),
-    origem: 'Botao_Flutuante_WhatsApp'
+    email: email
   })
-})
-.then(response => {
-  if (response.ok) {
-    console.log('Lead enviado com sucesso para a automação.');
-  }
-})
-.catch(error => {
-  console.error('Erro ao registrar lead:', error);
 });
 ```
 
-### O que você pode fazer com essa Automação no Futuro:
-1.  **Bot de Inteligência Artificial (Triagem & Consultas)**:
-    *   Você pode criar um agente de IA no n8n (usando APIs da OpenAI, Gemini ou Claude) treinado com um documento de contexto que contenha todas as informações da sua empresa.
-    *   O bot pode receber as mensagens dos clientes, consultar a base de dados interna da FélixTec e tirar dúvidas sobre orçamentos, tecnologias recomendadas e prazos automaticamente.
-2.  **Agendamento Direto no Google Agenda**:
-    *   Integrar o webhook com a API do Google Calendar.
-    *   Caso o cliente decida marcar uma reunião, a automação verifica horários disponíveis na sua agenda e reserva o compromisso instantaneamente, enviando o convite para o e-mail do cliente.
-3.  **Alimentação de CRM e Funil de Vendas**:
-    *   Salvar o contato automaticamente em um banco de dados (relacional/não relacional) ou ferramenta de CRM (como HubSpot, RD Station, Trello ou Notion).
-    *   Disparar um e-mail de boas-vindas personalizado de forma 100% automatizada.
+### 2. Ativar no Formulário de Contato do Rodapé (`src/main.js`)
+Abra o arquivo `src/main.js`, localize a função `initContactForm()` e faça a mesma atualização inserindo a sua URL:
+
+```javascript
+// Substitua o trecho atual correspondente por este código:
+const webhookUrl = 'SUA_URL_DO_APPS_SCRIPT_AQUI';
+
+fetch(webhookUrl, {
+  method: 'POST',
+  mode: 'no-cors',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    origem: 'Formulario_Footer',
+    nome: name,
+    email: email,
+    servico: service,
+    mensagem: message
+  })
+});
+```
+
+Ao fazer isso, sempre que um formulário for disparado, o site enviará os leads instantaneamente para a respectiva aba da sua planilha do Google Sheets de forma silenciosa e automática, enquanto continua fornecendo os feedbacks visuais premium na tela do cliente.
 
 ---
 
-## 🛠️ Como Executar o Projeto Localmente
+## 🖥️ Como Executar o Projeto Localmente
 
 ### Instalação de Dependências
 ```bash
@@ -95,10 +177,9 @@ npm install
 ```bash
 npm run dev
 ```
-O projeto estará disponível por padrão no endereço local: [http://localhost:5173/](http://localhost:5173/) (ou na porta indicada pelo Vite).
 
 ### Compilação de Produção
 ```bash
 npm run build
 ```
-Os arquivos otimizados serão compilados dentro da pasta `/dist` prontos para deploy em servidores de hospedagem estática.
+Os arquivos otimizados serão compilados dentro da pasta `/dist` prontos para deploy final em servidores de hospedagem estática.

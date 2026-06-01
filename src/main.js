@@ -1777,15 +1777,80 @@ const initWhatsAppWidget = () => {
   });
 };
 
+// ----------------------------------------------------
+// 10. Formulário de Contato do Footer
+// ----------------------------------------------------
+const initContactForm = () => {
+  const contactForm = document.getElementById('contact-form');
+  if (!contactForm) return;
+
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const service = document.getElementById('service-select').value;
+    const message = document.getElementById('message').value.trim();
+    const submitBtn = document.getElementById('submit-btn');
+
+    if (!name || !email || !service || !message) {
+      alert('Por favor, preencha todos os campos do formulário.');
+      return;
+    }
+
+    // Mudar estado do botão para indicar processamento
+    const originalText = submitBtn.innerHTML;
+    submitBtn.style.pointerEvents = 'none';
+    submitBtn.innerHTML = '<span>Processando...</span>';
+
+    // -------------------------------------------------------------------------
+    // FUTURA INTEGRAÇÃO COM GOOGLE SHEETS / webhook (n8n, Make, Apps Script):
+    // Descomente e configure este trecho para registrar o contato em sua planilha:
+    //
+    // const webhookUrl = 'https://seu-script-ou-webhook.com';
+    // fetch(webhookUrl, {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({
+    //     origem: 'Formulario_Footer',
+    //     nome: name,
+    //     email: email,
+    //     servico: service,
+    //     mensagem: message,
+    //     data: new Date().toISOString()
+    //   })
+    // }).catch(err => console.error(err));
+    // -------------------------------------------------------------------------
+
+    // Feedback visual premium de sucesso
+    setTimeout(() => {
+      submitBtn.innerHTML = '<span>Solicitação Enviada!</span>';
+      submitBtn.style.background = 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)'; // Verde de sucesso
+
+      // Resetar formulário
+      contactForm.reset();
+
+      // Voltar ao estado original após 3 segundos
+      setTimeout(() => {
+        submitBtn.style.pointerEvents = 'all';
+        submitBtn.style.background = '';
+        submitBtn.innerHTML = originalText;
+      }, 3000);
+    }, 1000);
+  });
+};
+
 // Inicializar tudo após carregamento
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
     initCookieBanner();
     initWhatsAppWidget();
+    initContactForm();
   });
 } else {
   initCookieBanner();
   initWhatsAppWidget();
+  initContactForm();
 }
 
 
