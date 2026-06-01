@@ -1047,7 +1047,7 @@ const serviceArticles = {
     tag: "Desenvolvimento Web & UI/UX",
     title: "Desenvolvimento Web & UI/UX",
     content: `
-      <div style="display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap-reverse;">
+      <div style="display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap;">
         <!-- Left Side: Copy and Details -->
         <div style="flex: 1.25; min-width: 280px;">
           <p style="font-size: 15px; line-height: 1.6; color: var(--text-primary); margin-bottom: 24px;">
