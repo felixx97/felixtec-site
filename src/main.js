@@ -1051,50 +1051,54 @@ const serviceArticles = {
         <!-- Left Side: Copy and Details -->
         <div style="flex: 1.25; min-width: 280px;">
           <p style="font-size: 15px; line-height: 1.6; color: var(--text-primary); margin-bottom: 24px;">
-            Unimos design de interface refinado (UI) e engenharia de usabilidade (UX) para criar experiências digitais sob medida. O resultado são páginas rápidas, responsivas e estrategicamente desenhadas para converter visitantes em clientes ativos.
+            Unimos design de interface refinado (UI) e usabilidade focada na experiência do usuário (UX) para criar páginas dinâmicas e atraentes. Desenvolvemos soluções sob medida que guiam seus clientes de forma natural e geram mais oportunidades de negócio.
           </p>
           
           <h4 style="font-size: 16px; font-weight: 700; color: var(--accent-cyan); margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 6px; letter-spacing: 0.5px;">
             Boas Práticas de UI/UX
           </h4>
           <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.5;">
-            O design premium é centrado no usuário. Implementamos metodologias rigorosas para assegurar usabilidade e engajamento:
+            Um design premium coloca o cliente no centro de tudo. Cuidamos de cada detalhe visual e funcional:
           </p>
           
           <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px;">
             <li style="position: relative; padding-left: 28px; font-size: 14px; line-height: 1.5;">
               <span style="position: absolute; left: 0; color: var(--accent-cyan); font-weight: bold;">✓</span>
-              <strong>Hierarquia Visual & Escaneabilidade:</strong> Distribuição matemática de pesos visuais, contrastes e respiros de tela. O olhar do visitante é direcionado de forma natural às informações cruciais e ofertas, permitindo leitura rápida e intuitiva.
+              <strong>Hierarquia Visual & Escaneabilidade:</strong> Organização inteligente de tamanhos, cores e espaçamentos. As informações cruciais do seu negócio ganham destaque imediato, facilitando a leitura rápida.
             </li>
             <li style="position: relative; padding-left: 28px; font-size: 14px; line-height: 1.5;">
               <span style="position: absolute; left: 0; color: var(--accent-cyan); font-weight: bold;">✓</span>
-              <strong>Tipografia e Contrastes Legíveis (WCAG):</strong> Seleção tipográfica moderna e refinada, com proporções calculadas para leitura confortável. Cores calibradas para atingir o contraste ideal, evitando fadiga visual mesmo em usos prolongados.
+              <strong>Tipografia & Leitura Confortável:</strong> Proporções tipográficas refinadas e contraste de cores perfeito, garantindo uma leitura leve, agradável e sem cansaço visual em qualquer tipo de tela.
             </li>
             <li style="position: relative; padding-left: 28px; font-size: 14px; line-height: 1.5;">
               <span style="position: absolute; left: 0; color: var(--accent-cyan); font-weight: bold;">✓</span>
-              <strong>Acessibilidade & Touch Zones Mobile:</strong> Interação natural sob a zona de alcance confortável dos polegares. Botões e links com área ativa mínima de 48x48 pixels e amplos espaçamentos para eliminar cliques acidentais em smartphones.
+              <strong>Navegação Mobile Inteligente:</strong> Layout desenhado sob medida para a área de alcance confortável dos dedos nos celulares, com botões bem espaçados para evitar toques errados.
             </li>
             <li style="position: relative; padding-left: 28px; font-size: 14px; line-height: 1.5;">
               <span style="position: absolute; left: 0; color: var(--accent-cyan); font-weight: bold;">✓</span>
-              <strong>Foco Claro em Conversão (CTAs):</strong> Chamadas para ação dispostas em locais estratégicos ao longo da jornada do usuário. O layout resolve objeções e conduz o lead à ação final de contato pelo WhatsApp de forma fluida.
+              <strong>Foco em Conversão e Vendas:</strong> Botões de ação bem sinalizados e localizados nos melhores pontos da página para incentivar o visitante a iniciar uma conversa no WhatsApp com facilidade.
             </li>
           </ul>
 
           <h4 style="font-size: 16px; font-weight: 700; color: var(--accent-cyan); margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 6px; letter-spacing: 0.5px;">
-            Desenvolvimento Frontend & Performance
+            Desenvolvimento Inteligente & Sob Medida
           </h4>
           <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.5;">
-            Transformamos protótipos de alta fidelidade em código limpo, extremamente veloz e estável:
+            Oferecemos total flexibilidade técnica para construir a melhor versão do seu projeto:
           </p>
           
           <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 14px; margin-bottom: 10px;">
             <li style="position: relative; padding-left: 28px; font-size: 14px; line-height: 1.5;">
               <span style="position: absolute; left: 0; color: var(--accent-cyan); font-weight: bold;">✓</span>
-              <strong>Animações Fluidas em 60fps (GSAP):</strong> Transições sutis e micro-interações que reagem às ações do mouse e de rolagem. A interface ganha vida e dinamismo, entregando feedback visual premium sem impactar o desempenho.
+              <strong>Abordagem Híbrida (Código Puro ou Low-Code):</strong> Desenvolvemos seu site programando o código do zero para máxima performance e exclusividade técnica, ou utilizando plataformas modernas de baixo código (Low-Code) que aceleram a entrega e permitem que você mesmo atualize textos e imagens facilmente.
             </li>
             <li style="position: relative; padding-left: 28px; font-size: 14px; line-height: 1.5;">
               <span style="position: absolute; left: 0; color: var(--accent-cyan); font-weight: bold;">✓</span>
-              <strong>Performance Como Experiência (Velocidade):</strong> Páginas leves e rápidas desenvolvidas sem construtores visuais pesados (WordPress/Elementor). Carregamento instantâneo que reduz a rejeição e otimiza o posicionamento orgânico no Google.
+              <strong>Movimento & Elegância Visual:</strong> Animações sutis e fluidas que reagem de forma inteligente às ações do usuário. A página ganha vida e transmite profissionalismo, credibilidade e sofisticação de alto nível.
+            </li>
+            <li style="position: relative; padding-left: 28px; font-size: 14px; line-height: 1.5;">
+              <span style="position: absolute; left: 0; color: var(--accent-cyan); font-weight: bold;">✓</span>
+              <strong>Velocidade e Carregamento Rápido:</strong> Páginas leves que carregam de forma ágil, diminuindo a desistência de novos clientes e melhorando muito a visibilidade da sua empresa nas buscas orgânicas do Google.
             </li>
           </ul>
         </div>
@@ -1344,5 +1348,156 @@ if (serviceModal && serviceModalCard) {
     }
   });
 }
+
+// ----------------------------------------------------
+// 8. Banner Dinâmico de Cookies e Termos de Uso (Segurança & Privacidade)
+// ----------------------------------------------------
+const initCookieBanner = () => {
+  if (localStorage.getItem('ft_cookie_consent_accepted')) {
+    return;
+  }
+
+  // Injetar estilos CSS de forma dinâmica
+  const style = document.createElement('style');
+  style.innerHTML = `
+    #ft-cookie-banner {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: calc(100% - 48px);
+      max-width: 360px;
+      background: rgba(10, 10, 12, 0.95);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 210, 255, 0.03);
+      z-index: 10000;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transform: translateY(40px) scale(0.95);
+      opacity: 0;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+      pointer-events: none;
+    }
+
+    #ft-cookie-banner.active {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    #ft-cookie-banner p {
+      font-size: 13px;
+      color: #86868b;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    #ft-cookie-banner p a {
+      color: #00d2ff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    #ft-cookie-banner p a:hover {
+      color: #0071e3;
+      text-decoration: underline;
+    }
+
+    #ft-cookie-banner-title-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    #ft-cookie-banner-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #f5f5f7;
+      margin: 0;
+      letter-spacing: 0.3px;
+    }
+
+    #ft-cookie-banner-btn {
+      align-self: flex-end;
+      padding: 8px 18px;
+      background: linear-gradient(135deg, #0071e3 0%, #00d2ff 100%);
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: inherit;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      cursor: pointer;
+    }
+
+    #ft-cookie-banner-btn:hover {
+      transform: scale(1.02);
+      opacity: 0.95;
+    }
+
+    #ft-cookie-banner-btn:active {
+      transform: scale(0.98);
+    }
+
+    @media (max-width: 480px) {
+      #ft-cookie-banner {
+        bottom: 16px;
+        left: 16px;
+        right: 16px;
+        width: auto;
+        max-width: none;
+        padding: 16px;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Criar elemento do banner
+  const banner = document.createElement('div');
+  banner.id = 'ft-cookie-banner';
+  banner.innerHTML = `
+    <div id="ft-cookie-banner-title-row">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00d2ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 4px rgba(0, 210, 255, 0.4));">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+      </svg>
+      <h4 id="ft-cookie-banner-title">Segurança & Privacidade</h4>
+    </div>
+    <p>
+      Utilizamos cookies essenciais para analisar o tráfego de visitas e medir a segurança deste site. Ao continuar navegando, você concorda com nossos <a href="/politicas.html#termos">Termos de Uso</a> e <a href="/politicas.html#privacidade">Política de Privacidade</a>.
+    </p>
+    <button id="ft-cookie-banner-btn">Aceitar</button>
+  `;
+  document.body.appendChild(banner);
+
+  // Exibir com transição após 1.5 segundos
+  setTimeout(() => {
+    banner.classList.add('active');
+  }, 1500);
+
+  // Ação de fechar e salvar consentimento
+  const acceptBtn = banner.querySelector('#ft-cookie-banner-btn');
+  acceptBtn.addEventListener('click', () => {
+    banner.classList.remove('active');
+    localStorage.setItem('ft_cookie_consent_accepted', 'true');
+    setTimeout(() => {
+      banner.remove();
+    }, 600);
+  });
+};
+
+// Inicializar quando o documento estiver pronto
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initCookieBanner);
+} else {
+  initCookieBanner();
+}
+
 
 
