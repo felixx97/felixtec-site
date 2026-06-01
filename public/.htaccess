@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Se o arquivo ou diretório solicitado já existir fisicamente, não faz nada
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Reescreve URLs limpas para seus respectivos arquivos .html se eles existirem
+# Exemplo: /servicos -> /servicos.html ou /politicas -> /politicas.html
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^([^/]+)/?$ $1.html [L]
