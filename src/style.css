@@ -1122,7 +1122,7 @@ body {
 }
 
 .detail-title {
-  font-size: 38px;
+  font-size: 34px;
   font-weight: 700;
   letter-spacing: -0.5px;
   margin-bottom: 24px;
@@ -1724,6 +1724,11 @@ body {
   .detail-row {
     flex-direction: column;
     gap: 48px;
+  }
+
+  .detail-title {
+    font-size: 24px;
+    margin-bottom: 16px;
   }
 
   .contact-grid {
