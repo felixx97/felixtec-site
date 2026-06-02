@@ -605,7 +605,13 @@ if (document.querySelector('.hero-section')) {
     }
 
     document.addEventListener('click', (e) => {
-      if (!gamepadPanel.contains(e.target) && e.target !== gamepadTrigger) {
+      const idePanel = document.querySelector('.python-ide-panel');
+      if (
+        !gamepadPanel.contains(e.target) &&
+        e.target !== gamepadTrigger &&
+        !gamepadTrigger.contains(e.target) &&
+        (!idePanel || !idePanel.contains(e.target))
+      ) {
         gamepadPanel.classList.remove('active');
       }
     });
@@ -676,6 +682,11 @@ if (document.querySelector('.hero-section')) {
         // Trigger typewriter code animations
         typeCode();
 
+        // Expand the gamepad controls panel automatically!
+        if (gamepadPanel) {
+          gamepadPanel.classList.add('active');
+        }
+
         // Trigger gorgeous mascot elastic jump jump down!
         gsap.from('#main-robot', {
           y: -180,
@@ -701,6 +712,11 @@ if (document.querySelector('.hero-section')) {
           
           // Collapse IDE panel
           pythonIdePanel.classList.add('collapsed');
+
+          // Close the gamepad controls panel automatically when collapsing!
+          if (gamepadPanel) {
+            gamepadPanel.classList.remove('active');
+          }
           
           // Reset editor text and badge state so it re-types from scratch when expanded again
           const typingArea = document.getElementById('python-typing-area');
