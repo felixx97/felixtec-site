@@ -1,640 +1,1108 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17907993497"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'AW-17907993497');
-    </script>
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17907993497"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-    <!-- Event snippet for Contato_Botao_WhatsApp_FelixTec conversion page -->
-    <script>
+    gtag('config', 'AW-17907993497');
+  </script>
+
+  <!-- Event snippet for Contato_Botao_WhatsApp_FelixTec conversion page -->
+  <script>
     function gtag_report_conversion(url) {
       var callback = function () {
-        if (typeof(url) != 'undefined') {
+        if (typeof (url) != 'undefined') {
           window.location = url;
         }
       };
       gtag('event', 'conversion', {
-          'send_to': 'AW-17907993497/l-bMCIKIsbccEJmXmdtC',
-          'event_callback': callback
+        'send_to': 'AW-17907993497/l-bMCIKIsbccEJmXmdtC',
+        'event_callback': callback
       });
       return false;
     }
-    </script>
+  </script>
 
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Primary SEO Metadata -->
-    <title>Nossos Serviços | FélixTec</title>
-    <meta name="description" content="Explore em detalhes as nossas especialidades de engenharia digital: Desenvolvimento Web Pro, Automação Inteligente & IA e Gestão Avançada de Tráfego Pago." />
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph / Facebook / WhatsApp -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://felixtec.com.br/servicos.html" />
-    <meta property="og:title" content="Nossos Serviços | FélixTec" />
-    <meta property="og:description"
-      content="Explore em detalhes as nossas especialidades de engenharia digital: Desenvolvimento Web Pro, Automação Inteligente & IA e Gestão Avançada de Tráfego Pago para escalar sua empresa." />
-    <meta property="og:image" content="https://felixtec.com.br/og-image.png" />
+  <!-- Primary SEO Metadata -->
+  <title>Nossos Serviços | FélixTec</title>
+  <meta name="description"
+    content="Explore em detalhes as nossas especialidades de engenharia digital: Desenvolvimento Web Pro, Automação Inteligente & IA e Gestão Avançada de Tráfego Pago." />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://felixtec.com.br/servicos.html" />
-    <meta property="twitter:title" content="Nossos Serviços | FélixTec" />
-    <meta property="twitter:description"
-      content="Explore em detalhes as nossas especialidades de engenharia digital: Desenvolvimento Web Pro, Automação Inteligente & IA e Gestão Avançada de Tráfego Pago para escalar sua empresa." />
-    <meta property="twitter:image" content="https://felixtec.com.br/og-image.png" />
-    
-    <!-- Google Fonts - Outfit -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <!-- Ambient Mouse Radial Glow Background -->
-    <div class="ambient-glow" id="ambient-glow"></div>
-    
-    <!-- Custom Fluid Cursor -->
-    <div class="custom-cursor" id="custom-cursor"></div>
-    <div class="custom-cursor-dot" id="custom-cursor-dot"></div>
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://felixtec.com.br/servicos.html" />
+  <meta property="og:title" content="Nossos Serviços | FélixTec" />
+  <meta property="og:description"
+    content="Explore em detalhes as nossas especialidades de engenharia digital: Desenvolvimento Web Pro, Automação Inteligente & IA e Gestão Avançada de Tráfego Pago para escalar sua empresa." />
+  <meta property="og:image" content="https://felixtec.com.br/og-image.png" />
 
-    <div id="app">
-      <!-- Navigation Bar -->
-      <nav class="navbar" id="navbar">
-        <div class="nav-container">
-          <a href="/" class="nav-logo" id="nav-logo">FélixTec</a>
-          <ul class="nav-links">
-            <li><a href="/#inicio" class="nav-link">Início</a></li>
-            <li><a href="/#precos" class="nav-link">Planos</a></li>
-            <li><a href="/#diferenciais" class="nav-link">Diferenciais</a></li>
-            <li><a href="/servicos" class="nav-link active">Serviços</a></li>
-            <li><a href="/#contato" class="nav-link">Contato</a></li>
-          </ul>
-          <div class="nav-cta-dropdown">
-            <button class="nav-cta-btn" id="nav-cta-dropdown-btn" style="display: flex; align-items: center; justify-content: center; padding: 4px 12px;">
-              <svg width="80" height="26" viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                <style>
-                  @keyframes ship-move {
-                    0%, 40% { transform: translateX(-10px); }
-                    50%, 90% { transform: translateX(10px); }
-                    95%, 100% { transform: translateX(-10px); }
-                  }
-                  @keyframes invader-move {
-                    0%, 40% { transform: translateX(-10px); }
-                    50%, 90% { transform: translateX(10px); }
-                    95%, 100% { transform: translateX(-10px); }
-                  }
-                  @keyframes invader-status {
-                    0%, 29% { opacity: 1; }
-                    30%, 54% { opacity: 0; }
-                    55%, 79% { opacity: 1; }
-                    80%, 100% { opacity: 0; }
-                  }
-                  @keyframes laser-fly {
-                    0% { transform: translate(-10px, 0); opacity: 0; }
-                    10% { transform: translate(-10px, 0); opacity: 1; }
-                    30% { transform: translate(-10px, -8px); opacity: 1; }
-                    31%, 59% { opacity: 0; }
-                    60% { transform: translate(10px, 0); opacity: 1; }
-                    80% { transform: translate(10px, -8px); opacity: 1; }
-                    81%, 100% { opacity: 0; }
-                  }
-                  @keyframes spark-burst {
-                    0%, 29% { opacity: 0; transform: translate(-10px, 0) scale(0.5); }
-                    30% { opacity: 1; transform: translate(-10px, 0) scale(1); }
-                    44% { opacity: 0; transform: translate(-10px, 0) scale(1.6); }
-                    45%, 79% { opacity: 0; transform: translate(10px, 0) scale(0.5); }
-                    80% { opacity: 1; transform: translate(10px, 0) scale(1); }
-                    94% { opacity: 0; transform: translate(10px, 0) scale(1.6); }
-                    95%, 100% { opacity: 0; }
-                  }
-                  .w-ship {
-                    animation: ship-move 3s infinite ease-in-out;
-                    transform-origin: 30px 16.5px;
-                  }
-                  .w-invader {
-                    animation: invader-move 3s infinite ease-in-out, invader-status 3s infinite linear;
-                    transform-origin: 30px 5px;
-                  }
-                  .w-laser {
-                    animation: laser-fly 3s infinite linear;
-                    transform-origin: 30px 14px;
-                  }
-                  .w-spark {
-                    animation: spark-burst 3s infinite linear;
-                    transform-origin: 30px 5px;
-                  }
-                </style>
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://felixtec.com.br/servicos.html" />
+  <meta property="twitter:title" content="Nossos Serviços | FélixTec" />
+  <meta property="twitter:description"
+    content="Explore em detalhes as nossas especialidades de engenharia digital: Desenvolvimento Web Pro, Automação Inteligente & IA e Gestão Avançada de Tráfego Pago para escalar sua empresa." />
+  <meta property="twitter:image" content="https://felixtec.com.br/og-image.png" />
 
-                <!-- Widescreen Arcade Monitor Frame -->
-                <rect x="1" y="1" width="58" height="18" rx="3" fill="#040407" stroke="var(--accent-cyan)" stroke-width="1.2" style="filter: drop-shadow(0 0 2px rgba(0,210,255,0.4));"/>
-                
-                <!-- CRT Scanlines -->
-                <line x1="2" y1="5" x2="58" y2="5" stroke="rgba(0, 210, 255, 0.15)" stroke-width="0.5"/>
-                <line x1="2" y1="9" x2="58" y2="9" stroke="rgba(0, 210, 255, 0.15)" stroke-width="0.5"/>
-                <line x1="2" y1="13" x2="58" y2="13" stroke="rgba(0, 210, 255, 0.15)" stroke-width="0.5"/>
-                
-                <!-- Vector Invader (Pink) -->
-                <g class="w-invader">
-                  <path d="M27 4h6v2h-6V4zm1 2h4v1h-4V6zm-2-2h1v1H26V4zm7 0h1v1h-1V4zm-6 3h1v1h-1V7zm4 0h1v1h-1V7z" fill="#ff3366"/>
-                </g>
+  <!-- Google Fonts - Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+</head>
 
-                <!-- Laser Shot -->
-                <rect class="w-laser" x="29.5" y="13.5" width="1" height="2" rx="0.5" fill="#00d2ff" style="filter: drop-shadow(0 0 1px #00d2ff);"/>
+<body>
+  <!-- Ambient Mouse Radial Glow Background -->
+  <div class="ambient-glow" id="ambient-glow"></div>
 
-                <!-- Sparks Explosion -->
-                <g class="w-spark">
-                  <circle cx="28" cy="5" r="0.4" fill="#ff3366"/>
-                  <circle cx="32" cy="5" r="0.4" fill="#ff3366"/>
-                  <circle cx="30" cy="3" r="0.4" fill="#ff3366"/>
-                  <circle cx="30" cy="7" r="0.4" fill="#ff3366"/>
-                </g>
+  <!-- Custom Fluid Cursor -->
+  <div class="custom-cursor" id="custom-cursor"></div>
+  <div class="custom-cursor-dot" id="custom-cursor-dot"></div>
 
-                <!-- Spaceship Player (Cyan) -->
-                <g class="w-ship">
-                  <path d="M30 13.5L28 16.5H32L30 13.5z" fill="#00d2ff"/>
-                  <rect x="29.5" y="16.5" width="1" height="1.5" fill="#ff3366"/>
-                </g>
-              </svg>
-            </button>
-            <div class="nav-cta-dropdown-content" id="nav-cta-dropdown-menu">
-              <a href="https://s.team/p/jbqw-qwcj/grpcdqmq" target="_blank" rel="noopener noreferrer">
-                <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                  style="fill: currentColor; vertical-align: middle; margin-right: 8px;">
-                  <path
-                    d="M12 .007c-6.617 0-12 5.383-12 12 0 5.485 3.69 10.11 8.707 11.528l1.094-3.805c-.328-.219-.589-.508-.75-.851l-.039-.016-2.906-1.203c-1.246-.516-1.859-1.93-1.344-3.176.438-1.055 1.547-1.633 2.617-1.445l1.648-2.383c-.023-.195-.016-.398.023-.602.266-1.293 1.531-2.113 2.824-1.848 1.293.266 2.113 1.531 1.848 2.824-.227 1.109-1.191 1.863-2.277 1.863H12.2l-2.43 1.68c.039.227.039.461 0 .695l2.43 1.008c.559-.094 1.156.09 1.555.516l3.875-1.125C21.465 17.65 24 13.914 24 12.007c0-6.617-5.383-12-12-12zm-3.82 17.152c-.672 0-1.219-.547-1.219-1.219s.547-1.219(c.672 0 1.219.547 1.219 1.219s-.547 1.219-1.219 1.219zm0-.406c.45 0 .813-.363.813-.813s-.363-.813-.813-.813c-.45 0-.813.363-.813.813s.363.813.813.813z" />
-                </svg>
-                <span>Steam (Cód: 1623179030)</span>
-              </a>
-              <a href="https://discord.com/users/835327536770711573" target="_blank" rel="noopener noreferrer">
-                <svg width="14" height="14" viewBox="0 0 127.14 96.36" xmlns="http://www.w3.org/2000/svg"
-                  style="fill: currentColor; vertical-align: middle; margin-right: 8px;">
-                  <path
-                    d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65.64,77.53a105.73,105.73,0,0,0,32,16.29,80.5,80.5,0,0,0,6.83-11.13,68.8,68.8,0,0,1-10.85-5.22c.92-.67,1.81-1.38,2.67-2.12a75.42,75.42,0,0,0,71.74,0c.86.74,1.75,1.45,2.67,2.12a68.8,68.8,0,0,1-10.85,5.22,80.5,80.5,0,0,0,6.83,11.13,105.73,105.73,0,0,0,32-16.29C130.4,46.9,124.08,24.12,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.83,46,53.83,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.07,46,96.07,53,91,65.69,84.69,65.69Z" />
-                </svg>
-                <span>Discord (@abrahammfelixx)</span>
-              </a>
-            </div>
-          </div>
-          <button class="mobile-menu-toggle" aria-label="Toggle menu" id="mobile-toggle">
-            <span class="bar"></span>
-            <span class="bar"></span>
+  <div id="app">
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="/" class="nav-logo" id="nav-logo">FélixTec</a>
+        <ul class="nav-links">
+          <li><a href="/#inicio" class="nav-link">Início</a></li>
+          <li><a href="/#precos" class="nav-link">Planos</a></li>
+          <li><a href="/#diferenciais" class="nav-link">Diferenciais</a></li>
+          <li><a href="/servicos" class="nav-link active">Serviços</a></li>
+          <li><a href="/#contato" class="nav-link">Contato</a></li>
+        </ul>
+        <div class="nav-cta-dropdown">
+          <button class="nav-cta-btn" id="nav-cta-dropdown-btn"
+            style="display: flex; align-items: center; justify-content: center; padding: 4px 12px;">
+            <svg width="80" height="26" viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+              style="vertical-align: middle;">
+              <style>
+                @keyframes ship-move {
+
+                  0%,
+                  40% {
+                    transform: translateX(-10px);
+                  }
+
+                  50%,
+                  90% {
+                    transform: translateX(10px);
+                  }
+
+                  95%,
+                  100% {
+                    transform: translateX(-10px);
+                  }
+                }
+
+                @keyframes invader-move {
+
+                  0%,
+                  40% {
+                    transform: translateX(-10px);
+                  }
+
+                  50%,
+                  90% {
+                    transform: translateX(10px);
+                  }
+
+                  95%,
+                  100% {
+                    transform: translateX(-10px);
+                  }
+                }
+
+                @keyframes invader-status {
+
+                  0%,
+                  29% {
+                    opacity: 1;
+                  }
+
+                  30%,
+                  54% {
+                    opacity: 0;
+                  }
+
+                  55%,
+                  79% {
+                    opacity: 1;
+                  }
+
+                  80%,
+                  100% {
+                    opacity: 0;
+                  }
+                }
+
+                @keyframes laser-fly {
+                  0% {
+                    transform: translate(-10px, 0);
+                    opacity: 0;
+                  }
+
+                  10% {
+                    transform: translate(-10px, 0);
+                    opacity: 1;
+                  }
+
+                  30% {
+                    transform: translate(-10px, -8px);
+                    opacity: 1;
+                  }
+
+                  31%,
+                  59% {
+                    opacity: 0;
+                  }
+
+                  60% {
+                    transform: translate(10px, 0);
+                    opacity: 1;
+                  }
+
+                  80% {
+                    transform: translate(10px, -8px);
+                    opacity: 1;
+                  }
+
+                  81%,
+                  100% {
+                    opacity: 0;
+                  }
+                }
+
+                @keyframes spark-burst {
+
+                  0%,
+                  29% {
+                    opacity: 0;
+                    transform: translate(-10px, 0) scale(0.5);
+                  }
+
+                  30% {
+                    opacity: 1;
+                    transform: translate(-10px, 0) scale(1);
+                  }
+
+                  44% {
+                    opacity: 0;
+                    transform: translate(-10px, 0) scale(1.6);
+                  }
+
+                  45%,
+                  79% {
+                    opacity: 0;
+                    transform: translate(10px, 0) scale(0.5);
+                  }
+
+                  80% {
+                    opacity: 1;
+                    transform: translate(10px, 0) scale(1);
+                  }
+
+                  94% {
+                    opacity: 0;
+                    transform: translate(10px, 0) scale(1.6);
+                  }
+
+                  95%,
+                  100% {
+                    opacity: 0;
+                  }
+                }
+
+                .w-ship {
+                  animation: ship-move 3s infinite ease-in-out;
+                  transform-origin: 30px 16.5px;
+                }
+
+                .w-invader {
+                  animation: invader-move 3s infinite ease-in-out, invader-status 3s infinite linear;
+                  transform-origin: 30px 5px;
+                }
+
+                .w-laser {
+                  animation: laser-fly 3s infinite linear;
+                  transform-origin: 30px 14px;
+                }
+
+                .w-spark {
+                  animation: spark-burst 3s infinite linear;
+                  transform-origin: 30px 5px;
+                }
+              </style>
+
+              <!-- Widescreen Arcade Monitor Frame -->
+              <rect x="1" y="1" width="58" height="18" rx="3" fill="#040407" stroke="var(--accent-cyan)"
+                stroke-width="1.2" style="filter: drop-shadow(0 0 2px rgba(0,210,255,0.4));" />
+
+              <!-- CRT Scanlines -->
+              <line x1="2" y1="5" x2="58" y2="5" stroke="rgba(0, 210, 255, 0.15)" stroke-width="0.5" />
+              <line x1="2" y1="9" x2="58" y2="9" stroke="rgba(0, 210, 255, 0.15)" stroke-width="0.5" />
+              <line x1="2" y1="13" x2="58" y2="13" stroke="rgba(0, 210, 255, 0.15)" stroke-width="0.5" />
+
+              <!-- Vector Invader (Pink) -->
+              <g class="w-invader">
+                <path d="M27 4h6v2h-6V4zm1 2h4v1h-4V6zm-2-2h1v1H26V4zm7 0h1v1h-1V4zm-6 3h1v1h-1V7zm4 0h1v1h-1V7z"
+                  fill="#ff3366" />
+              </g>
+
+              <!-- Laser Shot -->
+              <rect class="w-laser" x="29.5" y="13.5" width="1" height="2" rx="0.5" fill="#00d2ff"
+                style="filter: drop-shadow(0 0 1px #00d2ff);" />
+
+              <!-- Sparks Explosion -->
+              <g class="w-spark">
+                <circle cx="28" cy="5" r="0.4" fill="#ff3366" />
+                <circle cx="32" cy="5" r="0.4" fill="#ff3366" />
+                <circle cx="30" cy="3" r="0.4" fill="#ff3366" />
+                <circle cx="30" cy="7" r="0.4" fill="#ff3366" />
+              </g>
+
+              <!-- Spaceship Player (Cyan) -->
+              <g class="w-ship">
+                <path d="M30 13.5L28 16.5H32L30 13.5z" fill="#00d2ff" />
+                <rect x="29.5" y="16.5" width="1" height="1.5" fill="#ff3366" />
+              </g>
+            </svg>
           </button>
+          <div class="nav-cta-dropdown-content" id="nav-cta-dropdown-menu">
+            <a href="https://s.team/p/jbqw-qwcj/grpcdqmq" target="_blank" rel="noopener noreferrer">
+              <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                style="fill: currentColor; vertical-align: middle; margin-right: 8px;">
+                <path
+                  d="M12 .007c-6.617 0-12 5.383-12 12 0 5.485 3.69 10.11 8.707 11.528l1.094-3.805c-.328-.219-.589-.508-.75-.851l-.039-.016-2.906-1.203c-1.246-.516-1.859-1.93-1.344-3.176.438-1.055 1.547-1.633 2.617-1.445l1.648-2.383c-.023-.195-.016-.398.023-.602.266-1.293 1.531-2.113 2.824-1.848 1.293.266 2.113 1.531 1.848 2.824-.227 1.109-1.191 1.863-2.277 1.863H12.2l-2.43 1.68c.039.227.039.461 0 .695l2.43 1.008c.559-.094 1.156.09 1.555.516l3.875-1.125C21.465 17.65 24 13.914 24 12.007c0-6.617-5.383-12-12-12zm-3.82 17.152c-.672 0-1.219-.547-1.219-1.219s.547-1.219(c.672 0 1.219.547 1.219 1.219s-.547 1.219-1.219 1.219zm0-.406c.45 0 .813-.363.813-.813s-.363-.813-.813-.813c-.45 0-.813.363-.813.813s.363.813.813.813z" />
+              </svg>
+              <span>Steam (Cód: 1623179030)</span>
+            </a>
+            <a href="https://discord.com/users/835327536770711573" target="_blank" rel="noopener noreferrer">
+              <svg width="14" height="14" viewBox="0 0 127.14 96.36" xmlns="http://www.w3.org/2000/svg"
+                style="fill: currentColor; vertical-align: middle; margin-right: 8px;">
+                <path
+                  d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65.64,77.53a105.73,105.73,0,0,0,32,16.29,80.5,80.5,0,0,0,6.83-11.13,68.8,68.8,0,0,1-10.85-5.22c.92-.67,1.81-1.38,2.67-2.12a75.42,75.42,0,0,0,71.74,0c.86.74,1.75,1.45,2.67,2.12a68.8,68.8,0,0,1-10.85,5.22,80.5,80.5,0,0,0,6.83,11.13,105.73,105.73,0,0,0,32-16.29C130.4,46.9,124.08,24.12,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.83,46,53.83,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.07,46,96.07,53,91,65.69,84.69,65.69Z" />
+              </svg>
+              <span>Discord (@abrahammfelixx)</span>
+            </a>
+          </div>
         </div>
-      </nav>
+        <button class="mobile-menu-toggle" aria-label="Toggle menu" id="mobile-toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </nav>
 
-      <!-- Services Page Hero Header -->
-      <header class="services-hero">
-        <div class="section-container services-hero-container">
-          <span class="section-tag" style="animation: fadeInUp 0.8s ease-out;">Nossa Expertise</span>
-          <h1 class="section-title services-hero-title">
-            Serviços de Engenharia Digital.
-          </h1>
-          <p class="section-subtitle services-hero-subtitle">
-            Integramos design limpo com automação eficiente e aquisição estratégica para pavimentar a escala comercial de marcas inovadoras.
+    <!-- Services Page Hero Header -->
+    <header class="services-hero">
+      <div class="section-container services-hero-container">
+        <span class="section-tag" style="animation: fadeInUp 0.8s ease-out;">Nossa Expertise</span>
+        <h1 class="section-title services-hero-title">
+          Soluções Digitais.
+        </h1>
+        <p class="section-subtitle services-hero-subtitle">
+          Transformo suas ideias em realidade digital através de um processo focado em resultados. Seja um site ultra
+          veloz, automações inteligentes para otimizar suas horas de trabalho ou campanhas estratégicas de tráfego, meu
+          compromisso é entregar tecnologia limpa, robusta e sob medida para o seu negócio.
+        </p>
+      </div>
+    </header>
+
+    <!-- Deep Dive Services Grid -->
+    <main class="services-grid-container">
+      <div class="section-container services-grid-wrapper">
+
+        <!-- Service 1: Web Development Detail -->
+        <div class="glass-panel card-hover-tilt service-detail-card">
+          <div class="service-detail-content">
+            <span class="section-tag" style="color: var(--accent-cyan);">FélixTec Dev</span>
+            <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.5px;">Desenvolvimento
+              Web Pro</h2>
+            <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.7; margin-bottom: 24px;">
+              Construímos sites corporativos, portfólios interativos e landing pages desenhados exclusivamente a partir
+              do código bruto. Não utilizamos templates ou construtores visuais pesados (WordPress, Elementor),
+              garantindo pontuação máxima em testes de velocidade e indexação preferencial no Google.
+            </p>
+            <ul class="detail-features-list">
+              <li style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                  style="color: var(--accent-cyan);">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Aceleração HMR e setup otimizado com Vite</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                  style="color: var(--accent-cyan);">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Animações nativas com GSAP em 60 frames por segundo</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                  style="color: var(--accent-cyan);">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Layout responsivo adaptável a múltiplos dispositivos</span>
+              </li>
+            </ul>
+            <div class="service-detail-actions">
+              <a href="https://wa.me/5547989224775?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20o%20Desenvolvimento%20Web%20Pro"
+                target="_blank" rel="noopener noreferrer" class="btn-primary">Contratar Serviço</a>
+              <div class="btn-secondary btn-ai-disabled">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="opacity: 0.5;">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span>Consultar IA</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Graphic Element 1: Browser Editor preview with mascot -->
+          <div class="visual-webdev">
+            <svg class="bento-svg-wrapper" viewBox="0 0 320 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Gradients & Glows -->
+              <defs>
+                <linearGradient id="svg-grad-skin" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#ffe5c4" />
+                  <stop offset="100%" stop-color="#fca88f" />
+                </linearGradient>
+                <linearGradient id="svg-grad-hoodie" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#2d2d3a" />
+                  <stop offset="100%" stop-color="#14141a" />
+                </linearGradient>
+                <filter id="svg-glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="3" result="blur" />
+                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+              </defs>
+
+              <!-- Window Board Mockup -->
+              <rect x="30" y="40" width="260" height="150" rx="10" fill="#060608" stroke="rgba(255,255,255,0.08)"
+                stroke-width="1.5" />
+              <!-- Buttons -->
+              <circle cx="48" cy="54" r="5" fill="#ff5f56" />
+              <circle cx="62" cy="54" r="5" fill="#ffbd2e" />
+              <circle cx="76" cy="54" r="5" fill="#27c93f" />
+              <rect x="100" y="49" width="70" height="10" rx="3" fill="rgba(255,255,255,0.05)" />
+
+              <!-- Code Lines -->
+              <line x1="45" y1="80" x2="160" y2="80" stroke="var(--accent-cyan)" stroke-width="3"
+                stroke-linecap="round" />
+              <line x1="45" y1="95" x2="190" y2="95" stroke="#f472b6" stroke-width="3" stroke-linecap="round" />
+              <line x1="60" y1="110" x2="220" y2="110" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" />
+              <line x1="60" y1="125" x2="140" y2="125" stroke="#34d399" stroke-width="3" stroke-linecap="round" />
+              <line x1="45" y1="140" x2="110" y2="140" stroke="#fbbf24" stroke-width="3" stroke-linecap="round" />
+
+              <!-- EASTER EGG: Mascot Dev Félix peaking from the top right of the code window -->
+              <g class="felix-climb" style="transform: translate(210px, 10px);">
+                <!-- Hair -->
+                <path d="M12 25 Q25 15 38 25 Q32 21 25 23 Q18 21 12 25 Z" fill="#15151c" />
+                <!-- Rosto -->
+                <path d="M11 25 C11 38, 39 38, 39 25 Z" fill="url(#svg-grad-skin)" />
+                <!-- Glasses rim (cyan glow) -->
+                <circle cx="20" cy="27" r="5" fill="rgba(0, 210, 255, 0.05)" stroke="var(--accent-cyan)"
+                  stroke-width="0.8" filter="url(#svg-glow-cyan)" />
+                <circle cx="30" cy="27" r="5" fill="rgba(0, 210, 255, 0.05)" stroke="var(--accent-cyan)"
+                  stroke-width="0.8" filter="url(#svg-glow-cyan)" />
+                <line x1="25" y1="27" x2="25" y2="27" stroke="var(--accent-cyan)" stroke-width="0.8" />
+                <!-- Eyes -->
+                <circle cx="20" cy="27" r="1.5" fill="#15151c" />
+                <circle cx="30" cy="27" r="1.5" fill="#15151c" />
+                <!-- Blush -->
+                <circle cx="14" cy="30" r="1.2" fill="#ff3366" fill-opacity="0.5" />
+                <circle cx="36" cy="30" r="1.2" fill="#ff3366" fill-opacity="0.5" />
+                <!-- Cute hands clutching the window frame -->
+                <rect x="7" y="32" width="6" height="5" rx="2" fill="url(#svg-grad-skin)" stroke="#222"
+                  stroke-width="0.5" />
+                <rect x="37" y="32" width="6" height="5" rx="2" fill="url(#svg-grad-skin)" stroke="#222"
+                  stroke-width="0.5" />
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Service 2: Automation & AI Detail -->
+        <div class="glass-panel card-hover-tilt service-detail-card">
+          <!-- Visual Element 2 with mascot -->
+          <div class="visual-automation order-visual-right">
+            <svg class="bento-svg-wrapper small-card-svg" viewBox="0 0 240 200" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <!-- Gradients & Glows -->
+              <defs>
+                <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="3" result="blur" />
+                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+                <linearGradient id="grad-pill-left" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#18181c" />
+                  <stop offset="100%" stop-color="#0a0a0c" />
+                </linearGradient>
+                <linearGradient id="grad-pill-right" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="rgba(0, 113, 227, 0.15)" />
+                  <stop offset="100%" stop-color="rgba(0, 210, 255, 0.05)" />
+                </linearGradient>
+              </defs>
+
+              <!-- Grid Background lines for a tech pipeline canvas -->
+              <line x1="20" y1="124" x2="220" y2="124" stroke="rgba(255,255,255,0.02)" stroke-width="1" />
+              <line x1="120" y1="20" x2="120" y2="180" stroke="rgba(255,255,255,0.02)" stroke-width="1" />
+
+              <!-- Connecting curved path (Sleek Automation Flow) -->
+              <path d="M 75 124 Q 120 94 165 124" stroke="rgba(0, 210, 255, 0.3)" stroke-width="2"
+                stroke-linecap="round" fill="none" class="svg-data-flow" />
+              <path d="M 75 124 Q 120 154 165 124" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1.5"
+                stroke-dasharray="4,4" fill="none" />
+
+              <!-- Animated flowing data pulse -->
+              <circle cx="120" cy="109" r="3.5" fill="var(--accent-cyan)" class="svg-pulse-glow" />
+
+              <!-- Left Node: Trigger Pill (n8n) -->
+              <g class="automation-pill">
+                <rect x="25" y="106" width="55" height="36" rx="8" fill="url(#grad-pill-left)"
+                  stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+                <!-- Gear Icon -->
+                <circle cx="42" cy="124" r="5" stroke="var(--text-secondary)" stroke-width="1" fill="none" />
+                <path d="M42 116 V119 M42 129 V132 M34 124 H37 M47 124 H50" stroke="var(--text-secondary)"
+                  stroke-width="1" stroke-linecap="round" />
+                <!-- n8n text -->
+                <text x="61" y="127" fill="var(--text-secondary)" font-size="8.5" font-family="sans-serif"
+                  font-weight="600" text-anchor="middle">n8n</text>
+              </g>
+
+              <!-- Right Node: Action Pill (AI / Gemini) -->
+              <g class="automation-pill">
+                <rect x="160" y="106" width="55" height="36" rx="8" fill="url(#grad-pill-right)"
+                  stroke="var(--accent-blue)" stroke-width="1.2" class="svg-pulse-glow" />
+                <!-- Gemini Sparkle Icon -->
+                <path d="M174 120 L175.5 122.5 L178 124 L175.5 125.5 L174 128 L172.5 125.5 L170 124 L172.5 122.5 Z"
+                  fill="var(--accent-cyan)" />
+                <!-- AI text -->
+                <text x="194" y="127" fill="var(--text-primary)" font-size="8.5" font-family="sans-serif"
+                  font-weight="700" text-anchor="middle">IA</text>
+              </g>
+
+              <!-- EASTER EGG: Mascot Dev Félix peaking from behind the right AI node -->
+              <g class="svg-float-mascot" style="transform: translate(170px, 74px);">
+                <!-- Hair -->
+                <path d="M12 18 Q20 10 28 18 Q24 15 20 16 Q16 15 12 18 Z" fill="#15151c" />
+                <!-- Head -->
+                <path d="M11 18 C11 28, 29 28, 29 18 Z" fill="url(#svg-grad-skin)" />
+                <!-- Glasses rim (cyan glow) -->
+                <circle cx="17" cy="20" r="3.5" stroke="var(--accent-cyan)" stroke-width="0.6" fill="none" />
+                <circle cx="23" cy="20" r="3.5" stroke="var(--accent-cyan)" stroke-width="0.6" fill="none" />
+                <line x1="20" y1="20" x2="20" y2="20" stroke="var(--accent-cyan)" stroke-width="0.6" />
+                <!-- Eyes -->
+                <circle cx="17" cy="20" r="1.0" fill="#15151c" />
+                <circle cx="23" cy="20" r="1.0" fill="#15151c" />
+                <!-- Cute hands clutching node -->
+                <rect x="7" y="24" width="4.5" height="3.5" rx="1.5" fill="url(#svg-grad-skin)" stroke="#222"
+                  stroke-width="0.4" />
+                <rect x="29" y="24" width="4.5" height="3.5" rx="1.5" fill="url(#svg-grad-skin)" stroke="#222"
+                  stroke-width="0.4" />
+              </g>
+            </svg>
+          </div>
+
+          <!-- Content Element 2 -->
+          <div class="service-detail-content order-content-left">
+            <span class="section-tag" style="color: var(--accent-cyan);">Inteligência Artificial</span>
+            <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.5px;">Automação & IA
+              Generativa</h2>
+            <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.7; margin-bottom: 24px;">
+              Elimine processos manuais ineficientes. Desenvolvemos ecossistemas de automação interligando suas
+              ferramentas cotidianas (CRM, ERP, Planilhas, WhatsApp) com processadores inteligentes de IA. Automatizamos
+              fluxos de prospecção, qualificação de leads, respostas automatizadas e extração de dados com Gemini e
+              Claude via Google AI Studio.
+            </p>
+            <ul class="detail-features-list">
+              <li style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                  style="color: var(--accent-cyan);">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Modelagem de pipelines personalizados no n8n e Make</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                  style="color: var(--accent-cyan);">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Modelagem de agentes GPT com análise contextual corporativa</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                  style="color: var(--accent-cyan);">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Redução de até 80% do tempo gasto em tarefas repetitivas</span>
+              </li>
+            </ul>
+            <div class="service-detail-actions">
+              <a href="https://wa.me/5547989224775?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20Automa%C3%A7%C3%A3o%20e%20IA"
+                target="_blank" rel="noopener noreferrer" class="btn-primary">Contratar Serviço</a>
+              <div class="btn-secondary btn-ai-disabled">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="opacity: 0.5;">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span>Consultar IA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 3: Backend & Databases Detail (New!) -->
+        <div class="glass-panel card-hover-tilt service-detail-card">
+          <div class="service-detail-content">
+            <span class="section-tag" style="color: var(--accent-cyan);">Arquitetura & Engenharia</span>
+            <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.5px;">Engenharia
+              Backend & Bancos de Dados</h2>
+            <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.7; margin-bottom: 24px;">
+              Projeto e estruturação de servidores rápidos, seguros e escaláveis. Modelagem relacional e administração
+              profissional de bancos de dados como <strong>SQL Server, MySQL e PostgreSQL</strong>. APIs REST e
+              microsserviços seguros criados sob NodeJS e Python com ambientes conteinerizados em
+              <strong>Docker</strong>.
+            </p>
+            <ul class="detail-features-list">
+              <li style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                  style="color: var(--accent-cyan);">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Modelagem de dados segura e queries SQL otimizadas</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                  style="color: var(--accent-cyan);">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Estruturação de rotas de alta performance com Express ou HapiJS</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                  style="color: var(--accent-cyan);">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Segurança e integridade de dados e ambientes isolados em Docker</span>
+              </li>
+            </ul>
+            <div class="service-detail-actions">
+              <a href="https://wa.me/5547989224775?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20a%20Engenharia%20Backend%20e%20Bancos%20de%20Dados"
+                target="_blank" rel="noopener noreferrer" class="btn-primary">Contratar Serviço</a>
+              <div class="btn-secondary btn-ai-disabled">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="opacity: 0.5;">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span>Consultar IA</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Graphic Element 3: Database stack with mascot -->
+          <div class="visual-backend">
+            <svg class="bento-svg-wrapper small-card-svg" viewBox="0 0 240 200" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <!-- Stacked Server Cylinders -->
+              <ellipse cx="120" cy="155" rx="42" ry="12" fill="rgba(0,0,0,0.4)" />
+
+              <g class="db-cylinder">
+                <path d="M78 120 V145 C78 152 162 152 162 145 V120 Z" fill="#121216" stroke="rgba(255,255,255,0.06)"
+                  stroke-width="1" />
+                <ellipse cx="120" cy="120" rx="42" ry="10" fill="#1e1e24" stroke="rgba(255,255,255,0.08)"
+                  stroke-width="1" />
+                <circle cx="120" cy="120" r="1.5" fill="var(--accent-cyan)" />
+                <path d="M100 120 H115 M125 120 H140" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+                <line x1="120" y1="130" x2="120" y2="140" stroke="var(--accent-cyan)" stroke-width="2"
+                  stroke-linecap="round" />
+              </g>
+
+              <g class="db-cylinder db-cylinder-mid" style="transform: translateY(-20px);">
+                <path d="M78 120 V145 C78 152 162 152 162 145 V120 Z" fill="#121216" stroke="rgba(255,255,255,0.06)"
+                  stroke-width="1" />
+                <ellipse cx="120" cy="120" rx="42" ry="10" fill="#1e1e24" stroke="rgba(255,255,255,0.08)"
+                  stroke-width="1" />
+                <circle cx="120" cy="120" r="1.5" fill="var(--accent-cyan)" />
+                <path d="M96 120 H112 M128 120 H144" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+                <line x1="120" y1="130" x2="120" y2="140" stroke="var(--accent-blue)" stroke-width="2"
+                  stroke-linecap="round" />
+              </g>
+
+              <g class="db-cylinder db-cylinder-top" style="transform: translateY(-40px);">
+                <path d="M78 120 V145 C78 152 162 152 162 145 V120 Z" fill="#121216" stroke="var(--border-light)"
+                  stroke-width="1" />
+                <ellipse cx="120" cy="120" rx="42" ry="10" fill="rgba(0, 113, 227, 0.15)" stroke="var(--accent-blue)"
+                  stroke-width="1.5" class="svg-pulse-glow" />
+                <circle cx="120" cy="120" r="1.5" fill="var(--accent-cyan)" />
+                <path d="M98 120 H114 M126 120 H142" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+                <line x1="120" y1="130" x2="120" y2="140" stroke="var(--accent-cyan)" stroke-width="2"
+                  stroke-linecap="round" />
+              </g>
+
+              <!-- EASTER EGG: Mascot Dev Félix sitting on the top cylinder reading server logs -->
+              <g class="svg-float-mascot" style="transform: translate(110px, 32px);">
+                <!-- Hair -->
+                <path d="M12 18 Q20 10 28 18 Q24 15 20 16 Q16 15 12 18 Z" fill="#15151c" />
+                <!-- Head -->
+                <path d="M11 18 C11 28, 29 28, 29 18 Z" fill="url(#svg-grad-skin)" />
+                <!-- Glasses rim -->
+                <circle cx="17" cy="20" r="3.5" stroke="var(--accent-cyan)" stroke-width="0.6" fill="none" />
+                <circle cx="23" cy="20" r="3.5" stroke="var(--accent-cyan)" stroke-width="0.6" fill="none" />
+                <!-- Eyes -->
+                <circle cx="17" cy="20" r="1.0" fill="#15151c" />
+                <circle cx="23" cy="20" r="1.0" fill="#15151c" />
+                <!-- Hoodie Body -->
+                <path d="M12 25 C12 25, 20 23, 28 25 L30 36 L10 36 Z" fill="url(#svg-grad-hoodie)" stroke="#2d2d3a"
+                  stroke-width="0.5" />
+                <!-- Little magnifying glass -->
+                <circle cx="20" cy="28" r="2" stroke="var(--accent-cyan)" stroke-width="0.8" fill="none" />
+                <line x1="21.5" y1="29.5" x2="24" y2="32" stroke="var(--accent-cyan)" stroke-width="0.8" />
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Service 4: Paid Sponsorship Detail (Tráfego & Meta/Google Ads) -->
+        <div class="glass-panel card-hover-tilt service-detail-card">
+          <!-- Visual Element 4 with mascot -->
+          <div class="visual-traffic order-visual-right">
+            <svg class="bento-svg-wrapper" viewBox="0 0 320 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Dashboard Board -->
+              <rect x="30" y="40" width="260" height="150" rx="10" fill="#060608" stroke="rgba(255,255,255,0.08)"
+                stroke-width="1.5" />
+
+              <!-- Graph Grid Lines -->
+              <line x1="45" y1="75" x2="275" y2="75" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+              <line x1="45" y1="110" x2="275" y2="110" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+              <line x1="45" y1="145" x2="275" y2="145" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+
+              <!-- Glowing Chart Bars -->
+              <rect x="55" y="115" width="16" height="50" rx="3" fill="rgba(255,255,255,0.04)"
+                stroke="rgba(255,255,255,0.06)" />
+              <rect x="85" y="90" width="16" height="75" rx="3" fill="rgba(255,255,255,0.04)"
+                stroke="rgba(255,255,255,0.06)" />
+              <rect x="115" y="105" width="16" height="60" rx="3" fill="rgba(255,255,255,0.04)"
+                stroke="rgba(255,255,255,0.06)" />
+
+              <!-- Main conversion bar (Cyan-Blue gradient) -->
+              <rect x="145" y="60" width="16" height="105" rx="3" fill="url(#svg-bar-gradient-serv)"
+                class="svg-pulse-glow" />
+              <defs>
+                <linearGradient id="svg-bar-gradient-serv" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="var(--accent-cyan)" />
+                  <stop offset="100%" stop-color="var(--accent-blue)" />
+                </linearGradient>
+              </defs>
+
+              <!-- Rocket symbol -->
+              <g class="svg-float-rocket" style="transform: translate(220px, 60px);">
+                <path d="M0 25 L12 0 L24 25 L12 20 Z" fill="var(--accent-cyan)" filter="url(#svg-glow-cyan)" />
+                <path d="M8 24 L12 32 L16 24 Z" fill="#ff3366" class="svg-pulse-glow-pink" />
+              </g>
+
+              <!-- Floating ROI badge -->
+              <rect x="180" y="115" width="82" height="24" rx="12" fill="rgba(0, 210, 255, 0.1)"
+                stroke="var(--accent-cyan)" stroke-width="1" class="svg-pulse-glow" />
+              <text x="221" y="131" fill="var(--accent-cyan)" font-size="10" font-weight="700" font-family="sans-serif"
+                text-anchor="middle">+234% ROI</text>
+
+              <!-- EASTER EGG: Mascot Dev Félix peaking -->
+              <g class="svg-float-mascot" style="transform: translate(163px, 120px);">
+                <!-- Hair -->
+                <path d="M12 18 Q20 10 28 18 Q24 15 20 16 Q16 15 12 18 Z" fill="#15151c" />
+                <!-- Head -->
+                <path d="M11 18 C11 28, 29 28, 29 18 Z" fill="url(#svg-grad-skin)" />
+                <!-- Glasses rim -->
+                <circle cx="17" cy="20" r="3.5" stroke="var(--accent-cyan)" stroke-width="0.6" fill="none" />
+                <circle cx="23" cy="20" r="3.5" stroke="var(--accent-cyan)" stroke-width="0.6" fill="none" />
+                <!-- Eyes -->
+                <circle cx="17" cy="20" r="1.0" fill="#15151c" />
+                <circle cx="23" cy="20" r="1.0" fill="#15151c" />
+                <!-- Binoculars -->
+                <rect x="11" y="22" width="7" height="4" rx="1" fill="#2d2d3a" stroke="var(--accent-cyan)"
+                  stroke-width="0.6" />
+                <rect x="22" y="22" width="7" height="4" rx="1" fill="#2d2d3a" stroke="var(--accent-cyan)"
+                  stroke-width="0.6" />
+              </g>
+            </svg>
+          </div>
+
+          <!-- Content Element 4 -->
+          <div class="service-detail-content order-content-left">
+            <span class="section-tag" style="color: var(--accent-cyan);">Escala Comercial</span>
+            <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.5px;">Patrocínio Pago
+              & Tráfego</h2>
+            <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.7; margin-bottom: 24px;">
+              Atraia o público ideal para o seu negócio de forma previsível e highly mensurável. Estruturamos e
+              otimizamos campanhas de anúncios patrocinados complexas nos canais mais quentes como **Google Ads** e
+              **Facebook Meta Business Suite (Meta Ads)**, interligando a inteligência de rastreamento do **Google
+              Analytics, Tag Manager e APIs de conversão** para maximizar o seu ROI.
+            </p>
+            <ul class="detail-features-list">
+              <li style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                  style="color: var(--accent-cyan);">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Configuração profissional de Tags, Google Analytics 4 e APIs de Conversão</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                  style="color: var(--accent-cyan);">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Desenvolvimento e testes constantes de criativos e públicos Lookalike</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                  style="color: var(--accent-cyan);">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Otimização constante de custos de aquisição (CAC) e escala de ROI</span>
+              </li>
+            </ul>
+            <div class="service-detail-actions">
+              <a href="https://wa.me/5547989224775?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20Patroc%C3%ADnio%20Pago%20e%20Tr%C3%A1fego"
+                target="_blank" rel="noopener noreferrer" class="btn-primary">Contratar Serviço</a>
+              <div class="btn-secondary btn-ai-disabled">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="opacity: 0.5;">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span>Consultar IA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Seção de Planos e Preços Comparativos -->
+    <section class="pricing-section" id="precos">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Planos Comerciais</span>
+          <h2 class="section-title">Uma solução para cada necessidade.</h2>
+          <p class="section-subtitle">
+            Desenvolvimento de alta qualidade com preços acessíveis. Compare e comprove a diferença de
+            custos do mercado tradicional.
           </p>
         </div>
-      </header>
 
-      <!-- Deep Dive Services Grid -->
-      <main class="services-grid-container">
-        <div class="section-container services-grid-wrapper">
-          
-          <!-- Service 1: Web Development Detail -->
-          <div class="glass-panel card-hover-tilt service-detail-card">
-            <div class="service-detail-content">
-              <span class="section-tag" style="color: var(--accent-cyan);">FélixTec Dev</span>
-              <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.5px;">Desenvolvimento Web Pro</h2>
-              <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.7; margin-bottom: 24px;">
-                Construímos sites corporativos, portfólios interativos e landing pages desenhados exclusivamente a partir do código bruto. Não utilizamos templates ou construtores visuais pesados (WordPress, Elementor), garantindo pontuação máxima em testes de velocidade e indexação preferencial no Google.
-              </p>
-              <ul class="detail-features-list">
-                <li style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Aceleração HMR e setup otimizado com Vite</span>
-                </li>
-                <li style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Animações nativas com GSAP em 60 frames por segundo</span>
-                </li>
-                <li style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Layout responsivo adaptável a múltiplos dispositivos</span>
-                </li>
-              </ul>
-              <div class="service-detail-actions">
-                <a href="https://wa.me/5547989224775?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20o%20Desenvolvimento%20Web%20Pro" target="_blank" rel="noopener noreferrer" class="btn-primary">Contratar Serviço</a>
-                <a href="/#contato" class="btn-secondary">Falar com o Dev</a>
+        <div class="pricing-grid">
+          <!-- Plano 1: Landing Page Pro -->
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3>Landing Page / Site Pro</h3>
+              <p>Ideal para landing pages de alta conversão para tráfego pago ou sites institucionais minimalistas.</p>
+            </div>
+            <div class="pricing-price-box">
+              <span class="pricing-market-price">Valor de Mercado: R$ 5.000,00</span>
+              <div class="pricing-promo-price">
+                <span class="pricing-currency">R$</span>
+                <span class="pricing-amount">999,99</span>
               </div>
             </div>
-            
-            <!-- Graphic Element 1: Browser Editor preview with mascot -->
-            <div class="visual-webdev">
-              <svg class="bento-svg-wrapper" viewBox="0 0 320 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Gradients & Glows -->
-                <defs>
-                  <linearGradient id="svg-grad-skin" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#ffe5c4" />
-                    <stop offset="100%" stop-color="#fca88f" />
-                  </linearGradient>
-                  <linearGradient id="svg-grad-hoodie" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#2d2d3a" />
-                    <stop offset="100%" stop-color="#14141a" />
-                  </linearGradient>
-                  <filter id="svg-glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
-                    <feGaussianBlur stdDeviation="3" result="blur" />
-                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                  </filter>
-                </defs>
-
-                <!-- Window Board Mockup -->
-                <rect x="30" y="40" width="260" height="150" rx="10" fill="#060608" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
-                <!-- Buttons -->
-                <circle cx="48" cy="54" r="5" fill="#ff5f56" />
-                <circle cx="62" cy="54" r="5" fill="#ffbd2e" />
-                <circle cx="76" cy="54" r="5" fill="#27c93f" />
-                <rect x="100" y="49" width="70" height="10" rx="3" fill="rgba(255,255,255,0.05)" />
-                
-                <!-- Code Lines -->
-                <line x1="45" y1="80" x2="160" y2="80" stroke="var(--accent-cyan)" stroke-width="3" stroke-linecap="round" />
-                <line x1="45" y1="95" x2="190" y2="95" stroke="#f472b6" stroke-width="3" stroke-linecap="round" />
-                <line x1="60" y1="110" x2="220" y2="110" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" />
-                <line x1="60" y1="125" x2="140" y2="125" stroke="#34d399" stroke-width="3" stroke-linecap="round" />
-                <line x1="45" y1="140" x2="110" y2="140" stroke="#fbbf24" stroke-width="3" stroke-linecap="round" />
-
-                <!-- EASTER EGG: Mascot Dev Félix peaking from the top right of the code window -->
-                <g class="felix-climb" style="transform: translate(210px, 10px);">
-                  <!-- Hair -->
-                  <path d="M12 25 Q25 15 38 25 Q32 21 25 23 Q18 21 12 25 Z" fill="#15151c" />
-                  <!-- Rosto -->
-                  <path d="M11 25 C11 38, 39 38, 39 25 Z" fill="url(#svg-grad-skin)" />
-                  <!-- Glasses rim (cyan glow) -->
-                  <circle cx="20" cy="27" r="5" fill="rgba(0, 210, 255, 0.05)" stroke="var(--accent-cyan)" stroke-width="0.8" filter="url(#svg-glow-cyan)" />
-                  <circle cx="30" cy="27" r="5" fill="rgba(0, 210, 255, 0.05)" stroke="var(--accent-cyan)" stroke-width="0.8" filter="url(#svg-glow-cyan)" />
-                  <line x1="25" y1="27" x2="25" y2="27" stroke="var(--accent-cyan)" stroke-width="0.8" />
-                  <!-- Eyes -->
-                  <circle cx="20" cy="27" r="1.5" fill="#15151c" />
-                  <circle cx="30" cy="27" r="1.5" fill="#15151c" />
-                  <!-- Blush -->
-                  <circle cx="14" cy="30" r="1.2" fill="#ff3366" fill-opacity="0.5" />
-                  <circle cx="36" cy="30" r="1.2" fill="#ff3366" fill-opacity="0.5" />
-                  <!-- Cute hands clutching the window frame -->
-                  <rect x="7" y="32" width="6" height="5" rx="2" fill="url(#svg-grad-skin)" stroke="#222" stroke-width="0.5" />
-                  <rect x="37" y="32" width="6" height="5" rx="2" fill="url(#svg-grad-skin)" stroke="#222" stroke-width="0.5" />
-                </g>
-              </svg>
-            </div>
+            <ul class="pricing-features">
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Código 100% puro ou <br>Low Code</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Otimizado para Mobile &amp; Desktop</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Animações suaves de alta performance</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Integração com WhatsApp &amp; Tags</span>
+              </li>
+            </ul>
+            <a href="https://wa.me/5547989224775?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20o%20plano%20de%20Landing%20Page%20Pro%20no%20valor%20de%20R%24%20999%2C99"
+              target="_blank" rel="noopener noreferrer" class="pricing-btn pricing-btn-secondary">Comprar Agora</a>
           </div>
 
-          <!-- Service 2: Automation & AI Detail -->
-          <div class="glass-panel card-hover-tilt service-detail-card">
-            <!-- Visual Element 2 with mascot -->
-            <div class="visual-automation order-visual-right">
-              <svg class="bento-svg-wrapper small-card-svg" viewBox="0 0 240 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Gradients & Glows -->
-                <defs>
-                  <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
-                    <feGaussianBlur stdDeviation="3" result="blur" />
-                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                  </filter>
-                  <linearGradient id="grad-pill-left" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#18181c" />
-                    <stop offset="100%" stop-color="#0a0a0c" />
-                  </linearGradient>
-                  <linearGradient id="grad-pill-right" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="rgba(0, 113, 227, 0.15)" />
-                    <stop offset="100%" stop-color="rgba(0, 210, 255, 0.05)" />
-                  </linearGradient>
-                </defs>
-
-                <!-- Grid Background lines for a tech pipeline canvas -->
-                <line x1="20" y1="124" x2="220" y2="124" stroke="rgba(255,255,255,0.02)" stroke-width="1" />
-                <line x1="120" y1="20" x2="120" y2="180" stroke="rgba(255,255,255,0.02)" stroke-width="1" />
-
-                <!-- Connecting curved path (Sleek Automation Flow) -->
-                <path d="M 75 124 Q 120 94 165 124" stroke="rgba(0, 210, 255, 0.3)" stroke-width="2" stroke-linecap="round" fill="none" class="svg-data-flow" />
-                <path d="M 75 124 Q 120 154 165 124" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1.5" stroke-dasharray="4,4" fill="none" />
-
-                <!-- Animated flowing data pulse -->
-                <circle cx="120" cy="109" r="3.5" fill="var(--accent-cyan)" class="svg-pulse-glow" />
-
-                <!-- Left Node: Trigger Pill (n8n) -->
-                <g class="automation-pill">
-                  <rect x="25" y="106" width="55" height="36" rx="8" fill="url(#grad-pill-left)" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
-                  <!-- Gear Icon -->
-                  <circle cx="42" cy="124" r="5" stroke="var(--text-secondary)" stroke-width="1" fill="none" />
-                  <path d="M42 116 V119 M42 129 V132 M34 124 H37 M47 124 H50" stroke="var(--text-secondary)" stroke-width="1" stroke-linecap="round" />
-                  <!-- n8n text -->
-                  <text x="61" y="127" fill="var(--text-secondary)" font-size="8.5" font-family="sans-serif" font-weight="600" text-anchor="middle">n8n</text>
-                </g>
-
-                <!-- Right Node: Action Pill (AI / Gemini) -->
-                <g class="automation-pill">
-                  <rect x="160" y="106" width="55" height="36" rx="8" fill="url(#grad-pill-right)" stroke="var(--accent-blue)" stroke-width="1.2" class="svg-pulse-glow" />
-                  <!-- Gemini Sparkle Icon -->
-                  <path d="M174 120 L175.5 122.5 L178 124 L175.5 125.5 L174 128 L172.5 125.5 L170 124 L172.5 122.5 Z" fill="var(--accent-cyan)" />
-                  <!-- AI text -->
-                  <text x="194" y="127" fill="var(--text-primary)" font-size="8.5" font-family="sans-serif" font-weight="700" text-anchor="middle">IA</text>
-                </g>
-
-                <!-- EASTER EGG: Mascot Dev Félix peaking from behind the right AI node -->
-                <g class="svg-float-mascot" style="transform: translate(170px, 74px);">
-                  <!-- Hair -->
-                  <path d="M12 18 Q20 10 28 18 Q24 15 20 16 Q16 15 12 18 Z" fill="#15151c" />
-                  <!-- Head -->
-                  <path d="M11 18 C11 28, 29 28, 29 18 Z" fill="url(#svg-grad-skin)" />
-                  <!-- Glasses rim (cyan glow) -->
-                  <circle cx="17" cy="20" r="3.5" stroke="var(--accent-cyan)" stroke-width="0.6" fill="none" />
-                  <circle cx="23" cy="20" r="3.5" stroke="var(--accent-cyan)" stroke-width="0.6" fill="none" />
-                  <line x1="20" y1="20" x2="20" y2="20" stroke="var(--accent-cyan)" stroke-width="0.6" />
-                  <!-- Eyes -->
-                  <circle cx="17" cy="20" r="1.0" fill="#15151c" />
-                  <circle cx="23" cy="20" r="1.0" fill="#15151c" />
-                  <!-- Cute hands clutching node -->
-                  <rect x="7" y="24" width="4.5" height="3.5" rx="1.5" fill="url(#svg-grad-skin)" stroke="#222" stroke-width="0.4" />
-                  <rect x="29" y="24" width="4.5" height="3.5" rx="1.5" fill="url(#svg-grad-skin)" stroke="#222" stroke-width="0.4" />
-                </g>
-              </svg>
+          <!-- Plano 2: E-commerce / Loja Online -->
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3>Loja Virtual Completa</h3>
+              <p>Catálogo de produtos completo e dinâmico, focado em facilidade de compra e gestão de pedidos.</p>
             </div>
-
-            <!-- Content Element 2 -->
-            <div class="service-detail-content order-content-left">
-              <span class="section-tag" style="color: var(--accent-cyan);">Inteligência Artificial</span>
-              <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.5px;">Automação & IA Generativa</h2>
-              <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.7; margin-bottom: 24px;">
-                Elimine processos manuais ineficientes. Desenvolvemos ecossistemas de automação interligando suas ferramentas cotidianas (CRM, ERP, Planilhas, WhatsApp) com processadores inteligentes de IA. Automatizamos fluxos de prospecção, qualificação de leads, respostas automatizadas e extração de dados com Gemini e Claude via Google AI Studio.
-              </p>
-              <ul class="detail-features-list">
-                <li style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Modelagem de pipelines personalizados no n8n e Make</span>
-                </li>
-                <li style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Modelagem de agentes GPT com análise contextual corporativa</span>
-                </li>
-                <li style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Redução de até 80% do tempo gasto em tarefas repetitivas</span>
-                </li>
-              </ul>
-              <div class="service-detail-actions">
-                <a href="https://wa.me/5547989224775?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20Automa%C3%A7%C3%A3o%20e%20IA" target="_blank" rel="noopener noreferrer" class="btn-primary">Contratar Serviço</a>
-                <a href="/#contato" class="btn-secondary">Falar com o Dev</a>
+            <div class="pricing-price-box">
+              <span class="pricing-market-price">Valor de Mercado: R$ 12.000,00</span>
+              <div class="pricing-promo-price">
+                <span class="pricing-currency">R$</span>
+                <span class="pricing-amount">2.499,99</span>
               </div>
             </div>
+            <ul class="pricing-features">
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Catálogo interativo sob medida</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Painel de gestão de pedidos simplificado</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Checkout limpo otimizado para celular</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Integrações com sistemas de pagamento</span>
+              </li>
+            </ul>
+            <a href="https://wa.me/5547989224775?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20o%20plano%20de%20Loja%20Virtual%20no%20valor%20de%20R%24%202.499%2C99"
+              target="_blank" rel="noopener noreferrer" class="pricing-btn pricing-btn-secondary">Comprar Agora</a>
           </div>
 
-          <!-- Service 3: Backend & Databases Detail (New!) -->
-          <div class="glass-panel card-hover-tilt service-detail-card">
-            <div class="service-detail-content">
-              <span class="section-tag" style="color: var(--accent-cyan);">Arquitetura & Engenharia</span>
-              <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.5px;">Engenharia Backend & Bancos de Dados</h2>
-              <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.7; margin-bottom: 24px;">
-                Projeto e estruturação de servidores rápidos, seguros e escaláveis. Modelagem relacional e administração profissional de bancos de dados como <strong>SQL Server, MySQL e PostgreSQL</strong>. APIs REST e microsserviços seguros criados sob NodeJS e Python com ambientes conteinerizados em <strong>Docker</strong>.
-              </p>
-              <ul class="detail-features-list">
-                <li style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Modelagem de dados segura e queries SQL otimizadas</span>
-                </li>
-                <li style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Estruturação de rotas de alta performance com Express ou HapiJS</span>
-                </li>
-                <li style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Segurança e integridade de dados e ambientes isolados em Docker</span>
-                </li>
-              </ul>
-              <div class="service-detail-actions">
-                <a href="https://wa.me/5547989224775?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20a%20Engenharia%20Backend%20e%20Bancos%20de%20Dados" target="_blank" rel="noopener noreferrer" class="btn-primary">Contratar Serviço</a>
-                <a href="/#contato" class="btn-secondary">Falar com o Dev</a>
+          <!-- Plano 3: Automação de Rotinas -->
+          <div class="pricing-card popular">
+            <span class="pricing-badge">Mais Procurado</span>
+            <div class="pricing-header">
+              <h3>Automação de Tarefas</h3>
+              <p>Elimine rotinas repetitivas interligando suas planilhas, formulários, alertas e envios de e-mails
+                diários.</p>
+            </div>
+            <div class="pricing-price-box">
+              <span class="pricing-market-price">Valor de Mercado: R$ 8.000,00</span>
+              <div class="pricing-promo-price">
+                <span class="pricing-currency">R$</span>
+                <span class="pricing-amount">1.199,99</span>
               </div>
             </div>
-            
-            <!-- Graphic Element 3: Database stack with mascot -->
-            <div class="visual-backend">
-              <svg class="bento-svg-wrapper small-card-svg" viewBox="0 0 240 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Stacked Server Cylinders -->
-                <ellipse cx="120" cy="155" rx="42" ry="12" fill="rgba(0,0,0,0.4)" />
-                
-                <g class="db-cylinder">
-                  <path d="M78 120 V145 C78 152 162 152 162 145 V120 Z" fill="#121216" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
-                  <ellipse cx="120" cy="120" rx="42" ry="10" fill="#1e1e24" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
-                  <circle cx="120" cy="120" r="1.5" fill="var(--accent-cyan)" />
-                  <path d="M100 120 H115 M125 120 H140" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
-                  <line x1="120" y1="130" x2="120" y2="140" stroke="var(--accent-cyan)" stroke-width="2" stroke-linecap="round" />
-                </g>
-
-                <g class="db-cylinder db-cylinder-mid" style="transform: translateY(-20px);">
-                  <path d="M78 120 V145 C78 152 162 152 162 145 V120 Z" fill="#121216" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
-                  <ellipse cx="120" cy="120" rx="42" ry="10" fill="#1e1e24" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
-                  <circle cx="120" cy="120" r="1.5" fill="var(--accent-cyan)" />
-                  <path d="M96 120 H112 M128 120 H144" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
-                  <line x1="120" y1="130" x2="120" y2="140" stroke="var(--accent-blue)" stroke-width="2" stroke-linecap="round" />
-                </g>
-
-                <g class="db-cylinder db-cylinder-top" style="transform: translateY(-40px);">
-                  <path d="M78 120 V145 C78 152 162 152 162 145 V120 Z" fill="#121216" stroke="var(--border-light)" stroke-width="1" />
-                  <ellipse cx="120" cy="120" rx="42" ry="10" fill="rgba(0, 113, 227, 0.15)" stroke="var(--accent-blue)" stroke-width="1.5" class="svg-pulse-glow" />
-                  <circle cx="120" cy="120" r="1.5" fill="var(--accent-cyan)" />
-                  <path d="M98 120 H114 M126 120 H142" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
-                  <line x1="120" y1="130" x2="120" y2="140" stroke="var(--accent-cyan)" stroke-width="2" stroke-linecap="round" />
-                </g>
-
-                <!-- EASTER EGG: Mascot Dev Félix sitting on the top cylinder reading server logs -->
-                <g class="svg-float-mascot" style="transform: translate(110px, 32px);">
-                  <!-- Hair -->
-                  <path d="M12 18 Q20 10 28 18 Q24 15 20 16 Q16 15 12 18 Z" fill="#15151c" />
-                  <!-- Head -->
-                  <path d="M11 18 C11 28, 29 28, 29 18 Z" fill="url(#svg-grad-skin)" />
-                  <!-- Glasses rim -->
-                  <circle cx="17" cy="20" r="3.5" stroke="var(--accent-cyan)" stroke-width="0.6" fill="none" />
-                  <circle cx="23" cy="20" r="3.5" stroke="var(--accent-cyan)" stroke-width="0.6" fill="none" />
-                  <!-- Eyes -->
-                  <circle cx="17" cy="20" r="1.0" fill="#15151c" />
-                  <circle cx="23" cy="20" r="1.0" fill="#15151c" />
-                  <!-- Hoodie Body -->
-                  <path d="M12 25 C12 25, 20 23, 28 25 L30 36 L10 36 Z" fill="url(#svg-grad-hoodie)" stroke="#2d2d3a" stroke-width="0.5" />
-                  <!-- Little magnifying glass -->
-                  <circle cx="20" cy="28" r="2" stroke="var(--accent-cyan)" stroke-width="0.8" fill="none" />
-                  <line x1="21.5" y1="29.5" x2="24" y2="32" stroke="var(--accent-cyan)" stroke-width="0.8" />
-                </g>
-              </svg>
-            </div>
+            <ul class="pricing-features">
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Integração Planilhas / Formulários</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Envio automático de alertas e e-mails</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Configuração de robôs no n8n / Make</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Economia de horas de trabalho manual</span>
+              </li>
+            </ul>
+            <a href="https://wa.me/5547989224775?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20o%20plano%20de%20Automa%C3%A7%C3%A3o%20de%20Rotinas%20no%20valor%20de%20R%24%201.199%2C99"
+              target="_blank" rel="noopener noreferrer" class="pricing-btn pricing-btn-primary">Contratar Agora</a>
           </div>
 
-          <!-- Service 4: Paid Sponsorship Detail (Tráfego & Meta/Google Ads) -->
-          <div class="glass-panel card-hover-tilt service-detail-card">
-            <!-- Visual Element 4 with mascot -->
-            <div class="visual-traffic order-visual-right">
-              <svg class="bento-svg-wrapper" viewBox="0 0 320 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Dashboard Board -->
-                <rect x="30" y="40" width="260" height="150" rx="10" fill="#060608" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
-                
-                <!-- Graph Grid Lines -->
-                <line x1="45" y1="75" x2="275" y2="75" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-                <line x1="45" y1="110" x2="275" y2="110" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-                <line x1="45" y1="145" x2="275" y2="145" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-
-                <!-- Glowing Chart Bars -->
-                <rect x="55" y="115" width="16" height="50" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" />
-                <rect x="85" y="90" width="16" height="75" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" />
-                <rect x="115" y="105" width="16" height="60" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" />
-                
-                <!-- Main conversion bar (Cyan-Blue gradient) -->
-                <rect x="145" y="60" width="16" height="105" rx="3" fill="url(#svg-bar-gradient-serv)" class="svg-pulse-glow" />
-                <defs>
-                  <linearGradient id="svg-bar-gradient-serv" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="var(--accent-cyan)" />
-                    <stop offset="100%" stop-color="var(--accent-blue)" />
-                  </linearGradient>
-                </defs>
-
-                <!-- Rocket symbol -->
-                <g class="svg-float-rocket" style="transform: translate(220px, 60px);">
-                  <path d="M0 25 L12 0 L24 25 L12 20 Z" fill="var(--accent-cyan)" filter="url(#svg-glow-cyan)" />
-                  <path d="M8 24 L12 32 L16 24 Z" fill="#ff3366" class="svg-pulse-glow-pink" />
-                </g>
-
-                <!-- Floating ROI badge -->
-                <rect x="180" y="115" width="82" height="24" rx="12" fill="rgba(0, 210, 255, 0.1)" stroke="var(--accent-cyan)" stroke-width="1" class="svg-pulse-glow" />
-                <text x="221" y="131" fill="var(--accent-cyan)" font-size="10" font-weight="700" font-family="sans-serif" text-anchor="middle">+234% ROI</text>
-
-                <!-- EASTER EGG: Mascot Dev Félix peaking -->
-                <g class="svg-float-mascot" style="transform: translate(163px, 120px);">
-                  <!-- Hair -->
-                  <path d="M12 18 Q20 10 28 18 Q24 15 20 16 Q16 15 12 18 Z" fill="#15151c" />
-                  <!-- Head -->
-                  <path d="M11 18 C11 28, 29 28, 29 18 Z" fill="url(#svg-grad-skin)" />
-                  <!-- Glasses rim -->
-                  <circle cx="17" cy="20" r="3.5" stroke="var(--accent-cyan)" stroke-width="0.6" fill="none" />
-                  <circle cx="23" cy="20" r="3.5" stroke="var(--accent-cyan)" stroke-width="0.6" fill="none" />
-                  <!-- Eyes -->
-                  <circle cx="17" cy="20" r="1.0" fill="#15151c" />
-                  <circle cx="23" cy="20" r="1.0" fill="#15151c" />
-                  <!-- Binoculars -->
-                  <rect x="11" y="22" width="7" height="4" rx="1" fill="#2d2d3a" stroke="var(--accent-cyan)" stroke-width="0.6" />
-                  <rect x="22" y="22" width="7" height="4" rx="1" fill="#2d2d3a" stroke="var(--accent-cyan)" stroke-width="0.6" />
-                </g>
-              </svg>
+          <!-- Plano 4: Custom IA Agent & Apps -->
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3>IA &amp; Apps Avançados</h3>
+              <p>Modelos de inteligência artificial de ponta integrados ao seu negócio, aplicativos web/desktop ou
+                mobile.</p>
             </div>
-
-            <!-- Content Element 4 -->
-            <div class="service-detail-content order-content-left">
-              <span class="section-tag" style="color: var(--accent-cyan);">Escala Comercial</span>
-              <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.5px;">Patrocínio Pago & Tráfego</h2>
-              <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.7; margin-bottom: 24px;">
-                Atraia o público ideal para o seu negócio de forma previsível e highly mensurável. Estruturamos e otimizamos campanhas de anúncios patrocinados complexas nos canais mais quentes como **Google Ads** e **Facebook Meta Business Suite (Meta Ads)**, interligando a inteligência de rastreamento do **Google Analytics, Tag Manager e APIs de conversão** para maximizar o seu ROI.
-              </p>
-              <ul class="detail-features-list">
-                <li style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Configuração profissional de Tags, Google Analytics 4 e APIs de Conversão</span>
-                </li>
-                <li style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Desenvolvimento e testes constantes de criativos e públicos Lookalike</span>
-                </li>
-                <li style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Otimização constante de custos de aquisição (CAC) e escala de ROI</span>
-                </li>
-              </ul>
-              <div class="service-detail-actions">
-                <a href="https://wa.me/5547989224775?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20Patroc%C3%ADnio%20Pago%20e%20Tr%C3%A1fego" target="_blank" rel="noopener noreferrer" class="btn-primary">Contratar Serviço</a>
-                <a href="/#contato" class="btn-secondary">Falar com o Dev</a>
+            <div class="pricing-price-box">
+              <span class="pricing-market-price">Valor de Mercado: R$ 25.000,00</span>
+              <div class="pricing-promo-price">
+                <span class="pricing-currency">R$</span>
+                <span class="pricing-amount">3.499,99</span>
               </div>
             </div>
+            <ul class="pricing-features">
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Agentes de IA customizados (GPTs)</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Análise de dados corporativos com IA</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Desenvolvimento Desktop, Mobile ou Web</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Suporte e infraestrutura especializada</span>
+              </li>
+            </ul>
+            <a href="https://wa.me/5547989224775?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20o%20plano%20de%20Agentes%20de%20IA%20e%20SaaS%20no%20valor%20de%20R%24%203.499%2C99"
+              target="_blank" rel="noopener noreferrer" class="pricing-btn pricing-btn-secondary">Contratar Agora</a>
           </div>
         </div>
-      </main>
+      </div>
+    </section>
 
+    <!-- CTA Contact block -->
+    <section class="cta-section"
+      style="padding: 100px 24px; text-align: center; border-top: 1px solid var(--border-light); background: rgba(10, 10, 12, 0.5);">
+      <div class="section-container" style="max-width: 600px;">
+        <h2 style="font-size: 38px; font-weight: 700; letter-spacing: -1px; margin-bottom: 20px;">Pronto para
+          transformar sua infraestrutura?</h2>
+        <p style="color: var(--text-secondary); font-size: 16px; line-height: 1.6; margin-bottom: 36px;">
+          Fale conosco diretamente e agende uma sessão estratégica para planejar suas soluções de web e automação
+          comercial.
+        </p>
+        <a href="/#contato" class="btn-primary">Falar com o Dev</a>
+      </div>
+    </section>
 
-      <!-- CTA Contact block -->
-      <section class="cta-section" style="padding: 100px 24px; text-align: center; border-top: 1px solid var(--border-light); background: rgba(10, 10, 12, 0.5);">
-        <div class="section-container" style="max-width: 600px;">
-          <h2 style="font-size: 38px; font-weight: 700; letter-spacing: -1px; margin-bottom: 20px;">Pronto para transformar sua infraestrutura?</h2>
-          <p style="color: var(--text-secondary); font-size: 16px; line-height: 1.6; margin-bottom: 36px;">
-            Fale conosco diretamente e agende uma sessão estratégica para planejar suas soluções de web e automação comercial.
-          </p>
-          <a href="/#contato" class="btn-primary">Falar com o Dev</a>
-        </div>
-      </section>
-
-      <!-- Sleek Minimal Footer -->
-      <footer class="footer">
-        <div class="footer-container">
-          <div class="footer-row">
-            <div class="footer-brand footer-column">
-              <span class="footer-logo">FélixTec</span>
-              <p>Engenharia de software elegante com inteligência de ponta.</p>
-            </div>
-            
-            <div class="footer-column">
-              <h4>Navegação</h4>
-              <ul class="footer-links-list">
-                <li><a href="/#inicio">Início</a></li>
-                <li><a href="/#precos">Planos</a></li>
-                <li><a href="/#diferenciais">Diferenciais</a></li>
-                <li><a href="/servicos">Serviços</a></li>
-                <li><a href="/#contato">Contato</a></li>
-              </ul>
-            </div>
-            
-            <div class="footer-column">
-              <h4>Conecte-se</h4>
-              <ul class="footer-links-list">
-                <li>
-                  <a href="https://www.linkedin.com/in/abra%C3%A3o-f%C3%A9lix-968b4a1a8/" target="_blank" rel="noopener noreferrer" class="footer-social-icon-link">
-                    <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                    <span>LinkedIn</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.instagram.com/abrahammfelixx/" target="_blank" rel="noopener noreferrer" class="footer-social-icon-link">
-                    <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                    <span>Instagram</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://s.team/p/jbqw-qwcj/grpcdqmq" target="_blank" rel="noopener noreferrer" class="footer-social-icon-link">
-                    <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill: currentColor; vertical-align: middle;">
-                      <path d="M12 .007c-6.617 0-12 5.383-12 12 0 5.485 3.69 10.11 8.707 11.528l1.094-3.805c-.328-.219-.589-.508-.75-.851l-.039-.016-2.906-1.203c-1.246-.516-1.859-1.93-1.344-3.176.438-1.055 1.547-1.633 2.617-1.445l1.648-2.383c-.023-.195-.016-.398.023-.602.266-1.293 1.531-2.113 2.824-1.848 1.293.266 2.113 1.531 1.848 2.824-.227 1.109-1.191 1.863-2.277 1.863H12.2l-2.43 1.68c.039.227.039.461 0 .695l2.43 1.008c.559-.094 1.156.09 1.555.516l3.875-1.125C21.465 17.65 24 13.914 24 12.007c0-6.617-5.383-12-12-12zm-3.82 17.152c-.672 0-1.219-.547-1.219-1.219s.547-1.219 1.219-1.219c.672 0 1.219.547 1.219 1.219s-.547 1.219-1.219 1.219zm0-.406c.45 0 .813-.363.813-.813s-.363-.813-.813-.813c-.45 0-.813.363-.813.813s.363.813.813.813z"/>
-                    </svg>
-                    <span>Steam (Cód: 1623179030)</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://discord.com/users/835327536770711573" target="_blank" rel="noopener noreferrer" class="footer-social-icon-link">
-                    <svg width="14" height="14" viewBox="0 0 127.14 96.36" xmlns="http://www.w3.org/2000/svg" style="fill: currentColor; vertical-align: middle;">
-                      <path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65.64,77.53a105.73,105.73,0,0,0,32,16.29,80.5,80.5,0,0,0,6.83-11.13,68.8,68.8,0,0,1-10.85-5.22c.92-.67,1.81-1.38,2.67-2.12a75.42,75.42,0,0,0,71.74,0c.86.74,1.75,1.45,2.67,2.12a68.8,68.8,0,0,1-10.85,5.22,80.5,80.5,0,0,0,6.83,11.13,105.73,105.73,0,0,0,32-16.29C130.4,46.9,124.08,24.12,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.83,46,53.83,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.07,46,96.07,53,91,65.69,84.69,65.69Z"/>
-                    </svg>
-                    <span>Discord (@abrahammfelixx)</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
+    <!-- Sleek Minimal Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-row">
+          <div class="footer-brand footer-column">
+            <span class="footer-logo">FélixTec</span>
+            <p>Engenharia de software elegante com inteligência de ponta.</p>
           </div>
-          
-          <div class="footer-bottom">
-            <p>&copy; 2026 FélixTec. Todos os direitos reservados. Design inspirado na estética minimalista premium.</p>
+
+          <div class="footer-column">
+            <h4>Navegação</h4>
+            <ul class="footer-links-list">
+              <li><a href="/#inicio">Início</a></li>
+              <li><a href="/#precos">Planos</a></li>
+              <li><a href="/#diferenciais">Diferenciais</a></li>
+              <li><a href="/servicos">Serviços</a></li>
+              <li><a href="/#contato">Contato</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Conecte-se</h4>
+            <ul class="footer-links-list">
+              <li>
+                <a href="https://www.linkedin.com/in/abra%C3%A3o-f%C3%A9lix-968b4a1a8/" target="_blank"
+                  rel="noopener noreferrer" class="footer-social-icon-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                  <span>LinkedIn</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/abrahammfelixx/" target="_blank" rel="noopener noreferrer"
+                  class="footer-social-icon-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  </svg>
+                  <span>Instagram</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://s.team/p/jbqw-qwcj/grpcdqmq" target="_blank" rel="noopener noreferrer"
+                  class="footer-social-icon-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                    style="fill: currentColor; vertical-align: middle;">
+                    <path
+                      d="M12 .007c-6.617 0-12 5.383-12 12 0 5.485 3.69 10.11 8.707 11.528l1.094-3.805c-.328-.219-.589-.508-.75-.851l-.039-.016-2.906-1.203c-1.246-.516-1.859-1.93-1.344-3.176.438-1.055 1.547-1.633 2.617-1.445l1.648-2.383c-.023-.195-.016-.398.023-.602.266-1.293 1.531-2.113 2.824-1.848 1.293.266 2.113 1.531 1.848 2.824-.227 1.109-1.191 1.863-2.277 1.863H12.2l-2.43 1.68c.039.227.039.461 0 .695l2.43 1.008c.559-.094 1.156.09 1.555.516l3.875-1.125C21.465 17.65 24 13.914 24 12.007c0-6.617-5.383-12-12-12zm-3.82 17.152c-.672 0-1.219-.547-1.219-1.219s.547-1.219 1.219-1.219c.672 0 1.219.547 1.219 1.219s-.547 1.219-1.219 1.219zm0-.406c.45 0 .813-.363.813-.813s-.363-.813-.813-.813c-.45 0-.813.363-.813.813s.363.813.813.813z" />
+                  </svg>
+                  <span>Steam (Cód: 1623179030)</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://discord.com/users/835327536770711573" target="_blank" rel="noopener noreferrer"
+                  class="footer-social-icon-link">
+                  <svg width="14" height="14" viewBox="0 0 127.14 96.36" xmlns="http://www.w3.org/2000/svg"
+                    style="fill: currentColor; vertical-align: middle;">
+                    <path
+                      d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65.64,77.53a105.73,105.73,0,0,0,32,16.29,80.5,80.5,0,0,0,6.83-11.13,68.8,68.8,0,0,1-10.85-5.22c.92-.67,1.81-1.38,2.67-2.12a75.42,75.42,0,0,0,71.74,0c.86.74,1.75,1.45,2.67,2.12a68.8,68.8,0,0,1-10.85,5.22,80.5,80.5,0,0,0,6.83,11.13,105.73,105.73,0,0,0,32-16.29C130.4,46.9,124.08,24.12,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.83,46,53.83,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.07,46,96.07,53,91,65.69,84.69,65.69Z" />
+                  </svg>
+                  <span>Discord (@abrahammfelixx)</span>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-      </footer>
-    </div>
-    
-    <script type="module" src="/src/main.js"></script>
-  </body>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 FélixTec. Todos os direitos reservados. Design inspirado na estética minimalista premium.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>
