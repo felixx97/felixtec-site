@@ -3766,3 +3766,150 @@ body {
     border-color: transparent transparent rgba(0, 210, 255, 0.25) transparent;
   }
 }
+
+/* ==========================================================================
+   Mobile Visual Overhaul: Animated Coding Mascot & Mobile Refinements
+   ========================================================================== */
+.hero-mascot-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  perspective: 1000px;
+  animation: fadeInUp 1.4s ease-out;
+}
+
+.coding-mascot {
+  width: 240px;
+  height: auto;
+  filter: drop-shadow(0 15px 32px rgba(0,0,0,0.6));
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.coding-mascot:hover {
+  transform: translateY(-6px) scale(1.03) rotate(0.5deg);
+}
+
+.service-detail-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+  position: relative;
+}
+
+.service-detail-desc {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 26px;
+}
+
+/* Mascot SVG Animation Declarations */
+@keyframes bobbing {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes typing-left {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-2px) translateX(1px);
+  }
+}
+
+@keyframes typing-right {
+  0%, 100% {
+    transform: translateY(-2px) translateX(-1px);
+  }
+  50% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+@keyframes code-spark-rise {
+  0% {
+    transform: translateY(15px) scale(0.5);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-25px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.mascot-body {
+  animation: bobbing 4s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+.left-hand-anim {
+  animation: typing-left 0.15s linear infinite;
+  transform-origin: center;
+}
+
+.right-hand-anim {
+  animation: typing-right 0.18s linear infinite;
+  transform-origin: center;
+}
+
+.spark {
+  animation: code-spark-rise 2s infinite ease-out;
+  transform-origin: center;
+}
+
+.spark.s1 { animation-delay: 0s; }
+.spark.s2 { animation-delay: 0.4s; animation-duration: 1.7s; }
+.spark.s3 { animation-delay: 0.9s; animation-duration: 2.1s; }
+.spark.s4 { animation-delay: 1.4s; animation-duration: 1.4s; }
+
+/* Responsive adjustments for services cards on mobile */
+@media (max-width: 900px) {
+  .service-detail-title {
+    font-size: 26px !important;
+    margin-bottom: 16px !important;
+    border-left: 3px solid var(--accent-cyan);
+    padding-left: 12px;
+  }
+
+  .detail-features-list {
+    gap: 12px !important;
+  }
+
+  .detail-features-list li {
+    background: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid rgba(255, 255, 255, 0.04) !important;
+    padding: 12px 16px !important;
+    border-radius: 12px !important;
+    transition: background 0.3s ease, border-color 0.3s ease;
+    box-sizing: border-box;
+  }
+  
+  .detail-features-list li:hover {
+    background: rgba(0, 210, 255, 0.03) !important;
+    border-color: rgba(0, 210, 255, 0.15) !important;
+  }
+}
+
+@media (max-width: 580px) {
+  .coding-mascot {
+    width: 190px;
+  }
+  
+  .hero-mascot-container {
+    margin-top: 20px;
+  }
+}
