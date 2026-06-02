@@ -1122,9 +1122,10 @@ body {
 }
 
 .detail-title {
-  font-size: 34px;
+  font-size: 38px;
   font-weight: 700;
-  letter-spacing: -0.5px;
+  letter-spacing: -1px;
+  line-height: 1.2;
   margin-bottom: 24px;
 }
 
@@ -1671,7 +1672,7 @@ body {
 /* Mobile Responsiveness */
 @media (max-width: 900px) {
   .hero-title {
-    font-size: 42px;
+    font-size: 32px;
     letter-spacing: -1.5px;
     line-height: 1.15;
     margin-bottom: 12px;
@@ -1727,8 +1728,15 @@ body {
   }
 
   .detail-title {
-    font-size: 24px;
+    font-size: 30px;
+    line-height: 1.2;
+    /* Ajuste o tamanho da fonte do parceiro aqui */
     margin-bottom: 16px;
+  }
+
+  .profile-title {
+    font-size: 30px !important;
+    /* Ajuste o tamanho da fonte do quem sou eu aqui */
   }
 
   .contact-grid {
@@ -3792,7 +3800,7 @@ body {
     top: 125%;
     transform: translateX(-50%) translateY(-8px);
   }
-  
+
   .btn-ai-disabled::before {
     bottom: auto;
     top: 115%;
@@ -3816,7 +3824,7 @@ body {
 .coding-mascot {
   width: 240px;
   height: auto;
-  filter: drop-shadow(0 15px 32px rgba(0,0,0,0.6));
+  filter: drop-shadow(0 15px 32px rgba(0, 0, 0, 0.6));
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -3842,27 +3850,36 @@ body {
 
 /* Mascot SVG Animation Declarations */
 @keyframes bobbing {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-4px);
   }
 }
 
 @keyframes typing-left {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) translateX(0);
   }
+
   50% {
     transform: translateY(-2px) translateX(1px);
   }
 }
 
 @keyframes typing-right {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(-2px) translateX(-1px);
   }
+
   50% {
     transform: translateY(0) translateX(0);
   }
@@ -3873,12 +3890,15 @@ body {
     transform: translateY(15px) scale(0.5);
     opacity: 0;
   }
+
   20% {
     opacity: 1;
   }
+
   80% {
     opacity: 0.8;
   }
+
   100% {
     transform: translateY(-25px) scale(1.2);
     opacity: 0;
@@ -3905,10 +3925,24 @@ body {
   transform-origin: center;
 }
 
-.spark.s1 { animation-delay: 0s; }
-.spark.s2 { animation-delay: 0.4s; animation-duration: 1.7s; }
-.spark.s3 { animation-delay: 0.9s; animation-duration: 2.1s; }
-.spark.s4 { animation-delay: 1.4s; animation-duration: 1.4s; }
+.spark.s1 {
+  animation-delay: 0s;
+}
+
+.spark.s2 {
+  animation-delay: 0.4s;
+  animation-duration: 1.7s;
+}
+
+.spark.s3 {
+  animation-delay: 0.9s;
+  animation-duration: 2.1s;
+}
+
+.spark.s4 {
+  animation-delay: 1.4s;
+  animation-duration: 1.4s;
+}
 
 /* Responsive adjustments for services cards on mobile */
 @media (max-width: 900px) {
@@ -3931,7 +3965,7 @@ body {
     transition: background 0.3s ease, border-color 0.3s ease;
     box-sizing: border-box;
   }
-  
+
   .detail-features-list li:hover {
     background: rgba(0, 210, 255, 0.03) !important;
     border-color: rgba(0, 210, 255, 0.15) !important;
@@ -3942,7 +3976,7 @@ body {
   .coding-mascot {
     width: 190px;
   }
-  
+
   .hero-mascot-container {
     margin-top: 20px;
   }
