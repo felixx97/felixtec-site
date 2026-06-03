@@ -1,0 +1,785 @@
+/* FélixTec - Homenagem de Aniversário para a Mãe - Design System Premium */
+
+:root {
+  /* Cores Temáticas - Paleta Lilás Clean e Ouro */
+  --bg-clean: #fcfaff;
+  --text-dark: #2c1a3a;
+  --text-soft: #635370;
+  --text-muted: #9584a3;
+  
+  --lilac-primary: #b19cd9;
+  --lilac-dark: #8c73b0;
+  --lilac-light: #e8daef;
+  --lilac-accent: #9b5de5;
+  --lilac-glow: rgba(177, 156, 217, 0.4);
+  
+  --gold-accent: #d4af37;
+  --gold-light: #f1c40f;
+  --gold-glow: rgba(212, 175, 55, 0.45);
+  
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Outfit', -apple-system, sans-serif;
+  
+  --glass-bg-light: rgba(255, 255, 255, 0.65);
+  --glass-blur-light: blur(15px);
+  --shadow-premium: 0 15px 45px rgba(140, 115, 176, 0.12);
+}
+
+/* Reset de Cursor Customizado para o site */
+.mae-page * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  cursor: none !important; /* Desabilita cursor nativo para usar o fluido */
+}
+
+@media (max-width: 1024px) {
+  .mae-page * {
+    cursor: auto !important; /* Restaura cursor em telas touch */
+  }
+  .mae-page .custom-cursor,
+  .mae-page .custom-cursor-dot {
+    display: none !important;
+  }
+}
+
+/* Fundo da Página */
+.mae-page {
+  font-family: var(--font-sans);
+  background-color: var(--bg-clean);
+  color: var(--text-dark);
+  min-height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Cursor Customizado Lilás */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border: 1.5px solid var(--lilac-primary);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out, width 0.3s, height 0.3s, border-color 0.3s, background-color 0.3s;
+}
+
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: var(--lilac-accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s ease-out;
+}
+
+/* Cursor em Hover */
+.custom-cursor.hovering {
+  width: 44px;
+  height: 44px;
+  background-color: rgba(177, 156, 217, 0.15);
+  border-color: var(--lilac-accent);
+}
+
+.custom-cursor-dot.hovering {
+  transform: translate(-50%, -50%) scale(0);
+}
+
+/* Luzes Ambientais de Fundo */
+.ambient-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle 600px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(232, 218, 239, 0.4),
+      rgba(253, 235, 208, 0.25),
+      transparent 80%);
+  transition: background 0.15s ease-out;
+}
+
+.ambient-bg-lights {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.light-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+  animation: orbFloat 20s infinite ease-in-out alternate;
+}
+
+.orb-1 {
+  width: 50vw;
+  height: 50vw;
+  background: rgba(215, 189, 226, 0.5); /* Lilás */
+  top: -10%;
+  left: -10%;
+}
+
+.orb-2 {
+  width: 60vw;
+  height: 60vw;
+  background: rgba(245, 183, 177, 0.4); /* Rosa Suave */
+  bottom: -15%;
+  right: -10%;
+  animation-delay: -5s;
+}
+
+@keyframes orbFloat {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(4vw, 5vh) scale(1.1); }
+  100% { transform: translate(-2vw, -3vh) scale(0.9); }
+}
+
+/* Falling Orchids Particles */
+.orchids-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1; /* Por trás da carta (envelope é z-index: 10) */
+  overflow: hidden;
+}
+
+.orchid-particle {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+/* Layout Geral */
+.page-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+}
+
+/* Header Minimalista */
+.header-minimal {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 20;
+}
+
+.btn-back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--glass-bg-light);
+  backdrop-filter: var(--glass-blur-light);
+  -webkit-backdrop-filter: var(--glass-blur-light);
+  border: 1px solid rgba(177, 156, 217, 0.25);
+  border-radius: 30px;
+  color: var(--text-dark);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(140, 115, 176, 0.06);
+}
+
+.btn-back-home:hover {
+  transform: translateY(-2px);
+  border-color: var(--lilac-primary);
+  background-color: #fff;
+  box-shadow: 0 6px 20px rgba(177, 156, 217, 0.15);
+}
+
+/* Envelope Container & 3D Structure */
+.envelope-wrapper {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  perspective: 1200px;
+  z-index: 10;
+  pointer-events: none; /* Cliques passam através da área vazia do wrapper */
+}
+
+.envelope-container {
+  position: relative;
+  width: 380px;
+  height: 260px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: auto; /* Envelope e carta capturam cliques normalmente */
+}
+
+/* Quando aberto, desloca ligeiramente o container para equilibrar visualmente com a carta */
+.envelope-container.opened {
+  transform: translateY(80px);
+}
+
+/* O Envelope Físico */
+.envelope {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #fce4ec 0%, #e8daef 50%, #d2b4de 100%); /* Rosa pastel -> Lilás -> Roxo */
+  border-radius: 16px;
+  border: 1.5px solid rgba(212, 175, 55, 0.45); /* Gold trim border */
+  box-shadow: 
+    0 15px 40px rgba(110, 80, 150, 0.2),
+    inset 0 1px 4px rgba(255, 255, 255, 0.5);
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+  z-index: 10;
+}
+
+.envelope-container:not(.opened) .envelope:hover {
+  transform: translateY(-12px) rotateX(6deg) scale(1.02);
+  box-shadow: 
+    0 25px 50px rgba(110, 80, 150, 0.28),
+    inset 0 1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* Escrita Caligráfica na frente do envelope como Marca d'Água */
+.envelope-written-text {
+  font-family: 'Dancing Script', cursive;
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  transform: rotate(-8deg);
+  font-size: 23px;
+  font-weight: 700;
+  color: rgba(90, 60, 130, 0.35); /* Translucent watermark look */
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  z-index: 14;
+  white-space: nowrap;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.envelope-container.opened .envelope-written-text {
+  opacity: 0;
+  transform: rotate(-8deg) translateY(15px);
+}
+
+/* Abas do Envelope usando SVG e Pseudo-elementos */
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 190px solid transparent;
+  border-right: 190px solid transparent;
+  border-top: 140px solid #c39bd3; /* Warm lilac flap */
+  border-radius: 16px 16px 0 0;
+  transform-origin: top center;
+  z-index: 15;
+  filter: drop-shadow(0 5px 8px rgba(110, 80, 150, 0.28));
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), z-index 0.2s, border-top-color 0.4s;
+  transition-delay: 0.1s;
+}
+
+/* Aba Aberta (Gira para cima) */
+.envelope-container.opened .envelope-flap {
+  transform: rotateX(180deg);
+  z-index: 5; /* Vai para trás da carta */
+  border-top-color: var(--lilac-light); /* Lado interno da aba */
+  filter: drop-shadow(0 -5px 8px rgba(110, 80, 150, 0.15));
+  transition-delay: 0s;
+}
+
+/* Parte de bolso (corpo frontal que cobre a carta) */
+.envelope-pocket {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f3d6e4 0%, #cfb3eb 50%, #a689d0 100%);
+  border-radius: 16px;
+  z-index: 12;
+  clip-path: polygon(0% 40%, 50% 65%, 100% 40%, 100% 100%, 0% 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3); /* Gold detail border */
+  box-shadow: 
+    inset 0 2px 8px rgba(255, 255, 255, 0.35),
+    0 -3px 12px rgba(110, 80, 150, 0.12);
+}
+
+/* Selo de Cera (Wax Seal) */
+.wax-seal {
+  position: absolute;
+  top: 110px;
+  left: 50%;
+  transform: translateX(-50%) scale(1);
+  width: 66px;
+  height: 66px;
+  z-index: 16;
+  cursor: pointer !important;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s;
+}
+
+.wax-seal:hover {
+  transform: translateX(-50%) scale(1.15) rotate(5deg);
+}
+
+.wax-seal-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 4px 10px rgba(110, 80, 150, 0.3));
+}
+
+/* Brilho pulsante no selo de cera para chamar o clique */
+.seal-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 15px var(--lilac-accent);
+  opacity: 0.5;
+  pointer-events: none;
+  animation: sealPulse 2s infinite ease-in-out;
+}
+
+@keyframes sealPulse {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+/* Esconde o selo quando aberto */
+.envelope-container.opened .wax-seal {
+  transform: translateX(-50%) scale(0.5);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Instrução para abrir */
+.open-instruction {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-soft);
+  font-size: 13.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+  animation: floatText 2.5s infinite ease-in-out;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.envelope-container.opened .open-instruction {
+  opacity: 0;
+}
+
+@keyframes floatText {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -6px); }
+}
+
+/* The Letter Card (A Carta Interna) */
+.letter-card {
+  position: absolute;
+  top: 15px;
+  left: 4%;
+  width: 92%;
+  height: 90%;
+  background-color: #fdfcfb;
+  border-radius: 12px;
+  padding: 30px 24px 20px 24px;
+  border: 1px solid rgba(177, 156, 217, 0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+  z-index: 8;
+  transform: translateY(0);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), z-index 0.2s, height 0.6s cubic-bezier(0.16, 1, 0.3, 1), top 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+/* Borda dupla estilosa na carta */
+.letter-card::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1.5px double var(--lilac-primary);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+/* Quando Aberto: A carta sobe, expande e assume z-index prioritário */
+.envelope-container.opened .letter-card {
+  transform: translateY(-210px) scale(1.08);
+  height: 440px;
+  top: 0;
+  z-index: 20; /* Fica acima de todas as camadas do envelope */
+  box-shadow: 0 25px 60px rgba(110, 80, 150, 0.2);
+}
+
+/* Cabeçalho da Carta */
+.letter-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.envelope-container.opened .letter-header {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.4s;
+}
+
+.letter-stamp {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--lilac-dark);
+  letter-spacing: 2px;
+  border: 1px solid var(--lilac-primary);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+/* Conteúdo da Carta */
+.letter-body {
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.letter-title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  color: var(--text-dark);
+  margin-bottom: 18px;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.envelope-container.opened .letter-title {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.5s;
+}
+
+/* Mensagens de Amor */
+.message-scroller {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.love-message {
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--text-soft);
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.envelope-container.opened .love-message.msg-1 { opacity: 1; transform: translateY(0); transition-delay: 0.7s; }
+.envelope-container.opened .love-message.msg-2 { opacity: 1; transform: translateY(0); transition-delay: 1.2s; }
+.envelope-container.opened .love-message.msg-3 { opacity: 1; transform: translateY(0); transition-delay: 1.7s; }
+.envelope-container.opened .love-message.msg-4 { opacity: 1; transform: translateY(0); transition-delay: 2.2s; }
+
+/* Rodapé da Carta */
+.letter-footer {
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.envelope-container.opened .letter-footer {
+  opacity: 1;
+  transition-delay: 2.6s;
+}
+
+.close-hint {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Floating/Popping Photos (Fotos Pipocando) */
+.floating-photos-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9; /* Fica atrás da carta para não tampar o texto */
+  overflow: hidden;
+}
+
+.floating-photos-container.top-context {
+  z-index: 150; /* Sobe de contexto para focar no zoom da Polaroid */
+}
+
+.polaroid-photo {
+  position: absolute;
+  width: 180px;
+  height: 215px;
+  background-color: #fff;
+  padding: 10px 10px 30px 10px;
+  border-radius: 4px;
+  box-shadow: 0 10px 35px rgba(110, 80, 150, 0.18);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transform: scale(0) rotate(0deg);
+  opacity: 0;
+  pointer-events: auto; /* Permite interações se necessário */
+  transition: box-shadow 0.3s;
+  will-change: transform, opacity;
+}
+
+.polaroid-photo:hover {
+  box-shadow: 0 15px 40px rgba(110, 80, 150, 0.28);
+  z-index: 100 !important; /* Traz para frente ao passar o mouse */
+}
+
+/* Ajustes de tamanho das Polaroids para mobile */
+@media (max-width: 600px) {
+  .polaroid-photo {
+    width: 110px;
+    height: 135px;
+    padding: 5px 5px 15px 5px;
+  }
+  .envelope-container.opened .letter-card {
+    height: 410px;
+    transform: translateY(-170px) scale(0.95);
+    padding: 20px 16px 15px 16px;
+  }
+  .envelope-container {
+    width: 320px;
+    height: 220px;
+  }
+  .envelope-flap {
+    border-left-width: 160px;
+    border-right-width: 160px;
+    border-top-width: 110px;
+  }
+  .envelope-written-text {
+    font-size: 21px;
+    bottom: 20px;
+  }
+  .love-message {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+  .letter-title {
+    font-size: 19px !important;
+    margin-bottom: 12px !important;
+  }
+}
+
+.polaroid-img-wrapper {
+  width: 100%;
+  height: 80%;
+  background-color: #eae6f0;
+  overflow: hidden;
+  border-radius: 2px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.polaroid-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.polaroid-caption {
+  font-family: 'Playfair Display', serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-soft);
+  text-align: center;
+  margin-top: 10px;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .polaroid-caption {
+    font-size: 8.5px;
+    margin-top: 6px;
+  }
+}
+
+/* Painel de Controle de Áudio */
+.music-control-panel {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 20;
+}
+
+.music-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--glass-bg-light);
+  backdrop-filter: var(--glass-blur-light);
+  -webkit-backdrop-filter: var(--glass-blur-light);
+  border: 1px solid rgba(177, 156, 217, 0.25);
+  border-radius: 30px;
+  color: var(--text-dark);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(140, 115, 176, 0.06);
+}
+
+.music-toggle-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--lilac-primary);
+  background-color: #fff;
+  box-shadow: 0 6px 20px rgba(177, 156, 217, 0.15);
+}
+
+.music-icon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.music-toggle-btn.playing .music-icon {
+  animation: rotateIcon 4s linear infinite;
+  color: var(--lilac-accent);
+}
+
+@keyframes rotateIcon {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Zoom Overlay Backdrop */
+.zoom-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(26, 15, 36, 0.72); /* Fundo escuro roxo translúcido */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 140;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.zoom-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Polaroid Photo Zoomed state */
+.polaroid-photo.zoomed {
+  z-index: 200 !important; /* Acima do backdrop de zoom */
+  cursor: zoom-out !important;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+}
+
+.polaroid-photo.zoomed:hover {
+  box-shadow: 0 35px 85px rgba(0, 0, 0, 0.6);
+}
+
+.polaroid-photo.zoomed .polaroid-caption {
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 15px;
+}
+
+@media (max-width: 600px) {
+  .polaroid-photo.zoomed .polaroid-caption {
+    font-size: 11px;
+    margin-top: 10px;
+  }
+}
+
+/* Chuva de Elementos de Amor (Corações & Mensagens) */
+.falling-love-element {
+  position: fixed;
+  pointer-events: none;
+  z-index: 180; /* Entre a foto ampliada e o backdrop */
+  font-weight: 700;
+  color: #ff3366;
+  will-change: transform, opacity;
+  white-space: nowrap;
+  user-select: none;
+  text-shadow: 0 4px 10px rgba(255, 51, 102, 0.3);
+}
+
+.falling-love-element.text-style {
+  font-family: 'Dancing Script', cursive;
+  font-size: 26px;
+  color: #9b5de5;
+  text-shadow: 0 4px 12px rgba(155, 93, 229, 0.4);
+}
+
+@media (max-width: 600px) {
+  .falling-love-element.text-style {
+    font-size: 18px;
+  }
+}

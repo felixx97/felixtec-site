@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO Metadata -->
+  <title>Feliz Aniversário, Mãe! | Homenagem Especial</title>
+  <meta name="description" content="Parabéns pelo seu dia, mãe! Você é a pessoa mais importante da minha vida. Te amo mil milhões!" />
+
+  <!-- Google Fonts - Outfit, Playfair Display & Dancing Script -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
+
+  <!-- Link custom stylesheets -->
+  <link rel="stylesheet" href="/src/mae.css" />
+</head>
+<body class="mae-page">
+  <!-- Custom Fluid Cursor -->
+  <div class="custom-cursor" id="custom-cursor"></div>
+  <div class="custom-cursor-dot" id="custom-cursor-dot"></div>
+
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-glow" id="ambient-glow"></div>
+  <div class="ambient-bg-lights">
+    <div class="light-orb orb-1"></div>
+    <div class="light-orb orb-2"></div>
+  </div>
+
+  <!-- Falling Orchids Container -->
+  <div class="orchids-container" id="orchids-container"></div>
+
+  <!-- Main Container -->
+  <main class="page-container">
+
+
+    <!-- Interactive Envelope/Card Container -->
+    <div class="envelope-wrapper">
+      <div class="envelope-container" id="envelope-container">
+        <!-- The Envelope itself -->
+        <div class="envelope" id="envelope">
+          <div class="envelope-flap"></div>
+          <div class="envelope-pocket"></div>
+          
+          <!-- Written text on the outside (cursive/sentimental) -->
+          <div class="envelope-written-text" id="envelope-written-text">Te amo mil milhões! 💜</div>
+          
+          <!-- Wax Seal to click and open -->
+          <div class="wax-seal" id="wax-seal" title="Clique para abrir">
+            <svg viewBox="0 0 100 100" class="wax-seal-svg">
+              <circle cx="50" cy="50" r="45" fill="#c39bd3" opacity="0.25" filter="blur(2px)" />
+              <path d="M50,12 C29,12 12,29 12,50 C12,71 29,88 50,88 C71,88 88,71 88,50 C88,29 71,12 50,12 Z" fill="#b19cd9" />
+              <path d="M50,17 C31.8,17 17,31.8 17,50 C17,68.2 31.8,83 50,83 C68.2,83 83,68.2 83,50 C83,31.8 68.2,17 50,17 Z" fill="#9b5de5" opacity="0.8" />
+              <!-- A beautiful gold heart symbol inside the seal -->
+              <path d="M50,60 C50,60 36,49 36,39 C36,32.4 41.4,27 48,27 C50.5,27 52.3,28.2 53.5,29.5 L50,33 L46.5,29.5 C47.7,28.2 49.5,27 52,27 C58.6,27 64,32.4 64,39 C64,49 50,60 50,60 Z" fill="#f1c40f" transform="translate(0, 2)" />
+            </svg>
+            <div class="seal-glow"></div>
+          </div>
+          
+          <!-- Cute interactive instructions text -->
+          <div class="open-instruction" id="open-instruction">
+            <span>Toque no selo para abrir ❤️</span>
+          </div>
+        </div>
+
+        <!-- The Letter that comes out -->
+        <div class="letter-card" id="letter-card">
+          <div class="letter-header">
+            <span class="letter-stamp">🌸 Para a melhor mãe do mundo</span>
+          </div>
+          <div class="letter-body">
+            <h2 class="letter-title">Minha querida Mãe, ❤️</h2>
+            <div class="message-scroller" id="message-container">
+              <p class="love-message msg-1">Hoje é o seu dia, e meu coração transborda de orgulho e gratidão por ter você. ✨</p>
+              <p class="love-message msg-2">Você é a minha luz, o meu porto seguro e a pessoa mais importante deste mundo. 🌸</p>
+              <p class="love-message msg-3">Obrigado por cada conselho, por cada abraço apertado e por ser tudo o que eu sempre precisei. 🙏</p>
+              <p class="love-message msg-4">Que o seu novo ano seja repleto de saúde, paz e infinitos sorrisos. Você merece o mundo! 🎂</p>
+            </div>
+          </div>
+          <div class="letter-footer">
+            <span class="close-hint">Toque em qualquer lugar para guardar a cartinha 💜</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Container for Popping Photos -->
+    <div class="floating-photos-container" id="floating-photos-container"></div>
+
+    <!-- Zoom Overlay Lightbox backdrop -->
+    <div class="zoom-overlay" id="zoom-overlay"></div>
+
+    <!-- Music Player Control (Synthesized Web Audio / Caixinha de música) -->
+    <div class="music-control-panel">
+      <button class="music-toggle-btn" id="music-toggle" title="Ligar/Desligar Música">
+        <svg class="music-icon icon-off" id="music-icon-off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18V5l12-2v13"></path>
+          <circle cx="6" cy="18" r="3"></circle>
+          <circle cx="18" cy="16" r="3"></circle>
+          <line x1="1" y1="1" x2="23" y2="23"></line>
+        </svg>
+        <svg class="music-icon icon-on hidden" id="music-icon-on" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18V5l12-2v13"></path>
+          <circle cx="6" cy="18" r="3"></circle>
+          <circle cx="18" cy="16" r="3"></circle>
+        </svg>
+        <span class="music-btn-text">Caixinha de Música</span>
+      </button>
+    </div>
+  </main>
+
+  <!-- Module script -->
+  <script type="module" src="/src/mae.js"></script>
+</body>
+</html>
