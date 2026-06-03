@@ -276,27 +276,6 @@ html, body {
 }
 
 /* Escrita Caligráfica na frente do envelope */
-.envelope-written-title {
-  font-family: 'Dancing Script', cursive;
-  position: absolute;
-  top: 45px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 28px;
-  font-weight: 700;
-  color: #3b1854; /* Roxo escuro natural tipo caneta tinteiro */
-  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6);
-  pointer-events: none;
-  z-index: 17; /* Acima da aba do envelope para ficar visível antes de abrir */
-  white-space: nowrap;
-  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.envelope-container.opened .envelope-written-title {
-  opacity: 0;
-  transform: translateX(-50%) translateY(-15px);
-}
-
 .envelope-written-text {
   font-family: 'Dancing Script', cursive;
   position: absolute;
@@ -305,7 +284,7 @@ html, body {
   transform: translateX(-50%);
   font-size: 26px;
   font-weight: 700;
-  color: #3b1854;
+  color: #3b1854; /* Roxo escuro natural tipo caneta tinteiro */
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6);
   pointer-events: none;
   z-index: 17; /* Acima do bolso do envelope */
@@ -619,15 +598,15 @@ html, body {
   .polaroid-photo {
     width: 95px;
     height: 115px;
-    padding: 5px 5px 15px 5px;
+    padding: 5px 5px 20px 5px; /* Mais espaço inferior para o texto */
   }
   .envelope-container.opened .letter-card {
-    height: 350px;
-    transform: translateY(-150px) scale(0.95);
-    padding: 20px 16px 15px 16px;
+    height: 360px; /* Levemente mais alto para segurança */
+    transform: translateY(-160px) scale(0.95); /* Desloca mais para cima no mobile */
+    padding: 15px 16px 12px 16px;
   }
   .message-scroller {
-    gap: 10px !important;
+    gap: 7px !important;
   }
   .envelope-container {
     width: 320px;
@@ -638,21 +617,20 @@ html, body {
     border-right-width: 160px;
     border-top-width: 110px;
   }
-  .envelope-written-title {
-    font-size: 22px;
-    top: 35px;
-  }
   .envelope-written-text {
     font-size: 20px;
     bottom: 35px;
   }
   .love-message {
-    font-size: 13px !important;
-    line-height: 1.5 !important;
+    font-size: 12.5px !important;
+    line-height: 1.4 !important;
   }
   .letter-title {
-    font-size: 19px !important;
-    margin-bottom: 12px !important;
+    font-size: 17px !important;
+    margin-bottom: 6px !important;
+  }
+  .letter-header {
+    margin-bottom: 6px !important;
   }
 }
 
@@ -682,11 +660,12 @@ html, body {
   text-align: center;
   margin-top: 10px;
   display: block;
+  white-space: nowrap; /* Impede quebras de linha indesejadas */
 }
 
 @media (max-width: 600px) {
   .polaroid-caption {
-    font-size: 8.5px;
+    font-size: 8px;
     margin-top: 6px;
   }
 }
@@ -779,16 +758,10 @@ html, body {
 }
 
 .polaroid-photo.zoomed .polaroid-caption {
-  font-size: 15px;
+  font-size: 10px !important; /* Visualmente fica ideal após o redimensionamento do zoom */
   font-weight: 700;
-  margin-top: 15px;
-}
-
-@media (max-width: 600px) {
-  .polaroid-photo.zoomed .polaroid-caption {
-    font-size: 11px;
-    margin-top: 10px;
-  }
+  margin-top: 10px;
+  white-space: nowrap;
 }
 
 /* Chuva de Elementos de Amor (Corações & Mensagens) */
