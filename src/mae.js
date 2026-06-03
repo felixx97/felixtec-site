@@ -161,12 +161,13 @@ function setupPhotos() {
       <span class="polaroid-caption">${photoData.caption}</span>
     `;
     
+    const isMobile = window.innerWidth <= 600;
     // Inicializa na posição oculta (escala 0, no centro)
     gsap.set(photoDiv, {
       scale: 0,
       opacity: 0,
-      x: window.innerWidth / 2 - 90,
-      y: window.innerHeight / 2 - 110,
+      x: window.innerWidth / 2 - (isMobile ? 47.5 : 90),
+      y: window.innerHeight / 2 - (isMobile ? 57.5 : 110),
       transformOrigin: 'center center'
     });
     
@@ -337,15 +338,16 @@ function triggerPhotosPopup() {
     
     // Coordenadas de dispersão da tela otimizadas de forma perfeitamente simétrica: 3 em cima, 3 embaixo
     if (isMobile) {
+      // Ajuste de posições para evitar sobreposição com o cartão e scroll lateral
       const positions = [
-        // 3 no Topo (mais próximos da carta)
-        { x: 10, y: 70 },                                  // Superior Esquerda
-        { x: window.innerWidth / 2 - 55, y: 60 },          // Superior Centro
-        { x: window.innerWidth - 120, y: 70 },             // Superior Direita
-        // 3 na Base (mais próximos da carta)
-        { x: 10, y: window.innerHeight - 200 },            // Inferior Esquerda
-        { x: window.innerWidth / 2 - 55, y: window.innerHeight - 215 }, // Inferior Centro
-        { x: window.innerWidth - 120, y: window.innerHeight - 200 }  // Inferior Direita
+        // 3 no Topo (alinhados e recuados da borda)
+        { x: 10, y: 55 },                                  // Superior Esquerda
+        { x: window.innerWidth / 2 - 47.5, y: 45 },        // Superior Centro
+        { x: window.innerWidth - 105, y: 55 },             // Superior Direita
+        // 3 na Base (empurrados para baixo perto do rodapé, sem tocar a borda)
+        { x: 10, y: window.innerHeight - 145 },            // Inferior Esquerda
+        { x: window.innerWidth / 2 - 47.5, y: window.innerHeight - 135 }, // Inferior Centro
+        { x: window.innerWidth - 105, y: window.innerHeight - 145 }  // Inferior Direita
       ];
       targetX = positions[index].x;
       targetY = positions[index].y;
@@ -371,8 +373,8 @@ function triggerPhotosPopup() {
 
     // Reinicia a posição no centro da tela (envelope)
     gsap.set(photo, {
-      x: window.innerWidth / 2 - (isMobile ? 55 : 90),
-      y: window.innerHeight / 2 - (isMobile ? 67 : 110),
+      x: window.innerWidth / 2 - (isMobile ? 47.5 : 90),
+      y: window.innerHeight / 2 - (isMobile ? 57.5 : 110),
       scale: 0,
       opacity: 0,
       rotation: gsap.utils.random(-45, 45),
@@ -445,8 +447,8 @@ function closePhotosPopup() {
     }
 
     gsap.to(photo, {
-      x: window.innerWidth / 2 - (isMobile ? 55 : 90),
-      y: window.innerHeight / 2 - (isMobile ? 67 : 110),
+      x: window.innerWidth / 2 - (isMobile ? 47.5 : 90),
+      y: window.innerHeight / 2 - (isMobile ? 57.5 : 110),
       scale: 0,
       opacity: 0,
       rotation: 0,
@@ -499,8 +501,8 @@ function zoomInPhoto(photo) {
 
   // Anima para o centro e escala
   gsap.to(photo, {
-    x: window.innerWidth / 2 - (isMobile ? 55 : 90),
-    y: window.innerHeight / 2 - (isMobile ? 67 : 110),
+    x: window.innerWidth / 2 - (isMobile ? 47.5 : 90),
+    y: window.innerHeight / 2 - (isMobile ? 57.5 : 110),
     scale: targetScale,
     rotation: 0,
     duration: 0.65,

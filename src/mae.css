@@ -43,13 +43,18 @@
   }
 }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 /* Fundo da Página */
 .mae-page {
   font-family: var(--font-sans);
   background-color: var(--bg-clean);
   color: var(--text-dark);
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
   position: relative;
   -webkit-font-smoothing: antialiased;
@@ -279,8 +284,8 @@
   transform: translateX(-50%);
   font-size: 28px;
   font-weight: 700;
-  color: #4a1c6d; /* Roxo escuro manuscrito bem legível */
-  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.9), 0 0 8px rgba(255, 255, 255, 0.5);
+  color: #3b1854; /* Roxo escuro natural tipo caneta tinteiro */
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6);
   pointer-events: none;
   z-index: 17; /* Acima da aba do envelope para ficar visível antes de abrir */
   white-space: nowrap;
@@ -300,8 +305,8 @@
   transform: translateX(-50%);
   font-size: 26px;
   font-weight: 700;
-  color: #4a1c6d;
-  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.9), 0 0 8px rgba(255, 255, 255, 0.5);
+  color: #3b1854;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6);
   pointer-events: none;
   z-index: 17; /* Acima do bolso do envelope */
   white-space: nowrap;
@@ -311,36 +316,6 @@
 .envelope-container.opened .envelope-written-text {
   opacity: 0;
   transform: translateX(-50%) translateY(15px);
-}
-
-/* Efeitos Especiais Premium para os Emojis nos Textos Manuscritos */
-.lilac-heart {
-  display: inline-block;
-  font-size: 1.25em;
-  color: #9b5de5;
-  filter: drop-shadow(0 2px 4px rgba(155, 93, 229, 0.45));
-  margin-left: 6px;
-  vertical-align: middle;
-  transform: scale(1.1);
-  animation: heartBeat 1.8s infinite ease-in-out;
-}
-
-@keyframes heartBeat {
-  0%, 100% { transform: scale(1.1); }
-  50% { transform: scale(1.3); }
-}
-
-.flower-emoji {
-  display: inline-block;
-  font-size: 1.15em;
-  vertical-align: middle;
-  margin-left: 6px;
-  animation: gentleSpin 8s infinite linear;
-}
-
-@keyframes gentleSpin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
 }
 
 /* Abas do Envelope usando SVG e Pseudo-elementos */
@@ -642,14 +617,17 @@
 /* Ajustes de tamanho das Polaroids para mobile */
 @media (max-width: 600px) {
   .polaroid-photo {
-    width: 110px;
-    height: 135px;
+    width: 95px;
+    height: 115px;
     padding: 5px 5px 15px 5px;
   }
   .envelope-container.opened .letter-card {
-    height: 410px;
-    transform: translateY(-170px) scale(0.95);
+    height: 350px;
+    transform: translateY(-150px) scale(0.95);
     padding: 20px 16px 15px 16px;
+  }
+  .message-scroller {
+    gap: 10px !important;
   }
   .envelope-container {
     width: 320px;
