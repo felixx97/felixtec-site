@@ -59,7 +59,7 @@ hoverables.forEach(item => {
 // 2. Sistema de Partículas: Orquídeas Caindo
 // ----------------------------------------------------
 const orchidsContainer = document.getElementById('orchids-container');
-const numberOfOrchids = window.innerWidth < 600 ? 12 : 25;
+const numberOfOrchids = window.innerWidth < 600 ? 45 : 90;
 
 const orchidTemplates = [
   // Orquídea com pétalas cheias
