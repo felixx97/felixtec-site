@@ -824,6 +824,25 @@ if (document.querySelector('.hero-section')) {
     });
   }
 
+  // Portfolio grid cards reveal animation
+  const portfolioCards = document.querySelectorAll('.portfolio-grid .project-showcase-card');
+  if (portfolioCards.length > 0) {
+    portfolioCards.forEach((card, index) => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: isMobile ? 'top 95%' : 'top 90%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 30,
+        duration: 0.6,
+        delay: isMobile ? 0 : (index % 3) * 0.15,
+        ease: 'power2.out'
+      });
+    });
+  }
+
   // Profile photo container reveal
   const profileMedia = document.querySelector('.profile-media-container');
   if (profileMedia) {
@@ -1213,6 +1232,30 @@ const serviceArticles = {
                 <img src="/Site-vips-tv.png" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: transform 0.3s ease, opacity 0.3s ease;" onmouseover="this.style.transform='scale(1.08)'; this.style.opacity='1';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='0.6';" alt="Vips TV" />
                 <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 4px 6px; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); pointer-events: none;">
                   <span style="font-size: 9px; font-weight: 700; color: #fff; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Vips TV</span>
+                </div>
+              </div>
+
+              <!-- Estelar Engenharia -->
+              <div style="position: relative; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); aspect-ratio: 16/10; background: #000; cursor: pointer; transition: border-color 0.3s ease;" onmouseover="this.style.borderColor='var(--accent-cyan)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'" onclick="window.open('https://www.estelarengenharia.com.br/', '_blank')">
+                <img src="/site-estelar.png" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: transform 0.3s ease, opacity 0.3s ease;" onmouseover="this.style.transform='scale(1.08)'; this.style.opacity='1';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='0.6';" alt="Estelar Engenharia" />
+                <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 4px 6px; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); pointer-events: none;">
+                  <span style="font-size: 9px; font-weight: 700; color: #fff; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Estelar</span>
+                </div>
+              </div>
+
+              <!-- Douglas Oliver -->
+              <div style="position: relative; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); aspect-ratio: 16/10; background: #000; cursor: pointer; transition: border-color 0.3s ease;" onmouseover="this.style.borderColor='var(--accent-cyan)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'" onclick="window.open('https://terapeutadoug.com.br/', '_blank')">
+                <img src="/site-terapeuta-doug.png" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: transform 0.3s ease, opacity 0.3s ease;" onmouseover="this.style.transform='scale(1.08)'; this.style.opacity='1';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='0.6';" alt="Douglas Oliver" />
+                <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 4px 6px; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); pointer-events: none;">
+                  <span style="font-size: 9px; font-weight: 700; color: #fff; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">D. Oliver</span>
+                </div>
+              </div>
+
+              <!-- OrigenEng -->
+              <div style="position: relative; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); aspect-ratio: 16/10; background: #000; cursor: pointer; transition: border-color 0.3s ease;" onmouseover="this.style.borderColor='var(--accent-cyan)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'" onclick="window.open('https://www.origeneng.com.br/', '_blank')">
+                <img src="/site-origeneng.png" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: transform 0.3s ease, opacity 0.3s ease;" onmouseover="this.style.transform='scale(1.08)'; this.style.opacity='1';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='0.6';" alt="OrigenEng" />
+                <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 4px 6px; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); pointer-events: none;">
+                  <span style="font-size: 9px; font-weight: 700; color: #fff; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">OrigenEng</span>
                 </div>
               </div>
             </div>

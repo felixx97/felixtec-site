@@ -712,6 +712,7 @@ body {
 
 /* Shared Sections layout */
 .services-section,
+.portfolio-section,
 .details-section,
 .demo-section,
 .contact-section {
@@ -3979,5 +3980,42 @@ body {
 
   .hero-mascot-container {
     margin-top: 20px;
+  }
+}
+
+/* ====================================================
+   11. Seção de Portfólio na Home
+   ==================================================== */
+.portfolio-section {
+  background: linear-gradient(to bottom, rgba(8, 8, 10, 0.4) 0%, rgba(15, 15, 20, 0.6) 100%);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.portfolio-grid .project-showcase-card {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 450px;
+    margin: 0 auto;
   }
 }
