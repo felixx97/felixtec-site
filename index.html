@@ -1122,7 +1122,15 @@
           </p>
         </div>
 
-        <div class="portfolio-grid">
+        <div class="portfolio-carousel-wrapper">
+          <button class="carousel-btn prev" id="portfolio-prev" aria-label="Anterior">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          
+          <div class="portfolio-carousel-container">
+            <div class="portfolio-carousel-track" id="portfolio-track">
           <!-- Projeto 1: High Tech Floripa -->
           <div class="project-showcase-card glass-panel">
             <div class="project-visual-wrapper">
@@ -1276,6 +1284,14 @@
               <a href="https://www.origeneng.com.br/" target="_blank" rel="noopener noreferrer" class="project-showcase-link">Acessar Projeto &rarr;</a>
             </div>
           </div>
+            </div>
+          </div>
+
+          <button class="carousel-btn next" id="portfolio-next" aria-label="Próximo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
         </div>
       </div>
     </section>

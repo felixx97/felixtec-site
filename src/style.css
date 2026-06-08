@@ -3984,38 +3984,122 @@ body {
 }
 
 /* ====================================================
-   11. Seção de Portfólio na Home
+   11. Seção de Portfólio na Home (Carrossel Dinâmico)
    ==================================================== */
 .portfolio-section {
   background: linear-gradient(to bottom, rgba(8, 8, 10, 0.4) 0%, rgba(15, 15, 20, 0.6) 100%);
   border-bottom: 1px solid var(--border-light);
 }
 
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+.portfolio-carousel-wrapper {
+  position: relative;
+  width: 100%;
   max-width: 1100px;
   margin: 0 auto;
 }
 
-.portfolio-grid .project-showcase-card {
-  height: 100%;
+.portfolio-carousel-container {
+  overflow: hidden;
+  width: 100%;
+  padding: 20px 5px; /* Vertical padding prevents hover shadows from getting clipped */
+  margin: -20px -5px;
+}
+
+.portfolio-carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  gap: 30px;
+}
+
+.portfolio-carousel-track .project-showcase-card {
+  flex: 0 0 calc(33.333% - 20px); /* 3 items per view (2 gaps of 30px distributed) */
   box-sizing: border-box;
+  height: auto;
+}
+
+/* Glassmorphic Side Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 95px; /* Centers vertically relative to the browser screenshot wrapper (150px height + 20px padding) */
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(10, 10, 12, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 10;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  padding: 0;
+}
+
+.carousel-btn:hover {
+  background: rgba(0, 210, 255, 0.12);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.35);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-btn.prev {
+  left: -60px;
+}
+
+.carousel-btn.next {
+  right: -60px;
+}
+
+/* Responsiveness Calculations */
+@media (max-width: 1240px) {
+  .carousel-btn.prev {
+    left: -20px;
+  }
+  .carousel-btn.next {
+    right: -20px;
+  }
 }
 
 @media (max-width: 1024px) {
-  .portfolio-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .portfolio-carousel-track {
     gap: 24px;
+  }
+  .portfolio-carousel-track .project-showcase-card {
+    flex: 0 0 calc(50% - 12px); /* 2 items per view (1 gap of 24px distributed) */
+  }
+  .carousel-btn.prev {
+    left: -15px;
+  }
+  .carousel-btn.next {
+    right: -15px;
   }
 }
 
 @media (max-width: 768px) {
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    max-width: 450px;
-    margin: 0 auto;
+  .portfolio-carousel-track {
+    gap: 20px;
+  }
+  .portfolio-carousel-track .project-showcase-card {
+    flex: 0 0 100%; /* 1 item per view */
+  }
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+  }
+  .carousel-btn.prev {
+    left: -6px; /* Prevents going off-screen on narrow viewports while avoiding text overlay */
+  }
+  .carousel-btn.next {
+    right: -6px;
   }
 }

@@ -824,22 +824,19 @@ if (document.querySelector('.hero-section')) {
     });
   }
 
-  // Portfolio grid cards reveal animation
-  const portfolioCards = document.querySelectorAll('.portfolio-grid .project-showcase-card');
-  if (portfolioCards.length > 0) {
-    portfolioCards.forEach((card, index) => {
-      gsap.from(card, {
-        scrollTrigger: {
-          trigger: card,
-          start: isMobile ? 'top 95%' : 'top 90%',
-          toggleActions: 'play none none none'
-        },
-        opacity: 0,
-        y: 30,
-        duration: 0.6,
-        delay: isMobile ? 0 : (index % 3) * 0.15,
-        ease: 'power2.out'
-      });
+  // Portfolio carousel reveal animation
+  const portfolioWrapper = document.querySelector('.portfolio-carousel-wrapper');
+  if (portfolioWrapper) {
+    gsap.from(portfolioWrapper, {
+      scrollTrigger: {
+        trigger: portfolioWrapper,
+        start: isMobile ? 'top 95%' : 'top 90%',
+        toggleActions: 'play none none none'
+      },
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      ease: 'power2.out'
     });
   }
 
@@ -1957,6 +1954,114 @@ const initGoogleAdsConversions = () => {
   });
 };
 
+// ----------------------------------------------------
+// 13. Carrossel de Portfólio na Home
+// ----------------------------------------------------
+const initPortfolioCarousel = () => {
+  const track = document.getElementById('portfolio-track');
+  const prevBtn = document.getElementById('portfolio-prev');
+  const nextBtn = document.getElementById('portfolio-next');
+  if (!track || !prevBtn || !nextBtn) return;
+
+  const cards = track.querySelectorAll('.project-showcase-card');
+  const totalCards = cards.length;
+  if (totalCards === 0) return;
+
+  let currentIndex = 0;
+  let autoplayInterval = null;
+  const autoplayDelay = 3500; // 3.5 seconds
+
+  // Get items per view dynamically based on screen width
+  const getItemsPerView = () => {
+    const width = window.innerWidth;
+    if (width > 1024) return 3;
+    if (width > 768) return 2;
+    return 1;
+  };
+
+  // Move track to current index
+  const updateCarousel = () => {
+    const itemsPerView = getItemsPerView();
+    const maxIndex = totalCards - itemsPerView;
+
+    // Boundary check and correction
+    if (currentIndex < 0) {
+      currentIndex = maxIndex;
+    } else if (currentIndex > maxIndex) {
+      currentIndex = 0;
+    }
+
+    const gap = parseFloat(getComputedStyle(track).gap) || 0;
+    const itemWidth = cards[0].getBoundingClientRect().width;
+    const offset = currentIndex * (itemWidth + gap);
+
+    track.style.transform = `translateX(-${offset}px)`;
+  };
+
+  // Autoplay control functions
+  const startAutoplay = () => {
+    if (autoplayInterval) clearInterval(autoplayInterval);
+    autoplayInterval = setInterval(() => {
+      const itemsPerView = getItemsPerView();
+      const maxIndex = totalCards - itemsPerView;
+      if (currentIndex >= maxIndex) {
+        currentIndex = 0;
+      } else {
+        currentIndex++;
+      }
+      updateCarousel();
+    }, autoplayDelay);
+  };
+
+  const stopAutoplay = () => {
+    if (autoplayInterval) {
+      clearInterval(autoplayInterval);
+      autoplayInterval = null;
+    }
+  };
+
+  // Button Click Handlers
+  prevBtn.addEventListener('click', () => {
+    stopAutoplay();
+    currentIndex--;
+    updateCarousel();
+    startAutoplay(); // Reset autoplay timer
+  });
+
+  nextBtn.addEventListener('click', () => {
+    stopAutoplay();
+    currentIndex++;
+    updateCarousel();
+    startAutoplay(); // Reset autoplay timer
+  });
+
+  // Pause on hover
+  const wrapper = track.closest('.portfolio-carousel-wrapper');
+  if (wrapper) {
+    wrapper.addEventListener('mouseenter', stopAutoplay);
+    wrapper.addEventListener('mouseleave', startAutoplay);
+  }
+
+  // Handle Resize Events (recalculates layout)
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      // Correct index if itemsPerView changes and index becomes out of bounds
+      const itemsPerView = getItemsPerView();
+      const maxIndex = totalCards - itemsPerView;
+      if (currentIndex > maxIndex) {
+        currentIndex = maxIndex;
+      }
+      updateCarousel();
+    }, 100);
+  });
+
+  // Initialize carousel track position and start play
+  updateCarousel();
+  startAutoplay();
+};
+
 // Inicializar tudo após carregamento
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
@@ -1965,6 +2070,7 @@ if (document.readyState === 'loading') {
     initContactForm();
     initCtaDropdown();
     initGoogleAdsConversions();
+    initPortfolioCarousel();
   });
 } else {
   initCookieBanner();
@@ -1972,6 +2078,7 @@ if (document.readyState === 'loading') {
   initContactForm();
   initCtaDropdown();
   initGoogleAdsConversions();
+  initPortfolioCarousel();
 }
 
 
