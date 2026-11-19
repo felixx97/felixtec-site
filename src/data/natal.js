@@ -8,7 +8,7 @@ export const NATAL_META = {
   ogTitle: '🎄 Coloque seu Site Profissional no Ar Antes do Ano Virar | Especial de Natal FélixTec',
   ogDescription:
     'Condição exclusiva de dezembro: Landing Pages por R$ 300, Sites Profissionais por R$ 499 e Automações sob medida com entrega rápida em até 5 dias. Ideal para Médicos, Advogados, Contadores, Arquitetos e Empresas. Clique e garanta sua vaga!',
-  ogImage: 'https://felixtec.com.br/og-natal.jpg?v=2',
+  ogImage: 'https://felixtec.com.br/og-natal.jpg?v=3',
 };
 
 export const NATAL_WHATSAPP = {
