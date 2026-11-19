@@ -799,3 +799,123 @@
   }
 }
 
+
+/* --------------------------------------------------
+   Portfolio Section (Dynamic Carousel)
+   -------------------------------------------------- */
+.portfolio-section {
+  background: linear-gradient(to bottom, rgba(8, 8, 10, 0.4) 0%, rgba(15, 15, 20, 0.6) 100%);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.portfolio-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.portfolio-carousel-container {
+  overflow: hidden;
+  width: 100%;
+  padding: 20px 5px;
+  margin: -20px -5px;
+}
+
+.portfolio-carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+  gap: 30px;
+}
+
+.portfolio-carousel-track .project-showcase-card {
+  flex: 0 0 calc(33.333% - 20px);
+  box-sizing: border-box;
+  height: auto;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 95px;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(10, 10, 12, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  z-index: 10;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  padding: 0;
+}
+
+.carousel-btn:hover {
+  background: rgba(0, 210, 255, 0.12);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.35);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-btn.prev {
+  left: -60px;
+}
+
+.carousel-btn.next {
+  right: -60px;
+}
+
+@media (max-width: 1240px) {
+  .carousel-btn.prev {
+    left: -20px;
+  }
+  .carousel-btn.next {
+    right: -20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .portfolio-carousel-track {
+    gap: 24px;
+  }
+  .portfolio-carousel-track .project-showcase-card {
+    flex: 0 0 calc(50% - 12px);
+  }
+  .carousel-btn.prev {
+    left: -15px;
+  }
+  .carousel-btn.next {
+    right: -15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-carousel-track {
+    gap: 20px;
+  }
+  .portfolio-carousel-track .project-showcase-card {
+    flex: 0 0 100%;
+  }
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+  }
+  .carousel-btn.prev {
+    left: -6px;
+  }
+  .carousel-btn.next {
+    right: -6px;
+  }
+}

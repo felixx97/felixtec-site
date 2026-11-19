@@ -39,5 +39,34 @@ export const PORTFOLIO_CASES = [
     image: '/images/site-vips-tv.webp',
     url: 'https://vipstv.com.br/',
   },
+  {
+    id: 'estelar',
+    name: 'Estelar Engenharia',
+    shortName: 'Estelar',
+    category: 'Energia & Infraestrutura',
+    description:
+      'Site corporativo focado em engenharia de energia e projetos de fontes alternativas e renováveis. Apresenta design limpo, robusto e extremamente institucional.',
+    image: '/images/site-estelar.webp',
+    url: 'https://www.estelarengenharia.com.br/',
+  },
+  {
+    id: 'douglas-oliver',
+    name: 'Douglas Oliver',
+    shortName: 'Douglas Oliver',
+    category: 'Saúde & Bem-Estar',
+    description:
+      'Plataforma para terapeuta e massoterapeuta. Focado em agendamento prático de sessões de massoterapia com design acolhedor, humanizado e responsivo.',
+    image: '/images/site-terapeuta-doug.webp',
+    url: 'https://terapeutadoug.com.br/',
+  },
+  {
+    id: 'origeneng',
+    name: 'OrigenEng',
+    shortName: 'OrigenEng',
+    category: 'Construção & Engenharia Civil',
+    description:
+      'Landing page corporativa para engenharia de proteção patrimonial. Otimizada para captação de clientes, solicitações de orçamentos e conversão direta via formulário.',
+    image: '/images/site-origeneng.webp',
+    url: 'https://www.origeneng.com.br/',
+  },
 ];
-

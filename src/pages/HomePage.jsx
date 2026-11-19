@@ -6,6 +6,7 @@ import ServiceModal from '../components/modals/ServiceModal';
 import ContactSection from '../components/sections/ContactSection';
 import DetailsSection from '../components/sections/DetailsSection';
 import HeroSection from '../components/sections/HeroSection';
+import PortfolioSection from '../components/sections/PortfolioSection';
 import PricingSection from '../components/sections/PricingSection';
 import ProfileSection from '../components/sections/ProfileSection';
 import ServicesBentoSection from '../components/sections/ServicesBentoSection';
@@ -103,6 +104,15 @@ export default function HomePage() {
         });
       });
 
+      // Portfolio carousel reveal
+      gsap.from('.portfolio-carousel-wrapper', {
+        scrollTrigger: { trigger: '.portfolio-carousel-wrapper', start: isMobile ? 'top 95%' : 'top 90%', once: true },
+        opacity: 0,
+        y: 28,
+        duration: 0.75,
+        ease: 'power2.out',
+      });
+
       // Details reveal
       gsap.from('.scroll-reveal-left', {
         scrollTrigger: { trigger: '.details-section', start: 'top 82%', once: true },
@@ -176,6 +186,7 @@ export default function HomePage() {
       <HeroSection onOpenOffer={() => setOfferOpen(true)} />
       <PricingSection variant="home" />
       <ServicesBentoSection onSelectService={setActiveServiceKey} />
+      <PortfolioSection />
       <DetailsSection />
       <ProfileSection />
       <VideoSection />

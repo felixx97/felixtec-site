@@ -17,6 +17,7 @@ export const NAV_LINKS = [
   { label: 'Início', to: '/#inicio', hash: 'inicio' },
   { label: 'Planos', to: '/#precos', hash: 'precos' },
   { label: 'Diferenciais', to: '/#diferenciais', hash: 'diferenciais' },
+  { label: 'Portfólio', to: '/#portfolio', hash: 'portfolio' },
   { label: 'Serviços', to: '/servicos', hash: null },
   { label: 'Contato', to: '/#contato', hash: 'contato' },
 ];

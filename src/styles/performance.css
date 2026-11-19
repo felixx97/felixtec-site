@@ -6,6 +6,7 @@
 /* Skip layout & paint for offscreen sections until scrolled near */
 .pricing-section,
 .services-section,
+.portfolio-section,
 .details-section,
 .profile-section,
 .video-section,
@@ -45,6 +46,7 @@ html[data-perf="low"] .service-modal-overlay,
 html[data-perf="low"] #ft-cookie-banner,
 html[data-perf="low"] #ft-wa-popup,
 html[data-perf="low"] .nav-cta-dropdown-content,
+html[data-perf="low"] .carousel-btn,
 html[data-perf="low"] .video-audio-badge {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;

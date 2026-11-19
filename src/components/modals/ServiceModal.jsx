@@ -102,7 +102,7 @@ export default function ServiceModal({ serviceKey, onClose }) {
                 <div className="article-cases-box">
                   <span className="article-cases-title">Casos de Sucesso</span>
                   <div className="article-cases-grid">
-                    {PORTFOLIO_CASES.map((item) => (
+                    {PORTFOLIO_CASES.slice(0, 4).map((item) => (
                       <a
                         key={item.id}
                         href={item.url}
