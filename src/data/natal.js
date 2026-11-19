@@ -1,13 +1,14 @@
 import { buildWhatsAppUrl } from './siteConfig';
 
 export const NATAL_META = {
-  title: 'Especial de Natal FélixTec | Sites e Landing Pages a partir de R$ 300',
+  title: 'Coloque seu Site Profissional no Ar Antes do Ano Virar | Especial de Natal FélixTec',
   description:
-    'Comece o ano novo com seu site profissional (R$ 499), landing page (R$ 300), mini-sistema ou automação no ar com condição especial de Natal para Médicos, Advogados, Contadores, Arquitetos e Empresas.',
+    'Condição exclusiva de dezembro: Landing Pages por R$ 300, Sites Profissionais por R$ 499 e Automações sob medida com entrega rápida em até 5 dias úteis. Garanta sua vaga!',
   url: 'https://felixtec.com.br/natal',
-  ogTitle: 'Especial de Natal FélixTec: Landing Pages por R$ 300 e Sites Profissionais por R$ 499',
+  ogTitle: '🎄 Coloque seu Site Profissional no Ar Antes do Ano Virar | Especial de Natal FélixTec',
   ogDescription:
-    'Agenda reduzida de dezembro com condições especiais de Natal para profissionais liberais e empresas começarem o próximo ano estruturados no digital.',
+    'Condição exclusiva de dezembro: Landing Pages por R$ 300, Sites Profissionais por R$ 499 e Automações sob medida com entrega rápida em até 5 dias. Ideal para Médicos, Advogados, Contadores, Arquitetos e Empresas. Clique e garanta sua vaga!',
+  ogImage: 'https://felixtec.com.br/og-natal.jpg?v=2',
 };
 
 export const NATAL_WHATSAPP = {
