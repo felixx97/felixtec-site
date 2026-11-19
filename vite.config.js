@@ -1,29 +1,15 @@
 import { defineConfig } from 'vite';
-import { resolve } from 'path';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  plugins: [
-    {
-      name: 'clean-urls-middleware',
-      configureServer(server) {
-        server.middlewares.use((req, res, next) => {
-          const url = req.url.split('?')[0].split('#')[0];
-          if (url === '/servicos') {
-            req.url = '/servicos.html';
-          } else if (url === '/politicas') {
-            req.url = '/politicas.html';
-          }
-          next();
-        });
-      }
-    }
-  ],
+  plugins: [react()],
   build: {
     rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html'),
-        servicos: resolve(__dirname, 'servicos.html'),
-        politicas: resolve(__dirname, 'politicas.html'),
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          gsap: ['gsap'],
+        },
       },
     },
   },

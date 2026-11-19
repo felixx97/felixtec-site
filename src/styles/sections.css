@@ -1,0 +1,790 @@
+/* Shared Sections layout */
+.services-section,
+.details-section,
+.demo-section,
+.contact-section {
+  padding: 120px 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.section-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 80px;
+}
+
+.section-tag,
+.detail-tag {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.section-title {
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  background: linear-gradient(to bottom, #ffffff 60%, #999999 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-subtitle {
+  font-size: 17px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Bento Grid */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.bento-card {
+  position: relative;
+  background: rgba(10, 10, 12, 0.7);
+  border: 1px solid var(--border-light);
+  border-radius: 24px;
+  overflow: hidden;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.7);
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.bento-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 15px 50px -5px rgba(0, 113, 227, 0.15);
+  transform: translateY(-5px);
+}
+
+.bento-wide {
+  grid-column: span 2;
+  flex-direction: row;
+  align-items: center;
+}
+
+.bento-card-bg-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle 220px at var(--card-glow-x, 50%) var(--card-glow-y, 50%),
+      rgba(0, 113, 227, 0.08),
+      transparent 70%);
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+
+.bento-card:hover .bento-card-bg-glow {
+  opacity: 1;
+}
+
+.bento-card-content {
+  z-index: 1;
+  position: relative;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+}
+
+.bento-wide .bento-card-content {
+  max-width: 440px;
+  justify-content: center;
+}
+
+.bento-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-cyan);
+  margin-bottom: 24px;
+}
+
+.bento-card-title {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.bento-card-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: auto;
+}
+
+.bento-card-footer {
+  margin-top: 24px;
+}
+
+.bento-card-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent-cyan);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s;
+}
+
+.bento-card:hover .bento-card-link {
+  gap: 10px;
+}
+
+/* Bento Cards Visual Mockups */
+.bento-card-visual {
+  position: relative;
+  z-index: 1;
+  flex-grow: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+/* Visual 1: Webdev Editor Mockup */
+.visual-webdev {
+  margin-left: 40px;
+  justify-content: flex-end;
+}
+
+.window-mockup {
+  width: 420px;
+  background: #060608;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  transform: perspective(800px) rotateY(-12deg) rotateX(4deg);
+  transition: transform 0.5s;
+}
+
+.bento-card:hover .window-mockup {
+  transform: perspective(800px) rotateY(-6deg) rotateX(2deg) scale(1.02);
+}
+
+.window-header {
+  height: 36px;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 6px;
+}
+
+.window-header .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.window-header .dot.red {
+  background: #ff5f56;
+}
+
+.window-header .dot.yellow {
+  background: #ffbd2e;
+}
+
+.window-header .dot.green {
+  background: #27c93f;
+}
+
+.window-tab {
+  margin-left: 20px;
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-family: var(--font-main);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 4px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border-light);
+}
+
+.window-body {
+  padding: 20px;
+}
+
+.code-editor {
+  font-family: monospace;
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.token-keyword {
+  color: #f472b6;
+}
+
+.token-def {
+  color: #38bdf8;
+}
+
+.token-class {
+  color: #a78bfa;
+}
+
+.token-method {
+  color: #fbbf24;
+}
+
+.token-string {
+  color: #34d399;
+}
+
+/* Visual 2: Automação & IA Generativa SVG Mockup Styles */
+.visual-automation,
+.visual-backend,
+.visual-traffic,
+.visual-webdev {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: visible;
+}
+
+.bento-svg-wrapper {
+  width: 100%;
+  height: 100%;
+  max-height: 250px;
+  max-width: 320px;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+  transition: transform 0.5s ease;
+}
+
+.small-card-svg {
+  max-height: 160px !important;
+  max-width: 200px !important;
+  width: 100%;
+  height: auto;
+}
+
+.bento-card:hover .bento-svg-wrapper {
+  transform: scale(1.03) translateY(-4px);
+}
+
+/* Floating Animations for Mascot and Interactive SVG Elements */
+.svg-float-mascot {
+  animation: svgFloatMascot 3s ease-in-out infinite alternate;
+}
+
+.svg-pulse-glow {
+  animation: svgPulseGlow 2s ease-in-out infinite alternate;
+}
+
+.svg-pulse-glow-pink {
+  animation: svgPulseGlowPink 2.2s ease-in-out infinite alternate;
+}
+
+.svg-float-rocket {
+  animation: svgFloatRocket 2.5s ease-in-out infinite alternate;
+}
+
+.svg-data-flow {
+  stroke-dasharray: 10, 10;
+  animation: svgDataFlow 15s linear infinite;
+}
+
+@keyframes svgFloatMascot {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(-5px) rotate(1deg);
+  }
+}
+
+@keyframes svgPulseGlow {
+  0% {
+    filter: drop-shadow(0 0 2px rgba(0, 210, 255, 0.4));
+    opacity: 0.8;
+  }
+
+  100% {
+    filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.9));
+    opacity: 1;
+  }
+}
+
+@keyframes svgPulseGlowPink {
+  0% {
+    filter: drop-shadow(0 0 2px rgba(255, 51, 102, 0.4));
+    opacity: 0.8;
+  }
+
+  100% {
+    filter: drop-shadow(0 0 10px rgba(255, 51, 102, 0.9));
+    opacity: 1;
+  }
+}
+
+@keyframes svgFloatRocket {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  100% {
+    transform: translate(4px, -4px);
+  }
+}
+
+@keyframes svgDataFlow {
+  0% {
+    stroke-dashoffset: 200;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Specific styling for the Database stacked cylinders in SVG */
+.db-cylinder {
+  transition: transform 0.4s ease, fill 0.3s;
+}
+
+.bento-card:hover .db-cylinder-top {
+  transform: translateY(-4px);
+}
+
+.bento-card:hover .db-cylinder-mid {
+  transform: translateY(-2px);
+}
+
+/* Micro Easter Egg adjustments */
+.felix-climb {
+  transform-origin: 50% 50%;
+  transition: transform 0.4s ease;
+}
+
+.bento-card:hover .felix-climb {
+  transform: rotate(-3deg) scale(1.02);
+}
+
+
+/* Details Section layout */
+.detail-row {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.detail-info {
+  flex: 1;
+}
+
+.detail-title {
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.detail-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+
+.detail-features-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.detail-features-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.detail-features-list li svg {
+  color: var(--accent-cyan);
+  flex-shrink: 0;
+}
+
+.detail-visual {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.speedometer-container {
+  width: 280px;
+  height: 200px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.speedometer {
+  width: 100%;
+}
+
+.speedometer-progress {
+  stroke-dasharray: 126;
+  stroke-dashoffset: 126;
+  /* Triggered by GSAP scroll anim */
+}
+
+.speed-score {
+  font-size: 64px;
+  font-weight: 800;
+  position: absolute;
+  bottom: 28px;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.speed-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  letter-spacing: 0.5px;
+  margin-top: 10px;
+}
+
+/* Demo Simulation panel section */
+.demo-box {
+  padding: 60px 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.demo-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.demo-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 48px;
+}
+
+.interactive-flow-canvas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.flow-step {
+  width: 140px;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-light);
+  transition: background 0.3s, border-color 0.3s, transform 0.2s;
+}
+
+.flow-step:hover {
+  transform: translateY(-2px);
+}
+
+.flow-step.active {
+  background: rgba(0, 113, 227, 0.15);
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 25px rgba(0, 113, 227, 0.3);
+}
+
+.flow-step.active .step-num {
+  background: var(--accent-gradient);
+  color: #fff;
+  border: none;
+}
+
+.step-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.step-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.flow-step.active .step-label {
+  color: var(--text-primary);
+}
+
+.flow-arrow {
+  flex-grow: 1;
+  max-width: 80px;
+  height: 2px;
+  background: var(--border-light);
+  position: relative;
+}
+
+.flow-arrow::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -4px;
+  border: 5px solid transparent;
+  border-left-color: var(--border-light);
+}
+
+.flow-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent-cyan);
+  position: absolute;
+  top: -3px;
+  left: 0;
+  box-shadow: 0 0 10px var(--accent-cyan);
+  opacity: 0;
+}
+
+.flow-step.active+.flow-arrow .flow-pulse {
+  animation: flowTransit 1.5s infinite linear;
+  opacity: 1;
+}
+
+@keyframes flowTransit {
+  0% {
+    left: 0%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+.demo-console {
+  background: #020204;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 16px 24px;
+  text-align: left;
+  min-height: 100px;
+}
+
+.console-line {
+  font-family: monospace;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+/* Contact / Form Section */
+.contact-section {
+  border-top: 1px solid var(--border-light);
+}
+
+.contact-inner {
+  max-width: 1000px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 60px;
+  margin-top: 60px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.contact-info-item {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.info-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-cyan);
+  flex-shrink: 0;
+}
+
+.info-content h4 {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.info-content p {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.contact-form {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 18px 16px 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--accent-blue);
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 15px rgba(0, 113, 227, 0.15);
+}
+
+.form-group label {
+  position: absolute;
+  left: 16px;
+  top: 14px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  pointer-events: none;
+  transition: top 0.2s, font-size 0.2s, color 0.2s;
+}
+
+/* Floating labels effect */
+.form-group input:focus~label,
+.form-group input:not(:placeholder-shown)~label,
+.form-group textarea:focus~label,
+.form-group textarea:not(:placeholder-shown)~label {
+  top: 6px;
+  font-size: 10px;
+  color: var(--accent-cyan);
+}
+
+/* Select Label handling */
+.form-group select {
+  padding-top: 16px;
+}
+
+.form-group select:focus~.select-label,
+.form-group select:valid~.select-label {
+  top: 6px;
+  font-size: 10px;
+  color: var(--accent-cyan);
+}
+
+.form-group select option {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.submit-btn {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 16px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent-gradient);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 113, 227, 0.4);
+}
+
+.submit-btn svg {
+  transition: transform 0.2s;
+}
+
+.submit-btn:hover svg {
+  transform: translateX(4px);
+}
+

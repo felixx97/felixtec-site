@@ -1,0 +1,98 @@
+/* ============================================================
+   Adaptive Performance & Low-Power Hardware Optimizations
+   Keeps animations crisp at 60 FPS even on integrated GPUs
+   ============================================================ */
+
+/* Skip layout & paint for offscreen sections until scrolled near */
+.pricing-section,
+.services-section,
+.details-section,
+.profile-section,
+.video-section,
+.contact-section,
+.footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
+}
+
+/* Promote interactive card glows cleanly without layout thrashing */
+.bento-card,
+.pricing-card,
+.service-detail-card {
+  contain: layout style;
+}
+
+/* Pause decorative SVG animations when their section is offscreen */
+.offscreen-paused *,
+.offscreen-paused {
+  animation-play-state: paused !important;
+}
+
+/* ------------------------------------------------------------
+   Low-Power Mode (auto-applied on <=4 cores, <=4GB RAM, or FPS drop)
+   Replaces heavy backdrop-filter blurs & SVG Gaussian blurs with
+   clean translucent gradients so the aesthetic stays premium & fast
+   ------------------------------------------------------------ */
+html[data-perf="low"] .glass-panel,
+html[data-perf="low"] .navbar,
+html[data-perf="low"] .hero-offer-card,
+html[data-perf="low"] .bento-card,
+html[data-perf="low"] .pricing-card,
+html[data-perf="low"] .python-ide-panel,
+html[data-perf="low"] .gamepad-panel,
+html[data-perf="low"] .offer-modal-overlay,
+html[data-perf="low"] .service-modal-overlay,
+html[data-perf="low"] #ft-cookie-banner,
+html[data-perf="low"] #ft-wa-popup,
+html[data-perf="low"] .nav-cta-dropdown-content,
+html[data-perf="low"] .video-audio-badge {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background-color: rgba(12, 12, 16, 0.92);
+}
+
+html[data-perf="low"] .navbar {
+  background: rgba(6, 6, 9, 0.94);
+}
+
+html[data-perf="low"] .offer-modal-overlay,
+html[data-perf="low"] .service-modal-overlay {
+  background: rgba(0, 0, 0, 0.88);
+}
+
+/* Disable expensive SVG Gaussian filters & drop-shadows on weak GPUs */
+html[data-perf="low"] svg [filter],
+html[data-perf="low"] .svg-pulse-glow,
+html[data-perf="low"] .svg-pulse-glow-pink {
+  filter: none !important;
+}
+
+/* Simplify ambient glow on weak hardware */
+html[data-perf="low"] .ambient-glow {
+  display: none;
+}
+
+html[data-perf="low"] .video-glow {
+  filter: blur(24px);
+  opacity: 0.45;
+}
+
+/* ------------------------------------------------------------
+   Respect User's Reduced Motion Accessibility Preference
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .code-particles-canvas,
+  .ambient-glow {
+    display: none !important;
+  }
+}
+

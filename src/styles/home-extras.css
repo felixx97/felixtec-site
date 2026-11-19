@@ -1,0 +1,1246 @@
+/* Naruto Inspired Career Video Section */
+.video-section {
+  padding: 80px 24px;
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid var(--border-light);
+}
+
+.video-panel {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 50px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 28px;
+}
+
+.video-panel-title {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.video-panel-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin-bottom: 36px;
+  line-height: 1.6;
+}
+
+.video-wrapper-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-glow {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.4) 0%, rgba(0, 113, 227, 0.1) 50%, transparent 75%);
+  filter: blur(45px);
+  z-index: 1;
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+}
+
+.video-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  background-color: #020204;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  position: relative;
+  z-index: 2;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.video-wrapper:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 25px 60px rgba(0, 113, 227, 0.15);
+}
+
+.career-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  outline: none;
+}
+
+/* Glassmorphic Mute/Audio toggle Overlay Badge */
+.video-audio-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(10, 10, 12, 0.75);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+  /* Let click propagate to the video-wrapper */
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+}
+
+.video-wrapper:hover .video-audio-badge {
+  transform: scale(1.03);
+}
+
+.video-audio-badge.unmuted {
+  background: rgba(0, 113, 227, 0.7);
+  border-color: rgba(0, 210, 255, 0.25);
+  box-shadow: 0 4px 15px rgba(0, 113, 227, 0.3);
+}
+
+.video-audio-badge .hidden {
+  display: none !important;
+}
+
+/* ====================================================
+   6. Seção de Perfil Acadêmico e Profissional (Sobre Mim)
+   ==================================================== */
+.profile-section {
+  padding: 120px 24px;
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid var(--border-light);
+}
+
+.profile-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .profile-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profile-title {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  background: linear-gradient(to bottom, #ffffff 60%, #999999 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.profile-text {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.profile-text p {
+  margin-bottom: 16px;
+}
+
+.profile-experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style: none;
+  margin-bottom: 28px;
+}
+
+.profile-experience-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.profile-experience-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(0, 113, 227, 0.1);
+  border: 1px solid var(--accent-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-cyan);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.profile-experience-details h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.profile-experience-details p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.profile-link {
+  color: var(--accent-cyan);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(0, 210, 255, 0.4);
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.profile-link:hover {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+/* Moldura e Placeholder da Foto do Desenvolvedor */
+.profile-media-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-photo-frame {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1 / 1.25;
+  border-radius: 24px;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.05), transparent 70%), var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--glass-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.4s, box-shadow 0.4s, transform 0.4s;
+}
+
+.profile-photo-frame.has-image {
+  padding: 0 !important;
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.profile-photo-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--accent-blue) 0%, transparent 50%, var(--accent-cyan) 100%);
+  opacity: 0.03;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.profile-photo-frame:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 45px rgba(0, 113, 227, 0.15);
+}
+
+.profile-photo-frame:hover::before {
+  opacity: 0.08;
+}
+
+.photo-placeholder-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.profile-photo-frame:hover .photo-placeholder-icon {
+  background-color: rgba(0, 113, 227, 0.1);
+  color: var(--accent-cyan);
+}
+
+.photo-placeholder-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.photo-placeholder-subtitle {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ====================================================
+   7. Grade Comercial de Planos e Preços
+   ==================================================== */
+.pricing-section {
+  padding: 120px 24px;
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid var(--border-light);
+  background: radial-gradient(circle 1200px at 50% 50%, rgba(0, 113, 227, 0.015), transparent 80%);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 50px;
+}
+
+@media (max-width: 1100px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pricing-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-light);
+  border-radius: 24px;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.pricing-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 15px 40px rgba(0, 113, 227, 0.1);
+  transform: translateY(-5px);
+}
+
+.pricing-card.popular {
+  border-color: rgba(0, 210, 255, 0.3);
+  background: radial-gradient(circle at 50% 0%, rgba(0, 210, 255, 0.05), transparent 70%), var(--glass-bg);
+  box-shadow: 0 15px 40px rgba(0, 210, 255, 0.08);
+}
+
+.pricing-card.popular:hover {
+  border-color: rgba(0, 210, 255, 0.6);
+  box-shadow: 0 20px 50px rgba(0, 210, 255, 0.18);
+}
+
+.pricing-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--accent-gradient);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  color: #fff;
+}
+
+.pricing-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.pricing-header p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 24px;
+  min-height: 60px;
+}
+
+.pricing-price-box {
+  margin-bottom: 28px;
+}
+
+.pricing-market-price {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  text-decoration: line-through;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.pricing-promo-price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.pricing-currency {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-cyan);
+}
+
+.pricing-amount {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -1px;
+}
+
+.pricing-period {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.pricing-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 36px;
+  flex-grow: 1;
+}
+
+.pricing-features li {
+  font-size: 13px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.pricing-features svg {
+  color: var(--accent-cyan);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pricing-btn {
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.pricing-btn-primary {
+  background: var(--accent-gradient);
+  color: #fff;
+  box-shadow: 0 4px 14px 0 rgba(0, 113, 227, 0.3);
+}
+
+.pricing-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px 0 rgba(0, 113, 227, 0.45);
+}
+
+.pricing-btn-secondary {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+}
+
+.pricing-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--border-hover);
+  transform: translateY(-1px);
+}
+
+/* Strategic Hero Offer Card */
+.hero-offer-card {
+  width: 100%;
+  max-width: 580px;
+  background: rgba(10, 10, 12, 0.6);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-light);
+  border-left: 4px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 16px 20px;
+  margin: 0 0 28px 0;
+  box-shadow: var(--glass-shadow);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.3s ease, border-color 0.3s ease, border-left-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-offer-card:hover {
+  border: 1px solid var(--border-hover);
+  border-left: 4px solid var(--accent-cyan);
+  transform: translateY(-2px);
+  box-shadow: var(--glass-shadow), 0 0 22px rgba(0, 210, 255, 0.12);
+}
+
+.offer-badge {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+  display: inline-block;
+  background: rgba(0, 210, 255, 0.08);
+  border: 1px solid rgba(0, 210, 255, 0.15);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.offer-price-info {
+  margin-bottom: 10px;
+}
+
+.offer-price-market {
+  font-size: 13px;
+  color: var(--text-secondary);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.offer-price-market del {
+  color: #ff5f56;
+  text-decoration: line-through;
+}
+
+.offer-price-promo {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.offer-price-label {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.offer-price-value {
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--text-primary);
+  background: linear-gradient(135deg, #ffffff 40%, #cccccc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(0, 210, 255, 0.15);
+}
+
+.offer-price-suffix {
+  font-size: 12px;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: rgba(0, 210, 255, 0.05);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 210, 255, 0.1);
+}
+
+.offer-features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 12px;
+}
+
+.offer-feature-bullet {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.offer-feature-bullet svg {
+  flex-shrink: 0;
+  color: var(--accent-cyan);
+}
+
+/* Strategic Benefits Highlight Section */
+.benefits-highlight-section {
+  padding: 60px 24px 20px 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.benefits-highlight-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  padding: 36px 44px;
+  border-radius: 24px;
+  background: rgba(10, 10, 12, 0.6);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--glass-shadow);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.benefit-col {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.benefit-icon {
+  color: var(--accent-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(0, 210, 255, 0.05);
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 210, 255, 0.15);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.05);
+}
+
+.benefit-info h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  letter-spacing: -0.2px;
+}
+
+.benefit-info p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Responsive details for strategic components */
+@media (max-width: 900px) {
+  .benefits-highlight-bar {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 30px 24px;
+  }
+
+  .offer-price-value {
+    font-size: 30px;
+  }
+}
+
+/* Caret cyan color and focus outlines for the interactive IDE editor */
+#python-typing-area {
+  outline: none;
+  caret-color: var(--accent-cyan);
+}
+
+/* Pulsing Badge for Interactive Mode in the Python IDE */
+.ide-editable-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 20px;
+  right: auto;
+  max-width: calc(100% - 220px);
+  background: rgba(0, 210, 255, 0.06);
+  border: 1px dashed rgba(0, 210, 255, 0.25);
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 10px;
+  color: var(--accent-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(8px);
+  z-index: 10;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  font-family: var(--font-main);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  line-height: 1.4;
+  white-space: normal;
+}
+
+.ide-editable-badge.active {
+  opacity: 1;
+  transform: translateY(0);
+  animation: badgePulse 2s infinite alternate;
+}
+
+@keyframes badgePulse {
+  0% {
+    border-color: rgba(0, 210, 255, 0.25);
+    box-shadow: 0 0 4px rgba(0, 210, 255, 0.05);
+    background: rgba(0, 210, 255, 0.04);
+  }
+
+  100% {
+    border-color: rgba(0, 210, 255, 0.55);
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.15);
+    background: rgba(0, 210, 255, 0.08);
+  }
+}
+
+/* Tactile Glassmorphic Robot Control Trigger - Large Circular Joystick style */
+.gamepad-trigger-btn {
+  position: absolute;
+  top: 50px;
+  /* Inside the editor body area, right below the header */
+  right: 20px;
+  width: 52px;
+  height: 52px;
+  background: radial-gradient(circle at 35% 35%, #18181c 0%, #0a0a0c 60%, #020204 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2.5px solid rgba(0, 210, 255, 0.45);
+  border-radius: 50%;
+  /* Perfect circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-cyan);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Snappy bouncy animation! */
+  box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.1), inset 0 -3px 8px rgba(0, 0, 0, 0.8), 0 6px 15px rgba(0, 0, 0, 0.8), 0 0 12px rgba(0, 210, 255, 0.15);
+  z-index: 15;
+  user-select: none;
+  cursor: pointer !important;
+}
+
+.gamepad-trigger-btn:hover {
+  border-color: var(--accent-cyan);
+  background: radial-gradient(circle at 35% 35%, #222228 0%, #0f0f13 60%, #050508 100%);
+  box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.15), inset 0 -3px 8px rgba(0, 0, 0, 0.8), 0 0 22px rgba(0, 210, 255, 0.6), 0 8px 24px rgba(0, 0, 0, 0.75);
+  transform: scale(1.1) rotate(15deg);
+}
+
+.gamepad-trigger-btn:active {
+  transform: scale(0.92) rotate(-15deg);
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.9), inset 0 1px 3px rgba(255, 255, 255, 0.05), 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.gamepad-trigger-btn svg {
+  color: var(--accent-cyan);
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 0 2px var(--accent-cyan));
+}
+
+/* Expanded Gamepad Controller Panel - Ultra-compact Vertical Sidebar style */
+.gamepad-panel {
+  position: absolute;
+  top: 110px;
+  /* Sits below the joystick button */
+  right: 20px;
+  left: auto;
+  bottom: auto;
+  width: 124px;
+  /* Narrow vertical design */
+  height: auto;
+  /* Fits contents perfectly, eliminating bottom space */
+  background: rgba(8, 8, 10, 0.96);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  border: 1.5px solid rgba(0, 210, 255, 0.35);
+  border-radius: 14px;
+  padding: 10px 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 210, 255, 0.12);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px) scale(0.96);
+  /* Elegant pop-down! */
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.gamepad-panel.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.gamepad-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  margin-bottom: 2px;
+  font-family: var(--font-main);
+  padding: 0 4px;
+}
+
+.gamepad-close-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer !important;
+  transition: color 0.2s ease, transform 0.2s ease;
+  padding: 0 2px;
+  line-height: 1;
+}
+
+.gamepad-close-btn:hover {
+  color: var(--text-primary);
+  transform: scale(1.2);
+}
+
+.gamepad-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  padding: 6px;
+  border-left: 2.5px solid var(--accent-cyan);
+}
+
+.gamepad-group-title {
+  font-size: 8px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-bottom: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: var(--font-main);
+  text-align: left;
+  padding-left: 2px;
+}
+
+.gamepad-btn-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.control-btn.gamepad-btn {
+  background: rgba(20, 20, 25, 0.8) !important;
+  border: 1px solid rgba(0, 210, 255, 0.15) !important;
+  border-radius: 8px !important;
+  padding: 5px 6px !important;
+  color: var(--text-secondary) !important;
+  font-family: var(--font-main) !important;
+  font-size: 9px !important;
+  font-weight: 600 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  /* Horizontal row button style */
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 6px !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  min-width: 0 !important;
+  text-align: left !important;
+  box-shadow: none !important;
+  transform: none !important;
+  width: 100% !important;
+}
+
+.control-btn.gamepad-btn svg {
+  color: var(--accent-cyan) !important;
+  transition: transform 0.2s ease !important;
+  flex-shrink: 0 !important;
+}
+
+.control-btn.gamepad-btn:hover {
+  border-color: var(--accent-cyan) !important;
+  color: var(--text-primary) !important;
+  background: rgba(0, 210, 255, 0.08) !important;
+  box-shadow: 0 0 6px rgba(0, 210, 255, 0.12) !important;
+  transform: translateX(2px) !important;
+  /* Slide right a bit on hover! */
+}
+
+.control-btn.gamepad-btn:hover svg {
+  transform: scale(1.15) !important;
+}
+
+.control-btn.gamepad-btn:active {
+  transform: scale(0.96) !important;
+}
+
+/* Flying Thruster Flame Flicker Styles */
+.thruster-flame {
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.thruster-flame.active {
+  opacity: 0.85;
+  transform: scaleY(1);
+  animation: flameFlicker 0.15s infinite alternate ease-in-out;
+}
+
+@keyframes flameFlicker {
+  0% {
+    transform: scaleY(0.9) scaleX(0.95);
+    opacity: 0.7;
+    stroke: var(--accent-cyan);
+    filter: drop-shadow(0 0 3px var(--accent-cyan));
+  }
+
+  100% {
+    transform: scaleY(1.25) scaleX(1.05);
+    opacity: 1;
+    stroke: #fff;
+    filter: drop-shadow(0 0 7px var(--accent-cyan));
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-right-animation {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .python-ide-panel {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+    aspect-ratio: auto !important;
+    height: 380px !important;
+    /* Fixed height for code screen */
+    width: 100% !important;
+    max-width: 580px !important;
+    /* Matches .hero-offer-card perfectly for symmetric alignment! */
+    margin: 0 auto 90px auto !important;
+    /* Space for horizontal gamepad panel below & symmetric centering! */
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  /* Hide speech bubble and tab hint completely on mobile screens as requested */
+  .felix-speech-bubble,
+  .python-ide-panel.collapsed .felix-speech-bubble,
+  .ide-tab-hint,
+  .python-ide-panel.collapsed .ide-tab-hint {
+    display: none !important;
+  }
+
+  /* Collapsed Mobile IDE style */
+  .python-ide-panel.collapsed {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: 110px !important;
+    width: 100% !important;
+    max-width: 580px !important;
+    /* Matches .hero-offer-card perfectly for perfect visual centering and alignment! */
+    margin: 40px auto 40px auto !important;
+    padding: 0 !important;
+    cursor: pointer;
+    border-color: var(--accent-cyan) !important;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.2) !important;
+    overflow: visible !important;
+  }
+
+  .python-ide-panel.collapsed #python-typing-area,
+  .python-ide-panel.collapsed .gamepad-trigger-btn,
+  .python-ide-panel.collapsed .ide-editable-badge,
+  .python-ide-panel.collapsed .gamepad-panel {
+    display: none !important;
+  }
+
+
+  /* Minimized collapsed trigger play layout */
+  .ide-mobile-collapsed-trigger {
+    display: none;
+    height: calc(100% - 36px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    position: relative;
+    z-index: 5;
+  }
+
+  .python-ide-panel.collapsed .ide-mobile-collapsed-trigger {
+    display: flex;
+  }
+
+  .ide-mobile-trigger-glow {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, rgba(0, 210, 255, 0.35) 0%, transparent 70%);
+    filter: blur(10px);
+    pointer-events: none;
+    animation: triggerPulse 2s infinite ease-in-out;
+  }
+
+  .ide-mobile-play-icon {
+    color: var(--accent-cyan);
+    filter: drop-shadow(0 0 4px var(--accent-cyan));
+    animation: triggerScale 2s infinite ease-in-out;
+  }
+
+  .ide-mobile-collapsed-trigger span {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  /* Mini tab hint inside the collapsed header */
+  .ide-tab-hint {
+    display: none;
+  }
+
+
+
+  /* Mascot positioning when collapsed */
+  .python-ide-panel.collapsed .ide-robot-container {
+    top: -56px !important;
+    right: 12px !important;
+    left: auto !important;
+    bottom: auto !important;
+    width: 76px !important;
+    height: 76px !important;
+    animation: felixPeek 2.5s infinite ease-in-out !important;
+  }
+
+  @keyframes felixPeek {
+
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+      transform: translateY(-4px) rotate(2deg);
+    }
+  }
+
+  @keyframes triggerPulse {
+
+    0%,
+    100% {
+      opacity: 0.5;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes triggerScale {
+
+    0%,
+    100% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.1);
+    }
+  }
+
+  .gamepad-panel {
+    position: absolute !important;
+    top: 100% !important;
+    bottom: auto !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    margin-top: 15px !important;
+    padding: 12px 10px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    background: rgba(8, 8, 10, 0.98) !important;
+    border: 1px solid rgba(0, 210, 255, 0.4) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 210, 255, 0.15) !important;
+    transform: translateY(-8px) scale(0.98) !important;
+  }
+
+  .gamepad-panel.active {
+    transform: translateY(0) scale(1) !important;
+  }
+
+  .gamepad-header {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 2px !important;
+    padding: 0 2px !important;
+  }
+
+  .gamepad-group {
+    width: 100% !important;
+    border-left: 2px solid var(--accent-cyan) !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  .gamepad-group-title {
+    display: none !important;
+    /* Hide label to save space and keep it clean */
+  }
+
+  .gamepad-btn-list {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    gap: 6px !important;
+    width: 100% !important;
+  }
+
+  .control-btn.gamepad-btn {
+    flex: 1 1 0% !important;
+    padding: 8px 4px !important;
+    font-size: 10px !important;
+    border-radius: 10px !important;
+    justify-content: center !important;
+    text-align: center !important;
+    height: 36px !important;
+    transform: none !important;
+  }
+
+  .control-btn.gamepad-btn:hover {
+    transform: none !important;
+  }
+
+  .control-btn.gamepad-btn svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  .gamepad-trigger-btn {
+    position: absolute !important;
+    top: 48px !important;
+    right: 12px !important;
+    bottom: auto !important;
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 50% !important;
+    background: rgba(0, 210, 255, 0.15) !important;
+    border: 1.5px solid rgba(0, 210, 255, 0.5) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.4) !important;
+    z-index: 10 !important;
+  }
+
+  .gamepad-trigger-btn svg {
+    width: 18px !important;
+    height: 18px !important;
+    color: var(--accent-cyan) !important;
+  }
+
+  .ide-editable-badge {
+    position: absolute !important;
+    bottom: 12px !important;
+    left: 12px !important;
+    right: auto !important;
+    top: auto !important;
+    width: calc(100% - 100px) !important;
+    /* Constrain width so it doesn't overlap the robot on the right */
+    font-size: 8px !important;
+    padding: 6px 10px !important;
+    background: rgba(0, 210, 255, 0.08) !important;
+    border: 1px dashed rgba(0, 210, 255, 0.25) !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .ide-robot-container {
+    width: 75px !important;
+    height: 75px !important;
+    right: 12px !important;
+    bottom: 12px !important;
+  }
+}
+
+/* Neon Code Highlight line inside Python IDE */
+.ide-line.highlight-line {
+  background: rgba(0, 210, 255, 0.12);
+  border-left: 2px solid var(--accent-cyan);
+  padding-left: 4px;
+  color: #fff !important;
+  text-shadow: 0 0 8px var(--accent-cyan);
+  transition: all 0.3s ease;
+}
+

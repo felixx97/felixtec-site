@@ -1,0 +1,142 @@
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+  .hero-title {
+    font-size: 32px;
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+    letter-spacing: 0.1px;
+    line-height: 1.5;
+    max-width: 480px;
+    margin: 0 auto 24px;
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-wide {
+    grid-column: span 1;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .visual-webdev {
+    margin-left: 0;
+    margin-top: 30px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .bento-card {
+    height: auto !important;
+    min-height: 480px;
+    padding: 30px 24px !important;
+  }
+
+  .window-mockup {
+    width: 100%;
+    transform: none;
+  }
+
+  .bento-card:hover .window-mockup {
+    transform: scale(1.02);
+  }
+
+  .detail-row {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .detail-title {
+    font-size: 30px;
+    line-height: 1.2;
+    /* Ajuste o tamanho da fonte do parceiro aqui */
+    margin-bottom: 16px;
+  }
+
+  .profile-title {
+    font-size: 30px !important;
+    /* Ajuste o tamanho da fonte do quem sou eu aqui */
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* Responsive Video Presentation Section */
+  .video-panel {
+    padding: 30px 20px !important;
+  }
+
+  .video-panel-title {
+    font-size: 20px !important;
+    white-space: nowrap;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: 12px !important;
+  }
+
+  .video-panel-desc {
+    font-size: 14px !important;
+    margin-bottom: 24px !important;
+    line-height: 1.5;
+  }
+
+  .video-wrapper {
+    aspect-ratio: 1 / 1 !important;
+    max-width: 320px !important;
+    border-radius: 24px !important;
+    margin: 0 auto !important;
+  }
+
+  .navbar {
+    height: 56px;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 56px);
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s;
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .nav-links .nav-link {
+    font-size: 20px;
+  }
+
+  .nav-cta-dropdown {
+    display: none !important;
+  }
+}
+

@@ -1,0 +1,96 @@
+/* GPU-Accelerated Ambient Glow, Custom Cursor & Canvas Particles */
+
+/* Ambient Mouse Radial Glow Background (GPU translate3d layer — zero root CSS var repaint!) */
+.ambient-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 680px;
+  height: 680px;
+  margin-left: -340px;
+  margin-top: -340px;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 113, 227, 0.08) 0%,
+    rgba(0, 210, 255, 0.03) 38%,
+    transparent 70%
+  );
+  transform: translate3d(50vw, 50vh, 0);
+  will-change: transform;
+  contain: strict;
+}
+
+/* Single Canvas for Code Particles (replaces DOM span churn & GSAP per-particle tweens) */
+.code-particles-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  contain: strict;
+}
+
+/* Custom Fluid Cursor (pure GPU translate3d — never animates left/top!) */
+.custom-cursor,
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 999999 !important;
+  will-change: transform;
+  transform: translate3d(-100px, -100px, 0);
+}
+
+.custom-cursor {
+  width: 28px;
+  height: 28px;
+  margin-left: -14px;
+  margin-top: -14px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  mix-blend-mode: difference;
+  transition: width 0.25s ease, height 0.25s ease, margin 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, opacity 0.2s ease;
+}
+
+.custom-cursor-dot {
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  margin-top: -3px;
+  background-color: var(--text-primary);
+  border-radius: 50%;
+  transition: width 0.2s ease, height 0.2s ease, margin 0.2s ease, opacity 0.2s ease;
+}
+
+/* Cursor Hover States */
+.custom-cursor.hovering {
+  width: 50px;
+  height: 50px;
+  margin-left: -25px;
+  margin-top: -25px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.custom-cursor-dot.hovering {
+  width: 0;
+  height: 0;
+  margin-left: 0;
+  margin-top: 0;
+  opacity: 0;
+}
+
+@media (max-width: 1024px), (hover: none), (pointer: coarse) {
+  .custom-cursor,
+  .custom-cursor-dot,
+  .ambient-glow,
+  .code-particles-canvas {
+    display: none !important;
+  }
+}
+

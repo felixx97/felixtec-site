@@ -1,0 +1,428 @@
+/* ====================================================
+   9. Páginas Secundárias: Serviços (Refatoração de Estilos)
+   ==================================================== */
+.services-hero {
+  padding-top: 150px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.services-hero-container {
+  max-width: 1050px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.services-hero-text {
+  text-align: left;
+}
+
+.services-hero-title {
+  font-size: 64px;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  animation: fadeInUp 1s ease-out;
+  text-align: left;
+}
+
+.services-hero-subtitle {
+  font-size: 19px;
+  line-height: 1.6;
+  animation: fadeInUp 1.2s ease-out;
+  color: var(--text-secondary);
+}
+
+.services-grid-container {
+  padding: 40px 24px 100px;
+}
+
+.services-grid-wrapper {
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.service-detail-card {
+  padding: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  border-radius: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.order-content-left {
+  order: 1;
+}
+
+.order-visual-right {
+  order: 2;
+}
+
+.service-detail-content {
+  z-index: 1;
+}
+
+.service-detail-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.service-detail-actions .btn-primary,
+.service-detail-actions .btn-secondary {
+  padding: 10px 20px;
+  font-size: 13px;
+  border-radius: 20px;
+}
+
+.visual-webdev,
+.visual-automation,
+.visual-backend,
+.visual-traffic {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsividade dos Serviços */
+@media (max-width: 900px) {
+  .services-hero {
+    padding-top: 100px !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 10px !important;
+  }
+
+  .services-hero-container {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+    gap: 20px !important;
+  }
+
+  .services-hero-text {
+    text-align: center !important;
+  }
+
+  .services-hero-title {
+    font-size: 38px !important;
+    padding: 0 10px !important;
+    text-align: center !important;
+  }
+
+  .services-hero-subtitle {
+    font-size: 15px !important;
+    padding: 0 15px !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+    max-width: 500px !important;
+  }
+
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .services-grid-container {
+    padding: 10px 16px 60px !important;
+  }
+
+  .services-grid-wrapper {
+    gap: 40px;
+  }
+
+  .service-detail-card {
+    grid-template-columns: 1fr !important;
+    padding: 30px 20px !important;
+    gap: 30px !important;
+  }
+
+  .service-detail-actions {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 580px) {
+  .service-detail-actions {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .service-detail-actions a,
+  .service-detail-actions .btn-ai-disabled {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+    display: inline-flex !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* ==========================================================================
+   Custom Inactive AI Button & Premium Glassmorphic Tooltip
+   ========================================================================== */
+.btn-ai-disabled {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px dashed rgba(255, 255, 255, 0.12) !important;
+  color: rgba(255, 255, 255, 0.35) !important;
+  cursor: not-allowed !important;
+  position: relative !important;
+  pointer-events: auto !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.btn-ai-disabled:hover {
+  transform: none !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(0, 210, 255, 0.35) !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Premium Tooltip Container */
+.btn-ai-disabled::after {
+  content: "Disponível em breve. Uma IA sob medida, treinada com as informações da FélixTec, para tirar dúvidas e simular orçamentos 24/7.";
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  width: 260px;
+  padding: 12px 16px;
+  background: rgba(8, 8, 10, 0.94);
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-size: 11px;
+  line-height: 1.45;
+  text-align: center;
+  font-weight: 400;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 210, 255, 0.08);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 100;
+  pointer-events: none;
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+}
+
+/* Tooltip Arrow */
+.btn-ai-disabled::before {
+  content: "";
+  position: absolute;
+  bottom: 115%;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(0, 210, 255, 0.25) transparent transparent transparent;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 100;
+  pointer-events: none;
+}
+
+.btn-ai-disabled:hover::after,
+.btn-ai-disabled:hover::before {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 580px) {
+  .btn-ai-disabled::after {
+    bottom: auto;
+    top: 125%;
+    transform: translateX(-50%) translateY(-8px);
+  }
+
+  .btn-ai-disabled::before {
+    bottom: auto;
+    top: 115%;
+    transform: translateX(-50%) translateY(-8px);
+    border-color: transparent transparent rgba(0, 210, 255, 0.25) transparent;
+  }
+}
+
+/* ==========================================================================
+   Mobile Visual Overhaul: Animated Coding Mascot & Mobile Refinements
+   ========================================================================== */
+.hero-mascot-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  perspective: 1000px;
+  animation: fadeInUp 1.4s ease-out;
+}
+
+.coding-mascot {
+  width: 240px;
+  height: auto;
+  filter: drop-shadow(0 15px 32px rgba(0, 0, 0, 0.6));
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.coding-mascot:hover {
+  transform: translateY(-6px) scale(1.03) rotate(0.5deg);
+}
+
+.service-detail-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+  position: relative;
+}
+
+.service-detail-desc {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 26px;
+}
+
+/* Mascot SVG Animation Declarations */
+@keyframes bobbing {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes typing-left {
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+
+  50% {
+    transform: translateY(-2px) translateX(1px);
+  }
+}
+
+@keyframes typing-right {
+
+  0%,
+  100% {
+    transform: translateY(-2px) translateX(-1px);
+  }
+
+  50% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+@keyframes code-spark-rise {
+  0% {
+    transform: translateY(15px) scale(0.5);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateY(-25px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.mascot-body {
+  animation: bobbing 4s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+.left-hand-anim {
+  animation: typing-left 0.15s linear infinite;
+  transform-origin: center;
+}
+
+.right-hand-anim {
+  animation: typing-right 0.18s linear infinite;
+  transform-origin: center;
+}
+
+.spark {
+  animation: code-spark-rise 2s infinite ease-out;
+  transform-origin: center;
+}
+
+.spark.s1 {
+  animation-delay: 0s;
+}
+
+.spark.s2 {
+  animation-delay: 0.4s;
+  animation-duration: 1.7s;
+}
+
+.spark.s3 {
+  animation-delay: 0.9s;
+  animation-duration: 2.1s;
+}
+
+.spark.s4 {
+  animation-delay: 1.4s;
+  animation-duration: 1.4s;
+}
+
+/* Responsive adjustments for services cards on mobile */
+@media (max-width: 900px) {
+  .service-detail-title {
+    font-size: 26px !important;
+    margin-bottom: 16px !important;
+    border-left: 3px solid var(--accent-cyan);
+    padding-left: 12px;
+  }
+
+  .detail-features-list {
+    gap: 12px !important;
+  }
+
+  .detail-features-list li {
+    background: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid rgba(255, 255, 255, 0.04) !important;
+    padding: 12px 16px !important;
+    border-radius: 12px !important;
+    transition: background 0.3s ease, border-color 0.3s ease;
+    box-sizing: border-box;
+  }
+
+  .detail-features-list li:hover {
+    background: rgba(0, 210, 255, 0.03) !important;
+    border-color: rgba(0, 210, 255, 0.15) !important;
+  }
+}
+
+@media (max-width: 580px) {
+  .coding-mascot {
+    width: 190px;
+  }
+
+  .hero-mascot-container {
+    margin-top: 20px;
+  }
+}
