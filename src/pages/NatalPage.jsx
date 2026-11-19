@@ -240,9 +240,29 @@ export default function NatalPage() {
               <span>✓ 50% só na entrega final</span>
               <span>✓ 30 dias de garantia</span>
             </div>
+
+            <a
+              href="#pacotes-natal"
+              className="natal-mobile-scroll-cue natal-hero-animate"
+              onClick={scrollToOffers}
+              aria-label="Rolar para ver os pacotes de Natal"
+            >
+              <span>Deslize para ver os pacotes a partir de R$ 300</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </a>
           </div>
 
           <div className="natal-hero-mascot-card natal-hero-animate">
+            <div className="natal-card-sparkles" aria-hidden="true">
+              <span className="ncs p1" />
+              <span className="ncs p2" />
+              <span className="ncs p3" />
+              <span className="ncs p4" />
+              <span className="ncs p5" />
+              <span className="ncs p6" />
+            </div>
             <div className="natal-ribbon-corner" aria-hidden="true">NATAL</div>
             <SantaFelixMascot
               size={158}

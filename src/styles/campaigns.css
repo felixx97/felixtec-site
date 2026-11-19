@@ -772,17 +772,9 @@
 }
 
 /* ============================================================
-   Responsive Breakpoints (Mobile-First Polish)
+   Responsive Breakpoints (Automações & Home Spotlight)
    ============================================================ */
 @media (max-width: 1120px) {
-  .natal-offers-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .natal-niche-cards-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .auto-flow-3d-track {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -794,9 +786,6 @@
 
 @media (max-width: 900px) {
   .campaign-spotlight-grid,
-  .natal-hero-grid,
-  .natal-niche-spotlight,
-  .natal-closing-grid,
   .auto-hero-grid,
   .auto-compare-grid,
   .auto-solutions-grid,
@@ -804,17 +793,14 @@
     grid-template-columns: 1fr;
   }
 
-  .natal-page,
   .auto-page {
     padding-top: 56px;
   }
 
-  .natal-hero,
   .auto-hero {
     padding: 48px 20px 56px;
   }
 
-  .natal-section,
   .auto-section {
     padding: 60px 20px;
   }
@@ -841,18 +827,10 @@
     align-items: flex-start;
   }
 
-  .natal-offers-grid,
-  .natal-niche-cards-grid,
   .auto-flow-3d-track {
     grid-template-columns: 1fr;
   }
 
-  .natal-niche-spotlight {
-    padding: 22px 18px;
-  }
-
-  .natal-btn-primary,
-  .natal-btn-secondary,
   .auto-btn-primary,
   .auto-btn-secondary {
     width: 100%;
@@ -860,9 +838,7 @@
 }
 
 /* Low-power mode optimizations */
-html[data-perf="low"] .natal-ambient-orb,
-html[data-perf="low"] .auto-ambient-orb,
-html[data-perf="low"] .natal-offer-sheen {
+html[data-perf="low"] .auto-ambient-orb {
   display: none;
 }
 

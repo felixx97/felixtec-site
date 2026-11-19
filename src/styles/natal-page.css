@@ -24,10 +24,46 @@ body.theme-natal {
   --xmas-border: rgba(185, 28, 28, 0.13);
 
   position: relative;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
   min-height: 100vh;
   background: var(--xmas-cream);
   color: var(--xmas-ink);
   overflow-x: hidden;
+}
+
+.natal-mobile-scroll-cue {
+  display: none;
+}
+
+.natal-card-sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.natal-card-sparkles .ncs {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #FDE68A;
+  opacity: 0;
+  animation: ncsFloat 5.5s ease-in-out infinite;
+}
+
+.natal-card-sparkles .p1 { left: 12%; top: 75%; animation-delay: 0s; }
+.natal-card-sparkles .p2 { left: 26%; top: 20%; width: 4px; height: 4px; background: #FFFFFF; animation-delay: 1.1s; }
+.natal-card-sparkles .p3 { left: 74%; top: 24%; animation-delay: 0.6s; }
+.natal-card-sparkles .p4 { left: 85%; top: 65%; width: 5px; height: 5px; background: #FFFFFF; animation-delay: 1.9s; }
+.natal-card-sparkles .p5 { left: 48%; top: 14%; width: 4px; height: 4px; animation-delay: 2.5s; }
+.natal-card-sparkles .p6 { left: 18%; top: 45%; width: 4px; height: 4px; background: #FFFFFF; animation-delay: 3.1s; }
+
+@keyframes ncsFloat {
+  0% { opacity: 0; transform: translate3d(0, 10px, 0) scale(0.7); }
+  40% { opacity: 0.85; }
+  100% { opacity: 0; transform: translate3d(6px, -26px, 0) scale(1.1); }
 }
 
 /* Gentle Snowfall Canvas scoped strictly to Hero (never composites over rest of page) */
@@ -1296,14 +1332,14 @@ body.theme-natal {
 }
 
 /* Low-power & Reduced Motion Respect */
-html[data-perf="low"] .xmas-sleigh-runner,
 html[data-perf="low"] .natal-offer-sheen {
   display: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .xmas-sleigh-runner,
-  .xmas-snow-canvas {
+  .xmas-snow-canvas,
+  .natal-card-sparkles {
     display: none !important;
   }
 }

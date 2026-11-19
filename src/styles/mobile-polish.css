@@ -217,11 +217,76 @@ body,
   }
 
   .natal-hero {
-    padding: 40px 16px 48px !important;
+    padding: 30px 16px 38px !important;
   }
 
   .natal-hero-grid {
-    gap: 28px !important;
+    gap: 20px !important;
+  }
+
+  /* VISUAL FIRST ON MOBILE: vibrant Ruby-Red & Gold Christmas Stage with Dev Félix Noel right at the top! */
+  .natal-hero-mascot-card {
+    order: -1;
+    padding: 18px 16px 16px !important;
+    border-radius: 22px !important;
+    background: linear-gradient(145deg, #991B1B 0%, #B91C1C 48%, #7F1D1D 100%) !important;
+    border: 1.5px solid #D4AF37 !important;
+    box-shadow: 0 18px 36px rgba(153, 27, 27, 0.24), inset 0 1px 0 rgba(253, 230, 138, 0.35) !important;
+  }
+
+  .natal-hero-mascot-card .santa-mascot-wrap {
+    gap: 8px;
+  }
+
+  .natal-hero-mascot-card .santa-mascot-badge {
+    background: rgba(254, 243, 199, 0.96);
+    color: #7F1D1D;
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+
+  .natal-hero-mascot-card .santa-mascot-speech {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(253, 230, 138, 0.35);
+    color: #FFFDF9;
+    font-size: 12.5px;
+    padding: 8px 12px;
+    box-shadow: none;
+  }
+
+  .natal-hero-mascot-card .santa-mascot-stage {
+    width: 124px !important;
+    height: 124px !important;
+  }
+
+  .natal-hero-mascot-card .santa-mascot-stage svg {
+    width: 124px;
+    height: 124px;
+  }
+
+  .natal-hero-mascot-card .natal-ribbon-corner {
+    background: linear-gradient(135deg, #FDE68A, #D4AF37);
+    color: #451A03;
+  }
+
+  .natal-hero-mini-stats {
+    margin-top: 12px !important;
+    padding-top: 12px !important;
+    border-top-color: rgba(253, 230, 138, 0.28) !important;
+  }
+
+  .natal-hero-mini-stats strong {
+    font-size: 15px;
+    color: #FDE68A !important;
+  }
+
+  .natal-hero-mini-stats span {
+    font-size: 10px;
+    color: #FEE2E2 !important;
+  }
+
+  .natal-stat-divider {
+    background: rgba(253, 230, 138, 0.28) !important;
   }
 
   .natal-hero-copy {
@@ -232,55 +297,68 @@ body,
   }
 
   .natal-pill {
-    font-size: 11px;
-    padding: 6px 13px;
-    margin-bottom: 14px;
+    display: none; /* Badge is already featured cleanly on the crimson visual stage above */
   }
 
   .natal-hero-title {
-    font-size: 29px !important;
-    line-height: 1.15 !important;
-    letter-spacing: -0.9px !important;
-    margin-bottom: 14px !important;
+    font-size: 26px !important;
+    line-height: 1.16 !important;
+    letter-spacing: -0.7px !important;
+    margin-bottom: 10px !important;
   }
 
   .natal-hero-subtitle {
-    font-size: 14.5px !important;
-    line-height: 1.55 !important;
-    margin-bottom: 22px !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 18px !important;
   }
 
   .natal-hero-actions {
     width: 100%;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
 
   .natal-btn-primary,
   .natal-btn-secondary {
     width: 100%;
-    padding: 14px 18px;
+    padding: 13px 18px;
     font-size: 14px;
   }
 
   .natal-hero-trust {
     justify-content: center;
-    gap: 8px 14px;
-    font-size: 12px;
+    gap: 6px 12px;
+    font-size: 11.5px;
+    margin-bottom: 16px;
   }
 
-  .natal-hero-mascot-card {
-    padding: 22px 18px 18px;
-    border-radius: 22px;
+  /* Animated Scroll Cue inviting mobile visitors to scroll down */
+  .natal-mobile-scroll-cue {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #B91C1C;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: #FEF2F2;
+    border: 1px solid rgba(185, 28, 28, 0.18);
+    animation: natalCueBounce 2.2s ease-in-out infinite;
   }
 
-  .natal-hero-mini-stats strong {
-    font-size: 15px;
+  @keyframes natalCueBounce {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50% { transform: translate3d(0, 5px, 0); }
   }
 
-  .natal-hero-mini-stats span {
-    font-size: 10px;
+  /* Make gliding sleigh visible & festive on mobile too */
+  .xmas-sleigh-runner {
+    top: 12px;
+    opacity: 0.45;
   }
 
   .natal-section {
