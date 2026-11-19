@@ -5,5 +5,9 @@ RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
+# Se existir uma casca HTML com SEO/Open Graph dedicado (ex.: /natal -> natal.html, /automacoes -> automacoes.html)
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^([^/]+)/?$ $1.html [L]
+
 # Fallback SPA para React Router (/servicos, /politicas, etc.)
 RewriteRule ^ index.html [L]

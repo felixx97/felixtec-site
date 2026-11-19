@@ -11,6 +11,13 @@ import Navbar from './Navbar';
 
 export default function Layout() {
   const location = useLocation();
+  const isNatalLanding = location.pathname === '/natal';
+
+  // Toggle light-festive theme class on body for /natal standalone landing page
+  useEffect(() => {
+    document.body.classList.toggle('theme-natal', isNatalLanding);
+    return () => document.body.classList.remove('theme-natal');
+  }, [isNatalLanding]);
 
   // Scroll to top or target hash when changing routes
   useEffect(() => {
@@ -22,7 +29,6 @@ export default function Layout() {
           el.scrollIntoView({ behavior: 'smooth' });
         }
       };
-      // Wait a frame so newly mounted route DOM exists
       const raf = requestAnimationFrame(() => setTimeout(scrollToTarget, 60));
       return () => cancelAnimationFrame(raf);
     }
@@ -38,7 +44,6 @@ export default function Layout() {
         if (typeof window.gtag === 'function') {
           const isNewTab = link.target === '_blank';
           if (isNewTab) {
-            // Do not block popup opening in new tab — just fire conversion
             reportWhatsAppConversion();
           } else {
             e.preventDefault();
@@ -57,14 +62,14 @@ export default function Layout() {
 
   return (
     <>
-      <AmbientGlow />
-      <CodeParticlesCanvas />
+      {!isNatalLanding && <AmbientGlow />}
+      {!isNatalLanding && <CodeParticlesCanvas />}
       <CustomCursor />
 
       <div id="app">
-        <Navbar />
+        {!isNatalLanding && <Navbar />}
         <Outlet />
-        <Footer />
+        {!isNatalLanding && <Footer />}
       </div>
 
       <WhatsAppWidget />
@@ -72,4 +77,3 @@ export default function Layout() {
     </>
   );
 }
-

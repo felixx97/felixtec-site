@@ -71,8 +71,9 @@
 
 .nav-links {
   display: flex;
+  align-items: center;
   list-style: none;
-  gap: 32px;
+  gap: 22px;
 }
 
 .nav-link {

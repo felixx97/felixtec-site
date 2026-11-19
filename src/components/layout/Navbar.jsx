@@ -63,14 +63,15 @@ export default function Navbar() {
         <ul className={`nav-links${mobileOpen ? ' active' : ''}`}>
           {NAV_LINKS.map((item) => {
             const isActive = !item.hash && location.pathname === item.to;
+            const highlightClass = item.highlight === 'natal' ? ' nav-link-natal' : '';
             return (
               <li key={item.label}>
                 <Link
                   to={item.to}
-                  className={`nav-link${isActive ? ' active' : ''}`}
+                  className={`nav-link${highlightClass}${isActive ? ' active' : ''}`}
                   onClick={(e) => handleNavClick(e, item)}
                 >
-                  {item.label}
+                  {item.highlight === 'natal' ? `✦ ${item.label}` : item.label}
                 </Link>
               </li>
             );

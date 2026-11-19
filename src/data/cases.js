@@ -16,7 +16,7 @@ export const PORTFOLIO_CASES = [
     category: 'Co-working',
     description:
       'Plataforma premium para o espaço de coworking situado dentro do centro High Tech. Apresenta planos de endereço fiscal, diárias de coworking e reservas de salas de reuniões com fluxo simplificado.',
-    image: '/images/site-at-work.webp',
+    image: '/images/site-at-work.webp?v=2',
     url: 'https://atworksc.com.br/',
   },
   {

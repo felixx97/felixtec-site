@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import OfferModal from '../components/modals/OfferModal';
 import ServiceModal from '../components/modals/ServiceModal';
+import CampaignSpotlightBanner from '../components/sections/CampaignSpotlightBanner';
 import ContactSection from '../components/sections/ContactSection';
 import DetailsSection from '../components/sections/DetailsSection';
 import HeroSection from '../components/sections/HeroSection';
@@ -12,6 +13,7 @@ import ProfileSection from '../components/sections/ProfileSection';
 import ServicesBentoSection from '../components/sections/ServicesBentoSection';
 import VideoSection from '../components/sections/VideoSection';
 import { usePerformance } from '../context/PerformanceContext';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,9 +23,12 @@ export default function HomePage() {
   const [offerOpen, setOfferOpen] = useState(false);
   const [activeServiceKey, setActiveServiceKey] = useState(null);
 
-  useEffect(() => {
-    document.title = 'FélixTec | Sistemas, Web Apps & IAs de Alta Performance';
-  }, []);
+  usePageMeta({
+    title: 'FélixTec | Sistemas, Web Apps & IAs de Alta Performance',
+    description:
+      'Desenvolvimento web de alto padrão, automações inteligentes de rotinas e engenharia de software de alta conversão. Garanta seu desconto especial!',
+    url: 'https://felixtec.com.br/',
+  });
 
   useEffect(() => {
     if (reducedMotion || !pageRef.current) return;
@@ -184,6 +189,7 @@ export default function HomePage() {
   return (
     <div ref={pageRef}>
       <HeroSection onOpenOffer={() => setOfferOpen(true)} />
+      <CampaignSpotlightBanner />
       <PricingSection variant="home" />
       <ServicesBentoSection onSelectService={setActiveServiceKey} />
       <PortfolioSection />

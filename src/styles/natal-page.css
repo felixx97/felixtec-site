@@ -1,0 +1,1333 @@
+/* ============================================================
+   PAGE 1: /natal — Classic Bright Christmas (Red, White & Gold)
+   Standalone High-Conversion Landing Page (No Dark Site Chrome)
+   ============================================================ */
+
+/* Adapt Custom Cursor cleanly for bright white/cream landing page */
+body.theme-natal {
+  background-color: #FFFDF9;
+  color: #1F1716;
+}
+
+body.theme-natal .custom-cursor {
+  border-color: rgba(185, 28, 28, 0.55);
+  mix-blend-mode: normal;
+}
+
+body.theme-natal .custom-cursor.hovering {
+  background-color: rgba(212, 175, 55, 0.16);
+  border-color: #B91C1C;
+}
+
+body.theme-natal .custom-cursor-dot {
+  background-color: #B91C1C;
+}
+
+/* Main Page Canvas */
+.natal-page {
+  --xmas-red: #B91C1C;
+  --xmas-red-bright: #DC2626;
+  --xmas-red-deep: #7F1D1D;
+  --xmas-gold: #D4AF37;
+  --xmas-gold-deep: #A16207;
+  --xmas-gold-light: #FEF3C7;
+  --xmas-cream: #FFFDF9;
+  --xmas-blush: #FFF5F5;
+  --xmas-ink: #1F1716;
+  --xmas-muted: #5C4D4B;
+  --xmas-border: rgba(185, 28, 28, 0.13);
+
+  position: relative;
+  min-height: 100vh;
+  background: var(--xmas-cream);
+  color: var(--xmas-ink);
+  overflow-x: hidden;
+}
+
+/* Gentle Snowfall Canvas */
+.xmas-snow-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 30;
+}
+
+/* 1. Festive Ruby-Red & Gold Urgency Strip */
+.natal-urgency-bar {
+  position: relative;
+  z-index: 20;
+  background: linear-gradient(90deg, #881313 0%, #B91C1C 48%, #991B1B 100%);
+  border-bottom: 2px solid #D4AF37;
+  padding: 10px 16px;
+}
+
+.natal-urgency-inner {
+  max-width: 1152px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.natal-urgency-star {
+  color: #FDE68A;
+  font-size: 13px;
+  animation: xmasTwinkle 2.2s ease-in-out infinite alternate;
+}
+
+.natal-urgency-inner p {
+  margin: 0;
+  font-size: 13px;
+  color: #FFFDF9;
+  line-height: 1.4;
+}
+
+.natal-urgency-inner strong {
+  color: #FDE68A;
+}
+
+/* Clean Standalone LP Top Bar (No Distracting Menu Links!) */
+.natal-lp-topbar {
+  position: relative;
+  z-index: 15;
+  background: rgba(255, 253, 249, 0.92);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.28);
+  padding: 12px 24px;
+}
+
+.natal-lp-topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.natal-brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #991B1B;
+}
+
+.natal-brand-dot {
+  color: #D4AF37;
+  font-size: 18px;
+}
+
+.natal-brand-mark small {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #A16207;
+  background: #FEF3C7;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.natal-topbar-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%);
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(185, 28, 28, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.natal-topbar-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(185, 28, 28, 0.34);
+}
+
+/* Twinkling Christmas Fairy Lights Garland */
+.xmas-lights-garland {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  z-index: 6;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.xmas-lights-wire {
+  position: absolute;
+  top: 6px;
+  left: -2%;
+  width: 104%;
+  height: 12px;
+  border-bottom: 1.5px solid rgba(180, 134, 40, 0.45);
+  border-radius: 50%;
+}
+
+.xmas-lights-row {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 8px 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.xmas-bulb {
+  width: 9px;
+  height: 12px;
+  border-radius: 50% 50% 55% 55%;
+  background: var(--bulb-color, #D4AF37);
+  box-shadow: 0 0 10px var(--bulb-color, #D4AF37), 0 0 18px rgba(212, 175, 55, 0.35);
+  animation: xmasBulbGlow 2.4s ease-in-out var(--bulb-delay, 0s) infinite alternate;
+  will-change: opacity, transform;
+}
+
+.xmas-bulb:nth-child(even) {
+  margin-top: 4px;
+}
+
+@keyframes xmasBulbGlow {
+  0% { opacity: 0.42; transform: scale(0.92); }
+  100% { opacity: 1; transform: scale(1.08); }
+}
+
+@keyframes xmasTwinkle {
+  0% { opacity: 0.55; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1.15); }
+}
+
+/* Animated Hero Sky Backdrop: Gliding Santa Sleigh + Warm Bokeh */
+.xmas-sleigh-stage {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.xmas-bokeh {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.35;
+}
+
+.xmas-bokeh.b1 {
+  width: 340px;
+  height: 340px;
+  top: -100px;
+  right: -60px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.28), transparent 70%);
+}
+
+.xmas-bokeh.b2 {
+  width: 380px;
+  height: 380px;
+  bottom: -140px;
+  left: -80px;
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.16), transparent 70%);
+}
+
+.xmas-bokeh.b3 {
+  width: 180px;
+  height: 180px;
+  top: 28%;
+  left: 44%;
+  background: radial-gradient(circle, rgba(253, 230, 138, 0.32), transparent 70%);
+}
+
+.xmas-bokeh.b4 {
+  width: 120px;
+  height: 120px;
+  bottom: 18%;
+  right: 12%;
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.14), transparent 70%);
+}
+
+.xmas-sleigh-runner {
+  position: absolute;
+  top: 26px;
+  left: 0;
+  opacity: 0.32;
+  animation: xmasSleighGlide 24s linear infinite;
+  will-change: transform;
+}
+
+@keyframes xmasSleighGlide {
+  0% {
+    transform: translate3d(-320px, 24px, 0) rotate(-2deg);
+  }
+  25% {
+    transform: translate3d(25vw, 4px, 0) rotate(1deg);
+  }
+  50% {
+    transform: translate3d(55vw, 22px, 0) rotate(-1.5deg);
+  }
+  75% {
+    transform: translate3d(82vw, 6px, 0) rotate(1.5deg);
+  }
+  100% {
+    transform: translate3d(112vw, 20px, 0) rotate(-1deg);
+  }
+}
+
+/* 2. Bright Luxury Hero Section */
+.natal-hero {
+  position: relative;
+  padding: 68px 24px 86px;
+  background: linear-gradient(180deg, #FFF7F5 0%, #FFFDF9 56%, #FFFFFF 100%);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  overflow: hidden;
+}
+
+.natal-hero-grid {
+  position: relative;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: 1.22fr 0.78fr;
+  gap: 44px;
+  align-items: center;
+}
+
+.natal-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #991B1B;
+  background: #FEF2F2;
+  border: 1px solid rgba(220, 38, 38, 0.28);
+  border-radius: 999px;
+  padding: 7px 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 14px rgba(185, 28, 28, 0.08);
+}
+
+.natal-hero-title {
+  font-size: clamp(32px, 4.4vw, 54px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1.4px;
+  color: #1F1716;
+  margin-bottom: 18px;
+}
+
+/* Modern Shimmering Festive Headline Highlight */
+.natal-accent-shimmer {
+  background: linear-gradient(110deg, #991B1B 0%, #DC2626 32%, #D4AF37 52%, #DC2626 72%, #991B1B 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: xmasGoldShimmer 4.5s linear infinite;
+}
+
+@keyframes xmasGoldShimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 220% center; }
+}
+
+.natal-hero-subtitle {
+  font-size: 17px;
+  line-height: 1.65;
+  color: #5C4D4B;
+  max-width: 610px;
+  margin-bottom: 28px;
+}
+
+.natal-hero-subtitle strong {
+  color: #1F1716;
+}
+
+.natal-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 26px;
+}
+
+.natal-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 26px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 60%, #991B1B 100%);
+  color: #FFFFFF;
+  font-size: 14.5px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid rgba(253, 230, 138, 0.45);
+  box-shadow: 0 10px 26px rgba(185, 28, 28, 0.28);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+}
+
+.natal-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(185, 28, 28, 0.38);
+  filter: brightness(1.05);
+}
+
+.natal-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 15px 24px;
+  border-radius: 999px;
+  background: #FFFFFF;
+  color: #991B1B;
+  font-size: 14.5px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1.5px solid rgba(212, 175, 55, 0.7);
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.14);
+  transition: transform 0.22s ease, background-color 0.22s ease, border-color 0.22s ease;
+}
+
+.natal-btn-secondary:hover {
+  transform: translateY(-2px);
+  background: #FFFBEB;
+  border-color: #D4AF37;
+}
+
+.natal-hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 13.5px;
+  color: #7F1D1D;
+  font-weight: 600;
+}
+
+/* Santa Dev Félix Showcase Card */
+.natal-hero-mascot-card {
+  position: relative;
+  background: linear-gradient(160deg, #FFFFFF 0%, #FFF9F2 100%);
+  border: 1.5px solid rgba(212, 175, 55, 0.55);
+  border-radius: 28px;
+  padding: 30px 24px 24px;
+  box-shadow: 0 24px 60px rgba(153, 27, 27, 0.11), 0 6px 18px rgba(212, 175, 55, 0.14);
+  overflow: hidden;
+}
+
+.natal-ribbon-corner {
+  position: absolute;
+  top: 16px;
+  right: -30px;
+  width: 112px;
+  text-align: center;
+  transform: rotate(38deg);
+  background: linear-gradient(135deg, #DC2626, #991B1B);
+  color: #FDE68A;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  padding: 4px 0;
+  box-shadow: 0 4px 10px rgba(153, 27, 27, 0.25);
+}
+
+.santa-mascot-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.santa-mascot-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  color: #991B1B;
+  background: #FEF3C7;
+  border: 1px solid rgba(212, 175, 55, 0.65);
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+.santa-mascot-speech {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #451A03;
+  background: #FFFFFF;
+  border: 1px solid rgba(185, 28, 28, 0.14);
+  border-radius: 14px;
+  padding: 10px 14px;
+  max-width: 285px;
+  box-shadow: 0 6px 16px rgba(185, 28, 28, 0.06);
+}
+
+.santa-mascot-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: felixGuideFloat 3.4s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.santa-hat-group {
+  transform-origin: 55px 42px;
+  animation: santaHatBob 3.2s ease-in-out infinite alternate;
+}
+
+@keyframes santaHatBob {
+  0% { transform: rotate(-1.5deg); }
+  100% { transform: rotate(2deg); }
+}
+
+.santa-sparkle {
+  animation: xmasTwinkle 1.8s ease-in-out infinite alternate;
+}
+
+.santa-sparkle.s2 {
+  animation-delay: 0.6s;
+}
+
+.santa-sparkle.s3 {
+  animation-delay: 1.1s;
+}
+
+.natal-hero-mini-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(185, 28, 28, 0.12);
+  text-align: center;
+}
+
+.natal-hero-mini-stats strong {
+  display: block;
+  font-size: 17px;
+  font-weight: 800;
+  color: #B91C1C;
+}
+
+.natal-hero-mini-stats span {
+  font-size: 11px;
+  color: #786966;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.natal-stat-divider {
+  width: 1px;
+  height: 28px;
+  background: rgba(185, 28, 28, 0.14);
+}
+
+/* Shared Light Sections */
+.natal-section {
+  position: relative;
+  z-index: 2;
+  padding: 82px 24px;
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
+}
+
+.natal-niches-section {
+  background: #FFFFFF;
+}
+
+.natal-offers-section {
+  background: linear-gradient(180deg, #FFF7F5 0%, #FFFDF9 100%);
+  border-top: 1px solid rgba(212, 175, 55, 0.22);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+}
+
+.natal-faq-section {
+  background: #FFFFFF;
+}
+
+.natal-section-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #B91C1C;
+  background: #FEF2F2;
+  border: 1px solid rgba(185, 28, 28, 0.18);
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.natal-section-title {
+  font-size: clamp(28px, 3.6vw, 42px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #1F1716;
+  margin-bottom: 12px;
+  line-height: 1.15;
+}
+
+.natal-section-subtitle {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #5C4D4B;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* Interactive Niche Filter */
+.natal-niche-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.natal-niche-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border-radius: 999px;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(185, 28, 28, 0.16);
+  color: #5C4D4B;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.natal-niche-tab:hover {
+  border-color: #D4AF37;
+  color: #991B1B;
+}
+
+.natal-niche-tab.active {
+  background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%);
+  border-color: #D4AF37;
+  color: #FFFFFF;
+  box-shadow: 0 8px 20px rgba(185, 28, 28, 0.24);
+}
+
+.natal-niche-spotlight {
+  display: grid;
+  grid-template-columns: 1.35fr 0.85fr;
+  gap: 32px;
+  padding: 34px;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #FFFDF9 0%, #FFF5F5 100%);
+  border: 1.5px solid rgba(212, 175, 55, 0.42);
+  box-shadow: 0 16px 40px rgba(153, 27, 27, 0.07);
+  margin-bottom: 24px;
+}
+
+.natal-niche-kicker {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  color: #B91C1C;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 8px;
+}
+
+.natal-niche-spotlight-main h3 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #1F1716;
+  margin-bottom: 10px;
+}
+
+.natal-niche-spotlight-main p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #5C4D4B;
+  margin-bottom: 18px;
+}
+
+.natal-niche-deliverables {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.natal-niche-deliverables li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14.5px;
+  color: #2D2220;
+  font-weight: 500;
+}
+
+.natal-niche-deliverables svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.natal-niche-spotlight-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  border-radius: 18px;
+  background: #FFFFFF;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 8px 24px rgba(185, 28, 28, 0.06);
+}
+
+.natal-recommend-label {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #A16207;
+}
+
+.natal-niche-spotlight-side strong {
+  font-size: 18px;
+  color: #1F1716;
+  line-height: 1.3;
+}
+
+.natal-niche-spotlight-side p {
+  font-size: 13.5px;
+  color: #5C4D4B;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.natal-niche-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.natal-niche-card {
+  text-align: left;
+  padding: 20px;
+  border-radius: 18px;
+  background: #FFFFFF;
+  border: 1px solid rgba(185, 28, 28, 0.12);
+  color: #1F1716;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(153, 27, 27, 0.04);
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.natal-niche-card:hover {
+  transform: translateY(-3px);
+  border-color: #D4AF37;
+  box-shadow: 0 10px 24px rgba(185, 28, 28, 0.09);
+}
+
+.natal-niche-card.active {
+  background: #FFF7F5;
+  border: 1.5px solid #DC2626;
+}
+
+.natal-niche-card-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FEF2F2;
+  color: #B91C1C;
+  margin-bottom: 12px;
+}
+
+.natal-niche-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #1F1716;
+}
+
+.natal-niche-card p {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #5C4D4B;
+}
+
+/* 4 Offer Cards (Snow White + Featured Christmas Red & Gold) with Smooth 3D Tilt */
+.natal-offers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.natal-offer-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 26px 22px;
+  border-radius: 24px;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 12px 32px rgba(153, 27, 27, 0.07);
+  transition: transform 0.2s ease-out, border-color 0.25s ease, box-shadow 0.25s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+  overflow: hidden;
+}
+
+.natal-offer-card:hover {
+  border-color: #D4AF37;
+  box-shadow: 0 22px 46px rgba(153, 27, 27, 0.14), 0 0 0 1px rgba(212, 175, 55, 0.35);
+}
+
+/* Featured "Mais Escolhido" Card in Classic Luxury Christmas Red & Gold */
+.natal-offer-card.is-featured {
+  background: linear-gradient(165deg, #B91C1C 0%, #991B1B 58%, #7F1D1D 100%);
+  border: 2px solid #D4AF37;
+  color: #FFFFFF;
+  box-shadow: 0 22px 50px rgba(153, 27, 27, 0.28), 0 0 0 2px rgba(212, 175, 55, 0.25);
+}
+
+.natal-offer-sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    circle 260px at var(--tilt-glow-x, 50%) var(--tilt-glow-y, 50%),
+    rgba(212, 175, 55, 0.2),
+    transparent 70%
+  );
+  transition: opacity 0.25s ease;
+}
+
+.natal-offer-card:hover .natal-offer-sheen {
+  opacity: 1;
+}
+
+.natal-offer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.natal-offer-badge {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: #991B1B;
+  background: #FEF2F2;
+  border: 1px solid rgba(185, 28, 28, 0.22);
+}
+
+.natal-offer-badge.is-gold {
+  color: #451A03;
+  background: linear-gradient(135deg, #FDE68A, #D4AF37);
+  border-color: transparent;
+}
+
+.natal-offer-savings {
+  font-size: 11px;
+  font-weight: 800;
+  color: #A16207;
+}
+
+.natal-offer-card.is-featured .natal-offer-savings {
+  color: #FDE68A;
+}
+
+.natal-offer-name {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1F1716;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.natal-offer-card.is-featured .natal-offer-name {
+  color: #FFFFFF;
+}
+
+.natal-offer-desc {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #5C4D4B;
+  margin-bottom: 18px;
+}
+
+.natal-offer-card.is-featured .natal-offer-desc {
+  color: #FEE2E2;
+}
+
+.natal-offer-pricing {
+  padding: 14px 0;
+  border-top: 1px solid rgba(185, 28, 28, 0.12);
+  border-bottom: 1px solid rgba(185, 28, 28, 0.12);
+  margin-bottom: 18px;
+}
+
+.natal-offer-card.is-featured .natal-offer-pricing {
+  border-color: rgba(253, 230, 138, 0.28);
+}
+
+.natal-offer-old {
+  display: block;
+  font-size: 12.5px;
+  color: #786966;
+  margin-bottom: 4px;
+}
+
+.natal-offer-old del {
+  color: #B91C1C;
+  font-weight: 600;
+}
+
+.natal-offer-card.is-featured .natal-offer-old,
+.natal-offer-card.is-featured .natal-offer-old del {
+  color: #FECACA;
+}
+
+.natal-offer-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.natal-offer-price {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #991B1B;
+}
+
+.natal-offer-card.is-featured .natal-offer-price {
+  color: #FDE68A;
+}
+
+.natal-offer-installment {
+  font-size: 11px;
+  color: #A16207;
+  font-weight: 700;
+}
+
+.natal-offer-card.is-featured .natal-offer-installment {
+  color: #FEF3C7;
+}
+
+.natal-offer-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 22px;
+  flex: 1;
+}
+
+.natal-offer-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #2D2220;
+}
+
+.natal-offer-card.is-featured .natal-offer-features li {
+  color: #FFFDF9;
+}
+
+.natal-offer-features svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.natal-offer-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+  border: 1px solid rgba(185, 28, 28, 0.2);
+  box-shadow: 0 6px 18px rgba(185, 28, 28, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.natal-offer-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(185, 28, 28, 0.34);
+  filter: brightness(1.04);
+}
+
+.natal-offer-cta.is-featured {
+  color: #451A03;
+  background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 45%, #D4AF37 100%);
+  border-color: transparent;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+}
+
+/* Portfolio Proof Section inside /natal */
+.natal-portfolio-section {
+  background: #FFFFFF;
+}
+
+.natal-portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.natal-portfolio-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 22px;
+  background: #FFFDF9;
+  border: 1.5px solid rgba(212, 175, 55, 0.34);
+  box-shadow: 0 10px 28px rgba(153, 27, 27, 0.06);
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.natal-portfolio-card:hover {
+  transform: translateY(-5px);
+  border-color: #D4AF37;
+  box-shadow: 0 18px 40px rgba(153, 27, 27, 0.13);
+}
+
+.natal-portfolio-preview {
+  display: block;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(185, 28, 28, 0.1);
+}
+
+.natal-browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: #FEF2F2;
+  border-bottom: 1px solid rgba(185, 28, 28, 0.08);
+}
+
+.natal-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.natal-dot.red {
+  background: #DC2626;
+}
+
+.natal-dot.gold {
+  background: #D4AF37;
+}
+
+.natal-dot.neutral {
+  background: #E5E7EB;
+}
+
+.natal-browser-url {
+  margin-left: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #7F1D1D;
+  opacity: 0.78;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.natal-browser-screen {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #18181b;
+}
+
+.natal-browser-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.natal-portfolio-card:hover .natal-browser-screen img {
+  transform: scale(1.04);
+}
+
+.natal-portfolio-body {
+  padding: 20px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.natal-portfolio-cat {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #A16207;
+  margin-bottom: 6px;
+}
+
+.natal-portfolio-body h3 {
+  font-size: 19px;
+  font-weight: 800;
+  color: #1F1716;
+  margin-bottom: 8px;
+}
+
+.natal-portfolio-body p {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #5C4D4B;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.natal-portfolio-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #B91C1C;
+  text-decoration: none;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.natal-portfolio-link:hover {
+  gap: 10px;
+  color: #991B1B;
+}
+
+/* Guarantee + FAQ Closing Block */
+.natal-closing-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.natal-guarantee-card {
+  padding: 34px 26px;
+  border-radius: 26px;
+  background: linear-gradient(160deg, #FFF7F5 0%, #FFFBEB 100%);
+  border: 1.5px solid rgba(212, 175, 55, 0.5);
+  box-shadow: 0 16px 40px rgba(153, 27, 27, 0.08);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.natal-guarantee-card h3 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1F1716;
+}
+
+.natal-guarantee-card p {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #5C4D4B;
+}
+
+.natal-faq-heading {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: #1F1716;
+  margin-bottom: 20px;
+}
+
+.natal-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.natal-faq-item {
+  border-radius: 16px;
+  background: #FFFDF9;
+  border: 1px solid rgba(185, 28, 28, 0.14);
+  overflow: hidden;
+  transition: border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.natal-faq-item.open {
+  border-color: #D4AF37;
+  box-shadow: 0 8px 22px rgba(185, 28, 28, 0.07);
+}
+
+.natal-faq-trigger {
+  width: 100%;
+  padding: 18px 20px;
+  background: transparent;
+  border: none;
+  color: #1F1716;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: inherit;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.natal-faq-chevron {
+  font-size: 20px;
+  color: #B91C1C;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.natal-faq-answer {
+  padding: 0 20px 18px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #5C4D4B;
+  margin: 0;
+}
+
+/* Clean Light Festive Mini Footer */
+.natal-mini-footer {
+  background: #FFF5F5;
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 28px 24px;
+}
+
+.natal-mini-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.natal-mini-footer p {
+  margin: 0;
+  font-size: 13px;
+  color: #5C4D4B;
+}
+
+.natal-mini-footer-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.natal-mini-footer-links a {
+  font-size: 13px;
+  font-weight: 600;
+  color: #991B1B;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.natal-mini-footer-links a:hover {
+  color: #D4AF37;
+}
+
+/* Responsive Breakpoints for /natal */
+@media (max-width: 1120px) {
+  .natal-offers-grid,
+  .natal-niche-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .natal-hero-grid,
+  .natal-niche-spotlight,
+  .natal-portfolio-grid,
+  .natal-closing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .natal-hero {
+    padding: 54px 20px 64px;
+  }
+
+  .natal-section {
+    padding: 60px 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .natal-offers-grid,
+  .natal-niche-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .natal-niche-spotlight {
+    padding: 22px 18px;
+  }
+
+  .natal-btn-primary,
+  .natal-btn-secondary {
+    width: 100%;
+  }
+
+  .natal-topbar-cta span {
+    display: none;
+  }
+
+  .natal-mini-footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Low-power & Reduced Motion Respect */
+html[data-perf="low"] .xmas-sleigh-runner,
+html[data-perf="low"] .natal-offer-sheen {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .xmas-sleigh-runner,
+  .xmas-snow-canvas {
+    display: none !important;
+  }
+}

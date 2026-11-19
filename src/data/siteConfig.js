@@ -16,9 +16,10 @@ export function buildWhatsAppUrl(message) {
 export const NAV_LINKS = [
   { label: 'Início', to: '/#inicio', hash: 'inicio' },
   { label: 'Planos', to: '/#precos', hash: 'precos' },
-  { label: 'Diferenciais', to: '/#diferenciais', hash: 'diferenciais' },
   { label: 'Portfólio', to: '/#portfolio', hash: 'portfolio' },
   { label: 'Serviços', to: '/servicos', hash: null },
+  { label: 'Automações', to: '/automacoes', hash: null },
+  { label: 'Ofertas de Natal', to: '/natal', hash: null, highlight: 'natal' },
   { label: 'Contato', to: '/#contato', hash: 'contato' },
 ];
 
