@@ -3,7 +3,6 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { reportWhatsAppConversion } from '../../utils/analytics';
 import AmbientGlow from '../effects/AmbientGlow';
 import CodeParticlesCanvas from '../effects/CodeParticlesCanvas';
-import CustomCursor from '../effects/CustomCursor';
 import CookieBanner from '../widgets/CookieBanner';
 import WhatsAppWidget from '../widgets/WhatsAppWidget';
 import Footer from './Footer';
@@ -13,13 +12,11 @@ export default function Layout() {
   const location = useLocation();
   const isNatalLanding = location.pathname === '/natal';
 
-  // Toggle light-festive theme class on body for /natal standalone landing page
   useEffect(() => {
     document.body.classList.toggle('theme-natal', isNatalLanding);
     return () => document.body.classList.remove('theme-natal');
   }, [isNatalLanding]);
 
-  // Scroll to top or target hash when changing routes
   useEffect(() => {
     if (location.hash) {
       const id = location.hash.replace('#', '');
@@ -36,7 +33,6 @@ export default function Layout() {
     window.scrollTo({ top: 0, behavior: 'auto' });
   }, [location.pathname, location.hash]);
 
-  // Global Google Ads conversion tracking for direct wa.me links
   useEffect(() => {
     const handleWhatsAppClick = (e) => {
       const link = e.target.closest?.('a');
@@ -64,7 +60,6 @@ export default function Layout() {
     <>
       {!isNatalLanding && <AmbientGlow />}
       {!isNatalLanding && <CodeParticlesCanvas />}
-      <CustomCursor />
 
       <div id="app">
         {!isNatalLanding && <Navbar />}

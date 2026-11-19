@@ -3,24 +3,10 @@
    Standalone High-Conversion Landing Page (No Dark Site Chrome)
    ============================================================ */
 
-/* Adapt Custom Cursor cleanly for bright white/cream landing page */
+/* Adapt page base cleanly for bright white/cream landing page */
 body.theme-natal {
   background-color: #FFFDF9;
   color: #1F1716;
-}
-
-body.theme-natal .custom-cursor {
-  border-color: rgba(185, 28, 28, 0.55);
-  mix-blend-mode: normal;
-}
-
-body.theme-natal .custom-cursor.hovering {
-  background-color: rgba(212, 175, 55, 0.16);
-  border-color: #B91C1C;
-}
-
-body.theme-natal .custom-cursor-dot {
-  background-color: #B91C1C;
 }
 
 /* Main Page Canvas */
@@ -44,14 +30,14 @@ body.theme-natal .custom-cursor-dot {
   overflow-x: hidden;
 }
 
-/* Gentle Snowfall Canvas */
+/* Gentle Snowfall Canvas scoped strictly to Hero (never composites over rest of page) */
 .xmas-snow-canvas {
-  position: fixed;
+  position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 30;
+  z-index: 2;
 }
 
 /* 1. Festive Ruby-Red & Gold Urgency Strip */
@@ -190,9 +176,8 @@ body.theme-natal .custom-cursor-dot {
   height: 12px;
   border-radius: 50% 50% 55% 55%;
   background: var(--bulb-color, #D4AF37);
-  box-shadow: 0 0 10px var(--bulb-color, #D4AF37), 0 0 18px rgba(212, 175, 55, 0.35);
-  animation: xmasBulbGlow 2.4s ease-in-out var(--bulb-delay, 0s) infinite alternate;
-  will-change: opacity, transform;
+  box-shadow: 0 0 6px var(--bulb-color, #D4AF37);
+  animation: xmasBulbGlow 2.8s ease-in-out var(--bulb-delay, 0s) infinite alternate;
 }
 
 .xmas-bulb:nth-child(even) {
@@ -200,8 +185,8 @@ body.theme-natal .custom-cursor-dot {
 }
 
 @keyframes xmasBulbGlow {
-  0% { opacity: 0.42; transform: scale(0.92); }
-  100% { opacity: 1; transform: scale(1.08); }
+  0% { opacity: 0.45; }
+  100% { opacity: 1; }
 }
 
 @keyframes xmasTwinkle {
@@ -327,18 +312,11 @@ body.theme-natal .custom-cursor-dot {
   margin-bottom: 18px;
 }
 
-/* Modern Shimmering Festive Headline Highlight */
+/* Clean Static Crimson-to-Gold Gradient (zero main-thread background-position repaints!) */
 .natal-accent-shimmer {
-  background: linear-gradient(110deg, #991B1B 0%, #DC2626 32%, #D4AF37 52%, #DC2626 72%, #991B1B 100%);
-  background-size: 220% auto;
+  background: linear-gradient(125deg, #991B1B 0%, #DC2626 42%, #C28A1C 85%, #B45309 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: xmasGoldShimmer 4.5s linear infinite;
-}
-
-@keyframes xmasGoldShimmer {
-  0% { background-position: 0% center; }
-  100% { background-position: 220% center; }
 }
 
 .natal-hero-subtitle {
@@ -792,8 +770,6 @@ body.theme-natal .custom-cursor-dot {
   border: 1.5px solid rgba(212, 175, 55, 0.35);
   box-shadow: 0 12px 32px rgba(153, 27, 27, 0.07);
   transition: transform 0.2s ease-out, border-color 0.25s ease, box-shadow 0.25s ease;
-  transform-style: preserve-3d;
-  will-change: transform;
   overflow: hidden;
 }
 

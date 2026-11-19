@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import FelixMascotGuide from '../components/illustrations/FelixMascotGuide';
 import { ArrowRightIcon, CheckIcon, WhatsAppIcon } from '../components/widgets/Icons';
+import MobileSnapCarousel from '../components/widgets/MobileSnapCarousel';
 import { usePerformance } from '../context/PerformanceContext';
 import {
   AUTOMACOES_META,
@@ -190,7 +191,15 @@ export default function AutomacoesPage() {
           </div>
 
           <div className="auto-flow-stage auto-reveal">
-            <div className="auto-flow-3d-track" role="tablist" aria-label="Etapas do fluxo automatizado">
+            <MobileSnapCarousel
+              gridClass="auto-flow-3d-track"
+              theme="auto"
+              itemCount={FLOW_STEPS.length}
+              ariaLabel="Etapas do fluxo automatizado"
+              onActiveChange={(idx) => {
+                if (FLOW_STEPS[idx]) setActiveStepId(FLOW_STEPS[idx].id);
+              }}
+            >
               {FLOW_STEPS.map((step, idx) => {
                 const isActive = step.id === activeStepId;
                 return (
@@ -222,7 +231,7 @@ export default function AutomacoesPage() {
                   </div>
                 );
               })}
-            </div>
+            </MobileSnapCarousel>
 
             <div className="auto-flow-detail-panel" role="tabpanel">
               <div className="auto-flow-detail-badge">
@@ -291,10 +300,17 @@ export default function AutomacoesPage() {
             </p>
           </div>
 
-          <div className="auto-solutions-grid auto-reveal">
-            {AUTOMATION_SOLUTIONS.map((sol) => (
-              <SolutionCard key={sol.id} solution={sol} />
-            ))}
+          <div className="auto-reveal">
+            <MobileSnapCarousel
+              gridClass="auto-solutions-grid"
+              theme="auto"
+              itemCount={AUTOMATION_SOLUTIONS.length}
+              ariaLabel="Soluções de Automação"
+            >
+              {AUTOMATION_SOLUTIONS.map((sol) => (
+                <SolutionCard key={sol.id} solution={sol} />
+              ))}
+            </MobileSnapCarousel>
           </div>
         </div>
       </section>

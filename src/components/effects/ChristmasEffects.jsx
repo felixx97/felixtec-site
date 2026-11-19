@@ -100,34 +100,35 @@ export function SantaSleighBackdrop() {
 }
 
 /**
- * Ultra-lightweight Canvas Snowfall for /natal.
- * Respects reduced-motion, low-power tier, and pauses automatically when hidden.
+ * Ultra-lightweight Canvas Snowfall scoped strictly to the Hero section.
+ * Automatically pauses when Hero scrolls out of view or tab is hidden,
+ * and completely disables on low-power PCs or prefers-reduced-motion.
  */
 export function SnowfallCanvas() {
-  const { isLowPower, reducedMotion } = usePerformance();
+  const { isLowPower, isTouch, reducedMotion } = usePerformance();
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    if (reducedMotion) return;
+    if (isLowPower || isTouch || reducedMotion) return;
 
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d', { alpha: true });
     if (!ctx) return;
 
-    const count = isLowPower ? 16 : 36;
+    const count = 24;
     let width = 0;
     let height = 0;
     let rafId = 0;
     let lastTime = 0;
+    let isVisible = true;
 
     const resize = () => {
-      width = window.innerWidth;
-      height = window.innerHeight;
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-      canvas.width = Math.floor(width * dpr);
-      canvas.height = Math.floor(height * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const parent = canvas.parentElement;
+      width = parent ? parent.clientWidth : window.innerWidth;
+      height = parent ? parent.clientHeight : window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
     };
 
     resize();
@@ -135,18 +136,18 @@ export function SnowfallCanvas() {
     const flakes = Array.from({ length: count }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      r: 1.4 + Math.random() * 2.8,
-      vy: 18 + Math.random() * 28,
-      vx: (Math.random() - 0.5) * 14,
+      r: 1.5 + Math.random() * 2.4,
+      vy: 16 + Math.random() * 24,
+      vx: (Math.random() - 0.5) * 12,
       wobble: Math.random() * Math.PI * 2,
-      isGold: Math.random() < 0.28,
-      alpha: 0.35 + Math.random() * 0.45,
+      isGold: Math.random() < 0.3,
+      alpha: 0.35 + Math.random() * 0.4,
     }));
 
     const tick = (now) => {
-      if (document.hidden) {
+      rafId = 0;
+      if (!isVisible || document.hidden) {
         lastTime = 0;
-        rafId = requestAnimationFrame(tick);
         return;
       }
 
@@ -157,21 +158,21 @@ export function SnowfallCanvas() {
 
       for (let i = 0; i < flakes.length; i++) {
         const f = flakes[i];
-        f.wobble += dt * 1.4;
-        f.x += (f.vx + Math.sin(f.wobble) * 10) * dt;
+        f.wobble += dt * 1.2;
+        f.x += (f.vx + Math.sin(f.wobble) * 8) * dt;
         f.y += f.vy * dt;
 
-        if (f.y > height + 10) {
-          f.y = -8;
+        if (f.y > height + 8) {
+          f.y = -6;
           f.x = Math.random() * width;
         }
-        if (f.x < -10) f.x = width + 10;
-        if (f.x > width + 10) f.x = -10;
+        if (f.x < -8) f.x = width + 8;
+        if (f.x > width + 8) f.x = -8;
 
         ctx.beginPath();
         ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
         ctx.fillStyle = f.isGold
-          ? `rgba(212, 175, 55, ${f.alpha * 0.8})`
+          ? `rgba(212, 175, 55, ${f.alpha * 0.85})`
           : `rgba(255, 255, 255, ${f.alpha})`;
         ctx.fill();
       }
@@ -179,16 +180,39 @@ export function SnowfallCanvas() {
       rafId = requestAnimationFrame(tick);
     };
 
-    rafId = requestAnimationFrame(tick);
+    const start = () => {
+      if (!rafId && isVisible && !document.hidden) {
+        lastTime = 0;
+        rafId = requestAnimationFrame(tick);
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) start();
+      },
+      { threshold: 0.02 }
+    );
+    observer.observe(canvas);
+
+    const handleVisibility = () => {
+      if (!document.hidden) start();
+    };
+
+    start();
     window.addEventListener('resize', resize, { passive: true });
+    document.addEventListener('visibilitychange', handleVisibility);
 
     return () => {
+      observer.disconnect();
       window.removeEventListener('resize', resize);
+      document.removeEventListener('visibilitychange', handleVisibility);
       if (rafId) cancelAnimationFrame(rafId);
     };
-  }, [isLowPower, reducedMotion]);
+  }, [isLowPower, isTouch, reducedMotion]);
 
-  if (reducedMotion) return null;
+  if (isLowPower || isTouch || reducedMotion) return null;
 
   return <canvas className="xmas-snow-canvas" ref={canvasRef} aria-hidden="true" />;
 }

@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ChristmasLightsBar, SantaSleighBackdrop, SnowfallCanvas } from '../components/effects/ChristmasEffects';
 import SantaFelixMascot from '../components/illustrations/SantaFelixMascot';
 import { ArrowRightIcon, CheckIcon, WhatsAppIcon } from '../components/widgets/Icons';
+import MobileSnapCarousel from '../components/widgets/MobileSnapCarousel';
 import { usePerformance } from '../context/PerformanceContext';
 import { PORTFOLIO_CASES } from '../data/cases';
 import {
@@ -107,11 +108,23 @@ export default function NatalPage() {
   usePageMeta(NATAL_META);
 
   const pageRef = useRef(null);
+  const nicheTabsRef = useRef(null);
   const { isLowPower, reducedMotion } = usePerformance();
   const [selectedNicheId, setSelectedNicheId] = useState(NATAL_NICHES[0].id);
   const [openFaq, setOpenFaq] = useState(0);
 
-  const selectedNiche = NATAL_NICHES.find((n) => n.id === selectedNicheId) || NATAL_NICHES[0];
+  const selectedNicheIdx = Math.max(
+    0,
+    NATAL_NICHES.findIndex((n) => n.id === selectedNicheId)
+  );
+  const selectedNiche = NATAL_NICHES[selectedNicheIdx] || NATAL_NICHES[0];
+
+  const selectNicheByIndex = (idx) => {
+    const wrapped = ((idx % NATAL_NICHES.length) + NATAL_NICHES.length) % NATAL_NICHES.length;
+    setSelectedNicheId(NATAL_NICHES[wrapped].id);
+    const tabEl = nicheTabsRef.current?.children?.[wrapped];
+    tabEl?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  };
   const natalPortfolio = NATAL_PORTFOLIO_IDS.map((id) =>
     PORTFOLIO_CASES.find((project) => project.id === id)
   ).filter(Boolean);
@@ -150,8 +163,6 @@ export default function NatalPage() {
 
   return (
     <div className="natal-page" ref={pageRef}>
-      <SnowfallCanvas />
-
       {/* 1. Barra Festiva de Urgência (sem menu tradicional para foco máximo em conversão) */}
       <div className="natal-urgency-bar" role="status">
         <div className="natal-urgency-inner">
@@ -186,6 +197,7 @@ export default function NatalPage() {
 
       {/* 2. Hero Clara & Festiva (Vermelho, Branco Neve e Dourado + Pisca-Pisca + Trenó Animado + Dev Félix Noel) */}
       <header className="natal-hero">
+        <SnowfallCanvas />
         <ChristmasLightsBar />
         <SantaSleighBackdrop />
 
@@ -270,20 +282,44 @@ export default function NatalPage() {
             </p>
           </div>
 
-          <div className="natal-niche-tabs natal-reveal" role="tablist" aria-label="Áreas de atuação">
-            {NATAL_NICHES.map((niche) => (
-              <button
-                key={niche.id}
-                type="button"
-                role="tab"
-                aria-selected={niche.id === selectedNicheId}
-                className={`natal-niche-tab${niche.id === selectedNicheId ? ' active' : ''}`}
-                onClick={() => setSelectedNicheId(niche.id)}
-              >
-                <NicheIcon id={niche.id} />
-                <span>{niche.label}</span>
-              </button>
-            ))}
+          <div className="natal-niche-rail-wrap natal-reveal">
+            <button
+              type="button"
+              className="natal-rail-arrow"
+              aria-label="Profissão anterior"
+              onClick={() => selectNicheByIndex(selectedNicheIdx - 1)}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </button>
+
+            <div className="natal-niche-tabs" ref={nicheTabsRef} role="tablist" aria-label="Áreas de atuação">
+              {NATAL_NICHES.map((niche, idx) => (
+                <button
+                  key={niche.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={niche.id === selectedNicheId}
+                  className={`natal-niche-tab${niche.id === selectedNicheId ? ' active' : ''}`}
+                  onClick={() => selectNicheByIndex(idx)}
+                >
+                  <NicheIcon id={niche.id} />
+                  <span>{niche.label}</span>
+                </button>
+              ))}
+            </div>
+
+            <button
+              type="button"
+              className="natal-rail-arrow"
+              aria-label="Próxima profissão"
+              onClick={() => selectNicheByIndex(selectedNicheIdx + 1)}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </button>
           </div>
 
           <div className="natal-niche-spotlight natal-reveal" role="tabpanel">
@@ -348,10 +384,17 @@ export default function NatalPage() {
             </p>
           </div>
 
-          <div className="natal-offers-grid natal-reveal">
-            {NATAL_OFFERS.map((offer) => (
-              <OfferTiltCard key={offer.id} offer={offer} />
-            ))}
+          <div className="natal-reveal">
+            <MobileSnapCarousel
+              gridClass="natal-offers-grid"
+              theme="natal"
+              itemCount={NATAL_OFFERS.length}
+              ariaLabel="Pacotes Promocionais de Natal"
+            >
+              {NATAL_OFFERS.map((offer) => (
+                <OfferTiltCard key={offer.id} offer={offer} />
+              ))}
+            </MobileSnapCarousel>
           </div>
         </div>
       </section>
@@ -368,43 +411,52 @@ export default function NatalPage() {
             </p>
           </div>
 
-          <div className="natal-portfolio-grid natal-reveal">
-            {natalPortfolio.map((project) => (
-              <article key={project.id} className="natal-portfolio-card">
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="natal-portfolio-preview"
-                  aria-label={`Abrir projeto ${project.name}`}
-                >
-                  <div className="natal-browser-bar">
-                    <span className="natal-dot red" />
-                    <span className="natal-dot gold" />
-                    <span className="natal-dot neutral" />
-                    <span className="natal-browser-url">{project.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}</span>
-                  </div>
-                  <div className="natal-browser-screen">
-                    <img src={project.image} alt={project.name} loading="lazy" decoding="async" />
-                  </div>
-                </a>
-
-                <div className="natal-portfolio-body">
-                  <span className="natal-portfolio-cat">{project.category}</span>
-                  <h3>{project.name}</h3>
-                  <p>{project.description}</p>
+          <div className="natal-reveal">
+            <MobileSnapCarousel
+              gridClass="natal-portfolio-grid"
+              theme="natal"
+              itemCount={natalPortfolio.length}
+              ariaLabel="Projetos do Portfólio"
+            >
+              {natalPortfolio.map((project) => (
+                <article key={project.id} className="natal-portfolio-card">
                   <a
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="natal-portfolio-link"
+                    className="natal-portfolio-preview"
+                    aria-label={`Abrir projeto ${project.name}`}
                   >
-                    <span>Acessar site ao vivo</span>
-                    <ArrowRightIcon size={15} />
+                    <div className="natal-browser-bar">
+                      <span className="natal-dot red" />
+                      <span className="natal-dot gold" />
+                      <span className="natal-dot neutral" />
+                      <span className="natal-browser-url">
+                        {project.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}
+                      </span>
+                    </div>
+                    <div className="natal-browser-screen">
+                      <img src={project.image} alt={project.name} loading="lazy" decoding="async" />
+                    </div>
                   </a>
-                </div>
-              </article>
-            ))}
+
+                  <div className="natal-portfolio-body">
+                    <span className="natal-portfolio-cat">{project.category}</span>
+                    <h3>{project.name}</h3>
+                    <p>{project.description}</p>
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="natal-portfolio-link"
+                    >
+                      <span>Acessar site ao vivo</span>
+                      <ArrowRightIcon size={15} />
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </MobileSnapCarousel>
           </div>
         </div>
       </section>

@@ -50,7 +50,7 @@
   width: 90%;
   height: 90%;
   background: radial-gradient(circle, rgba(0, 210, 255, 0.4) 0%, rgba(0, 113, 227, 0.1) 50%, transparent 75%);
-  filter: blur(45px);
+  filter: blur(18px);
   z-index: 1;
   opacity: 0;
   transform: scale(0.8);
@@ -88,8 +88,6 @@
   top: 20px;
   right: 20px;
   background: rgba(10, 10, 12, 0.75);
-  backdrop-filter: blur(10px) saturate(180%);
-  -webkit-backdrop-filter: blur(10px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 8px 16px;
   border-radius: 20px;
@@ -240,8 +238,6 @@
   aspect-ratio: 1 / 1.25;
   border-radius: 24px;
   background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.05), transparent 70%), var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--border-light);
   box-shadow: var(--glass-shadow);
   display: flex;
@@ -353,8 +349,6 @@
 
 .pricing-card {
   background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--border-light);
   border-radius: 24px;
   padding: 40px 30px;
@@ -511,8 +505,6 @@
   width: 100%;
   max-width: 580px;
   background: rgba(10, 10, 12, 0.6);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--border-light);
   border-left: 4px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
@@ -745,8 +737,6 @@
   width: 52px;
   height: 52px;
   background: radial-gradient(circle at 35% 35%, #18181c 0%, #0a0a0c 60%, #020204 100%);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   border: 2.5px solid rgba(0, 210, 255, 0.45);
   border-radius: 50%;
   /* Perfect circle */
@@ -793,8 +783,6 @@
   height: auto;
   /* Fits contents perfectly, eliminating bottom space */
   background: rgba(8, 8, 10, 0.96);
-  backdrop-filter: blur(10px) saturate(180%);
-  -webkit-backdrop-filter: blur(10px) saturate(180%);
   border: 1.5px solid rgba(0, 210, 255, 0.35);
   border-radius: 14px;
   padding: 10px 8px;

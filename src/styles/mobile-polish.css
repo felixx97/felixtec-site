@@ -1,0 +1,605 @@
+/* ============================================================
+   World-Class Mobile-First Polish & Snap Carousels
+   Zero overflow, crisp 16px gutters, Apple/Stripe touch rhythm
+   ============================================================ */
+
+/* Prevent any horizontal overflow across all viewports */
+html,
+body,
+#app {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+/* MobileSnapCarousel: invisible wrapper on desktop (> 768px) */
+.msc-controls {
+  display: none;
+}
+
+/* Niche horizontal rail wrapper (desktop stays centered flex wrap) */
+.natal-niche-rail-wrap {
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.natal-niche-rail-wrap .natal-niche-tabs {
+  margin-bottom: 0;
+}
+
+.natal-rail-arrow {
+  display: none;
+}
+
+/* ============================================================
+   MOBILE BREAKPOINT (<= 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+  /* ----------------------------------------------------------
+     1. Reusable Mobile Snap Carousel (Native Swipe + Arrows)
+     ---------------------------------------------------------- */
+  .msc-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .msc-track {
+    position: relative;
+    display: flex !important;
+    grid-template-columns: none !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 14px !important;
+    padding: 8px 16px 14px !important;
+    margin: 0 -16px !important;
+    scrollbar-width: none;
+  }
+
+  .pricing-grid.msc-track {
+    margin-top: 24px !important;
+  }
+
+  .msc-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .msc-track > * {
+    flex: 0 0 86% !important;
+    min-width: 86% !important;
+    max-width: 86% !important;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+
+  /* Controls Bar (Arrows + Pagination Dots) */
+  .msc-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 14px;
+  }
+
+  .msc-arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: transform 0.18s ease, background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .msc-arrow:active {
+    transform: scale(0.92);
+  }
+
+  .msc-dots {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .msc-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: width 0.25s ease, background-color 0.25s ease, opacity 0.25s ease;
+  }
+
+  .msc-dot.active {
+    width: 24px;
+  }
+
+  /* Theme: Natal (Classic Crimson, White & Gold) */
+  .msc-theme-natal .msc-arrow {
+    background: #FFFFFF;
+    color: #991B1B;
+    border: 1.5px solid rgba(212, 175, 55, 0.55);
+    box-shadow: 0 4px 12px rgba(153, 27, 27, 0.10);
+  }
+
+  .msc-theme-natal .msc-arrow:hover {
+    background: #FEF2F2;
+    border-color: #B91C1C;
+  }
+
+  .msc-theme-natal .msc-dot {
+    background: rgba(185, 28, 28, 0.22);
+  }
+
+  .msc-theme-natal .msc-dot.active {
+    background: linear-gradient(90deg, #DC2626, #D4AF37);
+  }
+
+  /* Theme: Automações (Electric Cyan & Indigo) */
+  .msc-theme-auto .msc-arrow {
+    background: rgba(14, 22, 46, 0.92);
+    color: #38BDF8;
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  }
+
+  .msc-theme-auto .msc-dot {
+    background: rgba(148, 163, 184, 0.3);
+  }
+
+  .msc-theme-auto .msc-dot.active {
+    background: linear-gradient(90deg, #0EA5E9, #6366F1);
+  }
+
+  /* Theme: Dark Main Site (FélixTec Blue/Cyan) */
+  .msc-theme-dark .msc-arrow {
+    background: rgba(16, 16, 22, 0.94);
+    color: #f5f5f7;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  }
+
+  .msc-theme-dark .msc-dot {
+    background: rgba(255, 255, 255, 0.22);
+  }
+
+  .msc-theme-dark .msc-dot.active {
+    background: linear-gradient(90deg, #0071e3, #00d2ff);
+  }
+
+  /* ----------------------------------------------------------
+     2. /natal Mobile Overhaul (Clean 16px Gutters, Zero Clutter)
+     ---------------------------------------------------------- */
+  .natal-urgency-bar {
+    padding: 8px 12px;
+  }
+
+  .natal-urgency-inner p {
+    font-size: 11.5px;
+    line-height: 1.35;
+  }
+
+  .natal-lp-topbar {
+    padding: 10px 16px;
+  }
+
+  .natal-brand-mark {
+    font-size: 18px;
+    gap: 6px;
+  }
+
+  .natal-brand-mark small {
+    font-size: 10px;
+    padding: 2px 7px;
+  }
+
+  .natal-topbar-cta {
+    padding: 8px 14px;
+    font-size: 12.5px;
+    gap: 6px;
+  }
+
+  /* Always show crisp CTA label on mobile topbar */
+  .natal-topbar-cta span {
+    display: inline !important;
+  }
+
+  /* Keep fairy lights airy on mobile (8 clean bulbs instead of 16 squished) */
+  .xmas-bulb:nth-child(odd) {
+    display: none;
+  }
+
+  .xmas-lights-row {
+    padding: 8px 16px 0;
+  }
+
+  .natal-hero {
+    padding: 40px 16px 48px !important;
+  }
+
+  .natal-hero-grid {
+    gap: 28px !important;
+  }
+
+  .natal-hero-copy {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .natal-pill {
+    font-size: 11px;
+    padding: 6px 13px;
+    margin-bottom: 14px;
+  }
+
+  .natal-hero-title {
+    font-size: 29px !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.9px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .natal-hero-subtitle {
+    font-size: 14.5px !important;
+    line-height: 1.55 !important;
+    margin-bottom: 22px !important;
+  }
+
+  .natal-hero-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .natal-btn-primary,
+  .natal-btn-secondary {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 14px;
+  }
+
+  .natal-hero-trust {
+    justify-content: center;
+    gap: 8px 14px;
+    font-size: 12px;
+  }
+
+  .natal-hero-mascot-card {
+    padding: 22px 18px 18px;
+    border-radius: 22px;
+  }
+
+  .natal-hero-mini-stats strong {
+    font-size: 15px;
+  }
+
+  .natal-hero-mini-stats span {
+    font-size: 10px;
+  }
+
+  .natal-section {
+    padding: 52px 16px !important;
+  }
+
+  .natal-section-title {
+    font-size: 26px !important;
+    letter-spacing: -0.6px !important;
+  }
+
+  .natal-section-subtitle {
+    font-size: 14px !important;
+  }
+
+  /* Horizontal Pill Rail with Left/Right Arrows for Professions */
+  .natal-niche-rail-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .natal-rail-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    color: #991B1B;
+    border: 1px solid rgba(212, 175, 55, 0.55);
+    box-shadow: 0 3px 10px rgba(153, 27, 27, 0.08);
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  .natal-niche-tabs {
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 8px;
+    padding: 4px 2px;
+    flex: 1;
+  }
+
+  .natal-niche-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .natal-niche-tab {
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    padding: 9px 14px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  /* Hide redundant 4-card overview grid on mobile (spotlight + pill rail is cleaner & tighter) */
+  .natal-niche-cards-grid {
+    display: none !important;
+  }
+
+  .natal-niche-spotlight {
+    padding: 22px 18px !important;
+    gap: 20px !important;
+    border-radius: 20px;
+    margin-bottom: 0;
+  }
+
+  .natal-niche-spotlight-main h3 {
+    font-size: 20px;
+  }
+
+  .natal-niche-spotlight-main p {
+    font-size: 14px;
+  }
+
+  .natal-niche-spotlight-side {
+    padding: 18px 16px;
+  }
+
+  .natal-offer-card {
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
+
+  .natal-offer-price {
+    font-size: 30px;
+  }
+
+  .natal-portfolio-body {
+    padding: 16px 18px 18px;
+  }
+
+  .natal-guarantee-card {
+    padding: 26px 18px;
+    border-radius: 20px;
+  }
+
+  .natal-faq-heading {
+    font-size: 23px;
+    margin-bottom: 16px;
+  }
+
+  .natal-faq-trigger {
+    padding: 15px 16px;
+    font-size: 14px;
+  }
+
+  .natal-faq-answer {
+    padding: 0 16px 15px;
+    font-size: 13.5px;
+  }
+
+  .natal-mini-footer {
+    padding: 24px 16px 86px; /* Clears floating WhatsApp button cleanly */
+  }
+
+  /* ----------------------------------------------------------
+     3. /automacoes Mobile Overhaul
+     ---------------------------------------------------------- */
+  .auto-hero {
+    padding: 40px 16px 48px !important;
+  }
+
+  .auto-hero-copy {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .auto-hero-title {
+    font-size: 29px !important;
+    letter-spacing: -0.9px !important;
+  }
+
+  .auto-hero-subtitle {
+    font-size: 14.5px !important;
+  }
+
+  .auto-hero-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .auto-btn-primary,
+  .auto-btn-secondary {
+    width: 100%;
+    padding: 14px 18px;
+  }
+
+  .auto-section {
+    padding: 52px 16px !important;
+  }
+
+  .auto-flow-node {
+    transform: none !important;
+    padding: 20px 16px;
+  }
+
+  .auto-flow-connector {
+    display: none !important;
+  }
+
+  .auto-flow-detail-panel {
+    padding: 18px 16px;
+    gap: 14px;
+  }
+
+  .auto-compare-card {
+    padding: 22px 18px;
+  }
+
+  .auto-compare-card h3 {
+    font-size: 19px;
+  }
+
+  .auto-solution-card {
+    padding: 22px 18px;
+  }
+
+  .auto-diagnostic-card {
+    padding: 26px 18px !important;
+    gap: 20px;
+  }
+
+  .auto-diagnostic-copy h2 {
+    font-size: 25px;
+  }
+
+  /* ----------------------------------------------------------
+     4. Home (/) & Global Mobile Fixes (Zero Overflow / Clean Gutters)
+     ---------------------------------------------------------- */
+  .nav-container {
+    padding: 0 16px;
+  }
+
+  /* Tighter mobile drawer so all 7 links fit comfortably without cutting off */
+  .nav-links {
+    gap: 20px !important;
+    padding: 24px 16px;
+    overflow-y: auto;
+  }
+
+  .nav-links .nav-link {
+    font-size: 18px !important;
+  }
+
+  .hero-section {
+    padding-top: 84px;
+    padding-bottom: 36px;
+  }
+
+  .hero-container {
+    padding: 0 16px !important;
+    gap: 28px !important;
+  }
+
+  .campaign-spotlight-section {
+    padding: 16px 16px 8px;
+  }
+
+  .campaign-spotlight-card {
+    padding: 18px 16px;
+    gap: 14px;
+  }
+
+  .services-section,
+  .portfolio-section,
+  .details-section,
+  .contact-section,
+  .pricing-section,
+  .profile-section,
+  .video-section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .section-header {
+    margin-bottom: 32px !important;
+  }
+
+  .section-title {
+    font-size: 28px !important;
+    line-height: 1.18 !important;
+  }
+
+  .section-subtitle {
+    font-size: 14.5px !important;
+  }
+
+  /* Fix Home video title overflow bug (was white-space: nowrap!) */
+  .video-panel-title {
+    white-space: normal !important;
+    font-size: 22px !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Clean Home Portfolio Carousel mobile layout (no overhanging arrows) */
+  .portfolio-carousel-wrapper {
+    padding-bottom: 58px;
+  }
+
+  .portfolio-carousel-container {
+    padding: 12px 0 !important;
+    margin: 0 !important;
+  }
+
+  .carousel-btn {
+    top: auto !important;
+    bottom: 0 !important;
+    transform: none !important;
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .carousel-btn:hover {
+    transform: scale(1.06) !important;
+  }
+
+  .carousel-btn.prev {
+    left: calc(50% - 48px) !important;
+  }
+
+  .carousel-btn.next {
+    right: calc(50% - 48px) !important;
+  }
+
+  .contact-form {
+    padding: 24px 18px !important;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .footer {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 84px; /* Clears floating WhatsApp button */
+  }
+
+  /* Slightly sleeker floating WhatsApp button on small screens */
+  #ft-wa-float {
+    width: 52px;
+    height: 52px;
+    bottom: 18px;
+    right: 16px;
+  }
+
+  #ft-wa-float svg {
+    width: 26px;
+    height: 26px;
+  }
+}

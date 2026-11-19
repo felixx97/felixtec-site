@@ -1,5 +1,6 @@
 import { PRICING_PLANS } from '../../data/pricing';
 import { CheckIcon } from '../widgets/Icons';
+import MobileSnapCarousel from '../widgets/MobileSnapCarousel';
 
 export default function PricingSection({ variant = 'home' }) {
   return (
@@ -14,7 +15,12 @@ export default function PricingSection({ variant = 'home' }) {
           </p>
         </div>
 
-        <div className="pricing-grid">
+        <MobileSnapCarousel
+          gridClass="pricing-grid"
+          theme="dark"
+          itemCount={PRICING_PLANS.length}
+          ariaLabel="Planos Comerciais"
+        >
           {PRICING_PLANS.map((plan) => {
             const href = variant === 'services' ? plan.whatsappServices : plan.whatsappHome;
             return (
@@ -58,7 +64,7 @@ export default function PricingSection({ variant = 'home' }) {
               </div>
             );
           })}
-        </div>
+        </MobileSnapCarousel>
       </div>
     </section>
   );

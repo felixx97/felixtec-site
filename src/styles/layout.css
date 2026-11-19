@@ -7,11 +7,9 @@
   flex-direction: column;
 }
 
-/* Glassmorphic Panels */
+/* Glassmorphic Panels (zero-blur translucent surface so scrolling stays 60 FPS on any GPU) */
 .glass-panel {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
+  background: rgba(12, 12, 16, 0.88);
   border: 1px solid var(--border-light);
   border-radius: 20px;
   box-shadow: var(--glass-shadow);

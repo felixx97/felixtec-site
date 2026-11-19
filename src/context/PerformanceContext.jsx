@@ -75,11 +75,11 @@ export function PerformanceProvider({ children }) {
       frames++;
 
       const elapsed = now - startTime;
-      if (elapsed >= 1200) {
+      if (elapsed >= 1000) {
         const fps = (frames * 1000) / elapsed;
-        if (fps < 34) {
+        if (fps < 48) {
           slowWindows++;
-          if (slowWindows >= 2) {
+          if (slowWindows >= 1) {
             setEnv((prev) => ({ ...prev, tier: 'low' }));
             return;
           }

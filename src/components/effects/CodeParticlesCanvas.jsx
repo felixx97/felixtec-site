@@ -52,7 +52,7 @@ export default function CodeParticlesCanvas() {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    if (isTouch || reducedMotion) return;
+    if (isLowPower || isTouch || reducedMotion) return;
 
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -176,7 +176,7 @@ export default function CodeParticlesCanvas() {
     };
   }, [isLowPower, isTouch, reducedMotion]);
 
-  if (isTouch || reducedMotion) return null;
+  if (isLowPower || isTouch || reducedMotion) return null;
 
   return <canvas className="code-particles-canvas" ref={canvasRef} aria-hidden="true" />;
 }
