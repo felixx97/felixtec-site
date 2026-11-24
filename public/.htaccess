@@ -1,13 +1,13 @@
+DirectorySlash Off
 RewriteEngine On
 
-# Se o arquivo ou diretório solicitado já existir fisicamente, serve direto
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
-
-# Se existir uma casca HTML com SEO/Open Graph dedicado (ex.: /natal -> natal.html, /automacoes -> automacoes.html)
+# Se existir uma casca HTML com SEO/Open Graph dedicado (ex.: /natal -> natal.html, /floripa-cultural -> floripa-cultural.html)
 RewriteCond %{DOCUMENT_ROOT}/$1.html -f
 RewriteRule ^([^/]+)/?$ $1.html [L]
 
-# Fallback SPA para React Router (/servicos, /politicas, etc.)
+# Se o arquivo solicitado já existir fisicamente, serve direto
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Fallback SPA para React Router (/servicos, /politicas, /floripa-cultural/evento/..., etc.)
 RewriteRule ^ index.html [L]
