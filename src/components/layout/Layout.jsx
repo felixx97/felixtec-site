@@ -11,11 +11,17 @@ import Navbar from './Navbar';
 export default function Layout() {
   const location = useLocation();
   const isNatalLanding = location.pathname === '/natal';
+  const isFloripaCultural = location.pathname.startsWith('/floripa-cultural');
+  const hideAgencyChrome = isNatalLanding || isFloripaCultural;
 
   useEffect(() => {
     document.body.classList.toggle('theme-natal', isNatalLanding);
-    return () => document.body.classList.remove('theme-natal');
-  }, [isNatalLanding]);
+    document.body.classList.toggle('theme-floripa', isFloripaCultural);
+    return () => {
+      document.body.classList.remove('theme-natal');
+      document.body.classList.remove('theme-floripa');
+    };
+  }, [isNatalLanding, isFloripaCultural]);
 
   useEffect(() => {
     if (location.hash) {
@@ -58,17 +64,17 @@ export default function Layout() {
 
   return (
     <>
-      {!isNatalLanding && <AmbientGlow />}
-      {!isNatalLanding && <CodeParticlesCanvas />}
+      {!hideAgencyChrome && <AmbientGlow />}
+      {!hideAgencyChrome && <CodeParticlesCanvas />}
 
       <div id="app">
-        {!isNatalLanding && <Navbar />}
+        {!hideAgencyChrome && <Navbar />}
         <Outlet />
-        {!isNatalLanding && <Footer />}
+        {!hideAgencyChrome && <Footer />}
       </div>
 
-      <WhatsAppWidget />
-      <CookieBanner />
+      {!isFloripaCultural && <WhatsAppWidget />}
+      {!isFloripaCultural && <CookieBanner />}
     </>
   );
 }

@@ -10,6 +10,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         natal: resolve(__dirname, 'natal.html'),
         automacoes: resolve(__dirname, 'automacoes.html'),
+        'floripa-cultural': resolve(__dirname, 'floripa-cultural.html'),
       },
       output: {
         manualChunks: {

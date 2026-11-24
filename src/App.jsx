@@ -8,6 +8,7 @@ const ServicesPage = lazy(() => import('./pages/ServicesPage'));
 const PoliciesPage = lazy(() => import('./pages/PoliciesPage'));
 const NatalPage = lazy(() => import('./pages/NatalPage'));
 const AutomacoesPage = lazy(() => import('./pages/AutomacoesPage'));
+const FloripaCulturalPage = lazy(() => import('./pages/FloripaCulturalPage'));
 
 export default function App() {
   return (
@@ -21,6 +22,8 @@ export default function App() {
               <Route path="/politicas" element={<PoliciesPage />} />
               <Route path="/natal" element={<NatalPage />} />
               <Route path="/automacoes" element={<AutomacoesPage />} />
+              <Route path="/floripa-cultural" element={<FloripaCulturalPage />} />
+              <Route path="/floripa-cultural/evento/:slug" element={<FloripaCulturalPage />} />
 
               {/* Legacy / static-shell .html URL compatibility */}
               <Route path="/index.html" element={<Navigate to="/" replace />} />
@@ -28,6 +31,7 @@ export default function App() {
               <Route path="/politicas.html" element={<Navigate to="/politicas" replace />} />
               <Route path="/natal.html" element={<Navigate to="/natal" replace />} />
               <Route path="/automacoes.html" element={<Navigate to="/automacoes" replace />} />
+              <Route path="/floripa-cultural.html" element={<Navigate to="/floripa-cultural" replace />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Route>
           </Routes>
